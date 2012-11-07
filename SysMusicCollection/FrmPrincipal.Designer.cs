@@ -34,18 +34,16 @@
             this.spcPrincipal = new System.Windows.Forms.SplitContainer();
             this.btnEmprDev = new System.Windows.Forms.Button();
             this.btnCadastro = new System.Windows.Forms.Button();
+            this.txbPesquisa = new System.Windows.Forms.TextBox();
+            this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.tscPrincipal = new System.Windows.Forms.ToolStripContainer();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
             this.spcPrincipal.Panel2.SuspendLayout();
             this.spcPrincipal.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
+            this.pnlPrincipal.SuspendLayout();
+            this.tscPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnsPrincipal
@@ -77,8 +75,8 @@
             // 
             // spcPrincipal.Panel2
             // 
-            this.spcPrincipal.Panel2.Controls.Add(this.textBox1);
-            this.spcPrincipal.Panel2.Controls.Add(this.panel1);
+            this.spcPrincipal.Panel2.Controls.Add(this.txbPesquisa);
+            this.spcPrincipal.Panel2.Controls.Add(this.pnlPrincipal);
             this.spcPrincipal.Size = new System.Drawing.Size(734, 416);
             this.spcPrincipal.SplitterDistance = 164;
             this.spcPrincipal.TabIndex = 2;
@@ -92,6 +90,7 @@
             this.btnEmprDev.Text = "Emprestar / Devolver";
             this.tltPrincipal.SetToolTip(this.btnEmprDev, "Emprestar ou devolver mídias");
             this.btnEmprDev.UseVisualStyleBackColor = true;
+            this.btnEmprDev.Click += new System.EventHandler(this.btnEmprDev_Click);
             // 
             // btnCadastro
             // 
@@ -103,45 +102,42 @@
             this.btnCadastro.Text = "Cadastrar";
             this.tltPrincipal.SetToolTip(this.btnCadastro, "Cadastrar acervo ou amigos");
             this.btnCadastro.UseVisualStyleBackColor = true;
+            this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
             // 
-            // panel1
+            // txbPesquisa
             // 
-            this.panel1.Controls.Add(this.toolStripContainer1);
-            this.panel1.Location = new System.Drawing.Point(0, 40);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(566, 376);
-            this.panel1.TabIndex = 0;
+            this.txbPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPesquisa.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txbPesquisa.Location = new System.Drawing.Point(339, 14);
+            this.txbPesquisa.Name = "txbPesquisa";
+            this.txbPesquisa.Size = new System.Drawing.Size(215, 20);
+            this.txbPesquisa.TabIndex = 1;
+            this.txbPesquisa.Text = "Pesquisar";
             // 
-            // textBox1
+            // pnlPrincipal
             // 
-            this.textBox1.Location = new System.Drawing.Point(339, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 20);
-            this.textBox1.TabIndex = 1;
+            this.pnlPrincipal.Controls.Add(this.tscPrincipal);
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 40);
+            this.pnlPrincipal.Name = "pnlPrincipal";
+            this.pnlPrincipal.Size = new System.Drawing.Size(566, 376);
+            this.pnlPrincipal.TabIndex = 0;
             // 
-            // toolStripContainer1
+            // tscPrincipal
             // 
-            this.toolStripContainer1.BottomToolStripPanelVisible = false;
+            this.tscPrincipal.AllowDrop = true;
+            this.tscPrincipal.BottomToolStripPanelVisible = false;
             // 
-            // toolStripContainer1.ContentPanel
+            // tscPrincipal.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.listView1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(566, 351);
-            this.toolStripContainer1.LeftToolStripPanelVisible = false;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(566, 376);
-            this.toolStripContainer1.TabIndex = 0;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(3, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(560, 345);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.tscPrincipal.ContentPanel.Size = new System.Drawing.Size(566, 351);
+            this.tscPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tscPrincipal.LeftToolStripPanelVisible = false;
+            this.tscPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.tscPrincipal.Name = "tscPrincipal";
+            this.tscPrincipal.RightToolStripPanelVisible = false;
+            this.tscPrincipal.Size = new System.Drawing.Size(566, 376);
+            this.tscPrincipal.TabIndex = 0;
+            this.tscPrincipal.Text = "toolStripContainer1";
             // 
             // frmPrincipal
             // 
@@ -155,15 +151,15 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sys Music Collection";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.spcPrincipal.Panel1.ResumeLayout(false);
             this.spcPrincipal.Panel2.ResumeLayout(false);
             this.spcPrincipal.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).EndInit();
             this.spcPrincipal.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
+            this.pnlPrincipal.ResumeLayout(false);
+            this.tscPrincipal.ResumeLayout(false);
+            this.tscPrincipal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,10 +173,9 @@
         private System.Windows.Forms.Button btnEmprDev;
         private System.Windows.Forms.Button btnCadastro;
         private System.Windows.Forms.ToolTip tltPrincipal;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.TextBox txbPesquisa;
+        private System.Windows.Forms.Panel pnlPrincipal;
+        private System.Windows.Forms.ToolStripContainer tscPrincipal;
 
 
     }

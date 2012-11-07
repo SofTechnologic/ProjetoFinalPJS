@@ -46,16 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmPrincipal.cs">
+    <Compile Include="frmCadAmigo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrincipal.Designer.cs">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    <Compile Include="frmCadAmigo.Designer.cs">
+      <DependentUpon>frmCadAmigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmprestimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmprestimo.Designer.cs">
+      <DependentUpon>frmEmprestimo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmPrincipal.resx">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
