@@ -17,7 +17,7 @@ namespace SysMusicCollection
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
-             frmCadAmigo frmCadAmigo = new frmCadAmigo();
+             frmCadastro frmCadAmigo = new frmCadastro();
              frmCadAmigo.Show();
         }
 

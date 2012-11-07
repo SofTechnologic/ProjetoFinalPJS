@@ -1,6 +1,6 @@
 ﻿namespace SysMusicCollection
 {
-    partial class frmCadAmigo
+    partial class frmCadastro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tbpCadastro = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControl1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tbpCadastro);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(696, 420);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tbpCadastro
+            // 
+            this.tbpCadastro.Location = new System.Drawing.Point(4, 22);
+            this.tbpCadastro.Name = "tbpCadastro";
+            this.tbpCadastro.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpCadastro.Size = new System.Drawing.Size(688, 394);
+            this.tbpCadastro.TabIndex = 0;
+            this.tbpCadastro.Text = "tabPage1";
+            this.tbpCadastro.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // frmCadastro
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(696, 420);
+            this.Controls.Add(this.tabControl1);
+            this.Name = "frmCadastro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadAmigo";
+            this.tabControl1.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tbpCadastro;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SysMusicCollection
 {
-    public partial class frmCadAmigo : Form
+    public partial class frmCadastro : Form
     {
-        public frmCadAmigo()
+        public frmCadastro()
         {
             InitializeComponent();
         }
