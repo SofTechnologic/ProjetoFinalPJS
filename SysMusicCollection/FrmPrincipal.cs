@@ -15,11 +15,6 @@ namespace SysMusicCollection
             InitializeComponent();
         }
 
-        private void frmPrincipal_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnCadastro_Click(object sender, EventArgs e)
         {
              frmCadAmigo frmCadAmigo = new frmCadAmigo();

@@ -151,7 +151,6 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sys Music Collection";
-            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.spcPrincipal.Panel1.ResumeLayout(false);
             this.spcPrincipal.Panel2.ResumeLayout(false);
             this.spcPrincipal.Panel2.PerformLayout();
