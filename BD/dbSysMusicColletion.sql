@@ -12,42 +12,42 @@ GO
 
 
 CREATE TABLE Midias (
-Cod_Midia int IDENTITY(1,1) PRIMARY KEY,
-Tipo_Midia Varchar(10)
+Cod_Midia int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+Tipo_Midia Varchar(10) NOT NULL
 )
 
 CREATE TABLE Amigos (
-Cod_Amigo int IDENTITY(1,1) PRIMARY KEY,
-Nome Varchar(40),
-Telefone Varchar(14),
+Cod_Amigo int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+Nome Varchar(40) NOT NULL ,
+Telefone Varchar(14) NOT NULL,
 Endereco Varchar(50)
 )
 
 CREATE TABLE Emprestimos (
-Num_Emprestimo int IDENTITY (1,1) PRIMARY KEY,
-Data_Emprestimo Varchar(10),
+Num_Emprestimo int NOT NULL IDENTITY (1,1) PRIMARY KEY,
+Data_Emprestimo Varchar(10) NOT NULL,
 Data_Devolucao Varchar(10),
 Cod_Amigo int,
 FOREIGN KEY(Cod_Amigo) REFERENCES Amigos (Cod_Amigo)
 )
 
 CREATE TABLE Discos (
-Cod_Disco int IDENTITY(1,1) PRIMARY KEY,
-Cod_Midia int,
-ID_Autor int,
+Cod_Disco int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+Cod_Midia int NOT NULL ,
+ID_Autor int NOT NULL ,
 ID_Interprete int,
 ID_Album int,
 Data_Album Varchar(10),
 Data_Compra Varchar(10),
 Origem_Compra Varchar(30),
 Observ Varchar(50),
-Nome_Musica Varchar(40),
+Nome_Musica Varchar(40) NOT NULL ,
 Nota decimal,
 FOREIGN KEY(Cod_Midia) REFERENCES Midias (Cod_Midia)
 )
 
 CREATE TABLE Itens_Emprestimo (
-ID_itens int IDENTITY(1,1) PRIMARY KEY,
+ID_itens int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Cod_Disco int,
 Num_Emprestimo int,
 FOREIGN KEY(Cod_Disco) REFERENCES Discos (Cod_Disco),
@@ -55,17 +55,17 @@ FOREIGN KEY(Num_Emprestimo) REFERENCES Emprestimos (Num_Emprestimo)
 )
 
 CREATE TABLE Autores (
-ID_Autor int IDENTITY(1,1) PRIMARY KEY,
-Nome_Autor Varchar(40)
+ID_Autor int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+Nome_Autor Varchar(40) NOT NULL
 )
 
 CREATE TABLE Interpretes (
-ID_Interprete int IDENTITY(1,1) PRIMARY KEY,
+ID_Interprete int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Nome_Interprete Varchar(40)
 )
 
 CREATE TABLE Albuns (
-ID_Album int IDENTITY(1,1) PRIMARY KEY,
+ID_Album int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Nome_Album Varchar(40)
 )
 

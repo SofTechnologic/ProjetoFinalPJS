@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace SysMusicCollection
 {
-    public partial class frmCadAmigo : Form
+    public partial class frmCadastro : Form
     {
-        public frmCadAmigo()
+        public frmCadastro()
         {
             InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
