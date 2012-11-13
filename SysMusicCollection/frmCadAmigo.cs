@@ -29,7 +29,7 @@ namespace SysMusicCollection
                             this.Close();
                         }
                     }
-                    
+                  
                 }
             }
 

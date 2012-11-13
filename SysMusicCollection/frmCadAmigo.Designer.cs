@@ -52,8 +52,20 @@
             this.lblAutor = new System.Windows.Forms.Label();
             this.lblInterprete = new System.Windows.Forms.Label();
             this.tbpAmigos = new System.Windows.Forms.TabPage();
+            this.txtMusica = new System.Windows.Forms.TextBox();
+            this.lblMusica = new System.Windows.Forms.Label();
+            this.lblNomeAmigo = new System.Windows.Forms.Label();
+            this.lblTelefone = new System.Windows.Forms.Label();
+            this.lblEndereco = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.btnSalvarAmigo = new System.Windows.Forms.Button();
+            this.btnLimparAmigo = new System.Windows.Forms.Button();
+            this.btnCancelarAmigo = new System.Windows.Forms.Button();
             this.tbcCadastro.SuspendLayout();
             this.tbpDiscos.SuspendLayout();
+            this.tbpAmigos.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcCadastro
@@ -69,6 +81,8 @@
             // 
             // tbpDiscos
             // 
+            this.tbpDiscos.Controls.Add(this.lblMusica);
+            this.tbpDiscos.Controls.Add(this.txtMusica);
             this.tbpDiscos.Controls.Add(this.btnCancelar);
             this.tbpDiscos.Controls.Add(this.btnLimpar);
             this.tbpDiscos.Controls.Add(this.btnSalvar);
@@ -100,22 +114,24 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(359, 241);
+            this.btnCancelar.Location = new System.Drawing.Point(361, 241);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnLimpar
             // 
+            this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(278, 241);
+            this.btnLimpar.Location = new System.Drawing.Point(280, 241);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 11;
+            this.btnLimpar.TabIndex = 12;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             // 
@@ -123,10 +139,10 @@
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(197, 241);
+            this.btnSalvar.Location = new System.Drawing.Point(199, 241);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 10;
+            this.btnSalvar.TabIndex = 11;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             // 
@@ -134,19 +150,19 @@
             // 
             this.dtpDataCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataCompra.Location = new System.Drawing.Point(332, 108);
+            this.dtpDataCompra.Location = new System.Drawing.Point(321, 108);
             this.dtpDataCompra.Name = "dtpDataCompra";
-            this.dtpDataCompra.Size = new System.Drawing.Size(102, 20);
-            this.dtpDataCompra.TabIndex = 5;
+            this.dtpDataCompra.Size = new System.Drawing.Size(117, 20);
+            this.dtpDataCompra.TabIndex = 6;
             // 
             // dtpDataAlbum
             // 
             this.dtpDataAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataAlbum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataAlbum.Location = new System.Drawing.Point(197, 108);
+            this.dtpDataAlbum.Location = new System.Drawing.Point(186, 108);
             this.dtpDataAlbum.Name = "dtpDataAlbum";
-            this.dtpDataAlbum.Size = new System.Drawing.Size(108, 20);
-            this.dtpDataAlbum.TabIndex = 4;
+            this.dtpDataAlbum.Size = new System.Drawing.Size(129, 20);
+            this.dtpDataAlbum.TabIndex = 5;
             // 
             // cboMidia
             // 
@@ -159,18 +175,18 @@
             "CD",
             "DVD",
             "Digital"});
-            this.cboMidia.Location = new System.Drawing.Point(197, 149);
+            this.cboMidia.Location = new System.Drawing.Point(186, 149);
             this.cboMidia.Name = "cboMidia";
             this.cboMidia.Size = new System.Drawing.Size(129, 21);
-            this.cboMidia.TabIndex = 7;
+            this.cboMidia.TabIndex = 8;
             // 
             // txtNota
             // 
             this.txtNota.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNota.Location = new System.Drawing.Point(332, 150);
+            this.txtNota.Location = new System.Drawing.Point(321, 150);
             this.txtNota.Name = "txtNota";
-            this.txtNota.Size = new System.Drawing.Size(102, 20);
-            this.txtNota.TabIndex = 8;
+            this.txtNota.Size = new System.Drawing.Size(117, 20);
+            this.txtNota.TabIndex = 9;
             // 
             // txtObservacoes
             // 
@@ -180,8 +196,8 @@
             this.txtObservacoes.Location = new System.Drawing.Point(6, 192);
             this.txtObservacoes.Multiline = true;
             this.txtObservacoes.Name = "txtObservacoes";
-            this.txtObservacoes.Size = new System.Drawing.Size(428, 43);
-            this.txtObservacoes.TabIndex = 9;
+            this.txtObservacoes.Size = new System.Drawing.Size(432, 43);
+            this.txtObservacoes.TabIndex = 10;
             // 
             // txtOrigemCompra
             // 
@@ -190,7 +206,7 @@
             this.txtOrigemCompra.Location = new System.Drawing.Point(6, 150);
             this.txtOrigemCompra.Name = "txtOrigemCompra";
             this.txtOrigemCompra.Size = new System.Drawing.Size(174, 20);
-            this.txtOrigemCompra.TabIndex = 6;
+            this.txtOrigemCompra.TabIndex = 7;
             // 
             // txtAlbum
             // 
@@ -199,7 +215,7 @@
             this.txtAlbum.Location = new System.Drawing.Point(6, 108);
             this.txtAlbum.Name = "txtAlbum";
             this.txtAlbum.Size = new System.Drawing.Size(174, 20);
-            this.txtAlbum.TabIndex = 3;
+            this.txtAlbum.TabIndex = 4;
             // 
             // txtAutor
             // 
@@ -207,7 +223,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAutor.Location = new System.Drawing.Point(6, 64);
             this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(428, 20);
+            this.txtAutor.Size = new System.Drawing.Size(234, 20);
             this.txtAutor.TabIndex = 2;
             // 
             // txtInterprete
@@ -216,7 +232,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInterprete.Location = new System.Drawing.Point(6, 22);
             this.txtInterprete.Name = "txtInterprete";
-            this.txtInterprete.Size = new System.Drawing.Size(428, 20);
+            this.txtInterprete.Size = new System.Drawing.Size(432, 20);
             this.txtInterprete.TabIndex = 1;
             // 
             // lblNota
@@ -224,7 +240,7 @@
             this.lblNota.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNota.AutoSize = true;
             this.lblNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNota.Location = new System.Drawing.Point(329, 131);
+            this.lblNota.Location = new System.Drawing.Point(318, 131);
             this.lblNota.Name = "lblNota";
             this.lblNota.Size = new System.Drawing.Size(102, 16);
             this.lblNota.TabIndex = 8;
@@ -245,7 +261,7 @@
             this.lblTipoMidia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTipoMidia.AutoSize = true;
             this.lblTipoMidia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoMidia.Location = new System.Drawing.Point(194, 131);
+            this.lblTipoMidia.Location = new System.Drawing.Point(183, 130);
             this.lblTipoMidia.Name = "lblTipoMidia";
             this.lblTipoMidia.Size = new System.Drawing.Size(91, 16);
             this.lblTipoMidia.TabIndex = 6;
@@ -266,7 +282,7 @@
             this.lblDataCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDataCompra.AutoSize = true;
             this.lblDataCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataCompra.Location = new System.Drawing.Point(329, 89);
+            this.lblDataCompra.Location = new System.Drawing.Point(318, 87);
             this.lblDataCompra.Name = "lblDataCompra";
             this.lblDataCompra.Size = new System.Drawing.Size(105, 16);
             this.lblDataCompra.TabIndex = 4;
@@ -277,7 +293,7 @@
             this.lblDataAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDataAlbum.AutoSize = true;
             this.lblDataAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataAlbum.Location = new System.Drawing.Point(194, 89);
+            this.lblDataAlbum.Location = new System.Drawing.Point(183, 87);
             this.lblDataAlbum.Name = "lblDataAlbum";
             this.lblDataAlbum.Size = new System.Drawing.Size(96, 16);
             this.lblDataAlbum.TabIndex = 3;
@@ -316,6 +332,15 @@
             // 
             // tbpAmigos
             // 
+            this.tbpAmigos.Controls.Add(this.btnCancelarAmigo);
+            this.tbpAmigos.Controls.Add(this.btnLimparAmigo);
+            this.tbpAmigos.Controls.Add(this.btnSalvarAmigo);
+            this.tbpAmigos.Controls.Add(this.maskedTextBox1);
+            this.tbpAmigos.Controls.Add(this.textBox2);
+            this.tbpAmigos.Controls.Add(this.textBox1);
+            this.tbpAmigos.Controls.Add(this.lblEndereco);
+            this.tbpAmigos.Controls.Add(this.lblTelefone);
+            this.tbpAmigos.Controls.Add(this.lblNomeAmigo);
             this.tbpAmigos.Location = new System.Drawing.Point(4, 22);
             this.tbpAmigos.Name = "tbpAmigos";
             this.tbpAmigos.Padding = new System.Windows.Forms.Padding(3);
@@ -323,6 +348,114 @@
             this.tbpAmigos.TabIndex = 1;
             this.tbpAmigos.Text = "Amigos";
             this.tbpAmigos.UseVisualStyleBackColor = true;
+            // 
+            // txtMusica
+            // 
+            this.txtMusica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMusica.Location = new System.Drawing.Point(246, 64);
+            this.txtMusica.Name = "txtMusica";
+            this.txtMusica.Size = new System.Drawing.Size(192, 20);
+            this.txtMusica.TabIndex = 3;
+            // 
+            // lblMusica
+            // 
+            this.lblMusica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMusica.AutoSize = true;
+            this.lblMusica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMusica.Location = new System.Drawing.Point(243, 47);
+            this.lblMusica.Name = "lblMusica";
+            this.lblMusica.Size = new System.Drawing.Size(51, 16);
+            this.lblMusica.TabIndex = 14;
+            this.lblMusica.Text = "Musica";
+            // 
+            // lblNomeAmigo
+            // 
+            this.lblNomeAmigo.AutoSize = true;
+            this.lblNomeAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeAmigo.Location = new System.Drawing.Point(6, 18);
+            this.lblNomeAmigo.Name = "lblNomeAmigo";
+            this.lblNomeAmigo.Size = new System.Drawing.Size(45, 16);
+            this.lblNomeAmigo.TabIndex = 0;
+            this.lblNomeAmigo.Text = "Nome";
+            // 
+            // lblTelefone
+            // 
+            this.lblTelefone.AutoSize = true;
+            this.lblTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefone.Location = new System.Drawing.Point(5, 152);
+            this.lblTelefone.Name = "lblTelefone";
+            this.lblTelefone.Size = new System.Drawing.Size(62, 16);
+            this.lblTelefone.TabIndex = 1;
+            this.lblTelefone.Text = "Telefone";
+            // 
+            // lblEndereco
+            // 
+            this.lblEndereco.AutoSize = true;
+            this.lblEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEndereco.Location = new System.Drawing.Point(4, 81);
+            this.lblEndereco.Name = "lblEndereco";
+            this.lblEndereco.Size = new System.Drawing.Size(67, 16);
+            this.lblEndereco.TabIndex = 2;
+            this.lblEndereco.Text = "Endereço";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(7, 37);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(427, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(7, 100);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(427, 20);
+            this.textBox2.TabIndex = 2;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(7, 171);
+            this.maskedTextBox1.Mask = "(00)0000-0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(89, 20);
+            this.maskedTextBox1.TabIndex = 3;
+            // 
+            // btnSalvarAmigo
+            // 
+            this.btnSalvarAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvarAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarAmigo.Location = new System.Drawing.Point(201, 247);
+            this.btnSalvarAmigo.Name = "btnSalvarAmigo";
+            this.btnSalvarAmigo.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvarAmigo.TabIndex = 4;
+            this.btnSalvarAmigo.Text = "Salvar";
+            this.btnSalvarAmigo.UseVisualStyleBackColor = true;
+            // 
+            // btnLimparAmigo
+            // 
+            this.btnLimparAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimparAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimparAmigo.Location = new System.Drawing.Point(282, 247);
+            this.btnLimparAmigo.Name = "btnLimparAmigo";
+            this.btnLimparAmigo.Size = new System.Drawing.Size(75, 23);
+            this.btnLimparAmigo.TabIndex = 5;
+            this.btnLimparAmigo.Text = "LImpar";
+            this.btnLimparAmigo.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelarAmigo
+            // 
+            this.btnCancelarAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarAmigo.Location = new System.Drawing.Point(363, 247);
+            this.btnCancelarAmigo.Name = "btnCancelarAmigo";
+            this.btnCancelarAmigo.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelarAmigo.TabIndex = 6;
+            this.btnCancelarAmigo.Text = "Cancelar";
+            this.btnCancelarAmigo.UseVisualStyleBackColor = true;
             // 
             // frmCadastro
             // 
@@ -339,6 +472,8 @@
             this.tbcCadastro.ResumeLayout(false);
             this.tbpDiscos.ResumeLayout(false);
             this.tbpDiscos.PerformLayout();
+            this.tbpAmigos.ResumeLayout(false);
+            this.tbpAmigos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -369,5 +504,16 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Label lblMusica;
+        private System.Windows.Forms.TextBox txtMusica;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblEndereco;
+        private System.Windows.Forms.Label lblTelefone;
+        private System.Windows.Forms.Label lblNomeAmigo;
+        private System.Windows.Forms.Button btnCancelarAmigo;
+        private System.Windows.Forms.Button btnLimparAmigo;
+        private System.Windows.Forms.Button btnSalvarAmigo;
     }
 }
