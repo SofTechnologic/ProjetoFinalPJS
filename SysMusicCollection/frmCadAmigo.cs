@@ -11,11 +11,32 @@ namespace SysMusicCollection
 {
     public partial class frmCadastro : Form
     {
+        
         public frmCadastro()
         {
+           
             InitializeComponent();
+            
         }
-        public void DetectaErro()
+
+        public void limpaCampos()
+        {
+            txtAlbum.Clear();
+            txtAutor.Clear();
+            txtInterprete.Clear();
+            txtMusica.Clear();
+            txtNota.Clear();
+            txtObservacoes.Clear();
+            txtOrigemCompra.Clear();
+            txtNomeAmigo.Clear();
+            mtbTelefone.Clear();
+            txtEndereco.Clear();
+            cboMidia.SelectedIndex = 0;
+            txtInterprete.Focus();
+            txtNomeAmigo.Focus();
+        }
+
+        public void detectaErro()
         {
             foreach (Control tex in this.tbpDiscos.Controls )
             {
@@ -47,11 +68,32 @@ namespace SysMusicCollection
         private void frmCadastro_Load(object sender, EventArgs e)
         {
             cboMidia.SelectedIndex = 0;
+            conexaoBanco.Abrirconexao();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DetectaErro();
+            detectaErro();
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelarAmigo_Click(object sender, EventArgs e)
+        {
+            detectaErro();
+        }
+
+        private void btnLimparAmigo_Click(object sender, EventArgs e)
+        {
+            limpaCampos();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limpaCampos();
         }
 
        

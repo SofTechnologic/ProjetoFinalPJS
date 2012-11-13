@@ -8,7 +8,8 @@ using System.Data.SqlClient;
    
     public class conexaoBanco
     {
-        private static string consql = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\sysMusicColletion\BD\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+        private static string consql = "Data Source=PC08LAB3\\MSSQLSERVER1 ;Integrated Security=True;Connect Timeout=30;User Instance=True";
+//@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\sysMusicColletion\BD\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
         private static SqlConnection cnx = null;
 

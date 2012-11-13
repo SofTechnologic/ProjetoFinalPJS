@@ -30,6 +30,8 @@
         {
             this.tbcCadastro = new System.Windows.Forms.TabControl();
             this.tbpDiscos = new System.Windows.Forms.TabPage();
+            this.lblMusica = new System.Windows.Forms.Label();
+            this.txtMusica = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -52,17 +54,15 @@
             this.lblAutor = new System.Windows.Forms.Label();
             this.lblInterprete = new System.Windows.Forms.Label();
             this.tbpAmigos = new System.Windows.Forms.TabPage();
-            this.txtMusica = new System.Windows.Forms.TextBox();
-            this.lblMusica = new System.Windows.Forms.Label();
-            this.lblNomeAmigo = new System.Windows.Forms.Label();
-            this.lblTelefone = new System.Windows.Forms.Label();
-            this.lblEndereco = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.btnSalvarAmigo = new System.Windows.Forms.Button();
-            this.btnLimparAmigo = new System.Windows.Forms.Button();
             this.btnCancelarAmigo = new System.Windows.Forms.Button();
+            this.btnLimparAmigo = new System.Windows.Forms.Button();
+            this.btnSalvarAmigo = new System.Windows.Forms.Button();
+            this.mtbTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.txtEndereco = new System.Windows.Forms.TextBox();
+            this.txtNomeAmigo = new System.Windows.Forms.TextBox();
+            this.lblEndereco = new System.Windows.Forms.Label();
+            this.lblTelefone = new System.Windows.Forms.Label();
+            this.lblNomeAmigo = new System.Windows.Forms.Label();
             this.tbcCadastro.SuspendLayout();
             this.tbpDiscos.SuspendLayout();
             this.tbpAmigos.SuspendLayout();
@@ -112,6 +112,25 @@
             this.tbpDiscos.Text = "Discos";
             this.tbpDiscos.UseVisualStyleBackColor = true;
             // 
+            // lblMusica
+            // 
+            this.lblMusica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMusica.AutoSize = true;
+            this.lblMusica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMusica.Location = new System.Drawing.Point(243, 47);
+            this.lblMusica.Name = "lblMusica";
+            this.lblMusica.Size = new System.Drawing.Size(51, 16);
+            this.lblMusica.TabIndex = 14;
+            this.lblMusica.Text = "Musica";
+            // 
+            // txtMusica
+            // 
+            this.txtMusica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMusica.Location = new System.Drawing.Point(246, 64);
+            this.txtMusica.Name = "txtMusica";
+            this.txtMusica.Size = new System.Drawing.Size(192, 20);
+            this.txtMusica.TabIndex = 3;
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -134,6 +153,7 @@
             this.btnLimpar.TabIndex = 12;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
@@ -145,6 +165,7 @@
             this.btnSalvar.TabIndex = 11;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // dtpDataCompra
             // 
@@ -335,9 +356,9 @@
             this.tbpAmigos.Controls.Add(this.btnCancelarAmigo);
             this.tbpAmigos.Controls.Add(this.btnLimparAmigo);
             this.tbpAmigos.Controls.Add(this.btnSalvarAmigo);
-            this.tbpAmigos.Controls.Add(this.maskedTextBox1);
-            this.tbpAmigos.Controls.Add(this.textBox2);
-            this.tbpAmigos.Controls.Add(this.textBox1);
+            this.tbpAmigos.Controls.Add(this.mtbTelefone);
+            this.tbpAmigos.Controls.Add(this.txtEndereco);
+            this.tbpAmigos.Controls.Add(this.txtNomeAmigo);
             this.tbpAmigos.Controls.Add(this.lblEndereco);
             this.tbpAmigos.Controls.Add(this.lblTelefone);
             this.tbpAmigos.Controls.Add(this.lblNomeAmigo);
@@ -349,80 +370,29 @@
             this.tbpAmigos.Text = "Amigos";
             this.tbpAmigos.UseVisualStyleBackColor = true;
             // 
-            // txtMusica
+            // btnCancelarAmigo
             // 
-            this.txtMusica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMusica.Location = new System.Drawing.Point(246, 64);
-            this.txtMusica.Name = "txtMusica";
-            this.txtMusica.Size = new System.Drawing.Size(192, 20);
-            this.txtMusica.TabIndex = 3;
+            this.btnCancelarAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarAmigo.Location = new System.Drawing.Point(363, 247);
+            this.btnCancelarAmigo.Name = "btnCancelarAmigo";
+            this.btnCancelarAmigo.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelarAmigo.TabIndex = 6;
+            this.btnCancelarAmigo.Text = "Cancelar";
+            this.btnCancelarAmigo.UseVisualStyleBackColor = true;
+            this.btnCancelarAmigo.Click += new System.EventHandler(this.btnCancelarAmigo_Click);
             // 
-            // lblMusica
+            // btnLimparAmigo
             // 
-            this.lblMusica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMusica.AutoSize = true;
-            this.lblMusica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMusica.Location = new System.Drawing.Point(243, 47);
-            this.lblMusica.Name = "lblMusica";
-            this.lblMusica.Size = new System.Drawing.Size(51, 16);
-            this.lblMusica.TabIndex = 14;
-            this.lblMusica.Text = "Musica";
-            // 
-            // lblNomeAmigo
-            // 
-            this.lblNomeAmigo.AutoSize = true;
-            this.lblNomeAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeAmigo.Location = new System.Drawing.Point(6, 18);
-            this.lblNomeAmigo.Name = "lblNomeAmigo";
-            this.lblNomeAmigo.Size = new System.Drawing.Size(45, 16);
-            this.lblNomeAmigo.TabIndex = 0;
-            this.lblNomeAmigo.Text = "Nome";
-            // 
-            // lblTelefone
-            // 
-            this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefone.Location = new System.Drawing.Point(5, 152);
-            this.lblTelefone.Name = "lblTelefone";
-            this.lblTelefone.Size = new System.Drawing.Size(62, 16);
-            this.lblTelefone.TabIndex = 1;
-            this.lblTelefone.Text = "Telefone";
-            // 
-            // lblEndereco
-            // 
-            this.lblEndereco.AutoSize = true;
-            this.lblEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndereco.Location = new System.Drawing.Point(4, 81);
-            this.lblEndereco.Name = "lblEndereco";
-            this.lblEndereco.Size = new System.Drawing.Size(67, 16);
-            this.lblEndereco.TabIndex = 2;
-            this.lblEndereco.Text = "Endereço";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(7, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(427, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(7, 100);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(427, 20);
-            this.textBox2.TabIndex = 2;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(7, 171);
-            this.maskedTextBox1.Mask = "(00)0000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(89, 20);
-            this.maskedTextBox1.TabIndex = 3;
+            this.btnLimparAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimparAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimparAmigo.Location = new System.Drawing.Point(282, 247);
+            this.btnLimparAmigo.Name = "btnLimparAmigo";
+            this.btnLimparAmigo.Size = new System.Drawing.Size(75, 23);
+            this.btnLimparAmigo.TabIndex = 5;
+            this.btnLimparAmigo.Text = "LImpar";
+            this.btnLimparAmigo.UseVisualStyleBackColor = true;
+            this.btnLimparAmigo.Click += new System.EventHandler(this.btnLimparAmigo_Click);
             // 
             // btnSalvarAmigo
             // 
@@ -435,27 +405,61 @@
             this.btnSalvarAmigo.Text = "Salvar";
             this.btnSalvarAmigo.UseVisualStyleBackColor = true;
             // 
-            // btnLimparAmigo
+            // mtbTelefone
             // 
-            this.btnLimparAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimparAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimparAmigo.Location = new System.Drawing.Point(282, 247);
-            this.btnLimparAmigo.Name = "btnLimparAmigo";
-            this.btnLimparAmigo.Size = new System.Drawing.Size(75, 23);
-            this.btnLimparAmigo.TabIndex = 5;
-            this.btnLimparAmigo.Text = "LImpar";
-            this.btnLimparAmigo.UseVisualStyleBackColor = true;
+            this.mtbTelefone.Location = new System.Drawing.Point(7, 171);
+            this.mtbTelefone.Mask = "(00)0000-0000";
+            this.mtbTelefone.Name = "mtbTelefone";
+            this.mtbTelefone.Size = new System.Drawing.Size(89, 20);
+            this.mtbTelefone.TabIndex = 3;
             // 
-            // btnCancelarAmigo
+            // txtEndereco
             // 
-            this.btnCancelarAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarAmigo.Location = new System.Drawing.Point(363, 247);
-            this.btnCancelarAmigo.Name = "btnCancelarAmigo";
-            this.btnCancelarAmigo.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelarAmigo.TabIndex = 6;
-            this.btnCancelarAmigo.Text = "Cancelar";
-            this.btnCancelarAmigo.UseVisualStyleBackColor = true;
+            this.txtEndereco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEndereco.Location = new System.Drawing.Point(7, 100);
+            this.txtEndereco.Name = "txtEndereco";
+            this.txtEndereco.Size = new System.Drawing.Size(427, 20);
+            this.txtEndereco.TabIndex = 2;
+            // 
+            // txtNomeAmigo
+            // 
+            this.txtNomeAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNomeAmigo.Location = new System.Drawing.Point(7, 37);
+            this.txtNomeAmigo.Name = "txtNomeAmigo";
+            this.txtNomeAmigo.Size = new System.Drawing.Size(427, 20);
+            this.txtNomeAmigo.TabIndex = 1;
+            // 
+            // lblEndereco
+            // 
+            this.lblEndereco.AutoSize = true;
+            this.lblEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEndereco.Location = new System.Drawing.Point(4, 81);
+            this.lblEndereco.Name = "lblEndereco";
+            this.lblEndereco.Size = new System.Drawing.Size(67, 16);
+            this.lblEndereco.TabIndex = 2;
+            this.lblEndereco.Text = "Endereço";
+            // 
+            // lblTelefone
+            // 
+            this.lblTelefone.AutoSize = true;
+            this.lblTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefone.Location = new System.Drawing.Point(5, 152);
+            this.lblTelefone.Name = "lblTelefone";
+            this.lblTelefone.Size = new System.Drawing.Size(62, 16);
+            this.lblTelefone.TabIndex = 1;
+            this.lblTelefone.Text = "Telefone";
+            // 
+            // lblNomeAmigo
+            // 
+            this.lblNomeAmigo.AutoSize = true;
+            this.lblNomeAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeAmigo.Location = new System.Drawing.Point(6, 18);
+            this.lblNomeAmigo.Name = "lblNomeAmigo";
+            this.lblNomeAmigo.Size = new System.Drawing.Size(45, 16);
+            this.lblNomeAmigo.TabIndex = 0;
+            this.lblNomeAmigo.Text = "Nome";
             // 
             // frmCadastro
             // 
@@ -506,9 +510,9 @@
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Label lblMusica;
         private System.Windows.Forms.TextBox txtMusica;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox mtbTelefone;
+        private System.Windows.Forms.TextBox txtEndereco;
+        private System.Windows.Forms.TextBox txtNomeAmigo;
         private System.Windows.Forms.Label lblEndereco;
         private System.Windows.Forms.Label lblTelefone;
         private System.Windows.Forms.Label lblNomeAmigo;
