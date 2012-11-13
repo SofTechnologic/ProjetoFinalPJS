@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboNomeAmigo = new System.Windows.Forms.ComboBox();
             this.lblNome = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataEmprestimo = new System.Windows.Forms.DateTimePicker();
             this.lblDataEmprestimo = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvEmprestimo = new System.Windows.Forms.DataGridView();
             this.lblNomeMidia = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboNomeMidia = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cboNomeAmigo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 28);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(430, 21);
-            this.comboBox1.TabIndex = 0;
+            this.cboNomeAmigo.FormattingEnabled = true;
+            this.cboNomeAmigo.Location = new System.Drawing.Point(12, 28);
+            this.cboNomeAmigo.Name = "cboNomeAmigo";
+            this.cboNomeAmigo.Size = new System.Drawing.Size(430, 21);
+            this.cboNomeAmigo.TabIndex = 0;
             // 
             // lblNome
             // 
@@ -58,13 +58,13 @@
             this.lblNome.Text = "Nome do Amigo:";
             this.lblNome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dateTimePicker1
+            // dtpDataEmprestimo
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 79);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(278, 22);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dtpDataEmprestimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDataEmprestimo.Location = new System.Drawing.Point(12, 79);
+            this.dtpDataEmprestimo.Name = "dtpDataEmprestimo";
+            this.dtpDataEmprestimo.Size = new System.Drawing.Size(278, 22);
+            this.dtpDataEmprestimo.TabIndex = 2;
             // 
             // lblDataEmprestimo
             // 
@@ -76,13 +76,13 @@
             this.lblDataEmprestimo.TabIndex = 3;
             this.lblDataEmprestimo.Text = "Data do Empréstimo:";
             // 
-            // dataGridView1
+            // dgvEmprestimo
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 173);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(430, 117);
-            this.dataGridView1.TabIndex = 4;
+            this.dgvEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmprestimo.Location = new System.Drawing.Point(12, 173);
+            this.dgvEmprestimo.Name = "dgvEmprestimo";
+            this.dgvEmprestimo.Size = new System.Drawing.Size(430, 117);
+            this.dgvEmprestimo.TabIndex = 4;
             // 
             // lblNomeMidia
             // 
@@ -94,13 +94,13 @@
             this.lblNomeMidia.TabIndex = 6;
             this.lblNomeMidia.Text = "Nome da Mídia:";
             // 
-            // comboBox2
+            // cboNomeMidia
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 129);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(401, 21);
-            this.comboBox2.TabIndex = 7;
+            this.cboNomeMidia.FormattingEnabled = true;
+            this.cboNomeMidia.Location = new System.Drawing.Point(12, 129);
+            this.cboNomeMidia.Name = "cboNomeMidia";
+            this.cboNomeMidia.Size = new System.Drawing.Size(401, 21);
+            this.cboNomeMidia.TabIndex = 7;
             // 
             // button1
             // 
@@ -117,19 +117,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 302);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cboNomeMidia);
             this.Controls.Add(this.lblNomeMidia);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvEmprestimo);
             this.Controls.Add(this.lblDataEmprestimo);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpDataEmprestimo);
             this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboNomeAmigo);
             this.MaximumSize = new System.Drawing.Size(700, 430);
             this.MinimumSize = new System.Drawing.Size(470, 340);
             this.Name = "frmEmprestimo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empréstimo de Discos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,13 +137,13 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboNomeAmigo;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDataEmprestimo;
         private System.Windows.Forms.Label lblDataEmprestimo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvEmprestimo;
         private System.Windows.Forms.Label lblNomeMidia;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboNomeMidia;
         private System.Windows.Forms.Button button1;
     }
 }
