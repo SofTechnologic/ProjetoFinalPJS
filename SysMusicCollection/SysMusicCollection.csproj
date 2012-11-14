@@ -70,6 +70,9 @@
     <EmbeddedResource Include="frmCadAmigo.resx">
       <DependentUpon>frmCadAmigo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEmprestimo.resx">
+      <DependentUpon>frmEmprestimo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>

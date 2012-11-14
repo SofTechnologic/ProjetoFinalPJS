@@ -5,7 +5,9 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 
-   
+
+namespace SysMusicCollection
+{
     public class conexaoBanco
     {
         private static string consql =         @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\sysMusicColletion\BD\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
@@ -19,7 +21,7 @@ using System.Data.SqlClient;
             cnx = new SqlConnection(consql);
             try
             {
-               cnx.Open();
+                cnx.Open();
             }
             catch (Exception ex)
             {
@@ -32,7 +34,7 @@ using System.Data.SqlClient;
         {
             if (cnx != null)
                 cnx.Close();
-            
+
         }
 
         public static int Quantidade()
@@ -55,3 +57,5 @@ using System.Data.SqlClient;
             
         }
     }
+}
+

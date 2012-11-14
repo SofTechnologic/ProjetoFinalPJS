@@ -13,7 +13,7 @@ namespace SysMusicCollection
         public frmPrincipal()
         {
             InitializeComponent();
-        }
+        }       
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
@@ -25,6 +25,11 @@ namespace SysMusicCollection
         {
             frmEmprestimo frmEmprestimo = new frmEmprestimo();
             frmEmprestimo.Show();
+        }
+
+        private void txbPesquisa_MouseClick(object sender, MouseEventArgs e)
+        {
+            txbPesquisa.Clear();
         }
     }
 }

@@ -10,7 +10,6 @@ GO
 Use dbSysMusicColletion
 GO
 
-
 CREATE TABLE Midias (
 Cod_Midia int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Tipo_Midia Varchar(10) NOT NULL
