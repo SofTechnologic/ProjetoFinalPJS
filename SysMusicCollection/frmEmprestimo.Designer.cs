@@ -129,6 +129,7 @@
             this.Name = "frmEmprestimo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empréstimo de Discos";
+            this.Load += new System.EventHandler(this.frmEmprestimo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
