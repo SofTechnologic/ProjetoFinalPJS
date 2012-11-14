@@ -129,7 +129,7 @@
             this.txbPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPesquisa.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbPesquisa.Location = new System.Drawing.Point(339, 14);
+            this.txbPesquisa.Location = new System.Drawing.Point(338, 14);
             this.txbPesquisa.Name = "txbPesquisa";
             this.txbPesquisa.Size = new System.Drawing.Size(215, 20);
             this.txbPesquisa.TabIndex = 1;
