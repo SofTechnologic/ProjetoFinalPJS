@@ -8,7 +8,7 @@ using System.Data.SqlClient;
    
     public class conexaoBanco
     {
-        private static string consql = "Data Source=PC08LAB3\\MSSQLSERVER1 ;Integrated Security=True;Connect Timeout=30;User Instance=True";
+        private static string consql = @"Data Source=PC08LAB3\MSSQLSERVER1;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\sysMusicColletion\BD\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
         private static SqlConnection cnx = null;
@@ -45,5 +45,12 @@ using System.Data.SqlClient;
 
             Fecharconexao();
             return total;
+        }
+
+        public void inserirDiscos()
+        {
+            Abrirconexao();
+            SqlCommand comandoInsert = new SqlCommand("Insert into Discos (Cod_Midia, ID_Autor, ID_interprete, ID_album, Data_album, Data_compra, Origem_Compra, Observ, Nome_Musica, Nota)");
+            
         }
     }

@@ -21,9 +21,9 @@ namespace SysMusicCollection
 
         public void limpaCampos()
         {
-            txtAlbum.Clear();
-            txtAutor.Clear();
-            txtInterprete.Clear();
+            cboAlbum.Text = "";
+            cboAutor.Text = "";
+            cboInterprete.Text = "";
             txtMusica.Clear();
             txtNota.Clear();
             txtObservacoes.Clear();
@@ -32,7 +32,7 @@ namespace SysMusicCollection
             mtbTelefone.Clear();
             txtEndereco.Clear();
             cboMidia.SelectedIndex = 0;
-            txtInterprete.Focus();
+            cboInterprete.Focus();
             txtNomeAmigo.Focus();
         }
 
@@ -94,6 +94,36 @@ namespace SysMusicCollection
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limpaCampos();
+        }
+
+        private void txtInterprete_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAutor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMusica_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAlbum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtOrigemCompra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboMidia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
        
