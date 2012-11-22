@@ -78,6 +78,7 @@ namespace SysMusicCollection
             }
         }
 
+
         public List<string> prCombo()
         {
 
@@ -117,6 +118,64 @@ namespace SysMusicCollection
             }
 
         }
+
+        //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
+        //{
+        //    SqlCommand listaramigos = null;
+
+        //    //List<string> nomes = new List<string>();
+        //    //List<string> cods = new List<string>();
+
+        //    if (this.Abrirconexao())
+        //    {
+        //        try
+        //        {
+        //            new SqlCommand("Select Cod_Amigo, Nome from Amigos", cnx);
+
+        //            SqlDataReader conta = listaramigos.ExecuteReader();
+
+        //            while (conta.Read())
+        //            {
+        //                nome.add(conta["Nome"].ToString());
+        //                cod.Add(conta["Cod_Amigo"].ToString());
+        //                //cboNomeAmigo.Items.Add(conta["Nome"]);
+        //                //cboNomeAmigo.SelectedValue = conta["Cod_Amigo"];
+
+        //            }
+
+        //            //List<string> nomealbs = new List<string>();
+        //            //List<string> coddiscos = new List<string>();
+
+        //            SqlCommand listarmidias = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where Albuns.ID_Album = Discos.ID_Album ", cnx);
+
+        //            SqlDataReader pega = listarmidias.ExecuteReader();
+
+        //            while (pega.Read())
+        //            {
+        //                nomealbs.Add(pega["Nome_Album"].ToString());
+        //                coddiscos.Add(pega["Cod_Discos"].ToString());
+        //                //cboNomeMidia.Items.Add(pega["Nome_Album"]);
+        //                //cboNomeMidia.SelectedValue = pega["Cod_Disco"];
+        //            }
+                 
+                    
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw new Exception(ex.Message);
+        //        }
+        //        finally
+        //        {
+        //            this.Fecharconexao();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+
+        //}
+
 
         //public static int Quantidade()
         //{

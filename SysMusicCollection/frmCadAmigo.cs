@@ -140,10 +140,7 @@ namespace SysMusicCollection
 
             faz.CadastrarAmigos(arr);
 
-
-        }
-
-
+        }      
     }
 }
 

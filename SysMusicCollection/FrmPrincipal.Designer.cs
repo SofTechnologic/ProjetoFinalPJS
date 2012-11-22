@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +45,15 @@
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.lsvPrincipal = new System.Windows.Forms.ListView();
             this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
+            this.clhInterprete = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhAutor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhNomeMusica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhDataCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhObservacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhNota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhOrigemCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhDataAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -129,7 +143,7 @@
             this.txbPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPesquisa.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbPesquisa.Location = new System.Drawing.Point(339, 14);
+            this.txbPesquisa.Location = new System.Drawing.Point(338, 14);
             this.txbPesquisa.Name = "txbPesquisa";
             this.txbPesquisa.Size = new System.Drawing.Size(215, 20);
             this.txbPesquisa.TabIndex = 1;
@@ -149,12 +163,75 @@
             // 
             // lsvPrincipal
             // 
-            this.lsvPrincipal.Location = new System.Drawing.Point(3, 3);
+            this.lsvPrincipal.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clhInterprete,
+            this.clhAutor,
+            this.clhNomeMusica,
+            this.clhAlbum,
+            this.clhDataAlbum,
+            this.clhDataCompra,
+            this.clhOrigemCompra,
+            this.clhObservacao,
+            this.clhNota});
+            this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            listViewGroup1.Header = "Vinil";
+            listViewGroup1.Name = "Vinil";
+            listViewGroup2.Header = "K7";
+            listViewGroup2.Name = "K7";
+            listViewGroup3.Header = "CD";
+            listViewGroup3.Name = "CD";
+            listViewGroup4.Header = "DVD";
+            listViewGroup4.Name = "DVD";
+            listViewGroup5.Header = "Digital";
+            listViewGroup5.Name = "Digital";
+            this.lsvPrincipal.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
+            this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(560, 370);
+            this.lsvPrincipal.Size = new System.Drawing.Size(566, 376);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
             this.lsvPrincipal.View = System.Windows.Forms.View.Details;
+            // 
+            // clhInterprete
+            // 
+            this.clhInterprete.Text = "Intérprete";
+            // 
+            // clhAutor
+            // 
+            this.clhAutor.Text = "Autor";
+            // 
+            // clhNomeMusica
+            // 
+            this.clhNomeMusica.Text = "Música";
+            // 
+            // clhAlbum
+            // 
+            this.clhAlbum.Text = "Álbum";
+            // 
+            // clhDataCompra
+            // 
+            this.clhDataCompra.Text = "Data Adquirida";
+            // 
+            // clhObservacao
+            // 
+            this.clhObservacao.Text = "Observações";
+            // 
+            // clhNota
+            // 
+            this.clhNota.Text = "Nota";
+            // 
+            // clhOrigemCompra
+            // 
+            this.clhOrigemCompra.Text = "Origem da Compra";
+            // 
+            // clhDataAlbum
+            // 
+            this.clhDataAlbum.Text = "Lançamento";
             // 
             // frmPrincipal
             // 
@@ -194,6 +271,15 @@
         private System.Windows.Forms.ListView lsvPrincipal;
         private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraçõesToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader clhInterprete;
+        private System.Windows.Forms.ColumnHeader clhAutor;
+        private System.Windows.Forms.ColumnHeader clhNomeMusica;
+        private System.Windows.Forms.ColumnHeader clhAlbum;
+        private System.Windows.Forms.ColumnHeader clhDataAlbum;
+        private System.Windows.Forms.ColumnHeader clhDataCompra;
+        private System.Windows.Forms.ColumnHeader clhOrigemCompra;
+        private System.Windows.Forms.ColumnHeader clhObservacao;
+        private System.Windows.Forms.ColumnHeader clhNota;
 
 
     }
