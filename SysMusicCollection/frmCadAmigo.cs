@@ -13,12 +13,12 @@ namespace SysMusicCollection
 {
     public partial class frmCadastro : Form
     {
-        
+
         public frmCadastro()
         {
-           
+
             InitializeComponent();
-            
+
         }
 
         public void limpaCampos()
@@ -46,6 +46,7 @@ namespace SysMusicCollection
             else if (MessageBox.Show("Campo preenchido", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                 == DialogResult.Yes)
                 this.Close();
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace SysMusicCollection
         private void frmCadastro_Load(object sender, EventArgs e)
         {
             cboMidia.SelectedIndex = 0;
-            
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -126,9 +127,7 @@ namespace SysMusicCollection
 
             faz.CadastrarAmigos(arr);
 
-           
-        }
-
-       
+        }      
     }
 }
+
