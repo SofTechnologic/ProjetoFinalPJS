@@ -19,21 +19,15 @@ namespace SysMusicCollection
 
         private void frmEmprestimo_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlconn = conexaoBanco.Abrirconexao();
+            conexaoBanco pega = new conexaoBanco();
+            cboNomeAmigo.DataSource = pega.prCombo();
+            cboNomeAmigo.DisplayMember = "Nome";
 
-            cboNomeAmigo.Items.Clear();
+        }
 
-            SqlCommand listaramigos = new SqlCommand("Select" + "Cod_Amigo" + "Nome" + "from" + "Amigos", sqlconn);
+        private void cboNomeMidia_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
 
-            SqlDataReader dataReader = listaramigos.ExecuteReader();
-
-            while (dataReader.Read())
-            {
-                cboNomeAmigo.Items.Add(dataReader["Nome"]);
-                cboNomeAmigo.SelectedValue = dataReader["Cod_Amigo"];
-            }
-            conexaoBanco.Fecharconexao();
-            
         }
     }
 }

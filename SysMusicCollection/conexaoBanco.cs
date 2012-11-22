@@ -29,7 +29,7 @@ namespace SysMusicCollection
                 throw new Exception(ex.Message);
                 return false;
             }
-           //return cnx;
+
         }
 
         private bool Fecharconexao()
@@ -58,7 +58,7 @@ namespace SysMusicCollection
                     cadastraramigos.Parameters.Add(new SqlParameter("@N", p_Cadamigo[0]));
                     cadastraramigos.Parameters.Add(new SqlParameter("@T", p_Cadamigo[1]));
                     cadastraramigos.Parameters.Add(new SqlParameter("@E", p_Cadamigo[2]));
-                    
+
                     cadastraramigos.ExecuteNonQuery();
 
                     return true;
@@ -76,6 +76,47 @@ namespace SysMusicCollection
             {
                 return false;
             }
+        }
+
+
+        public List<string> prCombo()
+        {
+
+            SqlCommand listaramigos = null;
+
+            List<string> comboamigos = new List<string>();
+            //List<string> cods = new List<string>();
+
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    listaramigos = new SqlCommand("Select Cod_Amigo, Nome from Amigos", cnx);
+
+                    SqlDataReader dr = listaramigos.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        comboamigos.Add(dr["Nome"].ToString());
+
+                    }
+
+                    return comboamigos;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+
         }
 
         //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
@@ -135,6 +176,7 @@ namespace SysMusicCollection
 
         //}
 
+
         //public static int Quantidade()
         //{
         //    Abrirconexao();
@@ -152,8 +194,9 @@ namespace SysMusicCollection
         //{
         //    Abrirconexao();
         //    SqlCommand comandoInsert = new SqlCommand("Insert into Discos (Cod_Midia, ID_Autor, ID_interprete, ID_album, Data_album, Data_compra, Origem_Compra, Observ, Nome_Musica, Nota)");
-            
+
         //}
     }
 }
+
 
