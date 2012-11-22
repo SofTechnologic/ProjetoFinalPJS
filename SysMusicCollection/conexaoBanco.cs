@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Data;
@@ -10,52 +11,133 @@ namespace SysMusicCollection
 {
     public class conexaoBanco
     {
-        private static string consql =         @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\sysMusicColletion\BD\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
-        //@"Data Source=PC08LAB3\MSSQLSERVER1;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-        //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\sysMusicColletion\BD\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+        private const string sqlConn = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+        private string pegasql = "";
+        SqlConnection cnx = null;
 
-        private static SqlConnection cnx = null;
-
-        public static SqlConnection Abrirconexao()
+        private bool Abrirconexao()
         {
-            cnx = new SqlConnection(consql);
+            cnx = new SqlConnection(sqlConn);
             try
             {
                 cnx.Open();
+                return true;
+
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+                return false;
             }
-            return cnx;
+
         }
 
-        public static void Fecharconexao()
+        private bool Fecharconexao()
         {
-            if (cnx != null)
+            if (cnx.State != ConnectionState.Closed)
+            {
                 cnx.Close();
-
+                cnx.Dispose();
+                return true;
+            }
+            else
+            {
+                cnx.Dispose();
+                return false;
+            }
         }
 
-        public static int Quantidade()
+        public bool CadastrarAmigos(ArrayList p_Cadamigo)
         {
-            Abrirconexao();
-            SqlCommand qtd = new SqlCommand();
-            qtd.Connection = Abrirconexao();
-            qtd.CommandText = "Select Count(*) from Amigos";
+            SqlCommand cadastraramigos = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    cadastraramigos = new SqlCommand("Insert Into Amigos (Nome,Telefone,Endereco) values (@N,@T,@E)", cnx);
+                    cadastraramigos.Parameters.Add(new SqlParameter("@N", p_Cadamigo[0]));
+                    cadastraramigos.Parameters.Add(new SqlParameter("@T", p_Cadamigo[1]));
+                    cadastraramigos.Parameters.Add(new SqlParameter("@E", p_Cadamigo[2]));
 
-            int total = (int)qtd.ExecuteScalar();
+                    cadastraramigos.ExecuteNonQuery();
 
-            Fecharconexao();
-            return total;
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public void inserirDiscos()
+        public List<string> prCombo()
         {
-            Abrirconexao();
-            SqlCommand comandoInsert = new SqlCommand("Insert into Discos (Cod_Midia, ID_Autor, ID_interprete, ID_album, Data_album, Data_compra, Origem_Compra, Observ, Nome_Musica, Nota)");
-            
+
+            SqlCommand listaramigos = null;
+
+            List<string> comboamigos = new List<string>();
+            //List<string> cods = new List<string>();
+
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    listaramigos = new SqlCommand("Select Cod_Amigo, Nome from Amigos", cnx);
+
+                    SqlDataReader dr = listaramigos.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        comboamigos.Add(dr["Nome"].ToString());
+
+                    }
+
+                    return comboamigos;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+
         }
+
+        //public static int Quantidade()
+        //{
+        //    Abrirconexao();
+        //    SqlCommand qtd = new SqlCommand();
+        //    qtd.Connection = Abrirconexao();
+        //    qtd.CommandText = "Select Count(*) from Amigos";
+
+        //    int total = (int)qtd.ExecuteScalar();
+
+        //    Fecharconexao();
+        //    return total;
+        //}
+
+        //public void inserirDiscos()
+        //{
+        //    Abrirconexao();
+        //    SqlCommand comandoInsert = new SqlCommand("Insert into Discos (Cod_Midia, ID_Autor, ID_interprete, ID_album, Data_album, Data_compra, Origem_Compra, Observ, Nome_Musica, Nota)");
+
+        //}
     }
 }
+
 
