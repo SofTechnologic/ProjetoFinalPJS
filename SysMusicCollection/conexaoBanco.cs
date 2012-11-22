@@ -11,7 +11,7 @@ namespace SysMusicCollection
 {
     public class conexaoBanco
     {
-        private const string sqlConn = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+        private const string sqlConn = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\SysMusicColletion\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
         private string pegasql = "";
         SqlConnection cnx = null;
 
