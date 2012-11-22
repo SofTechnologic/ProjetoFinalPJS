@@ -40,26 +40,13 @@ namespace SysMusicCollection
 
         public void detectaErro()
         {
-            foreach (Control tex in this.tbpDiscos.Controls)
-            {
-                if (tex is TextBox)
-                {
-                    TextBox t = (TextBox)tex;
-                    if (t.Text != "")
-                    {
-                        if (MessageBox.Show("Campo(s) Preenchido(s), deseja sair:", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            this.Close();
-                        }
-                    }
+            if (cboAlbum.Text == "" && cboAutor.Text == "" && cboInterprete.Text == "" && txtNota.Text == ""
+                 && txtObservacoes.Text == "" && txtOrigemCompra.Text == "" && txtMusica.Text == "")
+                this.Close();
+            else if (MessageBox.Show("Campo preenchido", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                == DialogResult.Yes)
+                this.Close();
 
-                }
-            }
-
-            //if (comboBox1.SelectedItem == null)
-            //    errorProvider1.SetError(comboBox1, "Digite o(s) Campo(s) Vazio(s)");
-            //else
-            //    errorProvider1.SetError(comboBox1, "");
         }
 
         private void label2_Click(object sender, EventArgs e)
