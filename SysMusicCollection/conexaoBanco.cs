@@ -79,7 +79,7 @@ namespace SysMusicCollection
         }
 
 
-        public List<string> prCombo()
+        public List<string> prCombo_Amigos()
         {
 
             SqlCommand listaramigos = null;
@@ -119,6 +119,45 @@ namespace SysMusicCollection
 
         }
 
+        public List<string> prCombo_Midias()
+        {
+
+            SqlCommand listarmidias = null;
+
+            List<string> combomidias = new List<string>();
+            //List<string> cods = new List<string>();
+
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    listarmidias = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where Albuns.ID_Album = Discos.ID_Album ", cnx);
+
+                    SqlDataReader dr = listarmidias.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        combomidias.Add(dr["Nome_Album"].ToString());
+
+                    }
+
+                    return combomidias;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+
+        }
         //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
         //{
         //    SqlCommand listaramigos = null;
