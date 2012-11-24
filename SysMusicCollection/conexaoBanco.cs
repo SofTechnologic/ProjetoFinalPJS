@@ -12,7 +12,7 @@ namespace SysMusicCollection
     public class conexaoBanco
     {
 
-        private const string sqlConn =  @"Data Source=PC08LAB3\MSSQLSERVER1;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+        private const string sqlConn =  @"Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
         private string pegasql = "";
@@ -50,6 +50,27 @@ namespace SysMusicCollection
             }
         }
 
+        public bool CadastrarDiscos(ArrayList p_cadDiscos)
+        {
+            SqlCommand cadastrarDiscos = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    cadastrarDiscos = new SqlCommand("Insert into ");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            return true;
+        }
+
         public bool CadastrarAmigos(ArrayList p_Cadamigo)
         {
             SqlCommand cadastraramigos = null;
@@ -81,6 +102,111 @@ namespace SysMusicCollection
             }
         }
 
+        public List<string> prcombo_Album()
+        {
+            SqlCommand listarAlbum = null;
+
+            List<string> comboAlbum = new List<string>();
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    listarAlbum = new SqlCommand("Select Nome_Album from Albuns", cnx);
+                    SqlDataReader dr = listarAlbum.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        comboAlbum.Add(dr["Nome_Album"].ToString());
+                    }
+                    return comboAlbum;
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<string> prCombo_Interprete()
+        {
+            SqlCommand listarInterprete = null;
+
+            List<string> comboInterprete = new List<string>();
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    listarInterprete = new SqlCommand("Select Nome_Interprete from Interpretes", cnx);
+                    SqlDataReader dr = listarInterprete.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        comboInterprete.Add(dr["Nome_Interprete"].ToString());
+                    }
+                    return comboInterprete;
+                
+                 }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<string> prCombo_Autor()
+        {
+            SqlCommand listarAutor = null;
+
+            List<string> comboAutor = new List<string>();
+            //List<string> cods = new List<string>();
+
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    listarAutor = new SqlCommand("Select Nome_Autor from Autores", cnx);
+
+                    SqlDataReader dr = listarAutor.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        comboAutor.Add(dr["Nome_Autor"].ToString());
+
+                    }
+
+                    return comboAutor;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public List<string> prCombo_Amigos()
         {

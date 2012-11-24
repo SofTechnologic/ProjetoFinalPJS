@@ -57,6 +57,18 @@ namespace SysMusicCollection
         private void frmCadastro_Load(object sender, EventArgs e)
         {
             cboMidia.SelectedIndex = 0;
+            conexaoBanco inter = new conexaoBanco();
+            cboInterprete.DataSource = inter.prCombo_Interprete();
+            cboInterprete.DisplayMember = "Nome_Interprete";
+
+            conexaoBanco autor = new conexaoBanco();
+            cboAutor.DataSource = autor.prCombo_Autor();
+            cboAutor.DisplayMember = "Nome_Autor";
+
+            conexaoBanco album = new conexaoBanco();
+            cboAlbum.DataSource = album.prcombo_Album();
+            cboAlbum.DisplayMember = "Nome_Album";
+
 
         }
 
@@ -67,7 +79,14 @@ namespace SysMusicCollection
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            conexaoBanco fazz = new conexaoBanco();
+            ArrayList arrDiscos = new ArrayList();
 
+            arrDiscos.Add(txtNomeAmigo.Text);
+            arrDiscos.Add(mtbTelefone.Text);
+            arrDiscos.Add(txtEndereco.Text);
+
+            fazz.CadastrarDiscos(arrDiscos);
         }
 
         private void btnCancelarAmigo_Click(object sender, EventArgs e)
