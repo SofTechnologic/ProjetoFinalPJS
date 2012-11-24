@@ -78,9 +78,13 @@
             // 
             // dgvEmprestimo
             // 
+            this.dgvEmprestimo.AllowUserToAddRows = false;
+            this.dgvEmprestimo.AllowUserToDeleteRows = false;
+            this.dgvEmprestimo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmprestimo.Location = new System.Drawing.Point(12, 173);
             this.dgvEmprestimo.Name = "dgvEmprestimo";
+            this.dgvEmprestimo.ReadOnly = true;
             this.dgvEmprestimo.Size = new System.Drawing.Size(430, 117);
             this.dgvEmprestimo.TabIndex = 4;
             // 
@@ -101,6 +105,7 @@
             this.cboNomeMidia.Name = "cboNomeMidia";
             this.cboNomeMidia.Size = new System.Drawing.Size(401, 21);
             this.cboNomeMidia.TabIndex = 7;
+            this.cboNomeMidia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNomeMidia_KeyPress);
             // 
             // button1
             // 

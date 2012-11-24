@@ -12,8 +12,8 @@ namespace SysMusicCollection
     public class conexaoBanco
     {
 
-        private const string sqlConn =  @"Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-//@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+
+        private const string sqlConn =  @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
         private string pegasql = "";
         SqlConnection cnx = null;
@@ -287,6 +287,74 @@ namespace SysMusicCollection
             }
 
         }
+
+        public DataTable GridEmp()
+        {
+            SqlCommand dgvEmp = null;
+
+            if (this.Abrirconexao())
+            {
+                string sql = " select Nome_Album from Albuns inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
+                              " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco where Discos.Cod_Disco = null";
+                try
+                {
+                    dgvEmp = new SqlCommand(sql, cnx);
+                    SqlDataAdapter adp = new SqlDataAdapter(dgvEmp);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    //dgvEmp.ExecuteNonQuery();
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public DataTable GridEmpPesq(string pesq, int pega)
+        {
+            string sql = pesq;
+            SqlCommand dgvEmp = null;
+
+            if (this.Abrirconexao())
+            {
+
+                try
+                {
+                    dgvEmp = new SqlCommand(sql, cnx);
+                    dgvEmp.Parameters.Add(new SqlParameter("@valor", pega));
+                    SqlDataAdapter adp = new SqlDataAdapter(dgvEmp);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    //dgvEmp.ExecuteNonQuery();
+
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
         //{
         //    SqlCommand listaramigos = null;
