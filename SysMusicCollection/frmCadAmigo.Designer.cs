@@ -30,6 +30,13 @@
         {
             this.tbcCadastro = new System.Windows.Forms.TabControl();
             this.tbpDiscos = new System.Windows.Forms.TabPage();
+            this.txtObservacoes = new System.Windows.Forms.TextBox();
+            this.txtOrigemCompra = new System.Windows.Forms.TextBox();
+            this.txtMusica = new System.Windows.Forms.TextBox();
+            this.txtNota = new System.Windows.Forms.TextBox();
+            this.cboAlbum = new System.Windows.Forms.ComboBox();
+            this.cboAutor = new System.Windows.Forms.ComboBox();
+            this.cboInterprete = new System.Windows.Forms.ComboBox();
             this.lblMusica = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
@@ -56,13 +63,6 @@
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.lblNomeAmigo = new System.Windows.Forms.Label();
-            this.cboInterprete = new System.Windows.Forms.ComboBox();
-            this.cboAutor = new System.Windows.Forms.ComboBox();
-            this.cboAlbum = new System.Windows.Forms.ComboBox();
-            this.txtNota = new System.Windows.Forms.TextBox();
-            this.txtMusica = new System.Windows.Forms.TextBox();
-            this.txtOrigemCompra = new System.Windows.Forms.TextBox();
-            this.txtObservacoes = new System.Windows.Forms.TextBox();
             this.tbcCadastro.SuspendLayout();
             this.tbpDiscos.SuspendLayout();
             this.tbpAmigos.SuspendLayout();
@@ -111,6 +111,60 @@
             this.tbpDiscos.TabIndex = 0;
             this.tbpDiscos.Text = "Discos";
             this.tbpDiscos.UseVisualStyleBackColor = true;
+            this.tbpDiscos.Click += new System.EventHandler(this.tbpDiscos_Click);
+            // 
+            // txtObservacoes
+            // 
+            this.txtObservacoes.Location = new System.Drawing.Point(9, 193);
+            this.txtObservacoes.Multiline = true;
+            this.txtObservacoes.Name = "txtObservacoes";
+            this.txtObservacoes.Size = new System.Drawing.Size(427, 42);
+            this.txtObservacoes.TabIndex = 10;
+            // 
+            // txtOrigemCompra
+            // 
+            this.txtOrigemCompra.Location = new System.Drawing.Point(9, 151);
+            this.txtOrigemCompra.Name = "txtOrigemCompra";
+            this.txtOrigemCompra.Size = new System.Drawing.Size(171, 20);
+            this.txtOrigemCompra.TabIndex = 7;
+            // 
+            // txtMusica
+            // 
+            this.txtMusica.Location = new System.Drawing.Point(244, 67);
+            this.txtMusica.Name = "txtMusica";
+            this.txtMusica.Size = new System.Drawing.Size(192, 20);
+            this.txtMusica.TabIndex = 3;
+            // 
+            // txtNota
+            // 
+            this.txtNota.Location = new System.Drawing.Point(322, 151);
+            this.txtNota.Name = "txtNota";
+            this.txtNota.Size = new System.Drawing.Size(114, 20);
+            this.txtNota.TabIndex = 9;
+            // 
+            // cboAlbum
+            // 
+            this.cboAlbum.FormattingEnabled = true;
+            this.cboAlbum.Location = new System.Drawing.Point(9, 106);
+            this.cboAlbum.Name = "cboAlbum";
+            this.cboAlbum.Size = new System.Drawing.Size(171, 21);
+            this.cboAlbum.TabIndex = 4;
+            // 
+            // cboAutor
+            // 
+            this.cboAutor.FormattingEnabled = true;
+            this.cboAutor.Location = new System.Drawing.Point(9, 65);
+            this.cboAutor.Name = "cboAutor";
+            this.cboAutor.Size = new System.Drawing.Size(228, 21);
+            this.cboAutor.TabIndex = 2;
+            // 
+            // cboInterprete
+            // 
+            this.cboInterprete.FormattingEnabled = true;
+            this.cboInterprete.Location = new System.Drawing.Point(9, 21);
+            this.cboInterprete.Name = "cboInterprete";
+            this.cboInterprete.Size = new System.Drawing.Size(427, 21);
+            this.cboInterprete.TabIndex = 1;
             // 
             // lblMusica
             // 
@@ -398,59 +452,6 @@
             this.lblNomeAmigo.Size = new System.Drawing.Size(45, 16);
             this.lblNomeAmigo.TabIndex = 0;
             this.lblNomeAmigo.Text = "Nome";
-            // 
-            // cboInterprete
-            // 
-            this.cboInterprete.FormattingEnabled = true;
-            this.cboInterprete.Location = new System.Drawing.Point(9, 21);
-            this.cboInterprete.Name = "cboInterprete";
-            this.cboInterprete.Size = new System.Drawing.Size(427, 21);
-            this.cboInterprete.TabIndex = 1;
-            // 
-            // cboAutor
-            // 
-            this.cboAutor.FormattingEnabled = true;
-            this.cboAutor.Location = new System.Drawing.Point(9, 65);
-            this.cboAutor.Name = "cboAutor";
-            this.cboAutor.Size = new System.Drawing.Size(228, 21);
-            this.cboAutor.TabIndex = 2;
-            // 
-            // cboAlbum
-            // 
-            this.cboAlbum.FormattingEnabled = true;
-            this.cboAlbum.Location = new System.Drawing.Point(9, 106);
-            this.cboAlbum.Name = "cboAlbum";
-            this.cboAlbum.Size = new System.Drawing.Size(171, 21);
-            this.cboAlbum.TabIndex = 4;
-            // 
-            // txtNota
-            // 
-            this.txtNota.Location = new System.Drawing.Point(322, 151);
-            this.txtNota.Name = "txtNota";
-            this.txtNota.Size = new System.Drawing.Size(114, 20);
-            this.txtNota.TabIndex = 9;
-            // 
-            // txtMusica
-            // 
-            this.txtMusica.Location = new System.Drawing.Point(244, 67);
-            this.txtMusica.Name = "txtMusica";
-            this.txtMusica.Size = new System.Drawing.Size(192, 20);
-            this.txtMusica.TabIndex = 3;
-            // 
-            // txtOrigemCompra
-            // 
-            this.txtOrigemCompra.Location = new System.Drawing.Point(9, 151);
-            this.txtOrigemCompra.Name = "txtOrigemCompra";
-            this.txtOrigemCompra.Size = new System.Drawing.Size(171, 20);
-            this.txtOrigemCompra.TabIndex = 7;
-            // 
-            // txtObservacoes
-            // 
-            this.txtObservacoes.Location = new System.Drawing.Point(9, 193);
-            this.txtObservacoes.Multiline = true;
-            this.txtObservacoes.Name = "txtObservacoes";
-            this.txtObservacoes.Size = new System.Drawing.Size(427, 42);
-            this.txtObservacoes.TabIndex = 10;
             // 
             // frmCadastro
             // 

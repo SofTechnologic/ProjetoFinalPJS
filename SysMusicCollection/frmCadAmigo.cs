@@ -127,6 +127,11 @@ namespace SysMusicCollection
 
             faz.CadastrarAmigos(arr);
 
+        }
+
+        private void tbpDiscos_Click(object sender, EventArgs e)
+        {
+
         }      
     }
 }
