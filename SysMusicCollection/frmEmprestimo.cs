@@ -20,7 +20,7 @@ namespace SysMusicCollection
         private void frmEmprestimo_Load(object sender, EventArgs e)
         {
             conexaoBanco pega = new conexaoBanco();
-            cboNomeAmigo.DataSource = pega.prCombo();
+            cboNomeAmigo.DataSource = pega.prCombo_Amigos();
             cboNomeAmigo.DisplayMember = "Nome";
 
         }
