@@ -152,6 +152,7 @@
             this.cboAlbum.Name = "cboAlbum";
             this.cboAlbum.Size = new System.Drawing.Size(171, 21);
             this.cboAlbum.TabIndex = 4;
+            this.cboAlbum.Leave += new System.EventHandler(this.cboAlbum_Leave);
             // 
             // cboAutor
             // 
@@ -160,6 +161,7 @@
             this.cboAutor.Name = "cboAutor";
             this.cboAutor.Size = new System.Drawing.Size(228, 21);
             this.cboAutor.TabIndex = 2;
+            this.cboAutor.Leave += new System.EventHandler(this.cboAutor_Leave);
             // 
             // cboInterprete
             // 
@@ -168,6 +170,7 @@
             this.cboInterprete.Name = "cboInterprete";
             this.cboInterprete.Size = new System.Drawing.Size(427, 21);
             this.cboInterprete.TabIndex = 1;
+            this.cboInterprete.Leave += new System.EventHandler(this.cboInterprete_Leave);
             // 
             // lblMusica
             // 

@@ -13,8 +13,9 @@ namespace SysMusicCollection
     {
 
 
-        private const string sqlConn =  @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
-
+        private const string sqlConn = @"Data Source=PC09LAB3\MSSQLSERVER1;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+        //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+         //@"Data Source=PC09LAB3\MSSQLSERVER1;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
         private string pegasql = "";
         SqlConnection cnx = null;
 
@@ -59,6 +60,7 @@ namespace SysMusicCollection
         public bool CadastrarDiscos(ArrayList p_cadDiscos)
         {
             SqlCommand cadastrardiscos = null;
+
             if (this.Abrirconexao())
             {
                 try
@@ -92,7 +94,6 @@ namespace SysMusicCollection
             {
                 return false;
             }
-            
         }
 
         public bool CadastrarAmigos(ArrayList p_Cadamigo)
@@ -241,6 +242,7 @@ namespace SysMusicCollection
             SqlCommand listarMidia = null;
 
             List<string> comboMidia = new List<string>();
+
             //List<string> cods = new List<string>();
 
             if (this.Abrirconexao())
@@ -353,6 +355,9 @@ namespace SysMusicCollection
             }
 
         }
+        #endregion
+
+        #region Preenchimento dos grids
 
         #endregion
 
@@ -767,7 +772,6 @@ namespace SysMusicCollection
         
 
         #endregion
-
 
         //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
         //{

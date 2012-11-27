@@ -19,12 +19,13 @@ namespace SysMusicCollection
 
         private void frmEmprestimo_Load(object sender, EventArgs e)
         {
-            conexaoBanco amg = new conexaoBanco();
-            cboNomeAmigo.DataSource = amg.prCombo_Amigos();
+            conexaoBanco pega = new conexaoBanco();
+            cboNomeAmigo.DataSource = pega.prCombo_Amigos();
+
             cboNomeAmigo.DisplayMember = "Nome";
 
             conexaoBanco mds = new conexaoBanco();
-            cboNomeMidia.DataSource = mds.prCombo_Midias();
+            cboNomeMidia.DataSource = mds.prCombo_Midia();
             cboNomeMidia.DisplayMember = "Nome_Album";
             
             conexaoBanco grd = new conexaoBanco();
