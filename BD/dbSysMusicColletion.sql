@@ -81,6 +81,7 @@ VALUES (
 'RUA DE TAL, Nº 23, CENTRO');
 GO
 
+
 SELECT * FROM Amigos
 GO
 

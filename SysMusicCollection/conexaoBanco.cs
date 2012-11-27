@@ -59,6 +59,7 @@ namespace SysMusicCollection
         public bool CadastrarDiscos(ArrayList p_cadDiscos)
         {
             SqlCommand cadastrardiscos = null;
+
             if (this.Abrirconexao())
             {
                 try
@@ -92,7 +93,6 @@ namespace SysMusicCollection
             {
                 return false;
             }
-            
         }
 
         public bool CadastrarAmigos(ArrayList p_Cadamigo)
@@ -241,6 +241,7 @@ namespace SysMusicCollection
             SqlCommand listarMidia = null;
 
             List<string> comboMidia = new List<string>();
+
             //List<string> cods = new List<string>();
 
             if (this.Abrirconexao())
@@ -353,7 +354,6 @@ namespace SysMusicCollection
             }
 
         }
-
         #endregion
 
         #region Preenchimento dos grids
@@ -767,7 +767,6 @@ namespace SysMusicCollection
         
 
         #endregion
-
 
         //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
         //{

@@ -40,26 +40,13 @@ namespace SysMusicCollection
 
         public void detectaErro()
         {
-            foreach (Control tex in this.tbpDiscos.Controls)
-            {
-                if (tex is TextBox)
-                {
-                    TextBox t = (TextBox)tex;
-                    if (t.Text != "")
-                    {
-                        if (MessageBox.Show("Campo(s) Preenchido(s), deseja sair:", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            this.Close();
-                        }
-                    }
+            if (cboAlbum.Text == "" && cboAutor.Text == "" && cboInterprete.Text == "" && txtNota.Text == ""
+                 && txtObservacoes.Text == "" && txtOrigemCompra.Text == "" && txtMusica.Text == "")
+                this.Close();
+            else if (MessageBox.Show("Campo preenchido", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                == DialogResult.Yes)
+                this.Close();
 
-                }
-            }
-
-            //if (comboBox1.SelectedItem == null)
-            //    errorProvider1.SetError(comboBox1, "Digite o(s) Campo(s) Vazio(s)");
-            //else
-            //    errorProvider1.SetError(comboBox1, "");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -70,6 +57,18 @@ namespace SysMusicCollection
         private void frmCadastro_Load(object sender, EventArgs e)
         {
             cboMidia.SelectedIndex = 0;
+            conexaoBanco inter = new conexaoBanco();
+            cboInterprete.DataSource = inter.prCombo_Interprete();
+            cboInterprete.DisplayMember = "Nome_Interprete";
+
+            conexaoBanco autor = new conexaoBanco();
+            cboAutor.DataSource = autor.prCombo_Autor();
+            cboAutor.DisplayMember = "Nome_Autor";
+
+            conexaoBanco album = new conexaoBanco();
+            cboAlbum.DataSource = album.prcombo_Album();
+            cboAlbum.DisplayMember = "Nome_Album";
+
 
         }
 
@@ -80,7 +79,14 @@ namespace SysMusicCollection
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            conexaoBanco fazz = new conexaoBanco();
+            ArrayList arrDiscos = new ArrayList();
 
+            arrDiscos.Add(txtNomeAmigo.Text);
+            arrDiscos.Add(mtbTelefone.Text);
+            arrDiscos.Add(txtEndereco.Text);
+
+            fazz.CadastrarDiscos(arrDiscos);
         }
 
         private void btnCancelarAmigo_Click(object sender, EventArgs e)
@@ -139,6 +145,11 @@ namespace SysMusicCollection
             arr.Add(txtEndereco.Text);
 
             faz.CadastrarAmigos(arr);
+
+        }
+
+        private void tbpDiscos_Click(object sender, EventArgs e)
+        {
 
         }      
     }
