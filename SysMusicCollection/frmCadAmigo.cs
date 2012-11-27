@@ -21,6 +21,25 @@ namespace SysMusicCollection
 
         }
 
+        public void salvar()
+        {
+            
+            
+                foreach (Control tex in this.tbpDiscos.Controls)
+                {
+                    if (tex is ComboBox)
+                    {
+                        ComboBox t = (ComboBox)tex;
+                        if (t.Text == "" || t.Text == "Selecione um Tipo...")
+
+                            errorProvider1.SetError(t, "Digite o(s) Campo(s) Vazio(s)");
+                        else
+                            errorProvider1.SetError(t, "");
+                    }
+                }
+
+        }
+
         public void limpaCampos()
         {
             cboAlbum.Text = "";
@@ -38,7 +57,7 @@ namespace SysMusicCollection
             txtNomeAmigo.Focus();
         }
 
-        public void detectaErro()
+        public void cancelar()
         {
             if (cboAlbum.Text == "" && cboAutor.Text == "" && cboInterprete.Text == "" && txtNota.Text == ""
                  && txtObservacoes.Text == "" && txtOrigemCompra.Text == "" && txtMusica.Text == "")
@@ -74,11 +93,12 @@ namespace SysMusicCollection
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            detectaErro();
+            cancelar();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            salvar();
             conexaoBanco fazz = new conexaoBanco();
             ArrayList arrDiscos = new ArrayList();
 
@@ -87,11 +107,13 @@ namespace SysMusicCollection
             arrDiscos.Add(txtEndereco.Text);
 
             fazz.CadastrarDiscos(arrDiscos);
+
+
         }
 
         private void btnCancelarAmigo_Click(object sender, EventArgs e)
         {
-            detectaErro();
+            cancelar();
         }
 
         private void btnLimparAmigo_Click(object sender, EventArgs e)
