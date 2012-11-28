@@ -55,6 +55,12 @@ namespace SysMusicCollection
              }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmPesqMidias frmPesqMidias = new frmPesqMidias();
+            frmPesqMidias.Show();
+        }
     }
 }
  
