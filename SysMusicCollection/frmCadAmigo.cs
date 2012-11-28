@@ -83,7 +83,7 @@ namespace SysMusicCollection
 
         private void frmCadastro_Load(object sender, EventArgs e)
         {
-            cboMidia.SelectedIndex = 0;
+            //cboMidia.Items.Add("Selecione un item");
             conexaoBanco inter = new conexaoBanco();
             cboInterprete.DataSource = inter.prCombo_Interprete();
             cboInterprete.DisplayMember = "Nome_Interprete";
@@ -96,6 +96,9 @@ namespace SysMusicCollection
             cboAlbum.DataSource = album.prcombo_Album();
             cboAlbum.DisplayMember = "Nome_Album";
 
+            conexaoBanco midia = new conexaoBanco();
+            cboMidia.DataSource = midia.prCombo_Midia();
+            cboMidia.DisplayMember = "Tipo_Midia";
 
         }
 

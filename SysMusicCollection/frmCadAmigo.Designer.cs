@@ -241,13 +241,6 @@
             // 
             this.cboMidia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboMidia.FormattingEnabled = true;
-            this.cboMidia.Items.AddRange(new object[] {
-            "Selecione um Tipo...",
-            "Vinil",
-            "K7",
-            "CD",
-            "DVD",
-            "Digital"});
             this.cboMidia.Location = new System.Drawing.Point(186, 149);
             this.cboMidia.Name = "cboMidia";
             this.cboMidia.Size = new System.Drawing.Size(129, 21);

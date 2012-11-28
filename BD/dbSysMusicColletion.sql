@@ -11,7 +11,7 @@ Use dbSysMusicColletion
 GO
 
 CREATE TABLE Midias (
-Cod_Midia int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+Cod_Midia int NOT NULL PRIMARY KEY,
 Tipo_Midia Varchar(10) NOT NULL
 )
 
@@ -81,7 +81,17 @@ VALUES (
 'RUA DE TAL, Nº 23, CENTRO');
 GO
 
+insert into Midias (Cod_Midia, Tipo_Midia) values (0, 'Se'),(1,'Vinil'),(2,'K7'),(3,'CD'),
+(4,'DVD'), (5,'Digital');
+go
 
 SELECT * FROM Amigos
 GO
+select * from Midias;
+go
 
+delete from Midias where Cod_Midia = 0;
+go
+
+select * from Midias;
+go
