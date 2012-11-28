@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbcCadastro = new System.Windows.Forms.TabControl();
             this.tbpDiscos = new System.Windows.Forms.TabPage();
             this.txtObservacoes = new System.Windows.Forms.TextBox();
@@ -63,9 +64,11 @@
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.lblNomeAmigo = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tbcCadastro.SuspendLayout();
             this.tbpDiscos.SuspendLayout();
             this.tbpAmigos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcCadastro
@@ -149,6 +152,7 @@
             this.cboAlbum.Name = "cboAlbum";
             this.cboAlbum.Size = new System.Drawing.Size(171, 21);
             this.cboAlbum.TabIndex = 4;
+            this.cboAlbum.Leave += new System.EventHandler(this.cboAlbum_Leave);
             // 
             // cboAutor
             // 
@@ -157,6 +161,7 @@
             this.cboAutor.Name = "cboAutor";
             this.cboAutor.Size = new System.Drawing.Size(228, 21);
             this.cboAutor.TabIndex = 2;
+            this.cboAutor.Leave += new System.EventHandler(this.cboAutor_Leave);
             // 
             // cboInterprete
             // 
@@ -165,6 +170,7 @@
             this.cboInterprete.Name = "cboInterprete";
             this.cboInterprete.Size = new System.Drawing.Size(427, 21);
             this.cboInterprete.TabIndex = 1;
+            this.cboInterprete.Leave += new System.EventHandler(this.cboInterprete_Leave);
             // 
             // lblMusica
             // 
@@ -181,7 +187,7 @@
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(361, 241);
+            this.btnCancelar.Location = new System.Drawing.Point(360, 247);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 13;
@@ -193,7 +199,7 @@
             // 
             this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(280, 241);
+            this.btnLimpar.Location = new System.Drawing.Point(279, 247);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 12;
@@ -205,7 +211,7 @@
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(199, 241);
+            this.btnSalvar.Location = new System.Drawing.Point(198, 247);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 11;
@@ -235,13 +241,6 @@
             // 
             this.cboMidia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboMidia.FormattingEnabled = true;
-            this.cboMidia.Items.AddRange(new object[] {
-            "Selecione um Tipo...",
-            "Vinil",
-            "K7",
-            "CD",
-            "DVD",
-            "Digital"});
             this.cboMidia.Location = new System.Drawing.Point(186, 149);
             this.cboMidia.Name = "cboMidia";
             this.cboMidia.Size = new System.Drawing.Size(129, 21);
@@ -453,6 +452,10 @@
             this.lblNomeAmigo.TabIndex = 0;
             this.lblNomeAmigo.Text = "Nome";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,6 +473,7 @@
             this.tbpDiscos.PerformLayout();
             this.tbpAmigos.ResumeLayout(false);
             this.tbpAmigos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -511,5 +515,6 @@
         private System.Windows.Forms.ComboBox cboAutor;
         private System.Windows.Forms.ComboBox cboInterprete;
         private System.Windows.Forms.TextBox txtOrigemCompra;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

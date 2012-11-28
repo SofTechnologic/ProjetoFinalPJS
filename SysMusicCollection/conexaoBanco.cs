@@ -13,8 +13,9 @@ namespace SysMusicCollection
     {
 
 
-        private const string sqlConn =  @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
-
+        private const string sqlConn = @"Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+        //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+         //@"Data Source=PC09LAB3\MSSQLSERVER1;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
         private string pegasql = "";
         SqlConnection cnx = null;
 
@@ -354,6 +355,10 @@ namespace SysMusicCollection
             }
 
         }
+        #endregion
+
+        #region Preenchimento dos grids
+
         #endregion
 
         #region Preenchimento dos grids
@@ -767,6 +772,7 @@ namespace SysMusicCollection
         
 
         #endregion
+
 
         //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
         //{
