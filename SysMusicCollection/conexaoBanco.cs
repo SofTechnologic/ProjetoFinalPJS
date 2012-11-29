@@ -684,23 +684,29 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = "select ID_Autor from Autores where Nome_Autor = @Pega";
-                try
+                if (Nome != "")
                 {
-                    pesqcod = new SqlCommand(sql, cnx);
-                    pesqcod.Parameters.AddWithValue("@Pega", Nome);
-                    //pesqInter.ExecuteNonQuery();
-                    int cd = (int)pesqcod.ExecuteScalar();
-                    return cd;
+                    string sql = "select ID_Autor from Autores where Nome_Autor = @Pega";
+                    try
+                    {
+                        pesqcod = new SqlCommand(sql, cnx);
+                        pesqcod.Parameters.AddWithValue("@Pega", Nome);
+                        //pesqInter.ExecuteNonQuery();
+                        int cd = (int)pesqcod.ExecuteScalar();
+                        return cd;
+                    }
+
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+
+                    finally
+                    {
+                        this.Fecharconexao();
+                    }
                 }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-                finally
-                {
-                    this.Fecharconexao();
-                }
+                return 0;
             }
             else
             {

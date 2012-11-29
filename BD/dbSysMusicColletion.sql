@@ -54,12 +54,12 @@ FOREIGN KEY(Num_Emprestimo) REFERENCES Emprestimos (Num_Emprestimo)
 
 CREATE TABLE Autores (
 ID_Autor int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-Nome_Autor Varchar(40) NOT NULL
+Nome_Autor Varchar(40)
 )
 
 CREATE TABLE Interpretes (
 ID_Interprete int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-Nome_Interprete Varchar(40)
+Nome_Interprete Varchar(40) NOT NULL
 )
 
 CREATE TABLE Albuns (
