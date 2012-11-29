@@ -44,16 +44,16 @@
             this.txbPesquisa = new System.Windows.Forms.TextBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.lsvPrincipal = new System.Windows.Forms.ListView();
-            this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
             this.clhInterprete = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhAutor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhNomeMusica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhDataAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhDataCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhOrigemCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhObservacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhNota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clhOrigemCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clhDataAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -98,7 +98,6 @@
             this.spcPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.spcPrincipal.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.spcPrincipal.Location = new System.Drawing.Point(0, 24);
             this.spcPrincipal.Name = "spcPrincipal";
             // 
@@ -213,9 +212,17 @@
             // 
             this.clhAlbum.Text = "Álbum";
             // 
+            // clhDataAlbum
+            // 
+            this.clhDataAlbum.Text = "Lançamento";
+            // 
             // clhDataCompra
             // 
             this.clhDataCompra.Text = "Data Adquirida";
+            // 
+            // clhOrigemCompra
+            // 
+            this.clhOrigemCompra.Text = "Origem da Compra";
             // 
             // clhObservacao
             // 
@@ -224,14 +231,6 @@
             // clhNota
             // 
             this.clhNota.Text = "Nota";
-            // 
-            // clhOrigemCompra
-            // 
-            this.clhOrigemCompra.Text = "Origem da Compra";
-            // 
-            // clhDataAlbum
-            // 
-            this.clhDataAlbum.Text = "Lançamento";
             // 
             // frmPrincipal
             // 

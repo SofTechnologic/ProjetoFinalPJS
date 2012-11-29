@@ -33,12 +33,10 @@
             this.tbpDiscos = new System.Windows.Forms.TabPage();
             this.txtObservacoes = new System.Windows.Forms.TextBox();
             this.txtOrigemCompra = new System.Windows.Forms.TextBox();
-            this.txtMusica = new System.Windows.Forms.TextBox();
             this.txtNota = new System.Windows.Forms.TextBox();
             this.cboAlbum = new System.Windows.Forms.ComboBox();
             this.cboAutor = new System.Windows.Forms.ComboBox();
             this.cboInterprete = new System.Windows.Forms.ComboBox();
-            this.lblMusica = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -86,12 +84,10 @@
             // 
             this.tbpDiscos.Controls.Add(this.txtObservacoes);
             this.tbpDiscos.Controls.Add(this.txtOrigemCompra);
-            this.tbpDiscos.Controls.Add(this.txtMusica);
             this.tbpDiscos.Controls.Add(this.txtNota);
             this.tbpDiscos.Controls.Add(this.cboAlbum);
             this.tbpDiscos.Controls.Add(this.cboAutor);
             this.tbpDiscos.Controls.Add(this.cboInterprete);
-            this.tbpDiscos.Controls.Add(this.lblMusica);
             this.tbpDiscos.Controls.Add(this.btnCancelar);
             this.tbpDiscos.Controls.Add(this.btnLimpar);
             this.tbpDiscos.Controls.Add(this.btnSalvar);
@@ -131,13 +127,6 @@
             this.txtOrigemCompra.Size = new System.Drawing.Size(171, 20);
             this.txtOrigemCompra.TabIndex = 7;
             // 
-            // txtMusica
-            // 
-            this.txtMusica.Location = new System.Drawing.Point(244, 67);
-            this.txtMusica.Name = "txtMusica";
-            this.txtMusica.Size = new System.Drawing.Size(192, 20);
-            this.txtMusica.TabIndex = 3;
-            // 
             // txtNota
             // 
             this.txtNota.Location = new System.Drawing.Point(322, 151);
@@ -159,7 +148,7 @@
             this.cboAutor.FormattingEnabled = true;
             this.cboAutor.Location = new System.Drawing.Point(9, 65);
             this.cboAutor.Name = "cboAutor";
-            this.cboAutor.Size = new System.Drawing.Size(228, 21);
+            this.cboAutor.Size = new System.Drawing.Size(427, 21);
             this.cboAutor.TabIndex = 2;
             this.cboAutor.Leave += new System.EventHandler(this.cboAutor_Leave);
             // 
@@ -171,17 +160,6 @@
             this.cboInterprete.Size = new System.Drawing.Size(427, 21);
             this.cboInterprete.TabIndex = 1;
             this.cboInterprete.Leave += new System.EventHandler(this.cboInterprete_Leave);
-            // 
-            // lblMusica
-            // 
-            this.lblMusica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMusica.AutoSize = true;
-            this.lblMusica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMusica.Location = new System.Drawing.Point(243, 47);
-            this.lblMusica.Name = "lblMusica";
-            this.lblMusica.Size = new System.Drawing.Size(51, 16);
-            this.lblMusica.TabIndex = 14;
-            this.lblMusica.Text = "Musica";
             // 
             // btnCancelar
             // 
@@ -317,9 +295,9 @@
             this.lblAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlbum.Location = new System.Drawing.Point(6, 89);
             this.lblAlbum.Name = "lblAlbum";
-            this.lblAlbum.Size = new System.Drawing.Size(46, 16);
+            this.lblAlbum.Size = new System.Drawing.Size(93, 16);
             this.lblAlbum.TabIndex = 2;
-            this.lblAlbum.Text = "Álbum";
+            this.lblAlbum.Text = "Álbum/Musica";
             // 
             // lblAutor
             // 
@@ -454,6 +432,7 @@
             // 
             // errorProvider1
             // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
             this.errorProvider1.ContainerControl = this;
             // 
             // frmCadastro
@@ -498,7 +477,6 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Label lblMusica;
         private System.Windows.Forms.MaskedTextBox mtbTelefone;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.TextBox txtNomeAmigo;
@@ -509,7 +487,6 @@
         private System.Windows.Forms.Button btnLimparAmigo;
         private System.Windows.Forms.Button btnSalvarAmigo;
         private System.Windows.Forms.TextBox txtObservacoes;
-        private System.Windows.Forms.TextBox txtMusica;
         private System.Windows.Forms.TextBox txtNota;
         private System.Windows.Forms.ComboBox cboAlbum;
         private System.Windows.Forms.ComboBox cboAutor;

@@ -34,13 +34,12 @@ CREATE TABLE Discos (
 Cod_Disco int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Cod_Midia int NOT NULL ,
 ID_Autor int NOT NULL ,
-ID_Interprete int,
-ID_Album int,
+ID_Interprete int NOT NULL,
+ID_Album int NOT NULL ,
 Data_Album Varchar(10),
 Data_Compra Varchar(10),
 Origem_Compra Varchar(30),
 Observ Varchar(50),
-Nome_Musica Varchar(40) NOT NULL ,
 Nota decimal,
 FOREIGN KEY(Cod_Midia) REFERENCES Midias (Cod_Midia)
 )
@@ -65,7 +64,7 @@ Nome_Interprete Varchar(40)
 
 CREATE TABLE Albuns (
 ID_Album int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-Nome_Album Varchar(40)
+Nome_Album Varchar(40) NOT NULL
 )
 
 ALTER TABLE Discos ADD FOREIGN KEY(ID_Autor) REFERENCES Autores (ID_Autor)
