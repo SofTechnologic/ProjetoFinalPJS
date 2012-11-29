@@ -131,6 +131,7 @@
             this.btnPesquisar.TabIndex = 8;
             this.btnPesquisar.Text = "...";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnEmprestar
             // 

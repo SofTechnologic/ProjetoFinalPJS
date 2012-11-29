@@ -24,8 +24,9 @@ namespace SysMusicCollection
 
         private void frmEmprestimo_Load(object sender, EventArgs e)
         {
-            conexaoBanco amg = new conexaoBanco();
-            cboNomeAmigo.DataSource = amg.prCombo_Amigos();
+            conexaoBanco pega = new conexaoBanco();
+            cboNomeAmigo.DataSource = pega.prCombo_Amigos();
+
             cboNomeAmigo.DisplayMember = "Nome";
 
             conexaoBanco mds = new conexaoBanco();
@@ -70,6 +71,7 @@ namespace SysMusicCollection
 
         }
 
+
         private void btnEmprestar_Click(object sender, EventArgs e)
         {
             conexaoBanco disc = new conexaoBanco();
@@ -102,6 +104,12 @@ namespace SysMusicCollection
         {
             conexaoBanco amig = new conexaoBanco();
             codamigo = amig.PesqAmigos(cboNomeAmigo.Text);
+        }
+       
+       private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmPesqMidias frmPesqMidias = new frmPesqMidias();
+            frmPesqMidias.Show();
         }
     }
 }

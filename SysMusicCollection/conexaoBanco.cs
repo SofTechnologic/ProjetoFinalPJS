@@ -13,7 +13,7 @@ namespace SysMusicCollection
     {
 
 
-        private const string sqlConn =  @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+        private const string sqlConn = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
         private string pegasql = "";
         SqlConnection cnx = null;
@@ -63,7 +63,7 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    cadastrardiscos = new SqlCommand("INSERT INTO Discos (Cod_Midia , ID_Autor , ID_Interprete , ID_Album , Data_Album , Data_Compra , Origem_Compra , Observ , Nome_Musica , Nota) VALUES (@Cod_Midia , @ID_Autor, @ID_Interprete , @ID_Album, @Data_Album, @Data_Compra, @Origem_Compra, @Observ, @Nome_Musica , @Nota )" , cnx);
+                    cadastrardiscos = new SqlCommand("INSERT INTO Discos (Cod_Midia , ID_Autor , ID_Interprete , ID_Album , Data_Album , Data_Compra , Origem_Compra , Observ , Nome_Musica , Nota) VALUES (@Cod_Midia , @ID_Autor, @ID_Interprete , @ID_Album, @Data_Album, @Data_Compra, @Origem_Compra, @Observ, @Nome_Musica , @Nota )", cnx);
 
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Cod_Midia", p_cadDiscos[0]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@ID_Autor", p_cadDiscos[1]));
@@ -92,7 +92,7 @@ namespace SysMusicCollection
             {
                 return false;
             }
-            
+
         }
 
         public bool CadastrarAmigos(ArrayList p_Cadamigo)
@@ -164,7 +164,7 @@ namespace SysMusicCollection
                     cadastraritens = new SqlCommand("Insert Into Itens_Emprestimo (Cod_Disco,Num_Emprestimo) values (@Cd,@Ne)", cnx);
                     cadastraritens.Parameters.Add(new SqlParameter("@Cd", coddisc));
                     cadastraritens.Parameters.Add(new SqlParameter("@Ne", codemp));
-                    
+
                     cadastraritens.ExecuteNonQuery();
 
                     return true;
@@ -184,9 +184,9 @@ namespace SysMusicCollection
             }
         }
 
-#endregion
+        #endregion
 
-        #region Preenchimento dos comboboxs 
+        #region Preenchimento dos comboboxs
 
         public List<string> prcombo_Album()
         {
@@ -239,8 +239,8 @@ namespace SysMusicCollection
                         comboInterprete.Add(dr["Nome_Interprete"].ToString());
                     }
                     return comboInterprete;
-                
-                 }
+
+                }
                 catch (Exception ex)
                 {
                     throw new Exception(ex.Message);
@@ -525,7 +525,7 @@ namespace SysMusicCollection
                 {
                     cadastrarinterprete = new SqlCommand("Insert Into Interpretes (Nome_interprete) values (@N)", cnx);
                     cadastrarinterprete.Parameters.Add(new SqlParameter("@N", p_Cadinterprete[0]));
-                    
+
                     cadastrarinterprete.ExecuteNonQuery();
 
                     return true;
@@ -556,9 +556,9 @@ namespace SysMusicCollection
                 {
                     pesqAutor = new SqlCommand(sql, cnx);
                     pesqAutor.Parameters.AddWithValue("@Pega", Nome);
-                    
+
                     int total = (int)pesqAutor.ExecuteScalar();
-                    
+
                     return total;
                 }
                 catch (Exception ex)
@@ -666,9 +666,9 @@ namespace SysMusicCollection
             }
         }
 
-        
-#endregion
-     
+
+        #endregion
+
         #region pesquisa para cadastro do código
 
         public int PesqCodinter(string Nome)
@@ -861,7 +861,7 @@ namespace SysMusicCollection
                 try
                 {
                     pesqamigo = new SqlCommand(sql, cnx);
-                    pesqamigo.Parameters.AddWithValue("@dt",data);
+                    pesqamigo.Parameters.AddWithValue("@dt", data);
                     pesqamigo.Parameters.AddWithValue("@cdam", Cdam);
                     //pesqInter.ExecuteNonQuery();
                     int cd = (int)pesqamigo.ExecuteScalar();
@@ -883,7 +883,7 @@ namespace SysMusicCollection
         }
 
 
-#endregion
+        #endregion
 
 
         //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
@@ -924,8 +924,8 @@ namespace SysMusicCollection
         //                //cboNomeMidia.Items.Add(pega["Nome_Album"]);
         //                //cboNomeMidia.SelectedValue = pega["Cod_Disco"];
         //            }
-                 
-                    
+
+
         //        }
         //        catch (Exception ex)
         //        {
@@ -965,5 +965,3 @@ namespace SysMusicCollection
         //}
     }
 }
-
-

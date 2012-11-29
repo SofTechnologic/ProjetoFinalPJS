@@ -21,6 +21,33 @@ namespace SysMusicCollection
 
         }
 
+        public void salvar()
+        {
+            
+            
+                foreach (Control tex in this.tbpDiscos.Controls)
+                {
+                    if (tex is ComboBox)
+                    {
+                        ComboBox t = (ComboBox)tex;
+                        if (t.Text == "" || t.Text == "Selecione um Tipo...")
+                        {
+                            if (t.Name == cboAlbum.Name)
+                                errorProvider1.SetError(t, "Digite o Campo Album");
+                            if (t.Name == cboAutor.Name)
+                                errorProvider1.SetError(t, "Digite o Campo Autor");
+                            if (t.Name == cboInterprete.Name )
+                                errorProvider1.SetError(t, "Digite o Campo Imterprete");
+                            if (t.Name == cboMidia.Name )
+                                errorProvider1.SetError(t, "Digite o Campo Nome");     
+                        }
+                        else
+                            errorProvider1.SetError(t, "");
+                    }
+                }
+
+        }
+
         public void limpaCampos()
         {
             cboAlbum.Text = "";
@@ -38,7 +65,7 @@ namespace SysMusicCollection
             txtNomeAmigo.Focus();
         }
 
-        public void detectaErro()
+        public void cancelar()
         {
             if (cboAlbum.Text == "" && cboAutor.Text == "" && cboInterprete.Text == "" && txtNota.Text == ""
                  && txtObservacoes.Text == "" && txtOrigemCompra.Text == "" && txtMusica.Text == "")
@@ -56,8 +83,9 @@ namespace SysMusicCollection
 
         private void frmCadastro_Load(object sender, EventArgs e)
         {
-            
-            
+
+            //cboMidia.Items.Add("Selecione un item");
+
             conexaoBanco inter = new conexaoBanco();
             cboInterprete.DataSource = inter.prCombo_Interprete();
             cboInterprete.DisplayMember = "Nome_Interprete";
@@ -81,12 +109,12 @@ namespace SysMusicCollection
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            detectaErro();
+            cancelar();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            
+
             if (tbcCadastro.TabPages[1].CanFocus)
             {
                 conexaoBanco fazz = new conexaoBanco();
@@ -108,7 +136,7 @@ namespace SysMusicCollection
                 conexaoBanco alb = new conexaoBanco();
                 conexaoBanco mid = new conexaoBanco();
                 //string arr = cboAutor.Text;
-                
+
                 int codinter = inter.PesqCodinter(cboInterprete.Text);
                 int codaut = aut.PesqCodautor(cboAutor.Text);
                 int codalb = alb.PesqCodalbum(cboAlbum.Text);
@@ -132,11 +160,12 @@ namespace SysMusicCollection
 
                 frmCadastro_Load(e, e);
             }
+
         }
 
         private void btnCancelarAmigo_Click(object sender, EventArgs e)
         {
-            detectaErro();
+            cancelar();
         }
 
         private void btnLimparAmigo_Click(object sender, EventArgs e)
@@ -201,9 +230,8 @@ namespace SysMusicCollection
         {
             conexaoBanco passa = new conexaoBanco();
             ArrayList inter = new ArrayList();
-                      
 
-            if(passa.PesqInterprete(cboInterprete.Text) <= 0 && cboInterprete.Text != "")
+            if (passa.PesqInterprete(cboInterprete.Text) <= 0 && cboInterprete.Text != "")
             {
                 inter.Add(cboInterprete.Text);
 
