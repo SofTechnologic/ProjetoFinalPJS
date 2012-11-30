@@ -20,53 +20,78 @@ namespace SysMusicCollection
 
         }
 
+        public void passaValoresParaCombobox()
+        {
+            //cboMidia.Items.Add("Selecione un item");
+
+            conexaoBanco inter = new conexaoBanco();
+            cboInterprete.DataSource = inter.prCombo_Interprete();
+            cboInterprete.DisplayMember = "Nome_Interprete";
+
+            conexaoBanco autor = new conexaoBanco();
+            cboAutor.DataSource = autor.prCombo_Autor();
+            cboAutor.DisplayMember = "Nome_Autor";
+
+            conexaoBanco album = new conexaoBanco();
+            cboAlbum.DataSource = album.prcombo_Album();
+            cboAlbum.DisplayMember = "Nome_Album";
+
+            conexaoBanco midia = new conexaoBanco();
+            cboMidia.DataSource = midia.prCombo_Midia();
+            cboMidia.DisplayMember = "Tipo_Midia";
+
+
+
+            cboMidia.Text = "N/C";
+        }
+
         public void passaArrayListParaPreencherBanco()
         {
             conexaoBanco passa = new conexaoBanco();
-            ArrayList autor = new ArrayList();
-
-
-            if (passa.PesqAutor(cboAutor.Text) <= 0 && cboAutor.Text != "")
-            {
-                autor.Add(cboAutor.Text);
-
-                passa.CadastrarAutor(autor);
-            }
-
-            //conexaoBanco passa = new conexaoBanco();
-            ArrayList album = new ArrayList();
-
-
-            if (passa.PesqAlbuns(cboAlbum.Text) <= 0 && cboAlbum.Text != "")
-            {
-                album.Add(cboAlbum.Text);
-
-                passa.CadastrarAlbum(album);
-            }
-
-            //conexaoBanco passa = new conexaoBanco();
-            ArrayList interr = new ArrayList();
-
-            if (passa.PesqInterprete(cboInterprete.Text) <= 0 && cboInterprete.Text != "")
-            {
-                interr.Add(cboInterprete.Text);
-
-                passa.CadastrarInterpretes(interr);
-            }
+            
 
                 if (tbcCadastro.TabPages[1].CanFocus)
                 {
+
                     conexaoBanco fazz = new conexaoBanco();
                     ArrayList arramig = new ArrayList();
 
-                    arramig.Add(txtNomeAmigo.Text);
+                    arramig.Add(cboNomeAmigo.Text);
                     arramig.Add(mtbTelefone.Text);
-                    arramig.Add(txtEndereco.Text);
+                    arramig.Add(cboEndereco.Text);
 
                     fazz.CadastrarAmigos(arramig);
+
                 }
                 if (tbcCadastro.TabPages[0].CanFocus)
                 {
+
+                    ArrayList autor = new ArrayList();
+                    if (passa.PesqAutor(cboAutor.Text) <= 0 && cboAutor.Text != "")
+                    {
+                        autor.Add(cboAutor.Text);
+
+                        passa.CadastrarAutor(autor);
+                    }
+
+                    //conexaoBanco passa = new conexaoBanco();
+                    ArrayList album = new ArrayList();
+                    if (passa.PesqAlbuns(cboAlbum.Text) <= 0 && cboAlbum.Text != "")
+                    {
+                        album.Add(cboAlbum.Text);
+
+                        passa.CadastrarAlbum(album);
+                    }
+
+                    //conexaoBanco passa = new conexaoBanco();
+                    ArrayList interr = new ArrayList();
+
+                    if (passa.PesqInterprete(cboInterprete.Text) <= 0 && cboInterprete.Text != "")
+                    {
+                        interr.Add(cboInterprete.Text);
+
+                        passa.CadastrarInterpretes(interr);
+                    }
                     conexaoBanco disc = new conexaoBanco();
                     ArrayList arrdisc = new ArrayList();
 
@@ -93,18 +118,36 @@ namespace SysMusicCollection
                     arrdisc.Add(txtNota.Text);
 
                     disc.CadastrarDiscos(arrdisc);
-                    //lblInterprete.Text = teste.ToString();
-                    //lblAutor.Text = testes.ToString();
-                    //lblAlbum.Text = test.ToString();
-
-                    //frmCadastro_Load(e, e);
                 }
+                passaValoresParaCombobox();
+                limpaCampos();
         }
 
-        public void salvar()
+        public int Nota(string notas)
         {
-            
-            
+            int retur = 0;
+            for (int i = 0; i <= 10; i++)
+            {
+                if (notas != i.ToString() && retur != 1 && notas != "")
+                {
+                    erpErro.SetError(txtNota, "Digite valores de 0 à 10");
+                }
+                else if(notas == i.ToString() || notas == "")
+                {
+                    erpErro.SetError(txtNota, "");
+                    retur = 1;
+                }
+            }
+            if (retur == 0)
+                return retur;
+            else
+                return retur;
+        }
+
+        public void salvarDiscos()
+        {
+            if (tbcCadastro.TabPages[0].CanFocus)
+            {
                 foreach (Control tex in this.tbpDiscos.Controls)
                 {
                     if (tex is ComboBox)
@@ -114,17 +157,40 @@ namespace SysMusicCollection
                         {
                             if (t.Name == cboAlbum.Name)
                                 erpErro.SetError(t, "Digite o Campo Album");
-                            if (t.Name == cboInterprete.Name )
+                            if (t.Name == cboInterprete.Name)
                                 erpErro.SetError(t, "Digite o Campo Interprete");
                         }
+                        else if (t.Text == "N/C")
+                            erpErro.SetError(t, "Escolha um Tipo de Midia");
                         else
                             erpErro.SetError(t, "");
                     }
                 }
-                if (cboAlbum.Text != "" && cboInterprete.Text != "")
-                {
+
+                if (cboAlbum.Text != "" && cboInterprete.Text != "" && cboMidia.Text != "N/C" && (Nota(txtNota.Text) == 1))
                     passaArrayListParaPreencherBanco();
+            }
+            else if (tbcCadastro.TabPages[1].CanFocus)
+            {
+                if (cboNomeAmigo.Text == "" && cboEndereco.Text == "")
+                {
+                    erpErro.SetError(cboNomeAmigo, "Digite o Nome");
+                    erpErro.SetError(cboEndereco, "Digite o Endereço");
                 }
+                else if (cboNomeAmigo.Text == "")
+                    erpErro.SetError(cboNomeAmigo, "Digite o Nome");
+                else if (cboEndereco.Text == "")
+                    erpErro.SetError(cboEndereco, "Digite o Endereço");
+                else
+                {
+                    erpErro.SetError(cboNomeAmigo, "");
+                    erpErro.SetError(cboEndereco, "");
+                }
+                if (cboNomeAmigo.Text != "" && cboEndereco.Text != "")
+                    passaArrayListParaPreencherBanco();
+
+
+            }
                 
         }
 
@@ -137,11 +203,12 @@ namespace SysMusicCollection
             txtNota.Clear();
             txtObservacoes.Clear();
             txtOrigemCompra.Clear();
-            txtNomeAmigo.Clear();
+            cboNomeAmigo.Text = "";
             mtbTelefone.Clear();
-            txtEndereco.Clear();
+            cboEndereco.Text = "";
             cboInterprete.Focus();
-            txtNomeAmigo.Focus();
+            cboNomeAmigo.Focus();
+           
         }
 
         public void cancelar()
@@ -155,36 +222,11 @@ namespace SysMusicCollection
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void frmCadastro_Load(object sender, EventArgs e)
         {
-
-            //cboMidia.Items.Add("Selecione un item");
-
-            conexaoBanco inter = new conexaoBanco();
-            cboInterprete.DataSource = inter.prCombo_Interprete();
-            cboInterprete.DisplayMember = "Nome_Interprete";
-
-            conexaoBanco autor = new conexaoBanco();
-            cboAutor.DataSource = autor.prCombo_Autor();
-            cboAutor.DisplayMember = "Nome_Autor";
-
-            conexaoBanco album = new conexaoBanco();
-            cboAlbum.DataSource = album.prcombo_Album();
-            cboAlbum.DisplayMember = "Nome_Album";
-
-            conexaoBanco midia = new conexaoBanco();
-            cboMidia.DataSource = midia.prCombo_Midia();
-            cboMidia.DisplayMember = "Tipo_Midia";
+            passaValoresParaCombobox();
             limpaCampos();
-
-            cboMidia.Text = "N/C";
-            //txtMusica.Text = "null";
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -194,9 +236,8 @@ namespace SysMusicCollection
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-
-            salvar();
-            limpaCampos();
+            salvarDiscos();
+            //passaValoresParaCombobox();
         }
 
         private void btnCancelarAmigo_Click(object sender, EventArgs e)
@@ -213,96 +254,34 @@ namespace SysMusicCollection
         {
             limpaCampos();
         }
-
-        private void txtInterprete_TextChanged(object sender, EventArgs e)
+     
+        private void txtNota_Leave(object sender, EventArgs e)
         {
-
+            Nota(txtNota.Text);
         }
 
-        private void txtAutor_TextChanged(object sender, EventArgs e)
+        private void btnSalvarAmigo_Click_1(object sender, EventArgs e)
         {
-
+            salvarDiscos();
+            //passaValoresParaCombobox();
         }
 
-        private void txtMusica_TextChanged(object sender, EventArgs e)
+        private void cboNomeAmigo_MouseClick(object sender, MouseEventArgs e)
         {
-
+            conexaoBanco pega = new conexaoBanco();
+            cboNomeAmigo.DataSource = pega.prCombo_Amigos();
+            cboNomeAmigo.DisplayMember = "Nome";
+            cboNomeAmigo.Text = "";
+            
         }
 
-        private void txtAlbum_TextChanged(object sender, EventArgs e)
+        private void comboBox1_MouseClick(object sender, MouseEventArgs e)
         {
-
+            conexaoBanco pegaEndereco = new conexaoBanco();
+            cboEndereco.DataSource = pegaEndereco.prCombo_AmigosEndereco();
+            cboEndereco.DisplayMember = "Endereco";
+            cboEndereco.Text = "";
         }
-
-        private void txtOrigemCompra_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboMidia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSalvarAmigo_Click(object sender, EventArgs e)
-        {
-            conexaoBanco faz = new conexaoBanco();
-            ArrayList arr = new ArrayList();
-
-            arr.Add(txtNomeAmigo.Text);
-            arr.Add(mtbTelefone.Text);
-            arr.Add(txtEndereco.Text);
-
-            faz.CadastrarDiscos(arr);
-
-        }
-
-        private void tbpDiscos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboInterprete_Leave(object sender, EventArgs e)
-        {
-            //conexaoBanco passa = new conexaoBanco();
-            //ArrayList inter = new ArrayList();
-
-            //if (passa.PesqInterprete(cboInterprete.Text) <= 0 && cboInterprete.Text != "")
-            //{
-            //    inter.Add(cboInterprete.Text);
-
-            //    passa.CadastrarInterpretes(inter);
-            //}
-
-        }
-
-        private void cboAutor_Leave(object sender, EventArgs e)
-        {
-            //conexaoBanco passa = new conexaoBanco();
-            //ArrayList autor = new ArrayList();
-
-
-            //if (passa.PesqAutor(cboAutor.Text) <= 0 && cboAutor.Text != "")
-            //{
-            //    autor.Add(cboAutor.Text);
-
-            //    passa.CadastrarAutor(autor);
-            //}
-        }
-
-        private void cboAlbum_Leave(object sender, EventArgs e)
-        {
-            //conexaoBanco passa = new conexaoBanco();
-            //ArrayList album = new ArrayList();
-
-
-            //if (passa.PesqAlbuns(cboAlbum.Text) <= 0 && cboAlbum.Text != "")
-            //{
-            //    album.Add(cboAlbum.Text);
-
-            //    passa.CadastrarAlbum(album);
-            //}
-        }      
     }
 }
 

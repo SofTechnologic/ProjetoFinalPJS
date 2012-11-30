@@ -374,6 +374,47 @@ namespace SysMusicCollection
 
         }
 
+        public List<string> prCombo_AmigosEndereco()
+        {
+
+            SqlCommand listaramigosEndereco = null;
+
+            List<string> comboamigosEnderecos = new List<string>();
+            //List<string> comboamigo = new List<string>();
+            //List<string> cods = new List<string>();
+
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    listaramigosEndereco = new SqlCommand("Select Endereco from Amigos", cnx);
+
+                    SqlDataReader dr = listaramigosEndereco.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        comboamigosEnderecos.Add(dr["Endereco"].ToString());
+
+                    }
+
+                    return comboamigosEnderecos;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         public List<string> prCombo_Discos()
         {
 

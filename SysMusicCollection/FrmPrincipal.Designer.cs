@@ -43,6 +43,8 @@
             this.btnCadastro = new System.Windows.Forms.Button();
             this.txbPesquisa = new System.Windows.Forms.TextBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.lsvPrincipal = new System.Windows.Forms.ListView();
             this.clhInterprete = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhAutor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,8 +56,6 @@
             this.clhObservacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clhNota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -166,6 +166,36 @@
             this.pnlPrincipal.Size = new System.Drawing.Size(566, 376);
             this.pnlPrincipal.TabIndex = 0;
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.lsvPrincipal);
+            this.splitContainer1.Size = new System.Drawing.Size(566, 376);
+            this.splitContainer1.SplitterDistance = 25;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(0, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(566, 14);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "^";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // lsvPrincipal
             // 
             this.lsvPrincipal.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -179,6 +209,8 @@
             this.clhObservacao,
             this.clhNota});
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsvPrincipal.FullRowSelect = true;
+            this.lsvPrincipal.GridLines = true;
             listViewGroup6.Header = "Vinil";
             listViewGroup6.Name = "Vinil";
             listViewGroup7.Header = "K7";
@@ -201,6 +233,7 @@
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
             this.lsvPrincipal.View = System.Windows.Forms.View.Details;
+            this.lsvPrincipal.VirtualMode = true;
             // 
             // clhInterprete
             // 
@@ -238,41 +271,11 @@
             // 
             this.clhNota.Text = "Nota";
             // 
-
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.lsvPrincipal);
-            this.splitContainer1.Size = new System.Drawing.Size(566, 376);
-            this.splitContainer1.SplitterDistance = 25;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(0, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(566, 14);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "^";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(734, 462);
             this.Controls.Add(this.spcPrincipal);
             this.Controls.Add(this.stsPrincipal);
@@ -281,6 +284,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sys Music Collection";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.mnsPrincipal.ResumeLayout(false);
             this.mnsPrincipal.PerformLayout();
             this.spcPrincipal.Panel1.ResumeLayout(false);

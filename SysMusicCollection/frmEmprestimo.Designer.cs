@@ -156,6 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(454, 317);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEmprestar);
@@ -167,6 +168,7 @@
             this.Controls.Add(this.dtpDataEmprestimo);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.cboNomeAmigo);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MaximumSize = new System.Drawing.Size(700, 430);
             this.MinimumSize = new System.Drawing.Size(470, 355);
             this.Name = "frmEmprestimo";
