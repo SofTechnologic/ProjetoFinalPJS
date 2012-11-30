@@ -40,22 +40,24 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Panel1MinSize = 500;
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.splitContainer1.Panel2.Controls.Add(this.btnAbaLateral);
-            this.splitContainer1.Size = new System.Drawing.Size(747, 442);
-            this.splitContainer1.SplitterDistance = 718;
+            this.splitContainer1.Panel2MinSize = 0;
+            this.splitContainer1.Size = new System.Drawing.Size(744, 442);
+            this.splitContainer1.SplitterDistance = 720;
             this.splitContainer1.TabIndex = 0;
             // 
             // btnAbaLateral
             // 
             this.btnAbaLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAbaLateral.Location = new System.Drawing.Point(-2, 0);
+            this.btnAbaLateral.Location = new System.Drawing.Point(-8, -2);
             this.btnAbaLateral.Name = "btnAbaLateral";
-            this.btnAbaLateral.Size = new System.Drawing.Size(19, 442);
+            this.btnAbaLateral.Size = new System.Drawing.Size(30, 450);
             this.btnAbaLateral.TabIndex = 0;
             this.btnAbaLateral.Text = "<";
             this.btnAbaLateral.UseVisualStyleBackColor = true;
@@ -65,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 442);
+            this.ClientSize = new System.Drawing.Size(744, 442);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmPesqMidias";
             this.Text = "frmPesqMidias";
