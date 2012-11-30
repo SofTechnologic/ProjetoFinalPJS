@@ -13,7 +13,9 @@ namespace SysMusicCollection
         public frmPrincipal()
         {
             InitializeComponent();
-        }       
+        }
+
+        public int btn = 0;
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
@@ -30,6 +32,21 @@ namespace SysMusicCollection
         private void txbPesquisa_MouseClick(object sender, MouseEventArgs e)
         {
             txbPesquisa.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (btn == 0)
+            {
+                splitContainer1.SplitterDistance = 50;
+                btn = 1;
+            }
+            else
+            {
+                splitContainer1.SplitterDistance = 25;
+                btn = 0;
+            }
+
         }
     }
 }

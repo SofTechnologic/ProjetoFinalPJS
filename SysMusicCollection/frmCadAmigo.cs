@@ -131,8 +131,9 @@ namespace SysMusicCollection
 
         private void frmCadastro_Load(object sender, EventArgs e)
         {
-            
+
             //cboMidia.Items.Add("Selecione un item");
+
             conexaoBanco inter = new conexaoBanco();
             cboInterprete.DataSource = inter.prCombo_Interprete();
             cboInterprete.DisplayMember = "Nome_Interprete";
@@ -150,6 +151,9 @@ namespace SysMusicCollection
             cboMidia.DisplayMember = "Tipo_Midia";
             limpaCampos();
 
+            cboMidia.Text = "N/C";
+            //txtMusica.Text = "null";
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -159,6 +163,7 @@ namespace SysMusicCollection
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+
             salvar();
             limpaCampos();
         }
@@ -210,7 +215,6 @@ namespace SysMusicCollection
 
         private void btnSalvarAmigo_Click(object sender, EventArgs e)
         {
-            //SqlConnection conn = new SqlConnection(conexaoBanco.sqlconn);//@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True");
             conexaoBanco faz = new conexaoBanco();
             ArrayList arr = new ArrayList();
 
@@ -218,7 +222,7 @@ namespace SysMusicCollection
             arr.Add(mtbTelefone.Text);
             arr.Add(txtEndereco.Text);
 
-            faz.CadastrarAmigos(arr);
+            faz.CadastrarDiscos(arr);
 
         }
 
@@ -232,13 +236,13 @@ namespace SysMusicCollection
             conexaoBanco passa = new conexaoBanco();
             ArrayList inter = new ArrayList();
 
-
             if (passa.PesqInterprete(cboInterprete.Text) <= 0 && cboInterprete.Text != "")
             {
                 inter.Add(cboInterprete.Text);
 
                 passa.CadastrarInterpretes(inter);
             }
+
         }
 
         private void cboAutor_Leave(object sender, EventArgs e)
