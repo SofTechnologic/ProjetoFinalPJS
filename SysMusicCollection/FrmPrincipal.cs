@@ -43,7 +43,7 @@ namespace SysMusicCollection
             }
             else
             {
-                splitContainer1.SplitterDistance = 25;
+                splitContainer1.SplitterDistance = 10;
                 btn = 0;
             }
 
