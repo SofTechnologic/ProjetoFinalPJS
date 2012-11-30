@@ -104,7 +104,6 @@
             this.spcPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.spcPrincipal.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.spcPrincipal.Location = new System.Drawing.Point(0, 24);
             this.spcPrincipal.Name = "spcPrincipal";
             // 
@@ -239,6 +238,7 @@
             // 
             this.clhNota.Text = "Nota";
             // 
+
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;

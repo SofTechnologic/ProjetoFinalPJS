@@ -13,9 +13,10 @@ namespace SysMusicCollection
     {
 
 
-        private const string sqlConn = //@"Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-        @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=2;User Instance=True";
-         //@"Data Source=PC09LAB3\MSSQLSERVER1;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+        private const string sqlConn =
+/* Bruno*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=2;User Instance=True";
+/*Felipe*/ //@" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+/*Thiago*/ //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
         private string pegasql = "";
         SqlConnection cnx = null;
 
@@ -60,12 +61,12 @@ namespace SysMusicCollection
         public bool CadastrarDiscos(ArrayList p_cadDiscos)
         {
             SqlCommand cadastrardiscos = null;
-
             if (this.Abrirconexao())
             {
                 try
                 {
-                    cadastrardiscos = new SqlCommand("INSERT INTO Discos (Cod_Midia , ID_Autor , ID_Interprete , ID_Album , Data_Album , Data_Compra , Origem_Compra , Observ , Nome_Musica , Nota) VALUES (@Cod_Midia , @ID_Autor, @ID_Interprete , @ID_Album, @Data_Album, @Data_Compra, @Origem_Compra, @Observ, @Nome_Musica , @Nota )" , cnx);
+                    cadastrardiscos = new SqlCommand("INSERT INTO Discos (Cod_Midia , ID_Autor , ID_Interprete , ID_Album , Data_Album , Data_Compra , Origem_Compra , Observ , Nota) VALUES (@Cod_Midia , @ID_Autor, @ID_Interprete , @ID_Album, @Data_Album, @Data_Compra, @Origem_Compra, @Observ, @Nota )" , cnx);
+
 
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Cod_Midia", p_cadDiscos[0]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@ID_Autor", p_cadDiscos[1]));
@@ -75,8 +76,8 @@ namespace SysMusicCollection
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Data_Compra", p_cadDiscos[5]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Origem_Compra", p_cadDiscos[6]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Observ", p_cadDiscos[7]));
-                    cadastrardiscos.Parameters.Add(new SqlParameter("@Nome_Musica", p_cadDiscos[8]));
-                    cadastrardiscos.Parameters.Add(new SqlParameter("@Nota", p_cadDiscos[9]));
+                    //cadastrardiscos.Parameters.Add(new SqlParameter("@Nome_Musica", p_cadDiscos[8]));
+                    cadastrardiscos.Parameters.Add(new SqlParameter("@Nota", p_cadDiscos[8]));
 
                     cadastrardiscos.ExecuteNonQuery();
                     return true;
@@ -94,6 +95,7 @@ namespace SysMusicCollection
             {
                 return false;
             }
+
         }
 
         public bool CadastrarAmigos(ArrayList p_Cadamigo)
@@ -127,9 +129,67 @@ namespace SysMusicCollection
             }
         }
 
-#endregion
+        public bool CadastrarEmp(ArrayList p_codem)
+        {
+            SqlCommand cadastraritens = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    cadastraritens = new SqlCommand("Insert Into Emprestimos (Data_Emprestimo,Cod_Amigo) values (@dt,@CD)", cnx);
+                    cadastraritens.Parameters.Add(new SqlParameter("@dt", p_codem[0]));
+                    cadastraritens.Parameters.Add(new SqlParameter("@CD", p_codem[1]));
+                    cadastraritens.ExecuteNonQuery();
 
-        #region Preenchimento dos comboboxs 
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool CadastrarItensEmp(int coddisc, int codemp)
+        {
+            SqlCommand cadastraritens = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    cadastraritens = new SqlCommand("Insert Into Itens_Emprestimo (Cod_Disco,Num_Emprestimo) values (@Cd,@Ne)", cnx);
+                    cadastraritens.Parameters.Add(new SqlParameter("@Cd", coddisc));
+                    cadastraritens.Parameters.Add(new SqlParameter("@Ne", codemp));
+
+                    cadastraritens.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        #endregion
+
+        #region Preenchimento dos comboboxs
 
         public List<string> prcombo_Album()
         {
@@ -182,8 +242,8 @@ namespace SysMusicCollection
                         comboInterprete.Add(dr["Nome_Interprete"].ToString());
                     }
                     return comboInterprete;
-                
-                 }
+
+                }
                 catch (Exception ex)
                 {
                     throw new Exception(ex.Message);
@@ -242,7 +302,6 @@ namespace SysMusicCollection
             SqlCommand listarMidia = null;
 
             List<string> comboMidia = new List<string>();
-
             //List<string> cods = new List<string>();
 
             if (this.Abrirconexao())
@@ -355,9 +414,6 @@ namespace SysMusicCollection
             }
 
         }
-        #endregion
-
-        #region Preenchimento dos grids
 
         #endregion
 
@@ -472,7 +528,7 @@ namespace SysMusicCollection
                 {
                     cadastrarinterprete = new SqlCommand("Insert Into Interpretes (Nome_interprete) values (@N)", cnx);
                     cadastrarinterprete.Parameters.Add(new SqlParameter("@N", p_Cadinterprete[0]));
-                    
+
                     cadastrarinterprete.ExecuteNonQuery();
 
                     return true;
@@ -503,9 +559,9 @@ namespace SysMusicCollection
                 {
                     pesqAutor = new SqlCommand(sql, cnx);
                     pesqAutor.Parameters.AddWithValue("@Pega", Nome);
-                    
+
                     int total = (int)pesqAutor.ExecuteScalar();
-                    
+
                     return total;
                 }
                 catch (Exception ex)
@@ -613,39 +669,9 @@ namespace SysMusicCollection
             }
         }
 
-        public int PesqCamposNulos(string Nome)
-        {
-            SqlCommand pesqAlbuns = null;
 
-            if (this.Abrirconexao())
-            {
-                string sql = " select Count(*) from Albuns where Nome_Album = @Pega";
-                try
-                {
-                    pesqAlbuns = new SqlCommand(sql, cnx);
-                    pesqAlbuns.Parameters.AddWithValue("@Pega", Nome);
+        #endregion
 
-                    int total = (int)pesqAlbuns.ExecuteScalar();
-
-                    return total;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-                finally
-                {
-                    this.Fecharconexao();
-                }
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
-#endregion
-     
         #region pesquisa para cadastro do código
 
         public int PesqCodinter(string Nome)
@@ -684,23 +710,27 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = "select ID_Autor from Autores where Nome_Autor = @Pega";
-                try
+                if (Nome != "")
                 {
-                    pesqcod = new SqlCommand(sql, cnx);
-                    pesqcod.Parameters.AddWithValue("@Pega", Nome);
-                    //pesqInter.ExecuteNonQuery();
-                    int cd = (int)pesqcod.ExecuteScalar();
-                    return cd;
+                    string sql = "select ID_Autor from Autores where Nome_Autor = @Pega";
+                    try
+                    {
+                        pesqcod = new SqlCommand(sql, cnx);
+                        pesqcod.Parameters.AddWithValue("@Pega", Nome);
+                        //pesqInter.ExecuteNonQuery();
+                        int cd = (int)pesqcod.ExecuteScalar();
+                        return cd;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                    finally
+                    {
+                        this.Fecharconexao();
+                    }
                 }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-                finally
-                {
-                    this.Fecharconexao();
-                }
+                return 0;
             }
             else
             {
@@ -714,13 +744,47 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = "select ID_Album from Albuns where Nome_Album = @Pega";
+
+                
+                    string sql = "select ID_Album from Albuns where Nome_Album = @Pega";
+                    try
+                    {
+                        pesqcod = new SqlCommand(sql, cnx);
+                        pesqcod.Parameters.AddWithValue("@Pega", Nome);
+                        //pesqInter.ExecuteNonQuery();
+                        int cd = (int)pesqcod.ExecuteScalar();
+                        return cd;
+                    }
+
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+
+                    finally
+                    {
+                        this.Fecharconexao();
+                    }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public int PesqAmigos(string Nome)
+        {
+            SqlCommand pesqamigo = null;
+
+            if (this.Abrirconexao())
+            {
+                string sql = "select Cod_Amigo from Amigos where Nome = @Pega";
                 try
                 {
-                    pesqcod = new SqlCommand(sql, cnx);
-                    pesqcod.Parameters.AddWithValue("@Pega", Nome);
+                    pesqamigo = new SqlCommand(sql, cnx);
+                    pesqamigo.Parameters.AddWithValue("@Pega", Nome);
                     //pesqInter.ExecuteNonQuery();
-                    int cd = (int)pesqcod.ExecuteScalar();
+                    int cd = (int)pesqamigo.ExecuteScalar();
                     return cd;
                 }
                 catch (Exception ex)
@@ -768,8 +832,67 @@ namespace SysMusicCollection
             }
         }
 
+        public int PesqCoddiscos(string Nome)
+        {
+            SqlCommand pesqcod = null;
 
-        
+            if (this.Abrirconexao())
+            {
+                string sql = "select Cod_Disco from Discos inner join Albuns on Discos.ID_Album = Albuns.ID_Album where Albuns.Nome_Album = @Pega";
+                try
+                {
+                    pesqcod = new SqlCommand(sql, cnx);
+                    pesqcod.Parameters.AddWithValue("@Pega", Nome);
+                    //pesqInter.ExecuteNonQuery();
+                    int cd = (int)pesqcod.ExecuteScalar();
+                    return cd;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public int PesqCodEmp(int Cdam, string data)
+        {
+            SqlCommand pesqamigo = null;
+
+            if (this.Abrirconexao())
+            {
+                string sql = "select Num_Emprestimo from Emprestimos where Data_Emprestimo = @dt and Cod_Amigo = @cdam";
+                try
+                {
+                    pesqamigo = new SqlCommand(sql, cnx);
+                    pesqamigo.Parameters.AddWithValue("@dt", data);
+                    pesqamigo.Parameters.AddWithValue("@cdam", Cdam);
+                    //pesqInter.ExecuteNonQuery();
+                    int cd = (int)pesqamigo.ExecuteScalar();
+                    return cd;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
 
         #endregion
 
@@ -812,8 +935,8 @@ namespace SysMusicCollection
         //                //cboNomeMidia.Items.Add(pega["Nome_Album"]);
         //                //cboNomeMidia.SelectedValue = pega["Cod_Disco"];
         //            }
-                 
-                    
+
+
         //        }
         //        catch (Exception ex)
         //        {
@@ -853,5 +976,3 @@ namespace SysMusicCollection
         //}
     }
 }
-
-
