@@ -62,11 +62,11 @@
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.lblNomeAmigo = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpErro = new System.Windows.Forms.ErrorProvider(this.components);
             this.tbcCadastro.SuspendLayout();
             this.tbpDiscos.SuspendLayout();
             this.tbpAmigos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpErro)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcCadastro
@@ -77,7 +77,7 @@
             this.tbcCadastro.Location = new System.Drawing.Point(0, 0);
             this.tbcCadastro.Name = "tbcCadastro";
             this.tbcCadastro.SelectedIndex = 0;
-            this.tbcCadastro.Size = new System.Drawing.Size(454, 302);
+            this.tbcCadastro.Size = new System.Drawing.Size(466, 309);
             this.tbcCadastro.TabIndex = 0;
             // 
             // tbpDiscos
@@ -106,7 +106,7 @@
             this.tbpDiscos.Location = new System.Drawing.Point(4, 22);
             this.tbpDiscos.Name = "tbpDiscos";
             this.tbpDiscos.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpDiscos.Size = new System.Drawing.Size(446, 276);
+            this.tbpDiscos.Size = new System.Drawing.Size(458, 283);
             this.tbpDiscos.TabIndex = 0;
             this.tbpDiscos.Text = "Discos";
             this.tbpDiscos.UseVisualStyleBackColor = true;
@@ -114,37 +114,47 @@
             // 
             // txtObservacoes
             // 
+            this.txtObservacoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtObservacoes.Location = new System.Drawing.Point(9, 193);
             this.txtObservacoes.Multiline = true;
             this.txtObservacoes.Name = "txtObservacoes";
-            this.txtObservacoes.Size = new System.Drawing.Size(427, 42);
+            this.txtObservacoes.Size = new System.Drawing.Size(427, 40);
             this.txtObservacoes.TabIndex = 10;
             // 
             // txtOrigemCompra
             // 
+            this.txtOrigemCompra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOrigemCompra.Location = new System.Drawing.Point(9, 151);
             this.txtOrigemCompra.Name = "txtOrigemCompra";
-            this.txtOrigemCompra.Size = new System.Drawing.Size(171, 20);
+            this.txtOrigemCompra.Size = new System.Drawing.Size(161, 20);
             this.txtOrigemCompra.TabIndex = 7;
             // 
             // txtNota
             // 
-            this.txtNota.Location = new System.Drawing.Point(322, 151);
+            this.txtNota.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNota.Location = new System.Drawing.Point(333, 149);
             this.txtNota.Name = "txtNota";
-            this.txtNota.Size = new System.Drawing.Size(114, 20);
+            this.txtNota.Size = new System.Drawing.Size(103, 20);
             this.txtNota.TabIndex = 9;
             // 
             // cboAlbum
             // 
+            this.cboAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cboAlbum.FormattingEnabled = true;
             this.cboAlbum.Location = new System.Drawing.Point(9, 106);
             this.cboAlbum.Name = "cboAlbum";
-            this.cboAlbum.Size = new System.Drawing.Size(171, 21);
+            this.cboAlbum.Size = new System.Drawing.Size(161, 21);
             this.cboAlbum.TabIndex = 4;
             this.cboAlbum.Leave += new System.EventHandler(this.cboAlbum_Leave);
             // 
             // cboAutor
             // 
+            this.cboAutor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cboAutor.FormattingEnabled = true;
             this.cboAutor.Location = new System.Drawing.Point(9, 65);
             this.cboAutor.Name = "cboAutor";
@@ -154,6 +164,8 @@
             // 
             // cboInterprete
             // 
+            this.cboInterprete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cboInterprete.FormattingEnabled = true;
             this.cboInterprete.Location = new System.Drawing.Point(9, 21);
             this.cboInterprete.Name = "cboInterprete";
@@ -165,7 +177,7 @@
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(360, 247);
+            this.btnCancelar.Location = new System.Drawing.Point(361, 254);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 13;
@@ -177,7 +189,7 @@
             // 
             this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(279, 247);
+            this.btnLimpar.Location = new System.Drawing.Point(280, 254);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 12;
@@ -189,7 +201,7 @@
             // 
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(198, 247);
+            this.btnSalvar.Location = new System.Drawing.Point(199, 254);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 11;
@@ -201,16 +213,16 @@
             // 
             this.dtpDataCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataCompra.Location = new System.Drawing.Point(321, 108);
+            this.dtpDataCompra.Location = new System.Drawing.Point(333, 108);
             this.dtpDataCompra.Name = "dtpDataCompra";
-            this.dtpDataCompra.Size = new System.Drawing.Size(117, 20);
+            this.dtpDataCompra.Size = new System.Drawing.Size(103, 20);
             this.dtpDataCompra.TabIndex = 6;
             // 
             // dtpDataAlbum
             // 
             this.dtpDataAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataAlbum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataAlbum.Location = new System.Drawing.Point(186, 108);
+            this.dtpDataAlbum.Location = new System.Drawing.Point(198, 108);
             this.dtpDataAlbum.Name = "dtpDataAlbum";
             this.dtpDataAlbum.Size = new System.Drawing.Size(129, 20);
             this.dtpDataAlbum.TabIndex = 5;
@@ -219,7 +231,7 @@
             // 
             this.cboMidia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboMidia.FormattingEnabled = true;
-            this.cboMidia.Location = new System.Drawing.Point(186, 149);
+            this.cboMidia.Location = new System.Drawing.Point(198, 149);
             this.cboMidia.Name = "cboMidia";
             this.cboMidia.Size = new System.Drawing.Size(129, 21);
             this.cboMidia.TabIndex = 8;
@@ -230,7 +242,7 @@
             this.lblNota.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNota.AutoSize = true;
             this.lblNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNota.Location = new System.Drawing.Point(318, 131);
+            this.lblNota.Location = new System.Drawing.Point(330, 131);
             this.lblNota.Name = "lblNota";
             this.lblNota.Size = new System.Drawing.Size(102, 16);
             this.lblNota.TabIndex = 8;
@@ -251,7 +263,7 @@
             this.lblTipoMidia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTipoMidia.AutoSize = true;
             this.lblTipoMidia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoMidia.Location = new System.Drawing.Point(183, 130);
+            this.lblTipoMidia.Location = new System.Drawing.Point(195, 130);
             this.lblTipoMidia.Name = "lblTipoMidia";
             this.lblTipoMidia.Size = new System.Drawing.Size(91, 16);
             this.lblTipoMidia.TabIndex = 6;
@@ -272,7 +284,7 @@
             this.lblDataCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDataCompra.AutoSize = true;
             this.lblDataCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataCompra.Location = new System.Drawing.Point(318, 87);
+            this.lblDataCompra.Location = new System.Drawing.Point(330, 87);
             this.lblDataCompra.Name = "lblDataCompra";
             this.lblDataCompra.Size = new System.Drawing.Size(105, 16);
             this.lblDataCompra.TabIndex = 4;
@@ -283,7 +295,7 @@
             this.lblDataAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDataAlbum.AutoSize = true;
             this.lblDataAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataAlbum.Location = new System.Drawing.Point(183, 87);
+            this.lblDataAlbum.Location = new System.Drawing.Point(195, 87);
             this.lblDataAlbum.Name = "lblDataAlbum";
             this.lblDataAlbum.Size = new System.Drawing.Size(96, 16);
             this.lblDataAlbum.TabIndex = 3;
@@ -430,19 +442,19 @@
             this.lblNomeAmigo.TabIndex = 0;
             this.lblNomeAmigo.Text = "Nome";
             // 
-            // errorProvider1
+            // erpErro
             // 
-            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
-            this.errorProvider1.ContainerControl = this;
+            this.erpErro.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.erpErro.ContainerControl = this;
             // 
             // frmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 302);
+            this.ClientSize = new System.Drawing.Size(466, 309);
             this.Controls.Add(this.tbcCadastro);
             this.MaximumSize = new System.Drawing.Size(700, 430);
-            this.MinimumSize = new System.Drawing.Size(470, 340);
+            this.MinimumSize = new System.Drawing.Size(482, 347);
             this.Name = "frmCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Discos/Amigos";
@@ -452,7 +464,7 @@
             this.tbpDiscos.PerformLayout();
             this.tbpAmigos.ResumeLayout(false);
             this.tbpAmigos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpErro)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -492,6 +504,6 @@
         private System.Windows.Forms.ComboBox cboAutor;
         private System.Windows.Forms.ComboBox cboInterprete;
         private System.Windows.Forms.TextBox txtOrigemCompra;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider erpErro;
     }
 }
