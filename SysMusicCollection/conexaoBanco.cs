@@ -527,6 +527,33 @@ namespace SysMusicCollection
             }
         }
 
+        public SqlCommand lv(bool espera)
+        {
+
+            if (this.Abrirconexao())
+            {
+                string sql = " select Tipo_Midia, Nome_Autor, Nome_Interprete, Nome_Album ,Data_Album, Data_Compra, Origem_Compra, " + " Observ, Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia inner join " + " Autores on Autores.ID_Autor = Discos.ID_autor inner join Interpretes on Interpretes.ID_Interprete " + " = Discos.Id_Interprete inner join Albuns on Albuns.ID_Album = Discos.ID_Album ";
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(sql, cnx);
+                    return cmd;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    if (espera)
+                        this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         #endregion
 
         #region Pesquisa e Cadastro Discos
