@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,19 +38,10 @@
             this.btnCadastro = new System.Windows.Forms.Button();
             this.txbPesquisa = new System.Windows.Forms.TextBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.lsvPrincipal = new System.Windows.Forms.ListView();
-            this.clhInterprete = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clhAutor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clhNomeMusica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clhAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clhDataAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clhDataCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clhOrigemCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clhObservacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clhNota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
+            this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
+            this.lsvPrincipal = new System.Windows.Forms.ListView();
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -166,79 +152,6 @@
             this.pnlPrincipal.Size = new System.Drawing.Size(566, 376);
             this.pnlPrincipal.TabIndex = 0;
             // 
-            // lsvPrincipal
-            // 
-            this.lsvPrincipal.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clhInterprete,
-            this.clhAutor,
-            this.clhNomeMusica,
-            this.clhAlbum,
-            this.clhDataAlbum,
-            this.clhDataCompra,
-            this.clhOrigemCompra,
-            this.clhObservacao,
-            this.clhNota});
-            this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup6.Header = "Vinil";
-            listViewGroup6.Name = "Vinil";
-            listViewGroup7.Header = "K7";
-            listViewGroup7.Name = "K7";
-            listViewGroup8.Header = "CD";
-            listViewGroup8.Name = "CD";
-            listViewGroup9.Header = "DVD";
-            listViewGroup9.Name = "DVD";
-            listViewGroup10.Header = "Digital";
-            listViewGroup10.Name = "Digital";
-            this.lsvPrincipal.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10});
-            this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(566, 347);
-            this.lsvPrincipal.TabIndex = 0;
-            this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
-            this.lsvPrincipal.View = System.Windows.Forms.View.Details;
-            // 
-            // clhInterprete
-            // 
-            this.clhInterprete.Text = "Intérprete";
-            // 
-            // clhAutor
-            // 
-            this.clhAutor.Text = "Autor";
-            // 
-            // clhNomeMusica
-            // 
-            this.clhNomeMusica.Text = "Música";
-            // 
-            // clhAlbum
-            // 
-            this.clhAlbum.Text = "Álbum";
-            // 
-            // clhDataAlbum
-            // 
-            this.clhDataAlbum.Text = "Lançamento";
-            // 
-            // clhDataCompra
-            // 
-            this.clhDataCompra.Text = "Data Adquirida";
-            // 
-            // clhOrigemCompra
-            // 
-            this.clhOrigemCompra.Text = "Origem da Compra";
-            // 
-            // clhObservacao
-            // 
-            this.clhObservacao.Text = "Observações";
-            // 
-            // clhNota
-            // 
-            this.clhNota.Text = "Nota";
-            // 
-
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -269,10 +182,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lsvPrincipal
+            // 
+            this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.lsvPrincipal.Name = "lsvPrincipal";
+            this.lsvPrincipal.Size = new System.Drawing.Size(566, 347);
+            this.lsvPrincipal.TabIndex = 0;
+            this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(734, 462);
             this.Controls.Add(this.spcPrincipal);
             this.Controls.Add(this.stsPrincipal);
@@ -281,6 +204,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sys Music Collection";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.mnsPrincipal.ResumeLayout(false);
             this.mnsPrincipal.PerformLayout();
             this.spcPrincipal.Panel1.ResumeLayout(false);
@@ -308,20 +232,11 @@
         private System.Windows.Forms.ToolTip tltPrincipal;
         private System.Windows.Forms.TextBox txbPesquisa;
         private System.Windows.Forms.Panel pnlPrincipal;
-        private System.Windows.Forms.ListView lsvPrincipal;
         private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraçõesToolStripMenuItem;
-        private System.Windows.Forms.ColumnHeader clhInterprete;
-        private System.Windows.Forms.ColumnHeader clhAutor;
-        private System.Windows.Forms.ColumnHeader clhNomeMusica;
-        private System.Windows.Forms.ColumnHeader clhAlbum;
-        private System.Windows.Forms.ColumnHeader clhDataAlbum;
-        private System.Windows.Forms.ColumnHeader clhDataCompra;
-        private System.Windows.Forms.ColumnHeader clhOrigemCompra;
-        private System.Windows.Forms.ColumnHeader clhObservacao;
-        private System.Windows.Forms.ColumnHeader clhNota;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView lsvPrincipal;
 
 
     }

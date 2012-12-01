@@ -18,6 +18,8 @@ namespace SysMusicCollection
 /*Felipe*/ //@" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 /*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
+
+
         private string pegasql = "";
         SqlConnection cnx = null;
 
@@ -377,6 +379,47 @@ namespace SysMusicCollection
 
         }
 
+        public List<string> prCombo_AmigosEndereco()
+        {
+
+            SqlCommand listaramigosEndereco = null;
+
+            List<string> comboamigosEnderecos = new List<string>();
+            //List<string> comboamigo = new List<string>();
+            //List<string> cods = new List<string>();
+
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    listaramigosEndereco = new SqlCommand("Select Endereco from Amigos", cnx);
+
+                    SqlDataReader dr = listaramigosEndereco.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        comboamigosEnderecos.Add(dr["Endereco"].ToString());
+
+                    }
+
+                    return comboamigosEnderecos;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         public List<string> prCombo_Discos()
         {
 
@@ -453,32 +496,6 @@ namespace SysMusicCollection
             }
         }
 
-        public SqlCommand lv(bool espera)
-        {
-                                            
-            if (this.Abrirconexao())
-            {
-                string sql = " select Tipo_Midia, Nome_Autor, Nome_Interprete, Nome_Album ,Data_Album, Data_Compra, Origem_Compra, "+                             " Observ, Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia inner join " +                                   " Autores on Autores.ID_Autor = Discos.ID_autor inner join Interpretes on Interpretes.ID_Interprete " +                              " = Discos.Id_Interprete inner join Albuns on Albuns.ID_Album = Discos.ID_Album ";
-                try
-                {
-                    SqlCommand cmd = new SqlCommand(sql,cnx);
-                    return cmd;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-                finally
-                {   if (espera)
-                    this.Fecharconexao();
-                }
-            }
-            else
-            {
-                return null;
-            }
-        }
-
         public DataTable GridEmpPesq(string pesq, int pega)
         {
             string sql = pesq;
@@ -505,6 +522,33 @@ namespace SysMusicCollection
                 finally
                 {
                     this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public SqlCommand lv(bool espera)
+        {
+
+            if (this.Abrirconexao())
+            {
+                string sql = " select Tipo_Midia, Nome_Autor, Nome_Interprete, Nome_Album ,Data_Album, Data_Compra, Origem_Compra, " + " Observ, Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia inner join " + " Autores on Autores.ID_Autor = Discos.ID_autor inner join Interpretes on Interpretes.ID_Interprete " + " = Discos.Id_Interprete inner join Albuns on Albuns.ID_Album = Discos.ID_Album ";
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(sql, cnx);
+                    return cmd;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    if (espera)
+                        this.Fecharconexao();
                 }
             }
             else
@@ -582,24 +626,26 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Count(*) from Autores where Nome_Autor = @Pega";
-                try
-                {
-                    pesqAutor = new SqlCommand(sql, cnx);
-                    pesqAutor.Parameters.AddWithValue("@Pega", Nome);
+               
+                    string sql = " select Count(*) from Autores where Nome_Autor = @Pega";
+                    try
+                    {
+                        pesqAutor = new SqlCommand(sql, cnx);
+                        pesqAutor.Parameters.AddWithValue("@Pega", Nome);
 
-                    int total = (int)pesqAutor.ExecuteScalar();
+                        int total = (int)pesqAutor.ExecuteScalar();
 
-                    return total;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-                finally
-                {
-                    this.Fecharconexao();
-                }
+                        return total;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                    finally
+                    {
+                        this.Fecharconexao();
+                    }
+                
             }
             else
             {

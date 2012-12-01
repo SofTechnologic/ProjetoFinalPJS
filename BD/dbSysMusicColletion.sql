@@ -33,14 +33,14 @@ FOREIGN KEY(Cod_Amigo) REFERENCES Amigos (Cod_Amigo)
 CREATE TABLE Discos (
 Cod_Disco int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Cod_Midia int NOT NULL ,
-ID_Autor int NOT NULL ,
+ID_Autor int,
 ID_Interprete int NOT NULL,
 ID_Album int NOT NULL ,
 Data_Album Varchar(10),
 Data_Compra Varchar(10),
 Origem_Compra Varchar(30),
 Observ Varchar(50),
-Nota decimal,
+Nota varchar(12),
 FOREIGN KEY(Cod_Midia) REFERENCES Midias (Cod_Midia)
 )
 

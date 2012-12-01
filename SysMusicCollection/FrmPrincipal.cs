@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Data;
@@ -63,6 +64,10 @@ namespace SysMusicCollection
 
             dr = epa.ExecuteReader();
 
+            lsvPrincipal.Clear();
+            lsvPrincipal.View = View.Details;
+            lsvPrincipal.FullRowSelect = true;
+            lsvPrincipal.GridLines = true;
             lsvPrincipal.Columns.Add(dr.GetName(0), 60, HorizontalAlignment.Left);
             lsvPrincipal.Columns.Add(dr.GetName(1), 60, HorizontalAlignment.Left);
             lsvPrincipal.Columns.Add(dr.GetName(2), 60, HorizontalAlignment.Left);
@@ -94,6 +99,7 @@ namespace SysMusicCollection
             dr.Close();
 
             s.lv(espera);
+
             
         }
 
@@ -103,5 +109,6 @@ namespace SysMusicCollection
             
         }
         
+
     }
 }
