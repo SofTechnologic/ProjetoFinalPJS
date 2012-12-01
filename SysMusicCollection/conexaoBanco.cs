@@ -13,10 +13,11 @@ namespace SysMusicCollection
     {
 
 
-        private const string sqlConn =
-/* Bruno*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=2;User Instance=True";
+     private const string sqlConn =
+/* Bruno*/ //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=2;User Instance=True";
 /*Felipe*/ //@" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-/*Thiago*/ //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+/*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+
         private string pegasql = "";
         SqlConnection cnx = null;
 
@@ -27,6 +28,7 @@ namespace SysMusicCollection
             cnx = new SqlConnection(sqlConn);
             try
             {
+
                 cnx.Open();
                 return true;
 
@@ -417,7 +419,7 @@ namespace SysMusicCollection
 
         #endregion
 
-        #region Preenchimento dos grids
+        #region Preenchimento dos grids e listview
 
         public DataTable GridEmp()
         {
@@ -442,6 +444,32 @@ namespace SysMusicCollection
                 }
                 finally
                 {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public SqlCommand lv(bool espera)
+        {
+                                            
+            if (this.Abrirconexao())
+            {
+                string sql = " select Tipo_Midia, Nome_Autor, Nome_Interprete, Nome_Album ,Data_Album, Data_Compra, Origem_Compra, "+                             " Observ, Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia inner join " +                                   " Autores on Autores.ID_Autor = Discos.ID_autor inner join Interpretes on Interpretes.ID_Interprete " +                              " = Discos.Id_Interprete inner join Albuns on Albuns.ID_Album = Discos.ID_Album ";
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(sql,cnx);
+                    return cmd;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {   if (espera)
                     this.Fecharconexao();
                 }
             }
