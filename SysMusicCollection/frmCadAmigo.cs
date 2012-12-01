@@ -100,9 +100,15 @@ namespace SysMusicCollection
                     conexaoBanco alb = new conexaoBanco();
                     conexaoBanco mid = new conexaoBanco();
                     //string arr = cboAutor.Text;
-
+                    int codaut = 0;
                     int codinter = inter.PesqCodinter(cboInterprete.Text);
-                    int codaut = aut.PesqCodautor(cboAutor.Text);
+                    if (cboAutor.Text != "")
+                    {
+                        codaut = aut.PesqCodautor(cboAutor.Text);
+                    }
+                    else
+                        codaut = Convert.ToInt32(cboAutor.Text = Enabled.ToString());
+                
                     int codalb = alb.PesqCodalbum(cboAlbum.Text);
                     int codmid = mid.PesqCodmidia(cboMidia.Text);
 

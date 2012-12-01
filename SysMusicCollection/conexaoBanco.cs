@@ -13,10 +13,10 @@ namespace SysMusicCollection
     {
 
 
-     private const string sqlConn =
+     private const string sqlConn = @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 /* Bruno*/ //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=2;User Instance=True";
 /*Felipe*/ //@" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-/*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+///*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
         private string pegasql = "";
         SqlConnection cnx = null;
@@ -596,24 +596,26 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Count(*) from Autores where Nome_Autor = @Pega";
-                try
-                {
-                    pesqAutor = new SqlCommand(sql, cnx);
-                    pesqAutor.Parameters.AddWithValue("@Pega", Nome);
+               
+                    string sql = " select Count(*) from Autores where Nome_Autor = @Pega";
+                    try
+                    {
+                        pesqAutor = new SqlCommand(sql, cnx);
+                        pesqAutor.Parameters.AddWithValue("@Pega", Nome);
 
-                    int total = (int)pesqAutor.ExecuteScalar();
+                        int total = (int)pesqAutor.ExecuteScalar();
 
-                    return total;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-                finally
-                {
-                    this.Fecharconexao();
-                }
+                        return total;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                    finally
+                    {
+                        this.Fecharconexao();
+                    }
+                
             }
             else
             {
