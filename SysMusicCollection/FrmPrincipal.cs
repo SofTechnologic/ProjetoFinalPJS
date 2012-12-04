@@ -68,22 +68,21 @@ namespace SysMusicCollection
             lsvPrincipal.View = View.Details;
             lsvPrincipal.FullRowSelect = true;
             lsvPrincipal.GridLines = true;
-            lsvPrincipal.Columns.Add(dr.GetName(0), 60, HorizontalAlignment.Left);
-            lsvPrincipal.Columns.Add(dr.GetName(1), 60, HorizontalAlignment.Left);
-            lsvPrincipal.Columns.Add(dr.GetName(2), 60, HorizontalAlignment.Left);
-            lsvPrincipal.Columns.Add(dr.GetName(3), 60, HorizontalAlignment.Left);
-            lsvPrincipal.Columns.Add(dr.GetName(4), 60, HorizontalAlignment.Left);
-            lsvPrincipal.Columns.Add(dr.GetName(5), 60, HorizontalAlignment.Left);
-            lsvPrincipal.Columns.Add(dr.GetName(6), 60, HorizontalAlignment.Left);
-            lsvPrincipal.Columns.Add(dr.GetName(7), 60, HorizontalAlignment.Left);
-            lsvPrincipal.Columns.Add(dr.GetName(8), 60, HorizontalAlignment.Left);
+            //lsvPrincipal.Columns.Add(dr.GetName(0), 60, HorizontalAlignment.Left);
+            lsvPrincipal.Columns.Add(dr.GetName(1), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(dr.GetName(2), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(dr.GetName(3), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(dr.GetName(4), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(dr.GetName(5), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(dr.GetName(6), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(dr.GetName(7), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(dr.GetName(8), 120, HorizontalAlignment.Center);
 
 
             while (dr.Read())
             {
-                string midia = dr[0].ToString();
-                ListViewItem teste = new ListViewItem(midia, 0);
-                teste.SubItems.Add(dr[1].ToString());
+                string nome = dr[1].ToString();
+                ListViewItem teste = new ListViewItem(nome, 0);
                 teste.SubItems.Add(dr[2].ToString());
                 teste.SubItems.Add(dr[3].ToString());
                 teste.SubItems.Add(dr[4].ToString());
@@ -91,6 +90,7 @@ namespace SysMusicCollection
                 teste.SubItems.Add(dr[6].ToString());
                 teste.SubItems.Add(dr[7].ToString());
                 teste.SubItems.Add(dr[8].ToString());
+                //teste.SubItems.Add(dr[8].ToString());
                 teste.Group = lsvPrincipal.Groups[dr[0].ToString()];
 
                 lsvPrincipal.Items.Add(teste);
@@ -101,14 +101,7 @@ namespace SysMusicCollection
             s.lv(espera);
 
             
-        }
-
-        private void devolverToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-            
-        }
-        
+        }       
 
     }
 }
