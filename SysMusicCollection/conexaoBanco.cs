@@ -633,10 +633,11 @@ namespace SysMusicCollection
                         pesqAutor = new SqlCommand(sql, cnx);
                         pesqAutor.Parameters.AddWithValue("@Pega", Nome);
 
-                         total = (int)pesqAutor.ExecuteScalar();
+                        total = (int)pesqAutor.ExecuteScalar();
 
                         return total;
                     }
+
                     else if (Nome == "")
                     {
                         string sql = " select Count(*) from Autores where Nome_Autor = 'Nada Consta'";
@@ -645,8 +646,8 @@ namespace SysMusicCollection
                         pesqAutor = new SqlCommand(sql, cnx);
                         //pesqAutor.Parameters.AddWithValue("@Pega", Nome);
 
-                         total = (int)pesqAutor.ExecuteScalar();
-                         return total;
+                        total = (int)pesqAutor.ExecuteScalar();
+                        return total;
                     }
                     return total;
                 }

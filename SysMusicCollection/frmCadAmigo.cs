@@ -77,8 +77,7 @@ namespace SysMusicCollection
                         }
                         else
                         {
-                            cboAutor.Text = "Nada Cosnta";
-                            autor.Add(cboAutor.Text);
+                            autor.Add(cboAutor.Text = "Nada Consta");
 
                             passa.CadastrarAutor(autor);
                         }
@@ -171,8 +170,7 @@ namespace SysMusicCollection
                         {
                             if (t.Name == cboAlbum.Name)
                             {
-                                cboAlbum.BackColor = System.Drawing.Color.RosyBrown;
-                                t.Text = "Digite o Album";
+                                erpErro.SetError(t, "Digite Album");
                             }
                             if (t.Name == cboInterprete.Name)
                                 erpErro.SetError(t, "Digite o Campo Interprete");
