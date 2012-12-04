@@ -101,14 +101,7 @@ namespace SysMusicCollection
             s.lv(espera);
 
             
-        }
-
-        private void devolverToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-            
-        }
-        
+        }       
 
     }
 }

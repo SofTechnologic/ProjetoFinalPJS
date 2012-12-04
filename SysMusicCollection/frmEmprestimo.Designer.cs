@@ -48,6 +48,8 @@
             this.dgvDevolucao = new System.Windows.Forms.DataGridView();
             this.btnDevolver = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lbldtDevolucao = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -88,6 +90,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabPage2.Controls.Add(this.lbldtDevolucao);
+            this.tabPage2.Controls.Add(this.dateTimePicker1);
             this.tabPage2.Controls.Add(this.btnLimpar);
             this.tabPage2.Controls.Add(this.btnDevolver);
             this.tabPage2.Controls.Add(this.dgvDevolucao);
@@ -237,9 +241,9 @@
             // dgvDevolucao
             // 
             this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDevolucao.Location = new System.Drawing.Point(6, 77);
+            this.dgvDevolucao.Location = new System.Drawing.Point(6, 116);
             this.dgvDevolucao.Name = "dgvDevolucao";
-            this.dgvDevolucao.Size = new System.Drawing.Size(433, 197);
+            this.dgvDevolucao.Size = new System.Drawing.Size(433, 158);
             this.dgvDevolucao.TabIndex = 3;
             // 
             // btnDevolver
@@ -259,6 +263,22 @@
             this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(124, 77);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(315, 20);
+            this.dateTimePicker1.TabIndex = 6;
+            // 
+            // lbldtDevolucao
+            // 
+            this.lbldtDevolucao.AutoSize = true;
+            this.lbldtDevolucao.Location = new System.Drawing.Point(15, 84);
+            this.lbldtDevolucao.Name = "lbldtDevolucao";
+            this.lbldtDevolucao.Size = new System.Drawing.Size(103, 13);
+            this.lbldtDevolucao.TabIndex = 7;
+            this.lbldtDevolucao.Text = "Data de Devolução:";
             // 
             // frmEmprestimo
             // 
@@ -307,6 +327,8 @@
         private System.Windows.Forms.ComboBox cboDevolver;
         private System.Windows.Forms.CheckBox ckbMidias;
         private System.Windows.Forms.CheckBox ckbAmigos;
+        private System.Windows.Forms.Label lbldtDevolucao;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
 
     }
 }
