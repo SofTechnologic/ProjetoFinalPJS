@@ -92,5 +92,5 @@ go
 delete from Midias where Cod_Midia = 0;
 go
 
-select * from Midias;
+select * from Discos;
 go

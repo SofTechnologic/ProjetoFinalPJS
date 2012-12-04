@@ -68,7 +68,7 @@ namespace SysMusicCollection
                 {
                     cadastrardiscos = new SqlCommand("INSERT INTO Discos (Cod_Midia , ID_Autor , ID_Interprete , ID_Album , Data_Album , Data_Compra , Origem_Compra , Observ , Nota) VALUES (@Cod_Midia , @ID_Autor, @ID_Interprete , @ID_Album, @Data_Album, @Data_Compra, @Origem_Compra, @Observ, @Nota )" , cnx);
 
-
+                        //p_cadDiscos[1] = null;
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Cod_Midia", p_cadDiscos[0]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@ID_Autor", p_cadDiscos[1]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@ID_Interprete", p_cadDiscos[2]));
@@ -620,24 +620,40 @@ namespace SysMusicCollection
         public int PesqAutor(string Nome)
         {
             SqlCommand pesqAutor = null;
-
+            int total =0;
             if (this.Abrirconexao())
             {
-               
-                    string sql = " select Count(*) from Autores where Nome_Autor = @Pega";
-                    try
+                try
+                {
+                    if (Nome != "")
                     {
+                        string sql = " select Count(*) from Autores where Nome_Autor = @Pega";
+
+
                         pesqAutor = new SqlCommand(sql, cnx);
                         pesqAutor.Parameters.AddWithValue("@Pega", Nome);
 
-                        int total = (int)pesqAutor.ExecuteScalar();
+                         total = (int)pesqAutor.ExecuteScalar();
 
                         return total;
                     }
-                    catch (Exception ex)
+                    else if (Nome == "")
                     {
-                        throw new Exception(ex.Message);
+                        string sql = " select Count(*) from Autores where Nome_Autor = 'Nada Consta'";
+
+
+                        pesqAutor = new SqlCommand(sql, cnx);
+                        //pesqAutor.Parameters.AddWithValue("@Pega", Nome);
+
+                         total = (int)pesqAutor.ExecuteScalar();
+                         return total;
                     }
+                    return total;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
                     finally
                     {
                         this.Fecharconexao();
@@ -657,11 +673,13 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    cadastrarautor = new SqlCommand("Insert Into Autores (Nome_Autor) values (@N)", cnx);
-                    cadastrarautor.Parameters.Add(new SqlParameter("@N", p_Cadautor[0]));
+                    
+                        cadastrarautor = new SqlCommand("Insert Into Autores (Nome_Autor) values (@N)", cnx);
+                        cadastrarautor.Parameters.Add(new SqlParameter("@N", p_Cadautor[0]));
 
-                    cadastrarautor.ExecuteNonQuery();
-
+                        cadastrarautor.ExecuteNonQuery();
+                    
+                    
                     return true;
                 }
                 catch (Exception ex)

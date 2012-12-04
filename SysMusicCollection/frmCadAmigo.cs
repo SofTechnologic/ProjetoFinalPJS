@@ -67,11 +67,21 @@ namespace SysMusicCollection
                 {
 
                     ArrayList autor = new ArrayList();
-                    if (passa.PesqAutor(cboAutor.Text) <= 0 && cboAutor.Text != "")
+                    if (passa.PesqAutor(cboAutor.Text) <=0 && (cboAutor.Text != "" || cboAutor.Text == ""))
                     {
-                        autor.Add(cboAutor.Text);
+                        if (cboAutor.Text != "")
+                        {
+                            autor.Add(cboAutor.Text);
 
-                        passa.CadastrarAutor(autor);
+                            passa.CadastrarAutor(autor);
+                        }
+                        else
+                        {
+                            cboAutor.Text = "Nada Cosnta";
+                            autor.Add(cboAutor.Text);
+
+                            passa.CadastrarAutor(autor);
+                        }
                     }
 
                     //conexaoBanco passa = new conexaoBanco();
@@ -100,20 +110,18 @@ namespace SysMusicCollection
                     conexaoBanco alb = new conexaoBanco();
                     conexaoBanco mid = new conexaoBanco();
                     //string arr = cboAutor.Text;
-                    int codaut = 0;
-                    int codinter = inter.PesqCodinter(cboInterprete.Text);
-                    if (cboAutor.Text != "")
-                    {
-                        codaut = aut.PesqCodautor(cboAutor.Text);
-                    }
-                    else
-                        codaut = Convert.ToInt32(cboAutor.Text = Enabled.ToString());
-                
+                    int codinter = inter.PesqCodinter(cboInterprete.Text);                  
+                    int  codaut = aut.PesqCodautor(cboAutor.Text);            
                     int codalb = alb.PesqCodalbum(cboAlbum.Text);
                     int codmid = mid.PesqCodmidia(cboMidia.Text);
-
+                    string coddaut;
                     arrdisc.Add(codmid);
-                    arrdisc.Add(codaut);
+                    if (codaut == 0)
+                    {
+                        arrdisc.Add(codalb);
+                    }
+                    else
+                        arrdisc.Add(codaut);
                     arrdisc.Add(codinter);
                     arrdisc.Add(codalb);
                     arrdisc.Add(dtpDataAlbum.Value.ToShortDateString());
@@ -162,7 +170,10 @@ namespace SysMusicCollection
                         if (t.Text == "")
                         {
                             if (t.Name == cboAlbum.Name)
-                                erpErro.SetError(t, "Digite o Campo Album");
+                            {
+                                cboAlbum.BackColor = System.Drawing.Color.RosyBrown;
+                                t.Text = "Digite o Album";
+                            }
                             if (t.Name == cboInterprete.Name)
                                 erpErro.SetError(t, "Digite o Campo Interprete");
                         }
@@ -287,6 +298,13 @@ namespace SysMusicCollection
             cboEndereco.DataSource = pegaEndereco.prCombo_AmigosEndereco();
             cboEndereco.DisplayMember = "Endereco";
             cboEndereco.Text = "";
+        }
+
+        private void cboAlbum_Enter(object sender, EventArgs e)
+        {
+            cboAlbum.Text = "";
+            cboAlbum.BackColor = System.Drawing.Color.White;
+
         }
     }
 }
