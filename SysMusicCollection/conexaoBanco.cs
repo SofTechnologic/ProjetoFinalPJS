@@ -714,6 +714,40 @@ namespace SysMusicCollection
             }
         }
 
+        public DataTable PesqAmigosgrid(string passasql, string param)
+        {
+            SqlCommand pesqAmigosgrid = null;
+
+            if (this.Abrirconexao())
+            {
+                string sql = passasql;
+                try
+                {
+                    pesqAmigosgrid = new SqlCommand(sql, cnx);
+                    pesqAmigosgrid.Parameters.Add(new SqlParameter ("@Pega",param));
+                    SqlDataAdapter adp = new SqlDataAdapter(pesqAmigosgrid);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    pesqAmigosgrid.ExecuteNonQuery();
+                    return dt;
+
+                    
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public bool CadastrarAlbum(ArrayList p_Cadalbum)
         {
             SqlCommand cadastraralbum = null;
