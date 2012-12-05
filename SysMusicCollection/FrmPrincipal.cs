@@ -98,5 +98,10 @@ namespace SysMusicCollection
 
             s.lv(espera);
         }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
