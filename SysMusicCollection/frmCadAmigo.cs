@@ -80,6 +80,7 @@ namespace SysMusicCollection
                             autor.Add(cboAutor.Text = "Nada Consta");
 
                             passa.CadastrarAutor(autor);
+                            cboAutor.Text = "";
                         }
                     }
 
@@ -113,13 +114,7 @@ namespace SysMusicCollection
                     int  codaut = aut.PesqCodautor(cboAutor.Text);            
                     int codalb = alb.PesqCodalbum(cboAlbum.Text);
                     int codmid = mid.PesqCodmidia(cboMidia.Text);
-                    string coddaut;
                     arrdisc.Add(codmid);
-                    if (codaut == 0)
-                    {
-                        arrdisc.Add(codalb);
-                    }
-                    else
                         arrdisc.Add(codaut);
                     arrdisc.Add(codinter);
                     arrdisc.Add(codalb);

@@ -277,7 +277,10 @@ namespace SysMusicCollection
 
                     while (dr.Read())
                     {
-                        comboAutor.Add(dr["Nome_Autor"].ToString());
+                        if (dr["Nome_Autor"].ToString() != "Nada Consta")
+                        {
+                            comboAutor.Add(dr["Nome_Autor"].ToString());
+                        }
 
                     }
 
@@ -647,7 +650,6 @@ namespace SysMusicCollection
                         //pesqAutor.Parameters.AddWithValue("@Pega", Nome);
 
                         total = (int)pesqAutor.ExecuteScalar();
-                        return total;
                     }
                     return total;
                 }
@@ -800,16 +802,29 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                if (Nome != "")
-                {
-                    string sql = "select ID_Autor from Autores where Nome_Autor = @Pega";
+                
                     try
                     {
-                        pesqcod = new SqlCommand(sql, cnx);
-                        pesqcod.Parameters.AddWithValue("@Pega", Nome);
-                        //pesqInter.ExecuteNonQuery();
-                        int cd = (int)pesqcod.ExecuteScalar();
-                        return cd;
+                        if (Nome != "")
+                        {
+                            string sql = "select ID_Autor from Autores where Nome_Autor = @Pega";
+                            pesqcod = new SqlCommand(sql, cnx);
+                            pesqcod.Parameters.AddWithValue("@Pega", Nome);
+                            //pesqInter.ExecuteNonQuery();
+                            int cd = (int)pesqcod.ExecuteScalar();
+                            return cd;
+                        }
+                        else
+                        {
+                            string Nomea = Nome;
+                            Nomea = "Nada Consta";
+                            string sql = "select ID_Autor from Autores where Nome_Autor = @Pega";
+                            pesqcod = new SqlCommand(sql, cnx);
+                            pesqcod.Parameters.AddWithValue("@Pega", Nomea);
+                            //pesqInter.ExecuteNonQuery();
+                            int cd = (int)pesqcod.ExecuteScalar();
+                            return cd;
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -820,8 +835,7 @@ namespace SysMusicCollection
                         this.Fecharconexao();
                     }
                 }
-                return 0;
-            }
+            
             else
             {
                 return 0;
