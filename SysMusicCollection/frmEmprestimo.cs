@@ -16,6 +16,8 @@ namespace SysMusicCollection
         private int codamigo;
         private int coddisc;
         private int codemp;
+        conexaoBanco mds = new conexaoBanco();
+        conexaoBanco pega = new conexaoBanco();
         
         public frmEmprestimo()
         {
@@ -24,17 +26,16 @@ namespace SysMusicCollection
 
         private void frmEmprestimo_Load(object sender, EventArgs e)
         {
-            conexaoBanco pega = new conexaoBanco();
+            
             cboNomeAmigo.DataSource = pega.prCombo_Amigos();
 
             cboNomeAmigo.DisplayMember = "Nome";
 
-            conexaoBanco mds = new conexaoBanco();
+            
             cboNomeMidia.DataSource = mds.prCombo_Discos();
             cboNomeMidia.DisplayMember = "Nome_Album";
             
-            conexaoBanco grd = new conexaoBanco();
-            cboDevolver.DataSource = pega.prCombo_Amigos();
+            
 
         }
 
@@ -117,6 +118,7 @@ namespace SysMusicCollection
            if (ckbAmigos.Checked)
            {
                ckbMidias.Checked = false;
+               cboDevolver.DataSource = pega.prCombo_Amigos();
            }
 
        }
@@ -126,6 +128,8 @@ namespace SysMusicCollection
            if (ckbMidias.Checked)
            {
                ckbAmigos.Checked = false;
+               cboDevolver.DataSource = mds.prCombo_Discos();
+               cboDevolver.DisplayMember = "Nome_Album";
            }
        }
 
@@ -139,7 +143,7 @@ namespace SysMusicCollection
 
                if (ckbAmigos.Checked)
                {
-
+                      
                       passasql = " select Nome_Album from Albuns inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
                                  " inner join Itens_Emprestimo ON Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " +
                                  " inner Join Emprestimos ON Emprestimos.Num_Emprestimo = Itens_Emprestimo.Num_Emprestimo " +
@@ -150,7 +154,13 @@ namespace SysMusicCollection
 
                if (ckbMidias.Checked)
                {
+                 
+                   passasql = " select Nome_Album from Albuns inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
+                                 " inner join Itens_Emprestimo ON Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " +
+                                 " inner Join Emprestimos ON Emprestimos.Num_Emprestimo = Itens_Emprestimo.Num_Emprestimo " +
+                                 " inner join Amigos ON Amigos.Cod_Amigo = Emprestimos.Cod_Amigo WHERE Album.Nome_Album = @Pega";
 
+                   dgvDevolucao.DataSource = pesqdevolve.PesqAmigosgrid(passasql, cboDevolver.Text);
                }
 
            }
