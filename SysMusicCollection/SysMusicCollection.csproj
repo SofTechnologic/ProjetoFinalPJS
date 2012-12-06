@@ -53,6 +53,12 @@
     <Compile Include="frmCadAmigo.Designer.cs">
       <DependentUpon>frmCadAmigo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarDiscos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarDiscos.Designer.cs">
+      <DependentUpon>frmEditarDiscos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmprestimo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCadAmigo.resx">
       <DependentUpon>frmCadAmigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarDiscos.resx">
+      <DependentUpon>frmEditarDiscos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmprestimo.resx">
       <DependentUpon>frmEmprestimo.cs</DependentUpon>

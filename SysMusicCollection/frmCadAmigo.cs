@@ -19,6 +19,15 @@ namespace SysMusicCollection
             InitializeComponent();
 
         }
+        frmPrincipal frmprincipal;
+
+        public frmCadastro(frmPrincipal formPric)
+        {
+            InitializeComponent();
+            frmprincipal = formPric;
+        }
+
+        
 
         public void passaValoresParaCombobox()
         {
@@ -127,12 +136,12 @@ namespace SysMusicCollection
 
                     disc.CadastrarDiscos(arrdisc);
                 }
-                passaValoresParaCombobox();
-                frmPrincipal empre = new frmPrincipal();
-                empre.preenchelist();       
+                passaValoresParaCombobox();      
                 limpaCampos();
                 if (cboMidia.Text == "N/C")
                     erpErro.SetError(cboMidia, "");
+
+                frmprincipal.preenchelist();
         }
 
         public int Nota(string notas)

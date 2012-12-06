@@ -20,6 +20,7 @@ namespace SysMusicCollection
 
 
 
+
         private string pegasql = "";
         SqlConnection cnx = null;
 
@@ -69,7 +70,7 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    cadastrardiscos = new SqlCommand("INSERT INTO Discos (Cod_Midia , ID_Autor , ID_Interprete , ID_Album , Data_Album , Data_Compra , Origem_Compra , Observ , Nota) VALUES (@Cod_Midia , @ID_Autor, @ID_Interprete , @ID_Album, @Data_Album, @Data_Compra, @Origem_Compra, @Observ, @Nota )" , cnx);
+                    cadastrardiscos = new SqlCommand("INSERT INTO Discos (Cod_Midia , ID_Autor , ID_Interprete , ID_Album , Data_Album , Data_Compra , Origem_Compra , Observ , Nota) VALUES (@Cod_Midia , @ID_Autor, @ID_Interprete , @ID_Album, @Data_Album, @Data_Compra, @Origem_Compra, @Observ, @Nota )", cnx);
 
                         //p_cadDiscos[1] = null;
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Cod_Midia", p_cadDiscos[0]));
@@ -173,6 +174,39 @@ namespace SysMusicCollection
                     cadastraritens.Parameters.Add(new SqlParameter("@Ne", codemp));
 
                     cadastraritens.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool CadastrarDevolucao(string data, int codemp, int codamg, string dtemp, int coddisc)
+        {
+            SqlCommand cadastrardatadevolve = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    cadastrardatadevolve = new SqlCommand("Update Itens_Emprestimo SET Data_Devolucao = @DT from Itens_Emprestimo inner join Emprestimos on Itens_Emprestimo.Num_Emprestimo = Emprestimos.Num_Emprestimo where (Itens_Emprestimo.Num_Emprestimo = @Cod and Emprestimos.Cod_Amigo = @Am and Emprestimos.Data_Emprestimo = @Dtemp and Itens_Emprestimo.Cod_Disco = @Coddisc) ", cnx);
+
+                    cadastrardatadevolve.Parameters.Add(new SqlParameter("@DT", data));
+                    cadastrardatadevolve.Parameters.AddWithValue("@Cod", codemp);
+                    cadastrardatadevolve.Parameters.AddWithValue("@Am", codamg);
+                    cadastrardatadevolve.Parameters.AddWithValue("@Dtemp", dtemp);
+                    cadastrardatadevolve.Parameters.AddWithValue("@Coddisc", coddisc);
+                    cadastrardatadevolve.ExecuteNonQuery();
 
                     return true;
                 }
@@ -667,6 +701,7 @@ namespace SysMusicCollection
                         this.Fecharconexao();
                     }
                 
+
             }
             else
             {
@@ -747,14 +782,14 @@ namespace SysMusicCollection
                 try
                 {
                     pesqAmigosgrid = new SqlCommand(sql, cnx);
-                    pesqAmigosgrid.Parameters.Add(new SqlParameter ("@Pega",param));
+                    pesqAmigosgrid.Parameters.Add(new SqlParameter("@Pega", param));
                     SqlDataAdapter adp = new SqlDataAdapter(pesqAmigosgrid);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
                     pesqAmigosgrid.ExecuteNonQuery();
                     return dt;
 
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -888,26 +923,26 @@ namespace SysMusicCollection
             if (this.Abrirconexao())
             {
 
-                
-                    string sql = "select ID_Album from Albuns where Nome_Album = @Pega";
-                    try
-                    {
-                        pesqcod = new SqlCommand(sql, cnx);
-                        pesqcod.Parameters.AddWithValue("@Pega", Nome);
-                        //pesqInter.ExecuteNonQuery();
-                        int cd = (int)pesqcod.ExecuteScalar();
-                        return cd;
-                    }
 
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                    }
+                string sql = "select ID_Album from Albuns where Nome_Album = @Pega";
+                try
+                {
+                    pesqcod = new SqlCommand(sql, cnx);
+                    pesqcod.Parameters.AddWithValue("@Pega", Nome);
+                    //pesqInter.ExecuteNonQuery();
+                    int cd = (int)pesqcod.ExecuteScalar();
+                    return cd;
+                }
 
-                    finally
-                    {
-                        this.Fecharconexao();
-                    }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+
+                finally
+                {
+                    this.Fecharconexao();
+                }
             }
             else
             {
@@ -1033,6 +1068,69 @@ namespace SysMusicCollection
             else
             {
                 return 0;
+            }
+        }
+
+        public int PesqCodItemEmp(string disco, int codam, string data)
+        {
+            SqlCommand PesqCodItemEmp = null;
+
+            if (this.Abrirconexao())
+            {
+                string sql = "select Emprestimos.Num_Emprestimo from Itens_Emprestimo inner join emprestimos on Emprestimos.Num_Emprestimo = Itens_Emprestimo.Num_Emprestimo inner join  Discos on Itens_Emprestimo.Cod_Disco = Discos.Cod_Disco inner join Albuns on Discos.Id_Album = Albuns.ID_Album where (Albuns.Nome_Album = @Acha and Emprestimos.Cod_amigo = @cd and Emprestimos.Data_Emprestimo = @dt) ";
+                try
+                {
+                    PesqCodItemEmp = new SqlCommand(sql, cnx);
+                    PesqCodItemEmp.Parameters.AddWithValue("@acha", disco);
+                    PesqCodItemEmp.Parameters.AddWithValue("@cd", codam);
+                    PesqCodItemEmp.Parameters.AddWithValue("@dt", data);
+                    //PesqCodItemEmp.Parameters.AddWithValue("@cdam", Cdam);
+                    int cd = (int)PesqCodItemEmp.ExecuteScalar();
+                    return cd;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public string PesqDataEmp(int codam)
+        {
+            SqlCommand pesqdt = null;
+
+            if (this.Abrirconexao())
+            {
+                string sql = "select Data_Emprestimo from Emprestimos inner join Itens_Emprestimo on Emprestimos.Num_Emprestimo = Itens_Emprestimo.Num_Emprestimo where Emprestimos.Cod_Amigo = @cd and Itens_Emprestimo.Data_Devolucao is null";
+                try
+                {
+                    pesqdt = new SqlCommand(sql, cnx);
+                    pesqdt.Parameters.AddWithValue("@cd", codam);
+                    //pesqdt.Parameters.AddWithValue("@cdam", Cdam);
+                    //pesqInter.ExecuteNonQuery();
+                    string dt = (string)pesqdt.ExecuteScalar();
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
             }
         }
 
