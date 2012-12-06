@@ -140,10 +140,10 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    cadastraritens = new SqlCommand("Insert Into Emprestimos (Data_Emprestimo,Cod_Amigo) values (@dt,@CD)", cnx);
+                    cadastraritens = new SqlCommand("Insert Into Emprestimos (Data_Emprestimo , Cod_Amigo) values (@dt,@CD)", cnx);
                     cadastraritens.Parameters.Add(new SqlParameter("@dt", p_codem[0]));
                     cadastraritens.Parameters.Add(new SqlParameter("@CD", p_codem[1]));
-                    cadastraritens.ExecuteNonQuery();
+                     cadastraritens.ExecuteNonQuery();
 
                     return true;
                 }

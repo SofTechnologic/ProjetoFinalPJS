@@ -50,6 +50,7 @@
             this.cboDevolver = new System.Windows.Forms.ComboBox();
             this.ckbMidias = new System.Windows.Forms.CheckBox();
             this.ckbAmigos = new System.Windows.Forms.CheckBox();
+            this.CL1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tbcEmprestimo.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).BeginInit();
@@ -95,6 +96,7 @@
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEmprestar
             // 
@@ -104,6 +106,7 @@
             this.btnEmprestar.TabIndex = 19;
             this.btnEmprestar.Text = "Emprestar";
             this.btnEmprestar.UseVisualStyleBackColor = true;
+            this.btnEmprestar.Click += new System.EventHandler(this.btnEmprestar_Click);
             // 
             // btnPesquisar
             // 
@@ -121,6 +124,7 @@
             this.cboNomeMidia.Name = "cboNomeMidia";
             this.cboNomeMidia.Size = new System.Drawing.Size(401, 21);
             this.cboNomeMidia.TabIndex = 17;
+            this.cboNomeMidia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNomeMidia_KeyPress);
             // 
             // lblNomeMidia
             // 
@@ -191,6 +195,7 @@
             this.cboNomeAmigo.Name = "cboNomeAmigo";
             this.cboNomeAmigo.Size = new System.Drawing.Size(430, 21);
             this.cboNomeAmigo.TabIndex = 11;
+            this.cboNomeAmigo.Leave += new System.EventHandler(this.cboNomeAmigo_Leave);
             // 
             // tabPage2
             // 
@@ -243,15 +248,17 @@
             this.btnDevolver.TabIndex = 4;
             this.btnDevolver.Text = "Devolver";
             this.btnDevolver.UseVisualStyleBackColor = true;
+            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
             // 
             // dgvDevolucao
             // 
             this.dgvDevolucao.AllowUserToAddRows = false;
             this.dgvDevolucao.AllowUserToDeleteRows = false;
             this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDevolucao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CL1});
             this.dgvDevolucao.Location = new System.Drawing.Point(6, 116);
             this.dgvDevolucao.Name = "dgvDevolucao";
-            this.dgvDevolucao.ReadOnly = true;
             this.dgvDevolucao.Size = new System.Drawing.Size(433, 158);
             this.dgvDevolucao.TabIndex = 3;
             // 
@@ -285,6 +292,13 @@
             this.ckbAmigos.Text = "Amigos";
             this.ckbAmigos.UseVisualStyleBackColor = true;
             this.ckbAmigos.CheckedChanged += new System.EventHandler(this.ckbAmigos_CheckedChanged);
+            // 
+            // CL1
+            // 
+            this.CL1.HeaderText = "Devolver";
+            this.CL1.Name = "CL1";
+            this.CL1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CL1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmEmprestimo
             // 
@@ -335,6 +349,7 @@
         private System.Windows.Forms.CheckBox ckbAmigos;
         private System.Windows.Forms.Label lbldtDevolucao;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CL1;
 
     }
 }
