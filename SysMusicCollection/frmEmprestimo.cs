@@ -162,7 +162,7 @@ namespace SysMusicCollection
         {
             conexaoBanco devolve = new conexaoBanco();
             int codemp;
-            string data = dtpDevolucao.Value.ToShortDateString();
+            string data = dateTimePicker1.Value.ToShortDateString();
             string pegadt;
             int i;
 

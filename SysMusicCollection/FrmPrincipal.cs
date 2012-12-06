@@ -101,6 +101,12 @@ namespace SysMusicCollection
             s.lv(espera);
 
             
+        }
+
+        private void relatóriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRelatorios frm = new frmRelatorios();
+            frm.Show();
         }       
 
     }
