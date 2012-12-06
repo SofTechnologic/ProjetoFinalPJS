@@ -13,10 +13,12 @@ namespace SysMusicCollection
     {
 
 
-     private const string sqlConn = @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+        private const string sqlConn = @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 /* Bruno*/ //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=2;User Instance=True";
 /*Felipe*/ //@" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 ///*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+
+
 
         private string pegasql = "";
         SqlConnection cnx = null;
@@ -28,6 +30,7 @@ namespace SysMusicCollection
             cnx = new SqlConnection(sqlConn);
             try
             {
+
                 cnx.Open();
                 return true;
 
@@ -462,7 +465,7 @@ namespace SysMusicCollection
 
         #endregion
 
-        #region Preenchimento dos grids
+        #region Preenchimento dos grids e listview
 
         public DataTable GridEmp()
         {
@@ -535,7 +538,9 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Tipo_Midia, Nome_Autor, Nome_Interprete, Nome_Album ,Data_Album, Data_Compra, Origem_Compra, " + " Observ, Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia inner join " + " Autores on Autores.ID_Autor = Discos.ID_autor inner join Interpretes on Interpretes.ID_Interprete " + " = Discos.Id_Interprete inner join Albuns on Albuns.ID_Album = Discos.ID_Album ";
+                string sql = " select Cod_Disco, Tipo_Midia, Nome_Autor, Nome_Interprete, Nome_Album ,Data_Album, Data_Compra, Origem_Compra, " + 
+                    " Observ, Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia inner join " + " Autores on Autores.ID_Autor = Discos.ID_autor inner join Interpretes on Interpretes.ID_Interprete " +
+                    " = Discos.Id_Interprete inner join Albuns on Albuns.ID_Album = Discos.ID_Album ";
                 try
                 {
                     SqlCommand cmd = new SqlCommand(sql, cnx);
@@ -729,6 +734,40 @@ namespace SysMusicCollection
             else
             {
                 return 0;
+            }
+        }
+
+        public DataTable PesqAmigosgrid(string passasql, string param)
+        {
+            SqlCommand pesqAmigosgrid = null;
+
+            if (this.Abrirconexao())
+            {
+                string sql = passasql;
+                try
+                {
+                    pesqAmigosgrid = new SqlCommand(sql, cnx);
+                    pesqAmigosgrid.Parameters.Add(new SqlParameter ("@Pega",param));
+                    SqlDataAdapter adp = new SqlDataAdapter(pesqAmigosgrid);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    pesqAmigosgrid.ExecuteNonQuery();
+                    return dt;
+
+                    
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
             }
         }
 
@@ -1000,7 +1039,37 @@ namespace SysMusicCollection
 
         #endregion
 
+        public void removeItemBanco(List<string> chave)
+        {
+            SqlCommand DeletarDisco = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    for(int i=0;i < chave.Count ; i++)
+                    {
 
+                        DeletarDisco = new SqlCommand("Delete from Discos where Cod_Disco = @apagar", cnx);
+
+                        DeletarDisco.Parameters.Add(new SqlParameter("@apagar", chave[i]));
+
+                        DeletarDisco.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                this.Fecharconexao();
+            }
+        }
         //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
         //{
         //    SqlCommand listaramigos = null;

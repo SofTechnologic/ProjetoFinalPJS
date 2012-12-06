@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,10 +47,10 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
             this.lsvPrincipal = new System.Windows.Forms.ListView();
-            this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -107,7 +113,7 @@
             this.spcPrincipal.Panel2.Controls.Add(this.txbPesquisa);
             this.spcPrincipal.Panel2.Controls.Add(this.pnlPrincipal);
             this.spcPrincipal.Size = new System.Drawing.Size(734, 416);
-            this.spcPrincipal.SplitterDistance = 164;
+            this.spcPrincipal.SplitterDistance = 163;
             this.spcPrincipal.TabIndex = 2;
             // 
             // btnEmprDev
@@ -190,6 +196,26 @@
             // 
             this.lsvPrincipal.ContextMenuStrip = this.contextMenuStrip1;
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            listViewGroup1.Header = "DVD";
+            listViewGroup1.Name = "DVD";
+            listViewGroup2.Header = "CD";
+            listViewGroup2.Name = "CD";
+            listViewGroup3.Header = "VHS";
+            listViewGroup3.Name = "VHS";
+            listViewGroup4.Header = "Vinil";
+            listViewGroup4.Name = "Vinil";
+            listViewGroup5.Header = "K7";
+            listViewGroup5.Name = "K7";
+            listViewGroup6.Header = "Digital";
+            listViewGroup6.Name = "Digital";
+            this.lsvPrincipal.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6});
+            this.lsvPrincipal.LabelEdit = true;
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
             this.lsvPrincipal.Size = new System.Drawing.Size(566, 347);
@@ -203,12 +229,12 @@
             this.editarToolStripMenuItem,
             this.excluirToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 48);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
@@ -217,6 +243,7 @@
             this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
             this.excluirToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.excluirToolStripMenuItem.Text = "Excluir";
+            this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 

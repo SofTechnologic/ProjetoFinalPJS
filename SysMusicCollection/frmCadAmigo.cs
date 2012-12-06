@@ -128,7 +128,11 @@ namespace SysMusicCollection
                     disc.CadastrarDiscos(arrdisc);
                 }
                 passaValoresParaCombobox();
+                frmPrincipal empre = new frmPrincipal();
+                empre.preenchelist();       
                 limpaCampos();
+                if (cboMidia.Text == "N/C")
+                    erpErro.SetError(cboMidia, "");
         }
 
         public int Nota(string notas)
@@ -170,14 +174,15 @@ namespace SysMusicCollection
                             if (t.Name == cboInterprete.Name)
                                 erpErro.SetError(t, "Digite o Campo Interprete");
                         }
-                        else if (t.Text == "N/C")
+                        else if ((t.Name == cboMidia.Name) &&( cboMidia.Text != "K7" || 
+                            cboMidia.Text != "CD" || cboMidia.Text != "DVD" || cboMidia.Text != "Digital"))
                             erpErro.SetError(t, "Escolha um Tipo de Midia");
                         else
                             erpErro.SetError(t, "");
                     }
                 }
 
-                if (cboAlbum.Text != "" && cboInterprete.Text != "" && cboMidia.Text != "N/C" && (Nota(txtNota.Text) == 1))
+                if (cboAlbum.Text != "" && cboInterprete.Text != "" && (cboMidia.Text == "Vinil" || cboMidia.Text == "K7" || cboMidia.Text == "CD" || cboMidia.Text == "DVD" || cboMidia.Text == "Digital") && (Nota(txtNota.Text) == 1))
                     passaArrayListParaPreencherBanco();
             }
             else if (tbcCadastro.TabPages[1].CanFocus)

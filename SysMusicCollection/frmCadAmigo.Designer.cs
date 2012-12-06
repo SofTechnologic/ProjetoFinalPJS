@@ -75,7 +75,7 @@
             this.tbcCadastro.Controls.Add(this.tbpAmigos);
             this.tbcCadastro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcCadastro.Location = new System.Drawing.Point(0, 0);
-            this.tbcCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbcCadastro.Margin = new System.Windows.Forms.Padding(4);
             this.tbcCadastro.Name = "tbcCadastro";
             this.tbcCadastro.SelectedIndex = 0;
             this.tbcCadastro.Size = new System.Drawing.Size(641, 384);
@@ -106,9 +106,9 @@
             this.tbpDiscos.Controls.Add(this.lblAutor);
             this.tbpDiscos.Controls.Add(this.lblInterprete);
             this.tbpDiscos.Location = new System.Drawing.Point(4, 25);
-            this.tbpDiscos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbpDiscos.Margin = new System.Windows.Forms.Padding(4);
             this.tbpDiscos.Name = "tbpDiscos";
-            this.tbpDiscos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbpDiscos.Padding = new System.Windows.Forms.Padding(4);
             this.tbpDiscos.Size = new System.Drawing.Size(633, 355);
             this.tbpDiscos.TabIndex = 0;
             this.tbpDiscos.Text = "Discos";
@@ -119,7 +119,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtObservacoes.Location = new System.Drawing.Point(12, 238);
-            this.txtObservacoes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtObservacoes.Margin = new System.Windows.Forms.Padding(4);
             this.txtObservacoes.Multiline = true;
             this.txtObservacoes.Name = "txtObservacoes";
             this.txtObservacoes.Size = new System.Drawing.Size(588, 52);
@@ -130,7 +130,7 @@
             this.txtOrigemCompra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOrigemCompra.Location = new System.Drawing.Point(12, 186);
-            this.txtOrigemCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtOrigemCompra.Margin = new System.Windows.Forms.Padding(4);
             this.txtOrigemCompra.Name = "txtOrigemCompra";
             this.txtOrigemCompra.Size = new System.Drawing.Size(233, 22);
             this.txtOrigemCompra.TabIndex = 7;
@@ -139,7 +139,7 @@
             // 
             this.txtNota.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNota.Location = new System.Drawing.Point(464, 185);
-            this.txtNota.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNota.Margin = new System.Windows.Forms.Padding(4);
             this.txtNota.Name = "txtNota";
             this.txtNota.Size = new System.Drawing.Size(136, 22);
             this.txtNota.TabIndex = 9;
@@ -154,7 +154,7 @@
             this.cboAlbum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cboAlbum.FormattingEnabled = true;
             this.cboAlbum.Location = new System.Drawing.Point(12, 130);
-            this.cboAlbum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboAlbum.Margin = new System.Windows.Forms.Padding(4);
             this.cboAlbum.Name = "cboAlbum";
             this.cboAlbum.Size = new System.Drawing.Size(233, 21);
             this.cboAlbum.TabIndex = 4;
@@ -169,7 +169,7 @@
             this.cboAutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cboAutor.FormattingEnabled = true;
             this.cboAutor.Location = new System.Drawing.Point(12, 80);
-            this.cboAutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboAutor.Margin = new System.Windows.Forms.Padding(4);
             this.cboAutor.Name = "cboAutor";
             this.cboAutor.Size = new System.Drawing.Size(588, 21);
             this.cboAutor.TabIndex = 2;
@@ -184,9 +184,9 @@
             this.cboInterprete.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cboInterprete.FormattingEnabled = true;
             this.cboInterprete.Location = new System.Drawing.Point(8, 27);
-            this.cboInterprete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboInterprete.Margin = new System.Windows.Forms.Padding(4);
             this.cboInterprete.Name = "cboInterprete";
-            this.cboInterprete.Size = new System.Drawing.Size(588, 21);
+            this.cboInterprete.Size = new System.Drawing.Size(593, 21);
             this.cboInterprete.TabIndex = 1;
             // 
             // btnCancelar
@@ -194,7 +194,7 @@
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(501, 316);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 13;
@@ -207,7 +207,7 @@
             this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.Location = new System.Drawing.Point(393, 316);
-            this.btnLimpar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpar.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(100, 28);
             this.btnLimpar.TabIndex = 12;
@@ -220,7 +220,7 @@
             this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.Location = new System.Drawing.Point(285, 316);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(100, 28);
             this.btnSalvar.TabIndex = 11;
@@ -233,7 +233,7 @@
             this.dtpDataCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataCompra.Location = new System.Drawing.Point(464, 133);
-            this.dtpDataCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDataCompra.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDataCompra.Name = "dtpDataCompra";
             this.dtpDataCompra.Size = new System.Drawing.Size(136, 22);
             this.dtpDataCompra.TabIndex = 6;
@@ -243,7 +243,7 @@
             this.dtpDataAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDataAlbum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataAlbum.Location = new System.Drawing.Point(284, 133);
-            this.dtpDataAlbum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDataAlbum.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDataAlbum.Name = "dtpDataAlbum";
             this.dtpDataAlbum.Size = new System.Drawing.Size(143, 22);
             this.dtpDataAlbum.TabIndex = 5;
@@ -253,7 +253,7 @@
             this.cboMidia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboMidia.FormattingEnabled = true;
             this.cboMidia.Location = new System.Drawing.Point(284, 185);
-            this.cboMidia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboMidia.Margin = new System.Windows.Forms.Padding(4);
             this.cboMidia.Name = "cboMidia";
             this.cboMidia.Size = new System.Drawing.Size(143, 24);
             this.cboMidia.TabIndex = 8;
@@ -374,9 +374,9 @@
             this.tbpAmigos.Controls.Add(this.lblTelefone);
             this.tbpAmigos.Controls.Add(this.lblNomeAmigo);
             this.tbpAmigos.Location = new System.Drawing.Point(4, 25);
-            this.tbpAmigos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbpAmigos.Margin = new System.Windows.Forms.Padding(4);
             this.tbpAmigos.Name = "tbpAmigos";
-            this.tbpAmigos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbpAmigos.Padding = new System.Windows.Forms.Padding(4);
             this.tbpAmigos.Size = new System.Drawing.Size(633, 355);
             this.tbpAmigos.TabIndex = 1;
             this.tbpAmigos.Text = "Amigos";
@@ -414,7 +414,7 @@
             this.btnCancelarAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarAmigo.Location = new System.Drawing.Point(504, 308);
-            this.btnCancelarAmigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelarAmigo.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelarAmigo.Name = "btnCancelarAmigo";
             this.btnCancelarAmigo.Size = new System.Drawing.Size(100, 28);
             this.btnCancelarAmigo.TabIndex = 6;
@@ -427,7 +427,7 @@
             this.btnLimparAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimparAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimparAmigo.Location = new System.Drawing.Point(396, 308);
-            this.btnLimparAmigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimparAmigo.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimparAmigo.Name = "btnLimparAmigo";
             this.btnLimparAmigo.Size = new System.Drawing.Size(100, 28);
             this.btnLimparAmigo.TabIndex = 5;
@@ -440,7 +440,7 @@
             this.btnSalvarAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSalvarAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvarAmigo.Location = new System.Drawing.Point(288, 308);
-            this.btnSalvarAmigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalvarAmigo.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvarAmigo.Name = "btnSalvarAmigo";
             this.btnSalvarAmigo.Size = new System.Drawing.Size(100, 28);
             this.btnSalvarAmigo.TabIndex = 4;
@@ -451,7 +451,7 @@
             // mtbTelefone
             // 
             this.mtbTelefone.Location = new System.Drawing.Point(9, 210);
-            this.mtbTelefone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbTelefone.Margin = new System.Windows.Forms.Padding(4);
             this.mtbTelefone.Mask = "(00)0000-0000";
             this.mtbTelefone.Name = "mtbTelefone";
             this.mtbTelefone.Size = new System.Drawing.Size(117, 22);
@@ -502,7 +502,7 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(641, 384);
             this.Controls.Add(this.tbcCadastro);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(926, 518);
             this.MinimumSize = new System.Drawing.Size(657, 420);
             this.Name = "frmCadastro";
