@@ -503,8 +503,12 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Nome_Album from Albuns inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
-                              " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco where Discos.Cod_Disco = null";
+                string sql = " select Nome_Album, Nome, Data_Emprestimo from Albuns" +
+                             " inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
+                             " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " +
+                             " inner join Emprestimos on Itens_Emprestimo.Num_Emprestimo = Emprestimos.Num_Emprestimo " +
+                             " inner join amigos on Emprestimos.Cod_Amigo = Amigos.Cod_Amigo" +
+                             " where Itens_Emprestimo.Data_Devolucao IS NULL ";
                 try
                 {
                     dgvEmp = new SqlCommand(sql, cnx);
@@ -529,23 +533,25 @@ namespace SysMusicCollection
             }
         }
 
-        public DataTable GridEmpPesq(string pesq, int pega)
+        public DataTable GridDev()
         {
-            string sql = pesq;
             SqlCommand dgvEmp = null;
 
             if (this.Abrirconexao())
             {
-
+                string sql = " select Nome_Album, Nome, Data_Emprestimo, Data_Devolucao from Albuns"+ 
+                             " inner join Discos on Albuns.ID_Album = Discos.ID_Album " + 
+                             " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " + 
+                             " inner join Emprestimos on Itens_Emprestimo.Num_Emprestimo = Emprestimos.Num_Emprestimo "+
+                             " inner join amigos on Emprestimos.Cod_Amigo = Amigos.Cod_Amigo" +
+                             " where Itens_Emprestimo.Data_Devolucao IS NOT NULL ";
                 try
                 {
                     dgvEmp = new SqlCommand(sql, cnx);
-                    dgvEmp.Parameters.Add(new SqlParameter("@valor", pega));
                     SqlDataAdapter adp = new SqlDataAdapter(dgvEmp);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
                     //dgvEmp.ExecuteNonQuery();
-
                     return dt;
                 }
                 catch (Exception ex)
@@ -562,6 +568,40 @@ namespace SysMusicCollection
                 return null;
             }
         }
+
+        //public DataTable GridEmpPesq(string pesq, int pega)
+        //{
+        //    string sql = pesq;
+        //    SqlCommand dgvEmp = null;
+
+        //    if (this.Abrirconexao())
+        //    {
+
+        //        try
+        //        {
+        //            dgvEmp = new SqlCommand(sql, cnx);
+        //            dgvEmp.Parameters.Add(new SqlParameter("@valor", pega));
+        //            SqlDataAdapter adp = new SqlDataAdapter(dgvEmp);
+        //            DataTable dt = new DataTable();
+        //            adp.Fill(dt);
+        //            //dgvEmp.ExecuteNonQuery();
+
+        //            return dt;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw new Exception(ex.Message);
+        //        }
+        //        finally
+        //        {
+        //            this.Fecharconexao();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
         public SqlCommand lv(bool espera)
         {

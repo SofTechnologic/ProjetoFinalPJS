@@ -15,5 +15,33 @@ namespace SysMusicCollection
         {
             InitializeComponent();
         }
+
+        private void tabControl1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbcDevolucao_Enter(object sender, EventArgs e)
+        {
+            conexaoBanco rel = new conexaoBanco();
+
+            dgvDevolucao.DataSource = rel.GridEmp();
+            dgvDevolucao.Columns[1].Width = 300;
+
+            
+        }
+
+        private void frmRelatorios_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tbcEmprestados_Enter(object sender, EventArgs e)
+        {
+            conexaoBanco rel = new conexaoBanco();
+
+            dgvEmprestados.DataSource = rel.GridDev();
+            dgvEmprestados.Columns[1].Width = 300;
+        }
     }
 }

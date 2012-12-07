@@ -28,89 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tbcRel = new System.Windows.Forms.TabControl();
+            this.tbcEmprestados = new System.Windows.Forms.TabPage();
+            this.tbcDevolvidos = new System.Windows.Forms.TabPage();
+            this.dgvEmprestados = new System.Windows.Forms.DataGridView();
+            this.dgvDevolucao = new System.Windows.Forms.DataGridView();
+            this.tbcRel.SuspendLayout();
+            this.tbcEmprestados.SuspendLayout();
+            this.tbcDevolvidos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevolucao)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tbcRel
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(947, 495);
-            this.tabControl1.TabIndex = 0;
+            this.tbcRel.Controls.Add(this.tbcEmprestados);
+            this.tbcRel.Controls.Add(this.tbcDevolvidos);
+            this.tbcRel.Location = new System.Drawing.Point(12, 12);
+            this.tbcRel.Name = "tbcRel";
+            this.tbcRel.SelectedIndex = 0;
+            this.tbcRel.Size = new System.Drawing.Size(947, 495);
+            this.tbcRel.TabIndex = 0;
+            this.tbcRel.Enter += new System.EventHandler(this.tabControl1_Enter);
             // 
-            // tabPage1
+            // tbcEmprestados
             // 
-            this.tabPage1.Controls.Add(this.dataGridView2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(939, 469);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Devolução";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tbcEmprestados.Controls.Add(this.dgvDevolucao);
+            this.tbcEmprestados.Location = new System.Drawing.Point(4, 22);
+            this.tbcEmprestados.Name = "tbcEmprestados";
+            this.tbcEmprestados.Padding = new System.Windows.Forms.Padding(3);
+            this.tbcEmprestados.Size = new System.Drawing.Size(939, 469);
+            this.tbcEmprestados.TabIndex = 0;
+            this.tbcEmprestados.Text = "Emprestados";
+            this.tbcEmprestados.UseVisualStyleBackColor = true;
+            this.tbcEmprestados.Enter += new System.EventHandler(this.tbcDevolucao_Enter);
             // 
-            // tabPage2
+            // tbcDevolvidos
             // 
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(939, 469);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Emprestados";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tbcDevolvidos.Controls.Add(this.dgvEmprestados);
+            this.tbcDevolvidos.Location = new System.Drawing.Point(4, 22);
+            this.tbcDevolvidos.Name = "tbcDevolvidos";
+            this.tbcDevolvidos.Padding = new System.Windows.Forms.Padding(3);
+            this.tbcDevolvidos.Size = new System.Drawing.Size(939, 469);
+            this.tbcDevolvidos.TabIndex = 1;
+            this.tbcDevolvidos.Text = "Devolvidos";
+            this.tbcDevolvidos.UseVisualStyleBackColor = true;
+            this.tbcDevolvidos.Enter += new System.EventHandler(this.tbcEmprestados_Enter);
             // 
-            // dataGridView1
+            // dgvEmprestados
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 99);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(927, 364);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvEmprestados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmprestados.Location = new System.Drawing.Point(6, 99);
+            this.dgvEmprestados.Name = "dgvEmprestados";
+            this.dgvEmprestados.ReadOnly = true;
+            this.dgvEmprestados.Size = new System.Drawing.Size(927, 364);
+            this.dgvEmprestados.TabIndex = 0;
             // 
-            // dataGridView2
+            // dgvDevolucao
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 99);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(927, 364);
-            this.dataGridView2.TabIndex = 0;
+            this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDevolucao.Location = new System.Drawing.Point(6, 99);
+            this.dgvDevolucao.Name = "dgvDevolucao";
+            this.dgvDevolucao.Size = new System.Drawing.Size(927, 364);
+            this.dgvDevolucao.TabIndex = 0;
             // 
             // frmRelatorios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 510);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tbcRel);
             this.Name = "frmRelatorios";
             this.Text = "Relatórios";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.frmRelatorios_Load);
+            this.tbcRel.ResumeLayout(false);
+            this.tbcEmprestados.ResumeLayout(false);
+            this.tbcDevolvidos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevolucao)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TabControl tbcRel;
+        private System.Windows.Forms.TabPage tbcEmprestados;
+        private System.Windows.Forms.DataGridView dgvDevolucao;
+        private System.Windows.Forms.TabPage tbcDevolvidos;
+        private System.Windows.Forms.DataGridView dgvEmprestados;
     }
 }
