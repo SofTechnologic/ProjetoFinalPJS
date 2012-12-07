@@ -18,6 +18,17 @@ namespace SysMusicCollection
             InitializeComponent();
         }
 
+        string codDicos; 
+        string autor; 
+        string inter; 
+        string nomeAlbum; 
+        string dataAlbum ;
+        string dataCompra ;
+        string origim ;
+        string obs ;
+        string nota ;
+        string midia;
+
         public int btn = 0;
 
         private void btnCadastro_Click(object sender, EventArgs e)
@@ -69,7 +80,7 @@ namespace SysMusicCollection
             lsvPrincipal.FullRowSelect = true;
             lsvPrincipal.GridLines = true;
             //lsvPrincipal.Columns.Add(dr.GetName(0), 60, HorizontalAlignment.Left);
-            lsvPrincipal.Columns.Add(dr.GetName(0), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(dr.GetName(0), 0, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(dr.GetName(2), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(dr.GetName(3), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(dr.GetName(4), 120, HorizontalAlignment.Center);
@@ -109,7 +120,18 @@ namespace SysMusicCollection
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            codDicos =  lsvPrincipal.SelectedItems[0].Text;
+            autor = lsvPrincipal.SelectedItems[0].SubItems[1].Text;
+            inter = lsvPrincipal.SelectedItems[0].SubItems[2].Text;
+            nomeAlbum = lsvPrincipal.SelectedItems[0].SubItems[3].Text;
+            dataAlbum = lsvPrincipal.SelectedItems[0].SubItems[4].Text;
+            dataCompra = lsvPrincipal.SelectedItems[0].SubItems[5].Text;
+            origim = lsvPrincipal.SelectedItems[0].SubItems[6].Text;
+            obs = lsvPrincipal.SelectedItems[0].SubItems[7].Text;
+            nota = lsvPrincipal.SelectedItems[0].SubItems[8].Text;
+            midia = lsvPrincipal.SelectedItems[0].Group.ToString();
+            frmEditarDiscos frmEdita = new frmEditarDiscos();
+            frmEdita.ShowDialog(this);
         }
 
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
