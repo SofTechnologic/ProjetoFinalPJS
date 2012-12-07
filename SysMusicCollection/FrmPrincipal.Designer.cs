@@ -114,7 +114,7 @@
             // 
             // btnEmprDev
             // 
-            this.btnEmprDev.Location = new System.Drawing.Point(22, 89);
+            this.btnEmprDev.Location = new System.Drawing.Point(12, 89);
             this.btnEmprDev.Name = "btnEmprDev";
             this.btnEmprDev.Size = new System.Drawing.Size(120, 40);
             this.btnEmprDev.TabIndex = 1;
@@ -125,7 +125,7 @@
             // 
             // btnCadastro
             // 
-            this.btnCadastro.Location = new System.Drawing.Point(22, 43);
+            this.btnCadastro.Location = new System.Drawing.Point(12, 43);
             this.btnCadastro.Name = "btnCadastro";
             this.btnCadastro.Size = new System.Drawing.Size(120, 40);
             this.btnCadastro.TabIndex = 0;
