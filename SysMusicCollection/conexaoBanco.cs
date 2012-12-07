@@ -11,9 +11,9 @@ namespace SysMusicCollection
 {
     public class conexaoBanco
     {
+        
 
-
-        private const string sqlConn = @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+        private const string sqlConn = @" Data Source=FELIPE-IBM;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 /* Bruno*/ //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=2;User Instance=True";
 /*Felipe*/ //@" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 ///*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
@@ -1177,6 +1177,7 @@ namespace SysMusicCollection
 
         #endregion
 
+        #region Remove e Edita
         public void removeItemBanco(List<string> chave)
         {
             SqlCommand DeletarDisco = null;
@@ -1208,6 +1209,50 @@ namespace SysMusicCollection
                 this.Fecharconexao();
             }
         }
+
+        public void editaIntemBanco(ArrayList edita)
+        {
+            SqlCommand EditaDisco = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    
+
+                        EditaDisco = new SqlCommand("Update Discos set "+
+                            "Cod_Midia = @codMidia, ID_Autor = @idAutor, ID_Interprete = @idInterprete,"+
+                            "ID_Album = @idAlbum, Data_Album = @dataAlbum ,Data_Compra = @dataCompra, "+
+                    "Origem_Compra = @origem, Observ = @obs, Nota = @nota where Cod_Disco = @codDisco", cnx);
+
+                        EditaDisco.Parameters.Add(new SqlParameter("@codMidia", edita[1].ToString()));
+                        EditaDisco.Parameters.Add(new SqlParameter("@idAutor", edita[2].ToString()));
+                        EditaDisco.Parameters.Add(new SqlParameter("@idInterprete", edita[3].ToString()));
+                        EditaDisco.Parameters.Add(new SqlParameter("@idAlbum", edita[4].ToString()));
+                        EditaDisco.Parameters.Add(new SqlParameter("@dataAlbum", edita[5].ToString()));
+                        EditaDisco.Parameters.Add(new SqlParameter("@dataCompra", edita[6].ToString()));
+                        EditaDisco.Parameters.Add(new SqlParameter("@origem", edita[7].ToString()));
+                        EditaDisco.Parameters.Add(new SqlParameter("@obs", edita[8].ToString()));
+                        EditaDisco.Parameters.Add(new SqlParameter("@nota", edita[9].ToString()));
+                        EditaDisco.Parameters.Add(new SqlParameter("@codDisco", edita[0].ToString()));
+
+                        EditaDisco.ExecuteNonQuery();
+                    
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                this.Fecharconexao();
+            }
+        }
+        #endregion
         //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
         //{
         //    SqlCommand listaramigos = null;

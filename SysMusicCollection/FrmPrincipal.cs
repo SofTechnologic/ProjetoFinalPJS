@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SysMusicCollection
@@ -16,18 +15,20 @@ namespace SysMusicCollection
         public frmPrincipal()
         {
             InitializeComponent();
+            
         }
-
-        string codDicos; 
-        string autor; 
-        string inter; 
-        string nomeAlbum; 
-        string dataAlbum ;
-        string dataCompra ;
-        string origim ;
-        string obs ;
-        string nota ;
-        string midia;
+        
+            string codDicos;
+            string autor;
+            string inter;
+            string nomeAlbum;
+            string dataAlbum;
+            string dataCompra;
+            string origem;
+            string obs;
+            string nota;
+            string midia;
+        
 
         public int btn = 0;
 
@@ -111,6 +112,7 @@ namespace SysMusicCollection
 
             s.lv(espera);
         }
+        
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             preenchelist();
@@ -120,18 +122,51 @@ namespace SysMusicCollection
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            codDicos =  lsvPrincipal.SelectedItems[0].Text;
+            codDicos = lsvPrincipal.SelectedItems[0].Text;
             autor = lsvPrincipal.SelectedItems[0].SubItems[1].Text;
             inter = lsvPrincipal.SelectedItems[0].SubItems[2].Text;
             nomeAlbum = lsvPrincipal.SelectedItems[0].SubItems[3].Text;
             dataAlbum = lsvPrincipal.SelectedItems[0].SubItems[4].Text;
             dataCompra = lsvPrincipal.SelectedItems[0].SubItems[5].Text;
-            origim = lsvPrincipal.SelectedItems[0].SubItems[6].Text;
+            origem = lsvPrincipal.SelectedItems[0].SubItems[6].Text;
             obs = lsvPrincipal.SelectedItems[0].SubItems[7].Text;
             nota = lsvPrincipal.SelectedItems[0].SubItems[8].Text;
             midia = lsvPrincipal.SelectedItems[0].Group.ToString();
-            frmEditarDiscos frmEdita = new frmEditarDiscos();
-            frmEdita.ShowDialog(this);
+            ArrayList passaVariaveis = new ArrayList();
+            passaVariaveis.Add(codDicos);
+            passaVariaveis.Add(autor);
+            passaVariaveis.Add(inter);
+            passaVariaveis.Add(nomeAlbum);
+            passaVariaveis.Add(dataAlbum);
+            passaVariaveis.Add(dataCompra);
+            passaVariaveis.Add(origem);
+            passaVariaveis.Add(obs);
+            passaVariaveis.Add(nota);
+            passaVariaveis.Add(midia);
+            frmEditarDiscos frmEditar = new frmEditarDiscos(passaVariaveis);
+            frmEditar.ShowDialog();
+            List<string> passalist = new List<string>();
+            for (int i =0; i<frmEditar.passaPrinc.Count; i++ )
+            {
+                passalist.Add(frmEditar.passaPrinc[i].ToString());
+            }
+            if (frmEditar.passaPrinc.Count != 0)
+            {
+                for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    ListViewItem altera = lsvPrincipal.SelectedItems[i];
+                    altera.Group = lsvPrincipal.Groups[passalist[5].ToString()];
+                    altera.Text = passalist[0].ToString();
+                    altera.SubItems[1].Text = passalist[2].ToString();
+                    altera.SubItems[2].Text = passalist[1].ToString();
+                    altera.SubItems[3].Text = passalist[3].ToString();
+                    altera.SubItems[4].Text = passalist[8].ToString();
+                    altera.SubItems[5].Text = passalist[9].ToString();
+                    altera.SubItems[6].Text = passalist[4].ToString();
+                    altera.SubItems[7].Text = passalist[7].ToString();
+                    altera.SubItems[8].Text = passalist[6].ToString();
+                }
+            }
         }
 
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,33 +71,38 @@
             this.configuraçõesToolStripMenuItem});
             this.mnsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnsPrincipal.Name = "mnsPrincipal";
-            this.mnsPrincipal.Size = new System.Drawing.Size(734, 24);
+            this.mnsPrincipal.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.mnsPrincipal.Size = new System.Drawing.Size(979, 28);
             this.mnsPrincipal.TabIndex = 0;
             this.mnsPrincipal.Text = "menuStrip1";
             // 
             // arquivoToolStripMenuItem
             // 
+            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(12, 24);
             // 
             // configuraçõesToolStripMenuItem
             // 
             this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
-            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
             // 
             // stsPrincipal
             // 
-            this.stsPrincipal.Location = new System.Drawing.Point(0, 440);
+            this.stsPrincipal.Location = new System.Drawing.Point(0, 547);
             this.stsPrincipal.Name = "stsPrincipal";
-            this.stsPrincipal.Size = new System.Drawing.Size(734, 22);
+            this.stsPrincipal.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.stsPrincipal.Size = new System.Drawing.Size(979, 22);
             this.stsPrincipal.TabIndex = 1;
             this.stsPrincipal.Text = "statusStrip1";
             // 
             // spcPrincipal
             // 
-            this.spcPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.spcPrincipal.Location = new System.Drawing.Point(0, 24);
+            this.spcPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spcPrincipal.Location = new System.Drawing.Point(0, 30);
+            this.spcPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spcPrincipal.Name = "spcPrincipal";
             // 
             // spcPrincipal.Panel1
@@ -109,15 +114,17 @@
             // 
             this.spcPrincipal.Panel2.Controls.Add(this.txbPesquisa);
             this.spcPrincipal.Panel2.Controls.Add(this.pnlPrincipal);
-            this.spcPrincipal.Size = new System.Drawing.Size(734, 416);
-            this.spcPrincipal.SplitterDistance = 163;
+            this.spcPrincipal.Size = new System.Drawing.Size(979, 512);
+            this.spcPrincipal.SplitterDistance = 217;
+            this.spcPrincipal.SplitterWidth = 5;
             this.spcPrincipal.TabIndex = 2;
             // 
             // btnEmprDev
             // 
-            this.btnEmprDev.Location = new System.Drawing.Point(22, 89);
+            this.btnEmprDev.Location = new System.Drawing.Point(29, 110);
+            this.btnEmprDev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEmprDev.Name = "btnEmprDev";
-            this.btnEmprDev.Size = new System.Drawing.Size(120, 40);
+            this.btnEmprDev.Size = new System.Drawing.Size(160, 49);
             this.btnEmprDev.TabIndex = 1;
             this.btnEmprDev.Text = "Emprestar / Devolver";
             this.tltPrincipal.SetToolTip(this.btnEmprDev, "Emprestar ou devolver mídias");
@@ -126,9 +133,10 @@
             // 
             // btnCadastro
             // 
-            this.btnCadastro.Location = new System.Drawing.Point(22, 43);
+            this.btnCadastro.Location = new System.Drawing.Point(29, 53);
+            this.btnCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCadastro.Name = "btnCadastro";
-            this.btnCadastro.Size = new System.Drawing.Size(120, 40);
+            this.btnCadastro.Size = new System.Drawing.Size(160, 49);
             this.btnCadastro.TabIndex = 0;
             this.btnCadastro.Tag = "";
             this.btnCadastro.Text = "Cadastrar";
@@ -141,28 +149,31 @@
             this.txbPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPesquisa.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbPesquisa.Location = new System.Drawing.Point(338, 14);
+            this.txbPesquisa.Location = new System.Drawing.Point(452, 17);
+            this.txbPesquisa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbPesquisa.Name = "txbPesquisa";
-            this.txbPesquisa.Size = new System.Drawing.Size(215, 20);
+            this.txbPesquisa.Size = new System.Drawing.Size(285, 23);
             this.txbPesquisa.TabIndex = 1;
             this.txbPesquisa.Text = "Pesquisar";
             this.txbPesquisa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txbPesquisa_MouseClick);
             // 
             // pnlPrincipal
             // 
-            this.pnlPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPrincipal.Controls.Add(this.splitContainer1);
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 40);
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 49);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(566, 376);
+            this.pnlPrincipal.Size = new System.Drawing.Size(756, 463);
             this.pnlPrincipal.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -173,17 +184,19 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.lsvPrincipal);
-            this.splitContainer1.Size = new System.Drawing.Size(566, 376);
-            this.splitContainer1.SplitterDistance = 25;
+            this.splitContainer1.Size = new System.Drawing.Size(756, 463);
+            this.splitContainer1.SplitterDistance = 30;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(0, 8);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(0, 9);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(566, 14);
+            this.button1.Size = new System.Drawing.Size(756, 17);
             this.button1.TabIndex = 0;
             this.button1.Text = "^";
             this.button1.UseVisualStyleBackColor = true;
@@ -193,28 +206,29 @@
             // 
             this.lsvPrincipal.ContextMenuStrip = this.contextMenuStrip1;
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup7.Header = "DVD";
-            listViewGroup7.Name = "DVD";
-            listViewGroup8.Header = "CD";
-            listViewGroup8.Name = "CD";
-            listViewGroup9.Header = "VHS";
-            listViewGroup9.Name = "VHS";
-            listViewGroup10.Header = "Vinil";
-            listViewGroup10.Name = "Vinil";
-            listViewGroup11.Header = "K7";
-            listViewGroup11.Name = "K7";
-            listViewGroup12.Header = "Digital";
-            listViewGroup12.Name = "Digital";
+            listViewGroup1.Header = "DVD";
+            listViewGroup1.Name = "DVD";
+            listViewGroup2.Header = "CD";
+            listViewGroup2.Name = "CD";
+            listViewGroup3.Header = "VHS";
+            listViewGroup3.Name = "VHS";
+            listViewGroup4.Header = "Vinil";
+            listViewGroup4.Name = "Vinil";
+            listViewGroup5.Header = "K7";
+            listViewGroup5.Name = "K7";
+            listViewGroup6.Header = "Digital";
+            listViewGroup6.Name = "Digital";
             this.lsvPrincipal.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10,
-            listViewGroup11,
-            listViewGroup12});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.lsvPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(566, 347);
+            this.lsvPrincipal.Size = new System.Drawing.Size(756, 428);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
             // 
@@ -243,14 +257,15 @@
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(734, 462);
+            this.ClientSize = new System.Drawing.Size(979, 569);
             this.Controls.Add(this.spcPrincipal);
             this.Controls.Add(this.stsPrincipal);
             this.Controls.Add(this.mnsPrincipal);
             this.MainMenuStrip = this.mnsPrincipal;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sys Music Collection";
