@@ -184,6 +184,12 @@ namespace SysMusicCollection
                 ListViewItem remove = lsvPrincipal.SelectedItems[i];
                 remove.Remove();
             }
+        }
+
+        private void relatóriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRelatorios frm = new frmRelatorios();
+            frm.ShowDialog();
         }       
 
     }
