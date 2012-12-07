@@ -53,6 +53,12 @@
     <Compile Include="frmCadAmigo.Designer.cs">
       <DependentUpon>frmCadAmigo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarDiscos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarDiscos.Designer.cs">
+      <DependentUpon>frmEditarDiscos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmprestimo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,8 +79,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatórios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatórios.Designer.cs">
+      <DependentUpon>Relatórios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmCadAmigo.resx">
       <DependentUpon>frmCadAmigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarDiscos.resx">
+      <DependentUpon>frmEditarDiscos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmprestimo.resx">
       <DependentUpon>frmEmprestimo.cs</DependentUpon>
@@ -84,6 +99,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,6 +110,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Relatórios.resx">
+      <DependentUpon>Relatórios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

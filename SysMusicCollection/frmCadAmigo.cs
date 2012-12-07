@@ -19,6 +19,15 @@ namespace SysMusicCollection
             InitializeComponent();
 
         }
+        frmPrincipal frmprincipal;
+
+        public frmCadastro(frmPrincipal formPric)
+        {
+            InitializeComponent();
+            frmprincipal = formPric;
+        }
+
+        
 
         public void passaValoresParaCombobox()
         {
@@ -67,11 +76,21 @@ namespace SysMusicCollection
                 {
 
                     ArrayList autor = new ArrayList();
-                    if (passa.PesqAutor(cboAutor.Text) <= 0 && cboAutor.Text != "")
+                    if (passa.PesqAutor(cboAutor.Text) <=0 && (cboAutor.Text != "" || cboAutor.Text == ""))
                     {
-                        autor.Add(cboAutor.Text);
+                        if (cboAutor.Text != "")
+                        {
+                            autor.Add(cboAutor.Text);
 
-                        passa.CadastrarAutor(autor);
+                            passa.CadastrarAutor(autor);
+                        }
+                        else
+                        {
+                            autor.Add(cboAutor.Text = "Nada Consta");
+
+                            passa.CadastrarAutor(autor);
+                            cboAutor.Text = "";
+                        }
                     }
 
                     //conexaoBanco passa = new conexaoBanco();
@@ -100,20 +119,12 @@ namespace SysMusicCollection
                     conexaoBanco alb = new conexaoBanco();
                     conexaoBanco mid = new conexaoBanco();
                     //string arr = cboAutor.Text;
-                    int codaut = 0;
-                    int codinter = inter.PesqCodinter(cboInterprete.Text);
-                    if (cboAutor.Text != "")
-                    {
-                        codaut = aut.PesqCodautor(cboAutor.Text);
-                    }
-                    else
-                        codaut = Convert.ToInt32(cboAutor.Text = Enabled.ToString());
-                
+                    int codinter = inter.PesqCodinter(cboInterprete.Text);                  
+                    int  codaut = aut.PesqCodautor(cboAutor.Text);            
                     int codalb = alb.PesqCodalbum(cboAlbum.Text);
                     int codmid = mid.PesqCodmidia(cboMidia.Text);
-
                     arrdisc.Add(codmid);
-                    arrdisc.Add(codaut);
+                        arrdisc.Add(codaut);
                     arrdisc.Add(codinter);
                     arrdisc.Add(codalb);
                     arrdisc.Add(dtpDataAlbum.Value.ToShortDateString());
@@ -125,8 +136,12 @@ namespace SysMusicCollection
 
                     disc.CadastrarDiscos(arrdisc);
                 }
-                passaValoresParaCombobox();
+                passaValoresParaCombobox();      
                 limpaCampos();
+                if (cboMidia.Text == "N/C")
+                    erpErro.SetError(cboMidia, "");
+
+                frmprincipal.preenchelist();
         }
 
         public int Nota(string notas)
@@ -162,18 +177,21 @@ namespace SysMusicCollection
                         if (t.Text == "")
                         {
                             if (t.Name == cboAlbum.Name)
-                                erpErro.SetError(t, "Digite o Campo Album");
+                            {
+                                erpErro.SetError(t, "Digite Album");
+                            }
                             if (t.Name == cboInterprete.Name)
                                 erpErro.SetError(t, "Digite o Campo Interprete");
                         }
-                        else if (t.Text == "N/C")
+                        else if ((t.Name == cboMidia.Name) &&( cboMidia.Text != "K7" || 
+                            cboMidia.Text != "CD" || cboMidia.Text != "DVD" || cboMidia.Text != "Digital"))
                             erpErro.SetError(t, "Escolha um Tipo de Midia");
                         else
                             erpErro.SetError(t, "");
                     }
                 }
 
-                if (cboAlbum.Text != "" && cboInterprete.Text != "" && cboMidia.Text != "N/C" && (Nota(txtNota.Text) == 1))
+                if (cboAlbum.Text != "" && cboInterprete.Text != "" && (cboMidia.Text == "Vinil" || cboMidia.Text == "K7" || cboMidia.Text == "CD" || cboMidia.Text == "DVD" || cboMidia.Text == "Digital") && (Nota(txtNota.Text) == 1))
                     passaArrayListParaPreencherBanco();
             }
             else if (tbcCadastro.TabPages[1].CanFocus)
@@ -287,6 +305,13 @@ namespace SysMusicCollection
             cboEndereco.DataSource = pegaEndereco.prCombo_AmigosEndereco();
             cboEndereco.DisplayMember = "Endereco";
             cboEndereco.Text = "";
+        }
+
+        private void cboAlbum_Enter(object sender, EventArgs e)
+        {
+            cboAlbum.Text = "";
+            cboAlbum.BackColor = System.Drawing.Color.White;
+
         }
     }
 }
