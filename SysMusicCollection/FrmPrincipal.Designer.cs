@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,9 +77,6 @@
             // 
             // arquivoToolStripMenuItem
             // 
-            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.arquivoToolStripMenuItem.Text = "Arquivo";
             // 
             // configuraçõesToolStripMenuItem
             // 
@@ -196,26 +193,25 @@
             // 
             this.lsvPrincipal.ContextMenuStrip = this.contextMenuStrip1;
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup1.Header = "DVD";
-            listViewGroup1.Name = "DVD";
-            listViewGroup2.Header = "CD";
-            listViewGroup2.Name = "CD";
-            listViewGroup3.Header = "VHS";
-            listViewGroup3.Name = "VHS";
-            listViewGroup4.Header = "Vinil";
-            listViewGroup4.Name = "Vinil";
-            listViewGroup5.Header = "K7";
-            listViewGroup5.Name = "K7";
-            listViewGroup6.Header = "Digital";
-            listViewGroup6.Name = "Digital";
+            listViewGroup7.Header = "DVD";
+            listViewGroup7.Name = "DVD";
+            listViewGroup8.Header = "CD";
+            listViewGroup8.Name = "CD";
+            listViewGroup9.Header = "VHS";
+            listViewGroup9.Name = "VHS";
+            listViewGroup10.Header = "Vinil";
+            listViewGroup10.Name = "Vinil";
+            listViewGroup11.Header = "K7";
+            listViewGroup11.Name = "K7";
+            listViewGroup12.Header = "Digital";
+            listViewGroup12.Name = "Digital";
             this.lsvPrincipal.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6});
-            this.lsvPrincipal.LabelEdit = true;
+            listViewGroup7,
+            listViewGroup8,
+            listViewGroup9,
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
             this.lsvPrincipal.Size = new System.Drawing.Size(566, 347);

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tbcEmprestimo = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEmprestar = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             this.cboNomeAmigo = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lbldtDevolucao = new System.Windows.Forms.Label();
-            this.dtpDevolucao = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnDevolver = new System.Windows.Forms.Button();
             this.dgvDevolucao = new System.Windows.Forms.DataGridView();
@@ -51,22 +51,22 @@
             this.ckbMidias = new System.Windows.Forms.CheckBox();
             this.ckbAmigos = new System.Windows.Forms.CheckBox();
             this.CL1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tabControl1.SuspendLayout();
+            this.tbcEmprestimo.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevolucao)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tbcEmprestimo
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(453, 335);
-            this.tabControl1.TabIndex = 0;
+            this.tbcEmprestimo.Controls.Add(this.tabPage1);
+            this.tbcEmprestimo.Controls.Add(this.tabPage2);
+            this.tbcEmprestimo.Location = new System.Drawing.Point(12, 12);
+            this.tbcEmprestimo.Name = "tbcEmprestimo";
+            this.tbcEmprestimo.SelectedIndex = 0;
+            this.tbcEmprestimo.Size = new System.Drawing.Size(453, 335);
+            this.tbcEmprestimo.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -96,6 +96,7 @@
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEmprestar
             // 
@@ -105,6 +106,7 @@
             this.btnEmprestar.TabIndex = 19;
             this.btnEmprestar.Text = "Emprestar";
             this.btnEmprestar.UseVisualStyleBackColor = true;
+            this.btnEmprestar.Click += new System.EventHandler(this.btnEmprestar_Click);
             // 
             // btnPesquisar
             // 
@@ -122,6 +124,7 @@
             this.cboNomeMidia.Name = "cboNomeMidia";
             this.cboNomeMidia.Size = new System.Drawing.Size(401, 21);
             this.cboNomeMidia.TabIndex = 17;
+            this.cboNomeMidia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNomeMidia_KeyPress);
             // 
             // lblNomeMidia
             // 
@@ -192,12 +195,13 @@
             this.cboNomeAmigo.Name = "cboNomeAmigo";
             this.cboNomeAmigo.Size = new System.Drawing.Size(430, 21);
             this.cboNomeAmigo.TabIndex = 11;
+            this.cboNomeAmigo.Leave += new System.EventHandler(this.cboNomeAmigo_Leave);
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.AliceBlue;
             this.tabPage2.Controls.Add(this.lbldtDevolucao);
-            this.tabPage2.Controls.Add(this.dtpDevolucao);
+            this.tabPage2.Controls.Add(this.dateTimePicker1);
             this.tabPage2.Controls.Add(this.btnLimpar);
             this.tabPage2.Controls.Add(this.btnDevolver);
             this.tabPage2.Controls.Add(this.dgvDevolucao);
@@ -220,12 +224,12 @@
             this.lbldtDevolucao.TabIndex = 7;
             this.lbldtDevolucao.Text = "Data de Devolução:";
             // 
-            // dtpDevolucao
+            // dateTimePicker1
             // 
-            this.dtpDevolucao.Location = new System.Drawing.Point(6, 90);
-            this.dtpDevolucao.Name = "dtpDevolucao";
-            this.dtpDevolucao.Size = new System.Drawing.Size(315, 20);
-            this.dtpDevolucao.TabIndex = 6;
+            this.dateTimePicker1.Location = new System.Drawing.Point(6, 90);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(315, 20);
+            this.dateTimePicker1.TabIndex = 6;
             // 
             // btnLimpar
             // 
@@ -244,6 +248,7 @@
             this.btnDevolver.TabIndex = 4;
             this.btnDevolver.Text = "Devolver";
             this.btnDevolver.UseVisualStyleBackColor = true;
+            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
             // 
             // dgvDevolucao
             // 
@@ -294,7 +299,6 @@
             this.CL1.Name = "CL1";
             this.CL1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CL1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CL1.Width = 70;
             // 
             // frmEmprestimo
             // 
@@ -302,7 +306,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(472, 351);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tbcEmprestimo);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MaximumSize = new System.Drawing.Size(700, 430);
             this.MinimumSize = new System.Drawing.Size(470, 355);
@@ -310,7 +314,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empréstimo de Discos";
             this.Load += new System.EventHandler(this.frmEmprestimo_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tbcEmprestimo.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).EndInit();
@@ -323,7 +327,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tbcEmprestimo;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEmprestar;
@@ -344,7 +348,7 @@
         private System.Windows.Forms.CheckBox ckbMidias;
         private System.Windows.Forms.CheckBox ckbAmigos;
         private System.Windows.Forms.Label lbldtDevolucao;
-        private System.Windows.Forms.DateTimePicker dtpDevolucao;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CL1;
 
     }
