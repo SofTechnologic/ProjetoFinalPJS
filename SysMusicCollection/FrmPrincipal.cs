@@ -30,7 +30,7 @@ namespace SysMusicCollection
             string midia;
         
 
-        public int btn = 0;
+        public int btnAbaSup = 0, btnAbaLat = 0;
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
@@ -53,15 +53,15 @@ namespace SysMusicCollection
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (btn == 0)
+            if (btnAbaSup == 0)
             {
-                splitContainer1.SplitterDistance = 50;
-                btn = 1;
+                spcHorizontal.SplitterDistance = 50;
+                btnAbaSup = 1;
             }
             else
             {
-                splitContainer1.SplitterDistance = 10;
-                btn = 0;
+                spcHorizontal.SplitterDistance = 0;
+                btnAbaSup = 0;
             }
 
         }
@@ -190,7 +190,40 @@ namespace SysMusicCollection
         {
             frmRelatorios frm = new frmRelatorios();
             frm.ShowDialog();
-        }       
+        }
 
+        private void btnAbaLateral_Click(object sender, EventArgs e)
+        {
+            if (btnAbaLat == 0)
+            {
+                spcPrincipal.SplitterDistance = 170;
+                btnAbaLat = 1;
+            }
+            else
+            {
+                spcPrincipal.SplitterDistance = 0;
+                btnAbaLat = 0;
+            }
+        }
+
+        private void lsvPrincipal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                List<string> apagar = new List<string>();
+                for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    ListViewItem remove = lsvPrincipal.SelectedItems[i];
+                    apagar.Add(remove.Text);
+                }
+                conexaoBanco apaga = new conexaoBanco();
+                apaga.removeItemBanco(apagar);
+                for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    ListViewItem remove = lsvPrincipal.SelectedItems[i];
+                    remove.Remove();
+                }
+            }
+        }
     }
 }

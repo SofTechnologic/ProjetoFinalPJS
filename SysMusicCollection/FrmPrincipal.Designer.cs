@@ -36,59 +36,67 @@
             System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
-            this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiArquivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiRelatorios = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiConfig = new System.Windows.Forms.ToolStripMenuItem();
             this.stsPrincipal = new System.Windows.Forms.StatusStrip();
             this.spcPrincipal = new System.Windows.Forms.SplitContainer();
+            this.btnAbaLateral = new System.Windows.Forms.Button();
             this.btnEmprDev = new System.Windows.Forms.Button();
             this.btnCadastro = new System.Windows.Forms.Button();
             this.txbPesquisa = new System.Windows.Forms.TextBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
+            this.spcHorizontal = new System.Windows.Forms.SplitContainer();
+            this.btnAbaFiltro = new System.Windows.Forms.Button();
             this.lsvPrincipal = new System.Windows.Forms.ListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsPrincipal = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmiEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmiExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
-            this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
             this.spcPrincipal.Panel2.SuspendLayout();
             this.spcPrincipal.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spcHorizontal)).BeginInit();
+            this.spcHorizontal.Panel1.SuspendLayout();
+            this.spcHorizontal.Panel2.SuspendLayout();
+            this.spcHorizontal.SuspendLayout();
+            this.cmsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnsPrincipal
             // 
             this.mnsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquivoToolStripMenuItem,
-            this.configuraçõesToolStripMenuItem});
+            this.msiArquivo,
+            this.msiConfig});
             this.mnsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnsPrincipal.Name = "mnsPrincipal";
             this.mnsPrincipal.Size = new System.Drawing.Size(734, 24);
             this.mnsPrincipal.TabIndex = 0;
             this.mnsPrincipal.Text = "menuStrip1";
             // 
-            // arquivoToolStripMenuItem
+            // msiArquivo
             // 
-            this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.relatóriosToolStripMenuItem});
-            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
-            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.arquivoToolStripMenuItem.Text = "Arquivo";
+            this.msiArquivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.msiRelatorios});
+            this.msiArquivo.Name = "msiArquivo";
+            this.msiArquivo.Size = new System.Drawing.Size(61, 20);
+            this.msiArquivo.Text = "Arquivo";
             // 
-            // configuraçõesToolStripMenuItem
+            // msiRelatorios
             // 
-            this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
-            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-            this.configuraçõesToolStripMenuItem.Text = "Configurações";
+            this.msiRelatorios.Name = "msiRelatorios";
+            this.msiRelatorios.Size = new System.Drawing.Size(126, 22);
+            this.msiRelatorios.Text = "Relatórios";
+            this.msiRelatorios.Click += new System.EventHandler(this.relatóriosToolStripMenuItem_Click);
+            // 
+            // msiConfig
+            // 
+            this.msiConfig.Name = "msiConfig";
+            this.msiConfig.Size = new System.Drawing.Size(96, 20);
+            this.msiConfig.Text = "Configurações";
             // 
             // stsPrincipal
             // 
@@ -108,6 +116,7 @@
             // 
             // spcPrincipal.Panel1
             // 
+            this.spcPrincipal.Panel1.Controls.Add(this.btnAbaLateral);
             this.spcPrincipal.Panel1.Controls.Add(this.btnEmprDev);
             this.spcPrincipal.Panel1.Controls.Add(this.btnCadastro);
             // 
@@ -116,8 +125,20 @@
             this.spcPrincipal.Panel2.Controls.Add(this.txbPesquisa);
             this.spcPrincipal.Panel2.Controls.Add(this.pnlPrincipal);
             this.spcPrincipal.Size = new System.Drawing.Size(734, 416);
-            this.spcPrincipal.SplitterDistance = 162;
+            this.spcPrincipal.SplitterDistance = 25;
             this.spcPrincipal.TabIndex = 2;
+            // 
+            // btnAbaLateral
+            // 
+            this.btnAbaLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbaLateral.Location = new System.Drawing.Point(1, 3);
+            this.btnAbaLateral.Name = "btnAbaLateral";
+            this.btnAbaLateral.Size = new System.Drawing.Size(25, 413);
+            this.btnAbaLateral.TabIndex = 2;
+            this.btnAbaLateral.Text = "Funções";
+            this.btnAbaLateral.UseVisualStyleBackColor = true;
+            this.btnAbaLateral.Click += new System.EventHandler(this.btnAbaLateral_Click);
             // 
             // btnEmprDev
             // 
@@ -147,7 +168,7 @@
             this.txbPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPesquisa.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbPesquisa.Location = new System.Drawing.Point(338, 14);
+            this.txbPesquisa.Location = new System.Drawing.Point(475, 14);
             this.txbPesquisa.Name = "txbPesquisa";
             this.txbPesquisa.Size = new System.Drawing.Size(215, 20);
             this.txbPesquisa.TabIndex = 1;
@@ -159,45 +180,45 @@
             this.pnlPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlPrincipal.Controls.Add(this.splitContainer1);
+            this.pnlPrincipal.Controls.Add(this.spcHorizontal);
             this.pnlPrincipal.Location = new System.Drawing.Point(0, 40);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(566, 376);
+            this.pnlPrincipal.Size = new System.Drawing.Size(703, 376);
             this.pnlPrincipal.TabIndex = 0;
             // 
-            // splitContainer1
+            // spcHorizontal
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.spcHorizontal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spcHorizontal.Location = new System.Drawing.Point(0, 0);
+            this.spcHorizontal.Name = "spcHorizontal";
+            this.spcHorizontal.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // spcHorizontal.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.spcHorizontal.Panel1.Controls.Add(this.btnAbaFiltro);
             // 
-            // splitContainer1.Panel2
+            // spcHorizontal.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.lsvPrincipal);
-            this.splitContainer1.Size = new System.Drawing.Size(566, 376);
-            this.splitContainer1.SplitterDistance = 25;
-            this.splitContainer1.TabIndex = 0;
+            this.spcHorizontal.Panel2.Controls.Add(this.lsvPrincipal);
+            this.spcHorizontal.Size = new System.Drawing.Size(703, 376);
+            this.spcHorizontal.SplitterDistance = 25;
+            this.spcHorizontal.TabIndex = 0;
             // 
-            // button1
+            // btnAbaFiltro
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(0, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(566, 14);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "^";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 8);
+            this.btnAbaFiltro.Name = "btnAbaFiltro";
+            this.btnAbaFiltro.Size = new System.Drawing.Size(703, 14);
+            this.btnAbaFiltro.TabIndex = 0;
+            this.btnAbaFiltro.Text = "^";
+            this.btnAbaFiltro.UseVisualStyleBackColor = true;
+            this.btnAbaFiltro.Click += new System.EventHandler(this.button1_Click);
             // 
             // lsvPrincipal
             // 
-            this.lsvPrincipal.ContextMenuStrip = this.contextMenuStrip1;
+            this.lsvPrincipal.ContextMenuStrip = this.cmsPrincipal;
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             listViewGroup1.Header = "DVD";
             listViewGroup1.Name = "DVD";
@@ -220,39 +241,33 @@
             listViewGroup6});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(566, 347);
+            this.lsvPrincipal.Size = new System.Drawing.Size(703, 347);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
+            this.lsvPrincipal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lsvPrincipal_KeyDown);
             // 
-            // contextMenuStrip1
+            // cmsPrincipal
             // 
-            this.contextMenuStrip1.AllowDrop = true;
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editarToolStripMenuItem,
-            this.excluirToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 48);
+            this.cmsPrincipal.AllowDrop = true;
+            this.cmsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmiEditar,
+            this.cmiExcluir});
+            this.cmsPrincipal.Name = "contextMenuStrip1";
+            this.cmsPrincipal.Size = new System.Drawing.Size(109, 48);
             // 
-            // editarToolStripMenuItem
+            // cmiEditar
             // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
-            this.editarToolStripMenuItem.Text = "Editar";
-            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            this.cmiEditar.Name = "cmiEditar";
+            this.cmiEditar.Size = new System.Drawing.Size(108, 22);
+            this.cmiEditar.Text = "Editar";
+            this.cmiEditar.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
-            // excluirToolStripMenuItem
+            // cmiExcluir
             // 
-            this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
-            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
-            this.excluirToolStripMenuItem.Text = "Excluir";
-            this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
-            // 
-            // relatóriosToolStripMenuItem
-            // 
-            this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.relatóriosToolStripMenuItem.Text = "Relatórios";
-            this.relatóriosToolStripMenuItem.Click += new System.EventHandler(this.relatóriosToolStripMenuItem_Click);
+            this.cmiExcluir.Name = "cmiExcluir";
+            this.cmiExcluir.Size = new System.Drawing.Size(108, 22);
+            this.cmiExcluir.Text = "Excluir";
+            this.cmiExcluir.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -276,11 +291,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).EndInit();
             this.spcPrincipal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.spcHorizontal.Panel1.ResumeLayout(false);
+            this.spcHorizontal.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spcHorizontal)).EndInit();
+            this.spcHorizontal.ResumeLayout(false);
+            this.cmsPrincipal.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,15 +311,16 @@
         private System.Windows.Forms.ToolTip tltPrincipal;
         private System.Windows.Forms.TextBox txbPesquisa;
         private System.Windows.Forms.Panel pnlPrincipal;
-        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configuraçõesToolStripMenuItem;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem msiArquivo;
+        private System.Windows.Forms.ToolStripMenuItem msiConfig;
+        private System.Windows.Forms.SplitContainer spcHorizontal;
+        private System.Windows.Forms.Button btnAbaFiltro;
         private System.Windows.Forms.ListView lsvPrincipal;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cmsPrincipal;
+        private System.Windows.Forms.ToolStripMenuItem cmiEditar;
+        private System.Windows.Forms.ToolStripMenuItem cmiExcluir;
+        private System.Windows.Forms.ToolStripMenuItem msiRelatorios;
+        private System.Windows.Forms.Button btnAbaLateral;
 
 
     }
