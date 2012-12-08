@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
@@ -37,6 +36,7 @@
             System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stsPrincipal = new System.Windows.Forms.StatusStrip();
             this.spcPrincipal = new System.Windows.Forms.SplitContainer();
@@ -47,11 +47,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
             this.lsvPrincipal = new System.Windows.Forms.ListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
-            this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -62,7 +59,6 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnsPrincipal
@@ -83,7 +79,13 @@
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.arquivoToolStripMenuItem.Text = "Arquivo";
-
+            // 
+            // relatóriosToolStripMenuItem
+            // 
+            this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.relatóriosToolStripMenuItem.Text = "Relatórios";
+            this.relatóriosToolStripMenuItem.Click += new System.EventHandler(this.relatóriosToolStripMenuItem_Click);
             // 
             // configuraçõesToolStripMenuItem
             // 
@@ -127,7 +129,6 @@
             this.btnEmprDev.Size = new System.Drawing.Size(120, 40);
             this.btnEmprDev.TabIndex = 1;
             this.btnEmprDev.Text = "Emprestar / Devolver";
-            this.tltPrincipal.SetToolTip(this.btnEmprDev, "Emprestar ou devolver mídias");
             this.btnEmprDev.UseVisualStyleBackColor = true;
             this.btnEmprDev.Click += new System.EventHandler(this.btnEmprDev_Click);
             // 
@@ -139,7 +140,6 @@
             this.btnCadastro.TabIndex = 0;
             this.btnCadastro.Tag = "";
             this.btnCadastro.Text = "Cadastrar";
-            this.tltPrincipal.SetToolTip(this.btnCadastro, "Cadastrar acervo ou amigos");
             this.btnCadastro.UseVisualStyleBackColor = true;
             this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
             // 
@@ -198,7 +198,6 @@
             // 
             // lsvPrincipal
             // 
-            this.lsvPrincipal.ContextMenuStrip = this.contextMenuStrip1;
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             listViewGroup1.Header = "DVD";
             listViewGroup1.Name = "DVD";
@@ -224,15 +223,7 @@
             this.lsvPrincipal.Size = new System.Drawing.Size(566, 347);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.AllowDrop = true;
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editarToolStripMenuItem,
-            this.excluirToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 52);
+            this.lsvPrincipal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lsvPrincipal_KeyDown);
             // 
             // editarToolStripMenuItem
             // 
@@ -247,13 +238,6 @@
             this.excluirToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
             this.excluirToolStripMenuItem.Text = "Excluir";
             this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
-            // 
-            // relatóriosToolStripMenuItem
-            // 
-            this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.relatóriosToolStripMenuItem.Text = "Relatórios";
-            this.relatóriosToolStripMenuItem.Click += new System.EventHandler(this.relatóriosToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -281,7 +265,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

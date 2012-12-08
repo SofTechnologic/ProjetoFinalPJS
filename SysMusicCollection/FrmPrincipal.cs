@@ -190,6 +190,26 @@ namespace SysMusicCollection
         {
             frmRelatorios frm = new frmRelatorios();
             frm.ShowDialog();
+        }
+
+        private void lsvPrincipal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                List<string> apagar = new List<string>();
+                for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    ListViewItem remove = lsvPrincipal.SelectedItems[i];
+                    apagar.Add(remove.Text);
+                }
+                conexaoBanco apaga = new conexaoBanco();
+                apaga.removeItemBanco(apagar);
+                for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    ListViewItem remove = lsvPrincipal.SelectedItems[i];
+                    remove.Remove();
+                }
+            }
         }       
 
     }
