@@ -111,6 +111,7 @@ namespace SysMusicCollection
             dr.Close();
 
             s.lv(espera);
+            
         }
         
         private void frmPrincipal_Load(object sender, EventArgs e)

@@ -70,7 +70,7 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    cadastrardiscos = new SqlCommand("INSERT INTO Discos (Cod_Midia , ID_Autor , ID_Interprete , ID_Album , Data_Album , Data_Compra , Origem_Compra , Observ , Nota) VALUES (@Cod_Midia , @ID_Autor, @ID_Interprete , @ID_Album, @Data_Album, @Data_Compra, @Origem_Compra, @Observ, @Nota )", cnx);
+                    cadastrardiscos = new SqlCommand("INSERT INTO Discos (Cod_Midia , ID_Autor , ID_Interprete , ID_Album , Data_Album , Data_Compra , Origem_Compra , Observ , Nota, Emprestado) VALUES (@Cod_Midia , @ID_Autor, @ID_Interprete , @ID_Album, @Data_Album, @Data_Compra, @Origem_Compra, @Observ, @Nota, 0 )", cnx);
 
                         //p_cadDiscos[1] = null;
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Cod_Midia", p_cadDiscos[0]));
@@ -169,7 +169,7 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    cadastraritens = new SqlCommand("Insert Into Itens_Emprestimo (Cod_Disco,Num_Emprestimo) values (@Cd,@Ne)", cnx);
+                    cadastraritens = new SqlCommand("Insert Into Itens_Emprestimo (Cod_Disco,Num_Emprestimo) values (@Cd,@Ne) update Discos set Emprestado = 1 where Cod_Disco = @Cd ; ", cnx);
                     cadastraritens.Parameters.Add(new SqlParameter("@Cd", coddisc));
                     cadastraritens.Parameters.Add(new SqlParameter("@Ne", codemp));
 
@@ -199,7 +199,7 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    cadastrardatadevolve = new SqlCommand("Update Itens_Emprestimo SET Data_Devolucao = @DT from Itens_Emprestimo inner join Emprestimos on Itens_Emprestimo.Num_Emprestimo = Emprestimos.Num_Emprestimo where (Itens_Emprestimo.Num_Emprestimo = @Cod and Emprestimos.Cod_Amigo = @Am and Emprestimos.Data_Emprestimo = @Dtemp and Itens_Emprestimo.Cod_Disco = @Coddisc) ", cnx);
+                    cadastrardatadevolve = new SqlCommand("Update Itens_Emprestimo SET Data_Devolucao = @DT from Itens_Emprestimo inner join Emprestimos on Itens_Emprestimo.Num_Emprestimo = Emprestimos.Num_Emprestimo where (Itens_Emprestimo.Num_Emprestimo = @Cod and Emprestimos.Cod_Amigo = @Am and Emprestimos.Data_Emprestimo = @Dtemp and Itens_Emprestimo.Cod_Disco = @Coddisc) update Discos SET Emprestado = 0 where Cod_Disco = @Coddisc ", cnx);
 
                     cadastrardatadevolve.Parameters.Add(new SqlParameter("@DT", data));
                     cadastrardatadevolve.Parameters.AddWithValue("@Cod", codemp);
@@ -469,7 +469,48 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    listardiscos = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where Albuns.ID_Album = Discos.ID_Album ", cnx);
+                    listardiscos = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where (Albuns.ID_Album = Discos.ID_Album  and Discos.Emprestado = 0) ", cnx);
+
+                    SqlDataReader dr = listardiscos.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        combomidias.Add(dr["Nome_Album"].ToString());
+
+                    }
+
+                    return combomidias;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+
+        public List<string> prComboDevolve_Discos()
+        {
+
+            SqlCommand listardiscos = null;
+
+            List<string> combomidias = new List<string>();
+            //List<string> cods = new List<string>();
+
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    listardiscos = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where (Albuns.ID_Album = Discos.ID_Album) ", cnx);
 
                     SqlDataReader dr = listardiscos.ExecuteReader();
 
