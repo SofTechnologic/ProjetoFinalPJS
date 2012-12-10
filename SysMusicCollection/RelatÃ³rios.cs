@@ -27,8 +27,7 @@ namespace SysMusicCollection
 
             dgvDevolucao.DataSource = rel.GridEmp();
             dgvDevolucao.Columns[1].Width = 300;
-
-            
+           
         }
 
         private void frmRelatorios_Load(object sender, EventArgs e)

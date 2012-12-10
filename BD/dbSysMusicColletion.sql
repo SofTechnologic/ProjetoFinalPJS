@@ -25,7 +25,6 @@ Endereco Varchar(50)
 CREATE TABLE Emprestimos (
 Num_Emprestimo int NOT NULL IDENTITY (1,1) PRIMARY KEY,
 Data_Emprestimo Varchar(10) NOT NULL,
-Data_Devolucao Varchar(10),
 Cod_Amigo int,
 FOREIGN KEY(Cod_Amigo) REFERENCES Amigos (Cod_Amigo)
 )
@@ -48,6 +47,7 @@ CREATE TABLE Itens_Emprestimo (
 ID_itens int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Cod_Disco int,
 Num_Emprestimo int,
+Data_Devolucao Varchar(10),
 FOREIGN KEY(Cod_Disco) REFERENCES Discos (Cod_Disco),
 FOREIGN KEY(Num_Emprestimo) REFERENCES Emprestimos (Num_Emprestimo)
 )
@@ -96,4 +96,17 @@ select * from Discos;
 go
 
 select * from Autores;
+go
+select * from Amigos;
+go
+select * from Emprestimos;
+go
+select * from Itens_emprestimo;
+go
+select * from albuns;
+go
+select * from Itens_emprestimo;
+go
+
+Select Count(Cod_Disco) from Itens_Emprestimo where (Cod_Disco = 3 and Data_Devolucao is not null) or (Cod_disco != 1 and Cod_disco != 2);
 go

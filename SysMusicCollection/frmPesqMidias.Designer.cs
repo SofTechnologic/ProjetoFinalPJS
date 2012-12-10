@@ -48,7 +48,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnAbaLateral);
             this.splitContainer1.Panel2MinSize = 0;
             this.splitContainer1.Size = new System.Drawing.Size(744, 442);
-            this.splitContainer1.SplitterDistance = 720;
+            this.splitContainer1.SplitterDistance = 715;
             this.splitContainer1.TabIndex = 0;
             // 
             // btnAbaLateral
