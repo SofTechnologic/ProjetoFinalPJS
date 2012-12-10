@@ -47,10 +47,10 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnDevolver = new System.Windows.Forms.Button();
             this.dgvDevolucao = new System.Windows.Forms.DataGridView();
+            this.CL1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cboDevolver = new System.Windows.Forms.ComboBox();
             this.ckbMidias = new System.Windows.Forms.CheckBox();
             this.ckbAmigos = new System.Windows.Forms.CheckBox();
-            this.CL1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tbcEmprestimo.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).BeginInit();
@@ -87,10 +87,11 @@
             this.tabPage1.Size = new System.Drawing.Size(445, 309);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Empréstimo";
+            this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(361, 153);
+            this.btnCancelar.Location = new System.Drawing.Point(364, 280);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 20;
@@ -100,7 +101,7 @@
             // 
             // btnEmprestar
             // 
-            this.btnEmprestar.Location = new System.Drawing.Point(280, 153);
+            this.btnEmprestar.Location = new System.Drawing.Point(283, 280);
             this.btnEmprestar.Name = "btnEmprestar";
             this.btnEmprestar.Size = new System.Drawing.Size(75, 23);
             this.btnEmprestar.TabIndex = 19;
@@ -144,10 +145,10 @@
             this.dgvEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmprestimo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CL01});
-            this.dgvEmprestimo.Location = new System.Drawing.Point(6, 182);
+            this.dgvEmprestimo.Location = new System.Drawing.Point(6, 150);
             this.dgvEmprestimo.Name = "dgvEmprestimo";
             this.dgvEmprestimo.ReadOnly = true;
-            this.dgvEmprestimo.Size = new System.Drawing.Size(430, 117);
+            this.dgvEmprestimo.Size = new System.Drawing.Size(430, 124);
             this.dgvEmprestimo.TabIndex = 15;
             // 
             // CL01
@@ -262,6 +263,13 @@
             this.dgvDevolucao.Size = new System.Drawing.Size(433, 158);
             this.dgvDevolucao.TabIndex = 3;
             // 
+            // CL1
+            // 
+            this.CL1.HeaderText = "Devolver";
+            this.CL1.Name = "CL1";
+            this.CL1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CL1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // cboDevolver
             // 
             this.cboDevolver.FormattingEnabled = true;
@@ -292,13 +300,6 @@
             this.ckbAmigos.Text = "Amigos";
             this.ckbAmigos.UseVisualStyleBackColor = true;
             this.ckbAmigos.CheckedChanged += new System.EventHandler(this.ckbAmigos_CheckedChanged);
-            // 
-            // CL1
-            // 
-            this.CL1.HeaderText = "Devolver";
-            this.CL1.Name = "CL1";
-            this.CL1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CL1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmEmprestimo
             // 

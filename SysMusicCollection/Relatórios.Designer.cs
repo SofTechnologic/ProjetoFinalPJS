@@ -30,14 +30,14 @@
         {
             this.tbcRel = new System.Windows.Forms.TabControl();
             this.tbcEmprestados = new System.Windows.Forms.TabPage();
+            this.dgvDevolucao = new System.Windows.Forms.DataGridView();
             this.tbcDevolvidos = new System.Windows.Forms.TabPage();
             this.dgvEmprestados = new System.Windows.Forms.DataGridView();
-            this.dgvDevolucao = new System.Windows.Forms.DataGridView();
             this.tbcRel.SuspendLayout();
             this.tbcEmprestados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevolucao)).BeginInit();
             this.tbcDevolvidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDevolucao)).BeginInit();
             this.SuspendLayout();
             // 
             // tbcRel
@@ -63,6 +63,15 @@
             this.tbcEmprestados.UseVisualStyleBackColor = true;
             this.tbcEmprestados.Enter += new System.EventHandler(this.tbcDevolucao_Enter);
             // 
+            // dgvDevolucao
+            // 
+            this.dgvDevolucao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDevolucao.Location = new System.Drawing.Point(6, 99);
+            this.dgvDevolucao.Name = "dgvDevolucao";
+            this.dgvDevolucao.Size = new System.Drawing.Size(927, 364);
+            this.dgvDevolucao.TabIndex = 0;
+            // 
             // tbcDevolvidos
             // 
             this.tbcDevolvidos.Controls.Add(this.dgvEmprestados);
@@ -73,24 +82,18 @@
             this.tbcDevolvidos.TabIndex = 1;
             this.tbcDevolvidos.Text = "Devolvidos";
             this.tbcDevolvidos.UseVisualStyleBackColor = true;
+            this.tbcDevolvidos.Click += new System.EventHandler(this.tbcDevolvidos_Click);
             this.tbcDevolvidos.Enter += new System.EventHandler(this.tbcEmprestados_Enter);
             // 
             // dgvEmprestados
             // 
+            this.dgvEmprestados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmprestados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmprestados.Location = new System.Drawing.Point(6, 99);
             this.dgvEmprestados.Name = "dgvEmprestados";
             this.dgvEmprestados.ReadOnly = true;
             this.dgvEmprestados.Size = new System.Drawing.Size(927, 364);
             this.dgvEmprestados.TabIndex = 0;
-            // 
-            // dgvDevolucao
-            // 
-            this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDevolucao.Location = new System.Drawing.Point(6, 99);
-            this.dgvDevolucao.Name = "dgvDevolucao";
-            this.dgvDevolucao.Size = new System.Drawing.Size(927, 364);
-            this.dgvDevolucao.TabIndex = 0;
             // 
             // frmRelatorios
             // 
@@ -103,9 +106,9 @@
             this.Load += new System.EventHandler(this.frmRelatorios_Load);
             this.tbcRel.ResumeLayout(false);
             this.tbcEmprestados.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDevolucao)).EndInit();
             this.tbcDevolvidos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDevolucao)).EndInit();
             this.ResumeLayout(false);
 
         }

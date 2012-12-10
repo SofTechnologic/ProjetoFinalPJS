@@ -59,7 +59,7 @@ namespace SysMusicCollection
 
                     string sq = " select Nome_Album from Albuns inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
                                    " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " +
-                               " where Discos.Cod_Disco = @valor ";
+                               " where (Discos.Cod_Disco = @valor) ";
 
                     dgvEmprestimo.Rows.Add(cboNomeMidia.Text);
 
@@ -89,6 +89,7 @@ namespace SysMusicCollection
                 dgvEmprestimo.Rows.RemoveAt(i);
                 i--;
             }
+            frmEmprestimo_Load(e, e);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -165,6 +166,7 @@ namespace SysMusicCollection
                         coddisc = devolve.PesqCoddiscos(dgvDevolucao[1, i].Value.ToString());
 
                         devolve.CadastrarDevolucao(data, codemp, codamigo, pegadt, coddisc);
+                        devolve.CadastrarMorto(cboDevolver.Text, dgvDevolucao[1, i].Value.ToString(), pegadt, data);
 
                         dgvDevolucao.Rows.RemoveAt(i);
                         i--;
@@ -189,6 +191,8 @@ namespace SysMusicCollection
                         coddisc = devolve.PesqCoddiscos(dgvDevolucao[1, i].Value.ToString());
 
                         devolve.CadastrarDevolucao(data, codemp, codamigo, pegadt, coddisc);
+                        devolve.CadastrarMorto(dgvDevolucao[2, i].Value.ToString(), dgvDevolucao[1, i].Value.ToString(),pegadt, data);
+
 
                         dgvDevolucao.Rows.RemoveAt(i);
                         i--;
@@ -220,7 +224,7 @@ namespace SysMusicCollection
             if (ckbMidias.Checked)
             {
                 ckbAmigos.Checked = false;
-                cboDevolver.DataSource = mds.prCombo_Discos();
+                cboDevolver.DataSource = mds.prComboDevolve_Discos();
                 cboDevolver.DisplayMember = "Nome_Album";
             }
          }
@@ -233,6 +237,11 @@ namespace SysMusicCollection
                 cboDevolver.DataSource = pega.prCombo_Amigos();
             }
 
+        }
+
+        private void tabPage1_Enter(object sender, EventArgs e)
+        {
+            frmEmprestimo_Load(e, e);
         }
 
 

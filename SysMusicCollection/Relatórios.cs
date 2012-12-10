@@ -32,7 +32,8 @@ namespace SysMusicCollection
 
         private void frmRelatorios_Load(object sender, EventArgs e)
         {
-           
+            tbcDevolucao_Enter(e, e);
+            tbcEmprestados_Enter(e, e);
         }
 
         private void tbcEmprestados_Enter(object sender, EventArgs e)
@@ -41,6 +42,11 @@ namespace SysMusicCollection
 
             dgvEmprestados.DataSource = rel.GridDev();
             dgvEmprestados.Columns[1].Width = 300;
+        }
+
+        private void tbcDevolvidos_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
