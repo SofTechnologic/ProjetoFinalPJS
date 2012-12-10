@@ -32,14 +32,15 @@ FOREIGN KEY(Cod_Amigo) REFERENCES Amigos (Cod_Amigo)
 CREATE TABLE Discos (
 Cod_Disco int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Cod_Midia int NOT NULL ,
-ID_Autor int,
+ID_Autor int NOT NULL ,
 ID_Interprete int NOT NULL,
 ID_Album int NOT NULL ,
 Data_Album Varchar(10),
 Data_Compra Varchar(10),
 Origem_Compra Varchar(30),
 Observ Varchar(50),
-Nota varchar(12),
+Nota decimal,
+Emprestado bit,
 FOREIGN KEY(Cod_Midia) REFERENCES Midias (Cod_Midia)
 )
 
@@ -67,6 +68,15 @@ ID_Album int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Nome_Album Varchar(40) NOT NULL
 )
 
+CREATE TABLE Morto (
+Cod_Morto int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+Nome_Amigo Varchar(40) NOT NULL ,
+Nome_Disco Varchar(40) NOT NULL,
+Data_Emprestimo Varchar (10) NOT NULL,
+Data_Devolucao Varchar (10) NOT NULL,
+)
+GO
+
 ALTER TABLE Discos ADD FOREIGN KEY(ID_Autor) REFERENCES Autores (ID_Autor)
 ALTER TABLE Discos ADD FOREIGN KEY(ID_Interprete) REFERENCES Interpretes (ID_Interprete)
 ALTER TABLE Discos ADD FOREIGN KEY(ID_Album) REFERENCES Albuns (ID_Album)
@@ -92,21 +102,5 @@ go
 delete from Midias where Cod_Midia = 0;
 go
 
-select * from Discos;
-go
-
-select * from Autores;
-go
-select * from Amigos;
-go
-select * from Emprestimos;
-go
-select * from Itens_emprestimo;
-go
-select * from albuns;
-go
-select * from Itens_emprestimo;
-go
-
-Select Count(Cod_Disco) from Itens_Emprestimo where (Cod_Disco = 3 and Data_Devolucao is not null) or (Cod_disco != 1 and Cod_disco != 2);
+select * from Midias;
 go

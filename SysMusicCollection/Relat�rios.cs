@@ -32,7 +32,8 @@ namespace SysMusicCollection
 
         private void frmRelatorios_Load(object sender, EventArgs e)
         {
-           
+            tbcDevolucao_Enter(e, e);
+            tbcEmprestados_Enter(e, e);
         }
 
         private void tbcEmprestados_Enter(object sender, EventArgs e)

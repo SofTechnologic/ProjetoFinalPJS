@@ -177,17 +177,18 @@ namespace SysMusicCollection
                         if (t.Text == "")
                         {
                             if (t.Name == cboAlbum.Name)
-                            {
                                 erpErro.SetError(t, "Digite o Album/Musica");
-                            }
                             if (t.Name == cboInterprete.Name)
                                 erpErro.SetError(t, "Digite o Interprete");
                         }
-                        else if ((t.Name == cboMidia.Name) &&( cboMidia.Text != "K7" || 
-                            cboMidia.Text != "CD" || cboMidia.Text != "DVD" || cboMidia.Text != "Digital"))
-                            erpErro.SetError(t, "Escolha um Tipo de Midia");
                         else
-                            erpErro.SetError(t, "");
+                        {
+                            if ((t.Name == cboMidia.Name) && (cboMidia.Text != "K7" &&
+                            cboMidia.Text != "CD" && cboMidia.Text != "DVD" && cboMidia.Text != "Digital"))
+                                erpErro.SetError(t, "Escolha um Tipo de Midia");
+                            else
+                                erpErro.SetError(t, "");
+                        }
                     }
                 }
 
