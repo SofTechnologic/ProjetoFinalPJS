@@ -49,11 +49,11 @@
             this.spcHorizontal = new System.Windows.Forms.SplitContainer();
             this.btnAbaFiltro = new System.Windows.Forms.Button();
             this.lsvPrincipal = new System.Windows.Forms.ListView();
-            this.cmiEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmiExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ediarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmiEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmiExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -74,8 +74,7 @@
             this.msiConfig});
             this.mnsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnsPrincipal.Name = "mnsPrincipal";
-            this.mnsPrincipal.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.mnsPrincipal.Size = new System.Drawing.Size(979, 28);
+            this.mnsPrincipal.Size = new System.Drawing.Size(734, 24);
             this.mnsPrincipal.TabIndex = 0;
             this.mnsPrincipal.Text = "menuStrip1";
             // 
@@ -84,38 +83,36 @@
             this.msiArquivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msiRelatorios});
             this.msiArquivo.Name = "msiArquivo";
-            this.msiArquivo.Size = new System.Drawing.Size(73, 24);
+            this.msiArquivo.Size = new System.Drawing.Size(61, 20);
             this.msiArquivo.Text = "Arquivo";
             // 
             // msiRelatorios
             // 
             this.msiRelatorios.Name = "msiRelatorios";
-            this.msiRelatorios.Size = new System.Drawing.Size(145, 24);
+            this.msiRelatorios.Size = new System.Drawing.Size(126, 22);
             this.msiRelatorios.Text = "Relatórios";
             this.msiRelatorios.Click += new System.EventHandler(this.relatóriosToolStripMenuItem_Click);
             // 
             // msiConfig
             // 
             this.msiConfig.Name = "msiConfig";
-            this.msiConfig.Size = new System.Drawing.Size(116, 24);
+            this.msiConfig.Size = new System.Drawing.Size(96, 20);
             this.msiConfig.Text = "Configurações";
             // 
             // stsPrincipal
             // 
-            this.stsPrincipal.Location = new System.Drawing.Point(0, 547);
+            this.stsPrincipal.Location = new System.Drawing.Point(0, 440);
             this.stsPrincipal.Name = "stsPrincipal";
-            this.stsPrincipal.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.stsPrincipal.Size = new System.Drawing.Size(979, 22);
+            this.stsPrincipal.Size = new System.Drawing.Size(734, 22);
             this.stsPrincipal.TabIndex = 1;
             this.stsPrincipal.Text = "statusStrip1";
             // 
             // spcPrincipal
             // 
-            this.spcPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.spcPrincipal.Location = new System.Drawing.Point(0, 30);
-            this.spcPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spcPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.spcPrincipal.Location = new System.Drawing.Point(0, 24);
             this.spcPrincipal.Name = "spcPrincipal";
             // 
             // spcPrincipal.Panel1
@@ -128,19 +125,17 @@
             // 
             this.spcPrincipal.Panel2.Controls.Add(this.txbPesquisa);
             this.spcPrincipal.Panel2.Controls.Add(this.pnlPrincipal);
-            this.spcPrincipal.Size = new System.Drawing.Size(979, 512);
-            this.spcPrincipal.SplitterDistance = 33;
-            this.spcPrincipal.SplitterWidth = 5;
+            this.spcPrincipal.Size = new System.Drawing.Size(734, 416);
+            this.spcPrincipal.SplitterDistance = 25;
             this.spcPrincipal.TabIndex = 2;
             // 
             // btnAbaLateral
             // 
-            this.btnAbaLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbaLateral.Location = new System.Drawing.Point(1, 4);
-            this.btnAbaLateral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAbaLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbaLateral.Location = new System.Drawing.Point(1, 3);
             this.btnAbaLateral.Name = "btnAbaLateral";
-            this.btnAbaLateral.Size = new System.Drawing.Size(33, 508);
+            this.btnAbaLateral.Size = new System.Drawing.Size(25, 413);
             this.btnAbaLateral.TabIndex = 2;
             this.btnAbaLateral.Text = "Funções";
             this.btnAbaLateral.UseVisualStyleBackColor = true;
@@ -148,10 +143,9 @@
             // 
             // btnEmprDev
             // 
-            this.btnEmprDev.Location = new System.Drawing.Point(16, 110);
-            this.btnEmprDev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEmprDev.Location = new System.Drawing.Point(12, 89);
             this.btnEmprDev.Name = "btnEmprDev";
-            this.btnEmprDev.Size = new System.Drawing.Size(160, 49);
+            this.btnEmprDev.Size = new System.Drawing.Size(120, 40);
             this.btnEmprDev.TabIndex = 1;
             this.btnEmprDev.Text = "Emprestar / Devolver";
             this.btnEmprDev.UseVisualStyleBackColor = true;
@@ -159,10 +153,9 @@
             // 
             // btnCadastro
             // 
-            this.btnCadastro.Location = new System.Drawing.Point(16, 53);
-            this.btnCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCadastro.Location = new System.Drawing.Point(12, 43);
             this.btnCadastro.Name = "btnCadastro";
-            this.btnCadastro.Size = new System.Drawing.Size(160, 49);
+            this.btnCadastro.Size = new System.Drawing.Size(120, 40);
             this.btnCadastro.TabIndex = 0;
             this.btnCadastro.Tag = "";
             this.btnCadastro.Text = "Cadastrar";
@@ -174,31 +167,28 @@
             this.txbPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPesquisa.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbPesquisa.Location = new System.Drawing.Point(634, 17);
-            this.txbPesquisa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbPesquisa.Location = new System.Drawing.Point(474, 14);
             this.txbPesquisa.Name = "txbPesquisa";
-            this.txbPesquisa.Size = new System.Drawing.Size(285, 23);
+            this.txbPesquisa.Size = new System.Drawing.Size(215, 20);
             this.txbPesquisa.TabIndex = 1;
             this.txbPesquisa.Text = "Pesquisar";
             this.txbPesquisa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txbPesquisa_MouseClick);
             // 
             // pnlPrincipal
             // 
-            this.pnlPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPrincipal.Controls.Add(this.spcHorizontal);
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 49);
-            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 40);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(938, 463);
+            this.pnlPrincipal.Size = new System.Drawing.Size(702, 376);
             this.pnlPrincipal.TabIndex = 0;
             // 
             // spcHorizontal
             // 
             this.spcHorizontal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.spcHorizontal.Location = new System.Drawing.Point(0, 0);
-            this.spcHorizontal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spcHorizontal.Name = "spcHorizontal";
             this.spcHorizontal.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -209,19 +199,17 @@
             // spcHorizontal.Panel2
             // 
             this.spcHorizontal.Panel2.Controls.Add(this.lsvPrincipal);
-            this.spcHorizontal.Size = new System.Drawing.Size(938, 463);
-            this.spcHorizontal.SplitterDistance = 30;
-            this.spcHorizontal.SplitterWidth = 5;
+            this.spcHorizontal.Size = new System.Drawing.Size(702, 376);
+            this.spcHorizontal.SplitterDistance = 25;
             this.spcHorizontal.TabIndex = 0;
             // 
             // btnAbaFiltro
             // 
-            this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 9);
-            this.btnAbaFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 8);
             this.btnAbaFiltro.Name = "btnAbaFiltro";
-            this.btnAbaFiltro.Size = new System.Drawing.Size(938, 17);
+            this.btnAbaFiltro.Size = new System.Drawing.Size(702, 14);
             this.btnAbaFiltro.TabIndex = 0;
             this.btnAbaFiltro.Text = "^";
             this.btnAbaFiltro.UseVisualStyleBackColor = true;
@@ -251,27 +239,12 @@
             listViewGroup5,
             listViewGroup6});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.lsvPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(938, 428);
+            this.lsvPrincipal.Size = new System.Drawing.Size(702, 347);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
             this.lsvPrincipal.SelectedIndexChanged += new System.EventHandler(this.lsvPrincipal_SelectedIndexChanged);
             this.lsvPrincipal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lsvPrincipal_KeyDown);
-            // 
-            // cmiEditar
-            // 
-            this.cmiEditar.Name = "cmiEditar";
-            this.cmiEditar.Size = new System.Drawing.Size(108, 22);
-            this.cmiEditar.Text = "Editar";
-            this.cmiEditar.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
-            // 
-            // cmiExcluir
-            // 
-            this.cmiExcluir.Name = "cmiExcluir";
-            this.cmiExcluir.Size = new System.Drawing.Size(108, 22);
-            this.cmiExcluir.Text = "Excluir";
-            this.cmiExcluir.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -295,17 +268,30 @@
             this.ediarToolStripMenuItem.Text = "Ediar";
             this.ediarToolStripMenuItem.Click += new System.EventHandler(this.ediarToolStripMenuItem_Click);
             // 
+            // cmiEditar
+            // 
+            this.cmiEditar.Name = "cmiEditar";
+            this.cmiEditar.Size = new System.Drawing.Size(108, 22);
+            this.cmiEditar.Text = "Editar";
+            this.cmiEditar.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
+            // cmiExcluir
+            // 
+            this.cmiExcluir.Name = "cmiExcluir";
+            this.cmiExcluir.Size = new System.Drawing.Size(108, 22);
+            this.cmiExcluir.Text = "Excluir";
+            this.cmiExcluir.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(979, 569);
+            this.ClientSize = new System.Drawing.Size(734, 462);
             this.Controls.Add(this.spcPrincipal);
             this.Controls.Add(this.stsPrincipal);
             this.Controls.Add(this.mnsPrincipal);
             this.MainMenuStrip = this.mnsPrincipal;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sys Music Collection";
