@@ -65,6 +65,7 @@
             // 
             // dgvDevolucao
             // 
+            this.dgvDevolucao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDevolucao.Location = new System.Drawing.Point(6, 99);
             this.dgvDevolucao.Name = "dgvDevolucao";
@@ -81,6 +82,7 @@
             this.tbcDevolvidos.TabIndex = 1;
             this.tbcDevolvidos.Text = "Devolvidos";
             this.tbcDevolvidos.UseVisualStyleBackColor = true;
+            this.tbcDevolvidos.Click += new System.EventHandler(this.tbcDevolvidos_Click);
             this.tbcDevolvidos.Enter += new System.EventHandler(this.tbcEmprestados_Enter);
             // 
             // dgvEmprestados

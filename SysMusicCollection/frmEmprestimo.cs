@@ -166,6 +166,7 @@ namespace SysMusicCollection
                         coddisc = devolve.PesqCoddiscos(dgvDevolucao[1, i].Value.ToString());
 
                         devolve.CadastrarDevolucao(data, codemp, codamigo, pegadt, coddisc);
+                        devolve.CadastrarMorto(cboDevolver.Text, dgvDevolucao[1, i].Value.ToString(), pegadt, data);
 
                         dgvDevolucao.Rows.RemoveAt(i);
                         i--;
@@ -190,6 +191,8 @@ namespace SysMusicCollection
                         coddisc = devolve.PesqCoddiscos(dgvDevolucao[1, i].Value.ToString());
 
                         devolve.CadastrarDevolucao(data, codemp, codamigo, pegadt, coddisc);
+                        devolve.CadastrarMorto(dgvDevolucao[2, i].Value.ToString(), dgvDevolucao[1, i].Value.ToString(),pegadt, data);
+
 
                         dgvDevolucao.Rows.RemoveAt(i);
                         i--;

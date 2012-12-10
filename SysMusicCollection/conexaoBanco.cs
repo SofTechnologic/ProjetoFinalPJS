@@ -162,6 +162,7 @@ namespace SysMusicCollection
                 return false;
             }
         }
+
         public bool CadastrarItensEmp(int coddisc, int codemp)
         {
             SqlCommand cadastraritens = null;
@@ -207,6 +208,38 @@ namespace SysMusicCollection
                     cadastrardatadevolve.Parameters.AddWithValue("@Dtemp", dtemp);
                     cadastrardatadevolve.Parameters.AddWithValue("@Coddisc", coddisc);
                     cadastrardatadevolve.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool CadastrarMorto(string nome_am, string nome_disc, string data_em, string data_dev)
+        {
+            SqlCommand cadastraritens = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    cadastraritens = new SqlCommand("Insert Into Morto (Nome_Amigo, Nome_Disco, Data_Emprestimo, Data_Devolucao) values (@Am,@Disc,@Dt_em,@Dt_dv)", cnx);
+                    cadastraritens.Parameters.Add(new SqlParameter("@Am", nome_am));
+                    cadastraritens.Parameters.Add(new SqlParameter("@Disc", nome_disc));
+                    cadastraritens.Parameters.Add(new SqlParameter("@Dt_em", data_em));
+                    cadastraritens.Parameters.Add(new SqlParameter("@Dt_dv", data_dev));
+
+                    cadastraritens.ExecuteNonQuery();
 
                     return true;
                 }
@@ -584,12 +617,8 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Nome_Album, Nome, Data_Emprestimo, Data_Devolucao from Albuns"+ 
-                             " inner join Discos on Albuns.ID_Album = Discos.ID_Album " + 
-                             " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " + 
-                             " inner join Emprestimos on Itens_Emprestimo.Num_Emprestimo = Emprestimos.Num_Emprestimo "+
-                             " inner join amigos on Emprestimos.Cod_Amigo = Amigos.Cod_Amigo" +
-                             " where Itens_Emprestimo.Data_Devolucao IS NOT NULL ";
+                string sql = " Select Nome_amigo as Amigo, Nome_disco as Disco, Data_Emprestimo, Data_devolucao from Morto";
+
                 try
                 {
                     dgvEmp = new SqlCommand(sql, cnx);
