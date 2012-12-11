@@ -16,8 +16,8 @@ namespace SysMusicCollection
 
         private const string sqlConn = //@" Data Source=FELIPE-IBM;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 ///* Bruno*/ @"Data Source=NOTEBOOK;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-            /*Felipe*/ @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-///*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+            ///*Felipe*/ @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+            /*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
 
 
@@ -142,11 +142,13 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    cadastraritens = new SqlCommand("Insert Into Emprestimos (Data_Emprestimo , Cod_Amigo) values (@dt,@CD)", cnx);
-                    cadastraritens.Parameters.Add(new SqlParameter("@dt", p_codem[0]));
-                    cadastraritens.Parameters.Add(new SqlParameter("@CD", p_codem[1]));
-                     cadastraritens.ExecuteNonQuery();
-
+                    if (Convert.ToInt16(p_codem[1]) > 0)
+                    {
+                        cadastraritens = new SqlCommand("Insert Into Emprestimos (Data_Emprestimo , Cod_Amigo) values (@dt,@CD)", cnx);
+                        cadastraritens.Parameters.Add(new SqlParameter("@dt", p_codem[0]));
+                        cadastraritens.Parameters.Add(new SqlParameter("@CD", p_codem[1]));
+                        cadastraritens.ExecuteNonQuery();
+                    }
                     return true;
                 }
                 catch (Exception ex)
@@ -1160,12 +1162,19 @@ namespace SysMusicCollection
                 string sql = "select Num_Emprestimo from Emprestimos where Data_Emprestimo = @dt and Cod_Amigo = @cdam";
                 try
                 {
-                    pesqamigo = new SqlCommand(sql, cnx);
-                    pesqamigo.Parameters.AddWithValue("@dt", data);
-                    pesqamigo.Parameters.AddWithValue("@cdam", Cdam);
-                    //pesqInter.ExecuteNonQuery();
-                    int cd = (int)pesqamigo.ExecuteScalar();
-                    return cd;
+                    if (Cdam > 0)
+                    {
+                        pesqamigo = new SqlCommand(sql, cnx);
+                        pesqamigo.Parameters.AddWithValue("@dt", data);
+                        pesqamigo.Parameters.AddWithValue("@cdam", Cdam);
+                        //pesqInter.ExecuteNonQuery();
+                        int cd = (int)pesqamigo.ExecuteScalar();
+                        return cd;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
                 catch (Exception ex)
                 {

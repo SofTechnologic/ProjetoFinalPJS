@@ -209,6 +209,7 @@
             this.cboNomeAmigo.Name = "cboNomeAmigo";
             this.cboNomeAmigo.Size = new System.Drawing.Size(430, 21);
             this.cboNomeAmigo.TabIndex = 11;
+            this.cboNomeAmigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNomeAmigo_KeyPress);
             this.cboNomeAmigo.Leave += new System.EventHandler(this.cboNomeAmigo_Leave);
             // 
             // tabPage2
@@ -339,6 +340,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empréstimo de Discos";
             this.Load += new System.EventHandler(this.frmEmprestimo_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmEmprestimo_KeyPress);
             this.tbcEmprestimo.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

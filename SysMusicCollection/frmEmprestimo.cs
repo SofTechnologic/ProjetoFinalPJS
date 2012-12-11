@@ -25,9 +25,7 @@ namespace SysMusicCollection
             InitializeComponent();
         }
 
-        
-
-          
+                
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -71,6 +69,7 @@ namespace SysMusicCollection
 
         private void btnEmprestar_Click(object sender, EventArgs e)
         {
+
             conexaoBanco disc = new conexaoBanco();
             ArrayList arremp = new ArrayList();
             arremp.Add(dtpDataEmprestimo.Value.ToShortDateString());
@@ -94,7 +93,8 @@ namespace SysMusicCollection
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            
+            this.Dispose();
         }
 
         private void cboNomeAmigo_Leave(object sender, EventArgs e)
@@ -242,6 +242,16 @@ namespace SysMusicCollection
         private void tabPage1_Enter(object sender, EventArgs e)
         {
             frmEmprestimo_Load(e, e);
+        }
+
+        private void frmEmprestimo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void cboNomeAmigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        
         }
 
 
