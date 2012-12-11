@@ -60,9 +60,6 @@
             // 
             // tbcEmprestimo
             // 
-            this.tbcEmprestimo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tbcEmprestimo.Controls.Add(this.tabPage1);
             this.tbcEmprestimo.Controls.Add(this.tabPage2);
             this.tbcEmprestimo.Location = new System.Drawing.Point(12, 12);
@@ -94,7 +91,6 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.Location = new System.Drawing.Point(364, 280);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
@@ -105,7 +101,6 @@
             // 
             // btnEmprestar
             // 
-            this.btnEmprestar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEmprestar.Location = new System.Drawing.Point(283, 280);
             this.btnEmprestar.Name = "btnEmprestar";
             this.btnEmprestar.Size = new System.Drawing.Size(75, 23);
@@ -116,7 +111,6 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPesquisar.Location = new System.Drawing.Point(409, 121);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(27, 23);
@@ -126,14 +120,15 @@
             // 
             // cboNomeMidia
             // 
-            this.cboNomeMidia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboNomeMidia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboNomeMidia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboNomeMidia.FormattingEnabled = true;
             this.cboNomeMidia.Location = new System.Drawing.Point(6, 123);
             this.cboNomeMidia.Name = "cboNomeMidia";
             this.cboNomeMidia.Size = new System.Drawing.Size(401, 21);
             this.cboNomeMidia.TabIndex = 17;
             this.cboNomeMidia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNomeMidia_KeyPress);
+            this.cboNomeMidia.Leave += new System.EventHandler(this.cboNomeMidia_Leave);
             // 
             // lblNomeMidia
             // 
@@ -149,9 +144,6 @@
             // 
             this.dgvEmprestimo.AllowUserToAddRows = false;
             this.dgvEmprestimo.AllowUserToDeleteRows = false;
-            this.dgvEmprestimo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmprestimo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmprestimo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -199,8 +191,6 @@
             // 
             // cboNomeAmigo
             // 
-            this.cboNomeAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cboNomeAmigo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboNomeAmigo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboNomeAmigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
@@ -247,17 +237,16 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpar.Location = new System.Drawing.Point(364, 280);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnDevolver
             // 
-            this.btnDevolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDevolver.Location = new System.Drawing.Point(283, 280);
             this.btnDevolver.Name = "btnDevolver";
             this.btnDevolver.Size = new System.Drawing.Size(75, 23);
@@ -270,9 +259,6 @@
             // 
             this.dgvDevolucao.AllowUserToAddRows = false;
             this.dgvDevolucao.AllowUserToDeleteRows = false;
-            this.dgvDevolucao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDevolucao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CL1});
@@ -290,19 +276,19 @@
             // 
             // cboDevolver
             // 
-            this.cboDevolver.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboDevolver.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboDevolver.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboDevolver.FormattingEnabled = true;
             this.cboDevolver.Location = new System.Drawing.Point(6, 50);
             this.cboDevolver.Name = "cboDevolver";
             this.cboDevolver.Size = new System.Drawing.Size(433, 21);
             this.cboDevolver.TabIndex = 2;
+            this.cboDevolver.TabStop = false;
             this.cboDevolver.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboDevolver_KeyPress);
+            this.cboDevolver.Leave += new System.EventHandler(this.cboDevolver_Leave);
             // 
             // ckbMidias
             // 
-            this.ckbMidias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbMidias.AutoSize = true;
             this.ckbMidias.Location = new System.Drawing.Point(217, 27);
             this.ckbMidias.Name = "ckbMidias";
@@ -314,8 +300,6 @@
             // 
             // ckbAmigos
             // 
-            this.ckbAmigos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbAmigos.AutoSize = true;
             this.ckbAmigos.Location = new System.Drawing.Point(131, 27);
             this.ckbAmigos.Name = "ckbAmigos";

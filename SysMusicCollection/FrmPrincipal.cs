@@ -91,6 +91,7 @@ namespace SysMusicCollection
             lsvPrincipal.Columns.Add(dr.GetName(7), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(dr.GetName(8), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(dr.GetName(9), 120, HorizontalAlignment.Center);
+            //lsvPrincipal.Columns.Add(dr.GetName(10), 0, HorizontalAlignment.Center);
 
             while (dr.Read())
             {
@@ -104,9 +105,16 @@ namespace SysMusicCollection
                 teste.SubItems.Add(dr[7].ToString());
                 teste.SubItems.Add(dr[8].ToString());
                 teste.SubItems.Add(dr[9].ToString());
+                //teste.SubItems.Add(dr[10].ToString());
                 teste.Group = lsvPrincipal.Groups[dr[1].ToString()];
 
+                //if (lsvPrincipal.Columns[10].ToString() == Convert.ToString(1))
+                //{
+                //    lsvPrincipal.Items[0].ForeColor = Color.Red;
+                //}
+
                 lsvPrincipal.Items.Add(teste);
+                
             }
 
 
@@ -376,7 +384,7 @@ namespace SysMusicCollection
             }
             if (inter >= 2)
             {
-                ediarToolStripMenuItem.Visible = false;
+                editarToolStripMenuItem.Visible = false;
             }
         }
     }

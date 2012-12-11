@@ -41,12 +41,6 @@ namespace SysMusicCollection
             conexaoBanco rel = new conexaoBanco();
 
             dgvEmprestados.DataSource = rel.GridDev();
-            dgvEmprestados.Columns[1].Width = 300;
-        }
-
-        private void tbcDevolvidos_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
