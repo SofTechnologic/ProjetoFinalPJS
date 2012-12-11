@@ -51,6 +51,7 @@
             this.cboDevolver = new System.Windows.Forms.ComboBox();
             this.ckbMidias = new System.Windows.Forms.CheckBox();
             this.ckbAmigos = new System.Windows.Forms.CheckBox();
+            this.btn_OK = new System.Windows.Forms.Button();
             this.tbcEmprestimo.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).BeginInit();
@@ -111,12 +112,13 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(409, 121);
+            this.btnPesquisar.Location = new System.Drawing.Point(403, 123);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(27, 23);
+            this.btnPesquisar.Size = new System.Drawing.Size(36, 23);
             this.btnPesquisar.TabIndex = 18;
-            this.btnPesquisar.Text = "...";
+            this.btnPesquisar.Text = "OK";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click_1);
             // 
             // cboNomeMidia
             // 
@@ -125,7 +127,7 @@
             this.cboNomeMidia.FormattingEnabled = true;
             this.cboNomeMidia.Location = new System.Drawing.Point(6, 123);
             this.cboNomeMidia.Name = "cboNomeMidia";
-            this.cboNomeMidia.Size = new System.Drawing.Size(401, 21);
+            this.cboNomeMidia.Size = new System.Drawing.Size(394, 21);
             this.cboNomeMidia.TabIndex = 17;
             this.cboNomeMidia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNomeMidia_KeyPress);
             this.cboNomeMidia.Leave += new System.EventHandler(this.cboNomeMidia_Leave);
@@ -204,6 +206,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabPage2.Controls.Add(this.btn_OK);
             this.tabPage2.Controls.Add(this.lbldtDevolucao);
             this.tabPage2.Controls.Add(this.dateTimePicker1);
             this.tabPage2.Controls.Add(this.btnLimpar);
@@ -218,6 +221,7 @@
             this.tabPage2.Size = new System.Drawing.Size(445, 309);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Devolução";
+            this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
             // lbldtDevolucao
             // 
@@ -281,7 +285,7 @@
             this.cboDevolver.FormattingEnabled = true;
             this.cboDevolver.Location = new System.Drawing.Point(6, 50);
             this.cboDevolver.Name = "cboDevolver";
-            this.cboDevolver.Size = new System.Drawing.Size(433, 21);
+            this.cboDevolver.Size = new System.Drawing.Size(388, 21);
             this.cboDevolver.TabIndex = 2;
             this.cboDevolver.TabStop = false;
             this.cboDevolver.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboDevolver_KeyPress);
@@ -308,6 +312,16 @@
             this.ckbAmigos.Text = "Amigos";
             this.ckbAmigos.UseVisualStyleBackColor = true;
             this.ckbAmigos.CheckedChanged += new System.EventHandler(this.ckbAmigos_CheckedChanged);
+            // 
+            // btn_OK
+            // 
+            this.btn_OK.Location = new System.Drawing.Point(400, 50);
+            this.btn_OK.Name = "btn_OK";
+            this.btn_OK.Size = new System.Drawing.Size(39, 23);
+            this.btn_OK.TabIndex = 8;
+            this.btn_OK.Text = "OK";
+            this.btn_OK.UseVisualStyleBackColor = true;
+            this.btn_OK.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmEmprestimo
             // 
@@ -359,6 +373,7 @@
         private System.Windows.Forms.Label lbldtDevolucao;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CL1;
+        private System.Windows.Forms.Button btn_OK;
 
     }
 }
