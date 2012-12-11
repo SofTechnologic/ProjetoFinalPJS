@@ -201,15 +201,15 @@
             // 
             this.cboNomeAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboNomeAmigo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboNomeAmigo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboNomeAmigo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboNomeAmigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cboNomeAmigo.FormattingEnabled = true;
             this.cboNomeAmigo.Location = new System.Drawing.Point(6, 22);
+            this.cboNomeAmigo.MaxDropDownItems = 15;
             this.cboNomeAmigo.Name = "cboNomeAmigo";
             this.cboNomeAmigo.Size = new System.Drawing.Size(430, 21);
             this.cboNomeAmigo.TabIndex = 11;
-            this.cboNomeAmigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNomeAmigo_KeyPress);
             this.cboNomeAmigo.Leave += new System.EventHandler(this.cboNomeAmigo_Leave);
             // 
             // tabPage2
@@ -293,6 +293,7 @@
             // 
             this.cboDevolver.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboDevolver.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboDevolver.FormattingEnabled = true;
             this.cboDevolver.Location = new System.Drawing.Point(6, 50);
             this.cboDevolver.Name = "cboDevolver";

@@ -25,6 +25,13 @@ namespace SysMusicCollection
             InitializeComponent();
         }
 
+        //protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        //{
+        //    if (keyData == Keys.Enter)
+        //        return this.ProcessTabKey(true);
+
+        //    return base.ProcessCmdKey(ref msg, keyData);
+        //}     
                 
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -33,10 +40,6 @@ namespace SysMusicCollection
             frmPesqMidias frmPesqMidias = new frmPesqMidias();
             frmPesqMidias.Show();
         }
-
-        
-
-        
 
         private void tabControl1_Enter(object sender, EventArgs e)
         {
@@ -99,8 +102,15 @@ namespace SysMusicCollection
 
         private void cboNomeAmigo_Leave(object sender, EventArgs e)
         {
-            conexaoBanco amig = new conexaoBanco();
-            codamigo = amig.PesqAmigos(cboNomeAmigo.Text);
+                if (cboNomeAmigo.SelectedText == "")
+            {
+                cboNomeAmigo.Focus();
+            }
+            else
+            {
+                conexaoBanco amig = new conexaoBanco();
+                codamigo = amig.PesqAmigos(cboNomeAmigo.Text);
+            }
         }
 
         private void cboDevolver_KeyPress(object sender, KeyPressEventArgs e)
@@ -112,17 +122,16 @@ namespace SysMusicCollection
             {
                 if (ckbAmigos.Checked)
                 {
+                        passasql = " select Nome_Album AS Discos from Albuns inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
+                                   " inner join Itens_Emprestimo ON Itens_Emprestimo.Cod_Disco = Discos.Cod_Disco " +
+                                   " inner Join Emprestimos ON Emprestimos.Num_Emprestimo = Itens_Emprestimo.Num_Emprestimo " +
+                                   " inner join Amigos ON Amigos.Cod_Amigo = Emprestimos.Cod_Amigo" +
+                                   " WHERE (Amigos.Nome = @Pega and Itens_Emprestimo.Data_Devolucao IS NULL ) ";
 
-                    passasql = " select Nome_Album AS Discos from Albuns inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
-                               " inner join Itens_Emprestimo ON Itens_Emprestimo.Cod_Disco = Discos.Cod_Disco " +
-                               " inner Join Emprestimos ON Emprestimos.Num_Emprestimo = Itens_Emprestimo.Num_Emprestimo " +
-                               " inner join Amigos ON Amigos.Cod_Amigo = Emprestimos.Cod_Amigo" +
-                               " WHERE (Amigos.Nome = @Pega and Itens_Emprestimo.Data_Devolucao IS NULL ) ";
-
-                    dgvDevolucao.DataSource = pesqdevolve.PesqAmigosgrid(passasql, cboDevolver.Text);
-                    dgvDevolucao.Columns[1].ReadOnly = true;
-                    dgvDevolucao.Columns[1].Width = 318;
-
+                        dgvDevolucao.DataSource = pesqdevolve.PesqAmigosgrid(passasql, cboDevolver.SelectedItem.ToString());
+                        dgvDevolucao.Columns[1].ReadOnly = true;
+                        dgvDevolucao.Columns[1].Width = 318;
+                    
                 }
 
                 if (ckbMidias.Checked)
@@ -183,7 +192,7 @@ namespace SysMusicCollection
 
                 for (i = dgvDevolucao.Rows.Count - 1; i >= 0; )
                 {
-                    if (bool.Parse(dgvDevolucao[0, i].Selected.ToString()))
+                    if (bool.Parse(dgvDevolucao[0, i].EditedFormattedValue.ToString()))
                     {
                         codamigo = devolve.PesqAmigos(dgvDevolucao[2, i].Value.ToString());
                         pegadt = devolve.PesqDataEmp(codamigo);
@@ -212,7 +221,9 @@ namespace SysMusicCollection
 
             cboNomeAmigo.DisplayMember = "Nome";
 
-
+            cboNomeAmigo.Text = " ";
+            cboNomeAmigo.Focus();
+            
             cboNomeMidia.DataSource = mds.prCombo_Discos();
             cboNomeMidia.DisplayMember = "Nome_Album";
 
@@ -226,6 +237,7 @@ namespace SysMusicCollection
                 ckbAmigos.Checked = false;
                 cboDevolver.DataSource = mds.prComboDevolve_Discos();
                 cboDevolver.DisplayMember = "Nome_Album";
+                cboDevolver.Focus();
             }
          }
 
@@ -235,6 +247,7 @@ namespace SysMusicCollection
             {
                 ckbMidias.Checked = false;
                 cboDevolver.DataSource = pega.prCombo_Amigos();
+                cboDevolver.Focus();
             }
 
         }
@@ -249,10 +262,15 @@ namespace SysMusicCollection
             
         }
 
-        private void cboNomeAmigo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-        
-        }
+        //private void cboNomeAmigo_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+              
+        //}
+
+        //private void cboNomeAmigo_KeyDown(object sender, KeyEventArgs e)
+        //{
+            
+        //}
 
 
     }

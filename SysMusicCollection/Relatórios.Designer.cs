@@ -65,9 +65,11 @@
             // 
             // dgvDevolucao
             // 
+            this.dgvDevolucao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDevolucao.Location = new System.Drawing.Point(6, 99);
             this.dgvDevolucao.Name = "dgvDevolucao";
+            this.dgvDevolucao.ReadOnly = true;
             this.dgvDevolucao.Size = new System.Drawing.Size(927, 364);
             this.dgvDevolucao.TabIndex = 0;
             // 

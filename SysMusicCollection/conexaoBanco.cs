@@ -891,7 +891,11 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = passasql;
+                string sql = " select Nome_Album AS Discos from Albuns inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
+                               " inner join Itens_Emprestimo ON Itens_Emprestimo.Cod_Disco = Discos.Cod_Disco " +
+                               " inner Join Emprestimos ON Emprestimos.Num_Emprestimo = Itens_Emprestimo.Num_Emprestimo " +
+                               " inner join Amigos ON Amigos.Cod_Amigo = Emprestimos.Cod_Amigo" +
+                               " WHERE (Amigos.Nome = @Pega and Itens_Emprestimo.Data_Devolucao IS NULL ) ";
                 try
                 {
                     pesqAmigosgrid = new SqlCommand(sql, cnx);
@@ -1070,22 +1074,24 @@ namespace SysMusicCollection
             if (this.Abrirconexao())
             {
                 string sql = "select Cod_Amigo from Amigos where Nome = @Pega";
-                try
-                {
-                    pesqamigo = new SqlCommand(sql, cnx);
-                    pesqamigo.Parameters.AddWithValue("@Pega", Nome);
-                    //pesqInter.ExecuteNonQuery();
-                    int cd = (int)pesqamigo.ExecuteScalar();
-                    return cd;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-                finally
-                {
-                    this.Fecharconexao();
-                }
+                  try
+                    {
+                        pesqamigo = new SqlCommand(sql, cnx);
+                        pesqamigo.Parameters.AddWithValue("@Pega", Nome);
+                        //pesqInter.ExecuteNonQuery();
+                        int cd = (int)pesqamigo.ExecuteScalar();
+                        return cd;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                    finally
+                    {
+                        this.Fecharconexao();
+                    }
+                
+                
             }
             else
             {
