@@ -177,21 +177,23 @@ namespace SysMusicCollection
                         if (t.Text == "")
                         {
                             if (t.Name == cboAlbum.Name)
-                            {
-                                erpErro.SetError(t, "Digite Album");
-                            }
+                                erpErro.SetError(t, "Digite o Album/Musica");
                             if (t.Name == cboInterprete.Name)
-                                erpErro.SetError(t, "Digite o Campo Interprete");
+                                erpErro.SetError(t, "Digite o Interprete");
                         }
-                        else if ((t.Name == cboMidia.Name) &&( cboMidia.Text != "K7" || 
-                            cboMidia.Text != "CD" || cboMidia.Text != "DVD" || cboMidia.Text != "Digital"))
-                            erpErro.SetError(t, "Escolha um Tipo de Midia");
                         else
-                            erpErro.SetError(t, "");
+                        {
+                            if ((t.Name == cboMidia.Name) && (cboMidia.Text != "K7" &&
+                            cboMidia.Text != "CD" && cboMidia.Text != "DVD" && cboMidia.Text != "Digital"))
+                                erpErro.SetError(t, "Escolha um Tipo de Midia");
+                            else
+                                erpErro.SetError(t, "");
+                        }
                     }
                 }
 
-                if (cboAlbum.Text != "" && cboInterprete.Text != "" && (cboMidia.Text == "Vinil" || cboMidia.Text == "K7" || cboMidia.Text == "CD" || cboMidia.Text == "DVD" || cboMidia.Text == "Digital") && (Nota(txtNota.Text) == 1))
+                ////DateTime dataalbum = DateTime.Now();
+                if (cboAlbum.Text != "" && cboInterprete.Text != "" && (cboMidia.Text == "Vinil" || cboMidia.Text == "K7" || cboMidia.Text == "CD" || cboMidia.Text == "DVD" || cboMidia.Text == "Digital") && (Nota(txtNota.Text) == 1) )
                     passaArrayListParaPreencherBanco();
             }
             else if (tbcCadastro.TabPages[1].CanFocus)

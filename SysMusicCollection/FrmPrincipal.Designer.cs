@@ -49,10 +49,11 @@
             this.spcHorizontal = new System.Windows.Forms.SplitContainer();
             this.btnAbaFiltro = new System.Windows.Forms.Button();
             this.lsvPrincipal = new System.Windows.Forms.ListView();
-            this.cmsPrincipal = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ediarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiExcluir = new System.Windows.Forms.ToolStripMenuItem();
-            this.tltPrincipal = new System.Windows.Forms.ToolTip(this.components);
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -63,7 +64,7 @@
             this.spcHorizontal.Panel1.SuspendLayout();
             this.spcHorizontal.Panel2.SuspendLayout();
             this.spcHorizontal.SuspendLayout();
-            this.cmsPrincipal.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnsPrincipal
@@ -147,7 +148,6 @@
             this.btnEmprDev.Size = new System.Drawing.Size(120, 40);
             this.btnEmprDev.TabIndex = 1;
             this.btnEmprDev.Text = "Emprestar / Devolver";
-            this.tltPrincipal.SetToolTip(this.btnEmprDev, "Emprestar ou devolver mídias");
             this.btnEmprDev.UseVisualStyleBackColor = true;
             this.btnEmprDev.Click += new System.EventHandler(this.btnEmprDev_Click);
             // 
@@ -159,7 +159,6 @@
             this.btnCadastro.TabIndex = 0;
             this.btnCadastro.Tag = "";
             this.btnCadastro.Text = "Cadastrar";
-            this.tltPrincipal.SetToolTip(this.btnCadastro, "Cadastrar acervo ou amigos");
             this.btnCadastro.UseVisualStyleBackColor = true;
             this.btnCadastro.Click += new System.EventHandler(this.btnCadastro_Click);
             // 
@@ -168,7 +167,7 @@
             this.txbPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPesquisa.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbPesquisa.Location = new System.Drawing.Point(475, 14);
+            this.txbPesquisa.Location = new System.Drawing.Point(474, 14);
             this.txbPesquisa.Name = "txbPesquisa";
             this.txbPesquisa.Size = new System.Drawing.Size(215, 20);
             this.txbPesquisa.TabIndex = 1;
@@ -183,7 +182,7 @@
             this.pnlPrincipal.Controls.Add(this.spcHorizontal);
             this.pnlPrincipal.Location = new System.Drawing.Point(0, 40);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(703, 376);
+            this.pnlPrincipal.Size = new System.Drawing.Size(702, 376);
             this.pnlPrincipal.TabIndex = 0;
             // 
             // spcHorizontal
@@ -200,7 +199,7 @@
             // spcHorizontal.Panel2
             // 
             this.spcHorizontal.Panel2.Controls.Add(this.lsvPrincipal);
-            this.spcHorizontal.Size = new System.Drawing.Size(703, 376);
+            this.spcHorizontal.Size = new System.Drawing.Size(702, 376);
             this.spcHorizontal.SplitterDistance = 25;
             this.spcHorizontal.TabIndex = 0;
             // 
@@ -210,7 +209,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAbaFiltro.Location = new System.Drawing.Point(0, 8);
             this.btnAbaFiltro.Name = "btnAbaFiltro";
-            this.btnAbaFiltro.Size = new System.Drawing.Size(703, 14);
+            this.btnAbaFiltro.Size = new System.Drawing.Size(702, 14);
             this.btnAbaFiltro.TabIndex = 0;
             this.btnAbaFiltro.Text = "^";
             this.btnAbaFiltro.UseVisualStyleBackColor = true;
@@ -218,7 +217,7 @@
             // 
             // lsvPrincipal
             // 
-            this.lsvPrincipal.ContextMenuStrip = this.cmsPrincipal;
+            this.lsvPrincipal.ContextMenuStrip = this.contextMenuStrip1;
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             listViewGroup1.Header = "DVD";
             listViewGroup1.Name = "DVD";
@@ -241,19 +240,33 @@
             listViewGroup6});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(703, 347);
+            this.lsvPrincipal.Size = new System.Drawing.Size(702, 347);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
+            this.lsvPrincipal.SelectedIndexChanged += new System.EventHandler(this.lsvPrincipal_SelectedIndexChanged);
             this.lsvPrincipal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lsvPrincipal_KeyDown);
             // 
-            // cmsPrincipal
+            // contextMenuStrip1
             // 
-            this.cmsPrincipal.AllowDrop = true;
-            this.cmsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmiEditar,
-            this.cmiExcluir});
-            this.cmsPrincipal.Name = "contextMenuStrip1";
-            this.cmsPrincipal.Size = new System.Drawing.Size(109, 48);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.excluirToolStripMenuItem,
+            this.ediarToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 52);
+            // 
+            // excluirToolStripMenuItem
+            // 
+            this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
+            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
+            this.excluirToolStripMenuItem.Text = "Excluir";
+            this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click_1);
+            // 
+            // ediarToolStripMenuItem
+            // 
+            this.ediarToolStripMenuItem.Name = "ediarToolStripMenuItem";
+            this.ediarToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
+            this.ediarToolStripMenuItem.Text = "Ediar";
+            this.ediarToolStripMenuItem.Click += new System.EventHandler(this.ediarToolStripMenuItem_Click);
             // 
             // cmiEditar
             // 
@@ -295,7 +308,7 @@
             this.spcHorizontal.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spcHorizontal)).EndInit();
             this.spcHorizontal.ResumeLayout(false);
-            this.cmsPrincipal.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,6 +334,9 @@
         private System.Windows.Forms.ToolStripMenuItem cmiExcluir;
         private System.Windows.Forms.ToolStripMenuItem msiRelatorios;
         private System.Windows.Forms.Button btnAbaLateral;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ediarToolStripMenuItem;
 
 
     }

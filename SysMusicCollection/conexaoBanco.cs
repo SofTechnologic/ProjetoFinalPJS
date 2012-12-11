@@ -11,12 +11,13 @@ namespace SysMusicCollection
 {
     public class conexaoBanco
     {
-        
+
+
 
         private const string sqlConn = //@" Data Source=FELIPE-IBM;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-/* Bruno*/ //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=2;User Instance=True";
-/*Felipe*/ //@" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-/*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+///* Bruno*/ @"Data Source=NOTEBOOK;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+            /*Felipe*/ @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+///*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
 
 
@@ -1248,6 +1249,49 @@ namespace SysMusicCollection
         #endregion
 
         #region Remove e Edita
+
+        public List<string> AchaItemEmprestimo(List<string> chaves)
+        {
+            SqlCommand DeletarItensEmprestimo = null;
+            SqlCommand AchaDIscoItemEmpre = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    List<string> armazena = new List<string>();
+                    for (int i = 0; i < chaves.Count; i++)
+                    {
+                        AchaDIscoItemEmpre = new SqlCommand("Select Count(*) from Itens_Emprestimo where (Cod_Disco = @compara and Data_Devolucao is null) ", cnx);
+
+
+                        AchaDIscoItemEmpre.Parameters.Add(new SqlParameter("@compara", chaves[i]));
+
+                        int dt = (int)AchaDIscoItemEmpre.ExecuteScalar();
+                        if (dt == 0)
+                        {
+                            DeletarItensEmprestimo = new SqlCommand("Delete from Itens_Emprestimo where Cod_Disco = @compara", cnx);
+                            DeletarItensEmprestimo.Parameters.Add(new SqlParameter("@compara", chaves[i]));
+                            DeletarItensEmprestimo.ExecuteNonQuery();
+                            armazena.Add(chaves[i].ToString());
+                        }
+                    }
+                    return armazena;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public void removeItemBanco(List<string> chave)
         {
             SqlCommand DeletarDisco = null;
@@ -1255,14 +1299,16 @@ namespace SysMusicCollection
             {
                 try
                 {
+                    //AchaItemEmprestimo(chave);
                     for(int i=0;i < chave.Count ; i++)
                     {
+                        
+                            DeletarDisco = new SqlCommand("Delete from Discos where Cod_Disco = @apagar", cnx);
 
-                        DeletarDisco = new SqlCommand("Delete from Discos where Cod_Disco = @apagar", cnx);
+                            DeletarDisco.Parameters.Add(new SqlParameter("@apagar", chave[i].ToString()));
 
-                        DeletarDisco.Parameters.Add(new SqlParameter("@apagar", chave[i]));
-
-                        DeletarDisco.ExecuteNonQuery();
+                            DeletarDisco.ExecuteNonQuery();
+                       
                     }
                 }
                 catch (Exception ex)
