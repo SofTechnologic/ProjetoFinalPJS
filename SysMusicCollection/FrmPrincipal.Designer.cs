@@ -51,7 +51,7 @@
             this.lsvPrincipal = new System.Windows.Forms.ListView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ediarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
@@ -250,23 +250,23 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.excluirToolStripMenuItem,
-            this.ediarToolStripMenuItem});
+            this.editarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 48);
             // 
             // excluirToolStripMenuItem
             // 
             this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
-            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
+            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.excluirToolStripMenuItem.Text = "Excluir";
             this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click_1);
             // 
-            // ediarToolStripMenuItem
+            // editarToolStripMenuItem
             // 
-            this.ediarToolStripMenuItem.Name = "ediarToolStripMenuItem";
-            this.ediarToolStripMenuItem.Size = new System.Drawing.Size(121, 24);
-            this.ediarToolStripMenuItem.Text = "Ediar";
-            this.ediarToolStripMenuItem.Click += new System.EventHandler(this.ediarToolStripMenuItem_Click);
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.ediarToolStripMenuItem_Click);
             // 
             // cmiEditar
             // 
@@ -336,7 +336,7 @@
         private System.Windows.Forms.Button btnAbaLateral;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ediarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
 
 
     }

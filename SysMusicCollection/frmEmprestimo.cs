@@ -102,14 +102,14 @@ namespace SysMusicCollection
 
         private void cboNomeAmigo_Leave(object sender, EventArgs e)
         {
-                if (cboNomeAmigo.SelectedText == "")
-            {
-                cboNomeAmigo.Focus();
-            }
-            else
+            if (cboNomeAmigo.SelectedText != " ")
             {
                 conexaoBanco amig = new conexaoBanco();
                 codamigo = amig.PesqAmigos(cboNomeAmigo.Text);
+            }
+            else
+            {
+                cboNomeAmigo.Focus();
             }
         }
 
@@ -252,26 +252,17 @@ namespace SysMusicCollection
 
         }
 
-        private void tabPage1_Enter(object sender, EventArgs e)
-        {
-            frmEmprestimo_Load(e, e);
-        }
-
-        private void frmEmprestimo_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbcDevolve_Enter(object sender, EventArgs e)
         {
             
         }
 
-        //private void cboNomeAmigo_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-              
-        //}
+        private void tbcEmpresta_Enter(object sender, EventArgs e)
+        {
+            cboNomeAmigo.Focus();
+        }
 
-        //private void cboNomeAmigo_KeyDown(object sender, KeyEventArgs e)
-        //{
-            
-        //}
-
+        
 
     }
 }
