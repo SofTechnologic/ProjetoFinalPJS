@@ -505,7 +505,7 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    listardiscos = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where (Albuns.ID_Album = Discos.ID_Album  and Discos.Emprestado = 0) ", cnx);
+                    listardiscos = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where (Albuns.ID_Album = Discos.ID_Album  and Discos.Emprestado = 0 and Cod_Midia != 5) ", cnx);
 
                     SqlDataReader dr = listardiscos.ExecuteReader();
 

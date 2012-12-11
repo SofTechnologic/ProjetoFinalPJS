@@ -256,8 +256,7 @@ namespace SysMusicCollection
                 coddisc = disc.PesqCoddiscos(cboNomeMidia.Text);
 
                 string sq = " select Nome_Album from Albuns inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
-                               " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " +
-                           " where (Discos.Cod_Disco = @valor) ";
+                               " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco inner join on " +                             " where (Discos.Cod_Disco = @valor) ";
 
                 dgvEmprestimo.Rows.Add(cboNomeMidia.Text);
 
