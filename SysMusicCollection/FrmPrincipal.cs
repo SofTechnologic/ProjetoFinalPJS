@@ -277,32 +277,33 @@ namespace SysMusicCollection
              if (armazena.Count != 0)
              {
                  apaga.removeItemBanco(armazena);
-                 for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
-                 {
                      for (int j = 0; j < armazena.Count; j++)
                      {
+                          for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                        {
 
-                         if (armazena[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
-                         {
-                             ListViewItem remove = lsvPrincipal.SelectedItems[i];
-                             remove.Remove();
-                             break;
+                            if (armazena[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
+                            {
+                                ListViewItem remove = lsvPrincipal.SelectedItems[i];
+                                remove.Remove();
                          }
                          else
-                         {
-                             if(armazena[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
+                           {
+                               if (armazena[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
                                  emprestado++;
-                         }
+                           }
+                        }
                      }
-                 }
+                 
                  if (emprestado >= 1)
                  {
                      MessageBox.Show(" Campo(s) nao podem ser excluidos pois estao emprestados", "Aviso");
                  }
+             
              }
              else
              {
-                 MessageBox.Show("Esta musica nao pode ser excluida", "aviso");
+                 MessageBox.Show("Midia(s) selecionada(s) estão locadas ", "aviso");
              }
         }
 
@@ -384,8 +385,10 @@ namespace SysMusicCollection
             }
             if (inter >= 2)
             {
-                editarToolStripMenuItem.Visible = false;
+                editarToolStripMenuItem.Enabled = false;
             }
+            else
+                editarToolStripMenuItem.Enabled = true;
         }
     }
 }
