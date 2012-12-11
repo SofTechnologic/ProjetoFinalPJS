@@ -41,7 +41,7 @@ namespace SysMusicCollection
             conexaoBanco rel = new conexaoBanco();
 
             dgvEmprestados.DataSource = rel.GridDev();
-            dgvEmprestados.Columns[1].Width = 300;
+            //dgvEmprestados.Columns[1].Width = 300;
         }
     }
 }
