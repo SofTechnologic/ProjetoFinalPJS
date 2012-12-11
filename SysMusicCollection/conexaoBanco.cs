@@ -584,12 +584,14 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Nome_Album, Nome, Data_Emprestimo from Albuns" +
+                string sql = " select Nome_Album, Nome, Data_Emprestimo, DATEDIFF(DAY, Convert(Date, data_emprestimo,103), GETDATE()) AS [Dias Emprestado] from Albuns" +
                              " inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
                              " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " +
                              " inner join Emprestimos on Itens_Emprestimo.Num_Emprestimo = Emprestimos.Num_Emprestimo " +
                              " inner join amigos on Emprestimos.Cod_Amigo = Amigos.Cod_Amigo" +
                              " where Itens_Emprestimo.Data_Devolucao IS NULL ";
+
+                
                 try
                 {
                     dgvEmp = new SqlCommand(sql, cnx);
@@ -891,11 +893,7 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Nome_Album AS Discos from Albuns inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
-                               " inner join Itens_Emprestimo ON Itens_Emprestimo.Cod_Disco = Discos.Cod_Disco " +
-                               " inner Join Emprestimos ON Emprestimos.Num_Emprestimo = Itens_Emprestimo.Num_Emprestimo " +
-                               " inner join Amigos ON Amigos.Cod_Amigo = Emprestimos.Cod_Amigo" +
-                               " WHERE (Amigos.Nome = @Pega and Itens_Emprestimo.Data_Devolucao IS NULL ) ";
+                string sql = passasql;
                 try
                 {
                     pesqAmigosgrid = new SqlCommand(sql, cnx);
