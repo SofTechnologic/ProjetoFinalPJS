@@ -239,6 +239,7 @@ namespace SysMusicCollection
                                 break;
                             }
                             else
+                                if (armazena[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
                                 emprestado++;
                         }
                     }
@@ -368,7 +369,15 @@ namespace SysMusicCollection
 
         private void lsvPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            int inter=0;
+            for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+            {
+                inter++;
+            }
+            if (inter >= 2)
+            {
+                ediarToolStripMenuItem.Visible = false;
+            }
         }
     }
 }
