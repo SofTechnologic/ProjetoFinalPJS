@@ -99,5 +99,6 @@ go
 
 select * from Discos;
 go
-select * from autores;
+select * from Itens_Emprestimo;
 go
+Select Cod_Disco from Itens_Emprestimo

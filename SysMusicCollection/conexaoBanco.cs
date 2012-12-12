@@ -15,14 +15,14 @@ namespace SysMusicCollection
 
 
 
-        private const string sqlConn = @" Data Source=FELIPE-IBM;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+        private const string sqlConn = //@" Data Source=FELIPE-IBM;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 ///* Bruno*/ @"Data Source=NOTEBOOK;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-            ///*Felipe*/ @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+            /*Felipe*/ @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 ///*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
 
 
-
+        
 
         private string pegasql = "";
         SqlConnection cnx = null;
@@ -1325,6 +1325,43 @@ namespace SysMusicCollection
             }
         }
 
+        public List<string> pesqtemEmprestimo(List<string> itens)
+        {
+            SqlCommand pesqItensEmprestimo = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    List<string> passaEmprestimo = new List<string>();
+                    SqlDataReader emprestado;
+                    for (int i = 0; i < itens.Count; i++)
+                    {
+                        pesqItensEmprestimo = new SqlCommand("Select Cod_Disco from Itens_Emprestimo where Cod_Disco =  @compara", cnx);
+                        pesqItensEmprestimo.Parameters.Add(new SqlParameter("@compara", itens[i]));
+                        emprestado = pesqItensEmprestimo.ExecuteReader();
+                        while (emprestado.Read())
+                        {
+                            passaEmprestimo.Add(emprestado["Cod_Disco"].ToString());
+                        }
+
+                        return passaEmprestimo;
+                    }
+                    return passaEmprestimo;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null ;
+            }
+        }
         public List<string> AchaItemEmprestimo1(List<string> chaves)
         {
             SqlCommand DeletarItensEmprestimo = null;

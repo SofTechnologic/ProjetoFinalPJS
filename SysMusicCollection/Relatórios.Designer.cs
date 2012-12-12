@@ -53,7 +53,6 @@
             // 
             // tbcEmprestados
             // 
-            this.tbcEmprestados.BackColor = System.Drawing.Color.AliceBlue;
             this.tbcEmprestados.Controls.Add(this.dgvDevolucao);
             this.tbcEmprestados.Location = new System.Drawing.Point(4, 22);
             this.tbcEmprestados.Name = "tbcEmprestados";
@@ -61,17 +60,16 @@
             this.tbcEmprestados.Size = new System.Drawing.Size(939, 469);
             this.tbcEmprestados.TabIndex = 0;
             this.tbcEmprestados.Text = "Emprestados";
+            this.tbcEmprestados.UseVisualStyleBackColor = true;
             this.tbcEmprestados.Enter += new System.EventHandler(this.tbcDevolucao_Enter);
             // 
             // dgvDevolucao
             // 
             this.dgvDevolucao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDevolucao.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDevolucao.Location = new System.Drawing.Point(6, 99);
             this.dgvDevolucao.Name = "dgvDevolucao";
             this.dgvDevolucao.ReadOnly = true;
-            this.dgvDevolucao.RowHeadersVisible = false;
             this.dgvDevolucao.Size = new System.Drawing.Size(927, 364);
             this.dgvDevolucao.TabIndex = 0;
             // 
@@ -90,12 +88,10 @@
             // dgvEmprestados
             // 
             this.dgvEmprestados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEmprestados.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgvEmprestados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmprestados.Location = new System.Drawing.Point(6, 99);
             this.dgvEmprestados.Name = "dgvEmprestados";
             this.dgvEmprestados.ReadOnly = true;
-            this.dgvEmprestados.RowHeadersVisible = false;
             this.dgvEmprestados.Size = new System.Drawing.Size(927, 364);
             this.dgvEmprestados.TabIndex = 0;
             // 
@@ -103,7 +99,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(971, 510);
             this.Controls.Add(this.tbcRel);
             this.Name = "frmRelatorios";

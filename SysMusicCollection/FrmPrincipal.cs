@@ -144,9 +144,23 @@ namespace SysMusicCollection
         
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            
+            conexaoBanco pega = new conexaoBanco();
             preenchelist();
-           
+            List<string> armazenaEmprestado = new List<string>();
+            foreach (ListViewItem itens in lsvPrincipal.Items)
+            {
+                armazenaEmprestado.Add(itens.Text);
+                
+            }
+            if (armazenaEmprestado.ToString() != null)
+            {
+                List<string> pegaEmpretado = pega.pesqtemEmprestimo(armazenaEmprestado);
+                foreach (ListViewItem itens in lsvPrincipal.Items)
+                {
+                    
+
+                }
+            }
             
         }
 
