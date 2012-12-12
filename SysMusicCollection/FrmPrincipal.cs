@@ -56,7 +56,7 @@ namespace SysMusicCollection
         {
             if (btnAbaSup == 0)
             {
-                spcHorizontal.SplitterDistance = 50;
+                spcHorizontal.SplitterDistance = 160;
                 btnAbaSup = 1;
             }
             else
@@ -382,6 +382,11 @@ namespace SysMusicCollection
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
