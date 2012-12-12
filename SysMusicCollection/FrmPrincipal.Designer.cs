@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.msiArquivo = new System.Windows.Forms.ToolStripMenuItem();
             this.msiRelatorios = new System.Windows.Forms.ToolStripMenuItem();
@@ -244,8 +244,7 @@
             // 
             // dtpDataCompra2
             // 
-            this.dtpDataCompra2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDataCompra2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDataCompra2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataCompra2.Location = new System.Drawing.Point(456, 99);
             this.dtpDataCompra2.Name = "dtpDataCompra2";
@@ -254,8 +253,7 @@
             // 
             // lbla2
             // 
-            this.lbla2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbla2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbla2.AutoSize = true;
             this.lbla2.Location = new System.Drawing.Point(437, 104);
             this.lbla2.Name = "lbla2";
@@ -265,8 +263,7 @@
             // 
             // dtpDataCompra1
             // 
-            this.dtpDataCompra1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDataCompra1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDataCompra1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataCompra1.Location = new System.Drawing.Point(305, 98);
             this.dtpDataCompra1.Name = "dtpDataCompra1";
@@ -275,8 +272,7 @@
             // 
             // ckbDataCompra
             // 
-            this.ckbDataCompra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbDataCompra.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbDataCompra.AutoSize = true;
             this.ckbDataCompra.Location = new System.Drawing.Point(305, 79);
             this.ckbDataCompra.Name = "ckbDataCompra";
@@ -287,8 +283,7 @@
             // 
             // dtpDataAlbum2
             // 
-            this.dtpDataAlbum2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDataAlbum2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDataAlbum2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataAlbum2.Location = new System.Drawing.Point(171, 97);
             this.dtpDataAlbum2.Name = "dtpDataAlbum2";
@@ -297,8 +292,7 @@
             // 
             // lbla1
             // 
-            this.lbla1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbla1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbla1.AutoSize = true;
             this.lbla1.Location = new System.Drawing.Point(150, 103);
             this.lbla1.Name = "lbla1";
@@ -308,8 +302,7 @@
             // 
             // dtpDataAlbum1
             // 
-            this.dtpDataAlbum1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDataAlbum1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDataAlbum1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataAlbum1.Location = new System.Drawing.Point(13, 96);
             this.dtpDataAlbum1.Name = "dtpDataAlbum1";
@@ -318,8 +311,7 @@
             // 
             // txbOrigem1
             // 
-            this.txbOrigem1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbOrigem1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txbOrigem1.Location = new System.Drawing.Point(519, 53);
             this.txbOrigem1.Name = "txbOrigem1";
             this.txbOrigem1.Size = new System.Drawing.Size(180, 20);
@@ -327,8 +319,7 @@
             // 
             // txbAutor1
             // 
-            this.txbAutor1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbAutor1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txbAutor1.Location = new System.Drawing.Point(333, 53);
             this.txbAutor1.Name = "txbAutor1";
             this.txbAutor1.Size = new System.Drawing.Size(180, 20);
@@ -336,8 +327,7 @@
             // 
             // ckbTipoMidia1
             // 
-            this.ckbTipoMidia1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbTipoMidia1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbTipoMidia1.FormattingEnabled = true;
             this.ckbTipoMidia1.Location = new System.Drawing.Point(13, 52);
             this.ckbTipoMidia1.Name = "ckbTipoMidia1";
@@ -346,8 +336,7 @@
             // 
             // txbIterprete1
             // 
-            this.txbIterprete1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbIterprete1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txbIterprete1.Location = new System.Drawing.Point(147, 53);
             this.txbIterprete1.Name = "txbIterprete1";
             this.txbIterprete1.Size = new System.Drawing.Size(180, 20);
@@ -355,8 +344,7 @@
             // 
             // ckbDataAlbMus
             // 
-            this.ckbDataAlbMus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbDataAlbMus.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbDataAlbMus.AutoSize = true;
             this.ckbDataAlbMus.Location = new System.Drawing.Point(13, 79);
             this.ckbDataAlbMus.Name = "ckbDataAlbMus";
@@ -367,8 +355,7 @@
             // 
             // ckbOrigemCompra
             // 
-            this.ckbOrigemCompra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbOrigemCompra.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbOrigemCompra.AutoSize = true;
             this.ckbOrigemCompra.Location = new System.Drawing.Point(519, 30);
             this.ckbOrigemCompra.Name = "ckbOrigemCompra";
@@ -379,8 +366,7 @@
             // 
             // ckbAutor
             // 
-            this.ckbAutor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbAutor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbAutor.AutoSize = true;
             this.ckbAutor.Location = new System.Drawing.Point(333, 30);
             this.ckbAutor.Name = "ckbAutor";
@@ -391,8 +377,7 @@
             // 
             // ckbInterprete
             // 
-            this.ckbInterprete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbInterprete.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbInterprete.AutoSize = true;
             this.ckbInterprete.Location = new System.Drawing.Point(147, 30);
             this.ckbInterprete.Name = "ckbInterprete";
@@ -403,8 +388,7 @@
             // 
             // ckbTipoMidia
             // 
-            this.ckbTipoMidia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbTipoMidia.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbTipoMidia.AutoSize = true;
             this.ckbTipoMidia.Location = new System.Drawing.Point(13, 30);
             this.ckbTipoMidia.Name = "ckbTipoMidia";
@@ -415,8 +399,7 @@
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFiltrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnFiltrar.Location = new System.Drawing.Point(588, 97);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(105, 23);
@@ -441,25 +424,25 @@
             // 
             this.lsvPrincipal.ContextMenuStrip = this.cmsPrincipal;
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup7.Header = "DVD";
-            listViewGroup7.Name = "DVD";
-            listViewGroup8.Header = "CD";
-            listViewGroup8.Name = "CD";
-            listViewGroup9.Header = "VHS";
-            listViewGroup9.Name = "VHS";
-            listViewGroup10.Header = "Vinil";
-            listViewGroup10.Name = "Vinil";
-            listViewGroup11.Header = "K7";
-            listViewGroup11.Name = "K7";
-            listViewGroup12.Header = "Digital";
-            listViewGroup12.Name = "Digital";
+            listViewGroup1.Header = "DVD";
+            listViewGroup1.Name = "DVD";
+            listViewGroup2.Header = "CD";
+            listViewGroup2.Name = "CD";
+            listViewGroup3.Header = "VHS";
+            listViewGroup3.Name = "VHS";
+            listViewGroup4.Header = "Vinil";
+            listViewGroup4.Name = "Vinil";
+            listViewGroup5.Header = "K7";
+            listViewGroup5.Name = "K7";
+            listViewGroup6.Header = "Digital";
+            listViewGroup6.Name = "Digital";
             this.lsvPrincipal.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10,
-            listViewGroup11,
-            listViewGroup12});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
             this.lsvPrincipal.Size = new System.Drawing.Size(702, 347);
