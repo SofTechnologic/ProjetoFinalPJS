@@ -16,9 +16,9 @@ namespace SysMusicCollection
 
 
         private const string sqlConn = //@" Data Source=FELIPE-IBM;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-///* Bruno*/ @"Data Source=NOTEBOOK;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+/* Bruno*/// @"Data Source=NOTEBOOK;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
             /*Felipe*/ @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-///*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+            /*Thiago*/ //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
 
 
@@ -1338,13 +1338,11 @@ namespace SysMusicCollection
                     {
                         pesqItensEmprestimo = new SqlCommand("Select Cod_Disco from Itens_Emprestimo where Cod_Disco =  @compara", cnx);
                         pesqItensEmprestimo.Parameters.Add(new SqlParameter("@compara", itens[i]));
-                        emprestado = pesqItensEmprestimo.ExecuteReader();
-                        while (emprestado.Read())
-                        {
-                            passaEmprestimo.Add(emprestado["Cod_Disco"].ToString());
-                        }
-
-                        return passaEmprestimo;
+                    }
+                    emprestado = pesqItensEmprestimo.ExecuteReader();
+                    while (emprestado.Read())
+                    {
+                        passaEmprestimo.Add(emprestado["Cod_Disco"].ToString());
                     }
                     return passaEmprestimo;
                 }
@@ -1525,82 +1523,5 @@ namespace SysMusicCollection
             }
         }
         #endregion
-        //public List<string> PrCombo(string nome, string cod, string nomealb, string coddisco)
-        //{
-        //    SqlCommand listaramigos = null;
-
-        //    //List<string> nomes = new List<string>();
-        //    //List<string> cods = new List<string>();
-
-        //    if (this.Abrirconexao())
-        //    {
-        //        try
-        //        {
-        //            new SqlCommand("Select Cod_Amigo, Nome from Amigos", cnx);
-
-        //            SqlDataReader conta = listaramigos.ExecuteReader();
-
-        //            while (conta.Read())
-        //            {
-        //                nome.add(conta["Nome"].ToString());
-        //                cod.Add(conta["Cod_Amigo"].ToString());
-        //                //cboNomeAmigo.Items.Add(conta["Nome"]);
-        //                //cboNomeAmigo.SelectedValue = conta["Cod_Amigo"];
-
-        //            }
-
-        //            //List<string> nomealbs = new List<string>();
-        //            //List<string> coddiscos = new List<string>();
-
-        //            SqlCommand listarmidias = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where Albuns.ID_Album = Discos.ID_Album ", cnx);
-
-        //            SqlDataReader pega = listarmidias.ExecuteReader();
-
-        //            while (pega.Read())
-        //            {
-        //                nomealbs.Add(pega["Nome_Album"].ToString());
-        //                coddiscos.Add(pega["Cod_Discos"].ToString());
-        //                //cboNomeMidia.Items.Add(pega["Nome_Album"]);
-        //                //cboNomeMidia.SelectedValue = pega["Cod_Disco"];
-        //            }
-
-
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw new Exception(ex.Message);
-        //        }
-        //        finally
-        //        {
-        //            this.Fecharconexao();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-
-        //}
-
-
-        //public static int Quantidade()
-        //{
-        //    Abrirconexao();
-        //    SqlCommand qtd = new SqlCommand();
-        //    qtd.Connection = Abrirconexao();
-        //    qtd.CommandText = "Select Count(*) from Amigos";
-
-        //    int total = (int)qtd.ExecuteScalar();
-
-        //    Fecharconexao();
-        //    return total;
-        //}
-
-        //public void inserirDiscos()
-        //{
-        //    Abrirconexao();
-        //    SqlCommand comandoInsert = new SqlCommand("Insert into Discos (Cod_Midia, ID_Autor, ID_interprete, ID_album, Data_album, Data_compra, Origem_Compra, Observ, Nome_Musica, Nota)");
-
-        //}
     }
 }

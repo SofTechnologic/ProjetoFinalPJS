@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
@@ -38,7 +40,7 @@
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.msiArquivo = new System.Windows.Forms.ToolStripMenuItem();
             this.msiRelatorios = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.msiSair = new System.Windows.Forms.ToolStripMenuItem();
             this.stsPrincipal = new System.Windows.Forms.StatusStrip();
             this.spcPrincipal = new System.Windows.Forms.SplitContainer();
             this.btnAbaLateral = new System.Windows.Forms.Button();
@@ -47,13 +49,29 @@
             this.txbPesquisa = new System.Windows.Forms.TextBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.spcHorizontal = new System.Windows.Forms.SplitContainer();
+            this.dtpDataCompra2 = new System.Windows.Forms.DateTimePicker();
+            this.lbla2 = new System.Windows.Forms.Label();
+            this.dtpDataCompra1 = new System.Windows.Forms.DateTimePicker();
+            this.ckbDataCompra = new System.Windows.Forms.CheckBox();
+            this.dtpDataAlbum2 = new System.Windows.Forms.DateTimePicker();
+            this.lbla1 = new System.Windows.Forms.Label();
+            this.dtpDataAlbum1 = new System.Windows.Forms.DateTimePicker();
+            this.txbOrigem1 = new System.Windows.Forms.TextBox();
+            this.txbAutor1 = new System.Windows.Forms.TextBox();
+            this.ckbTipoMidia1 = new System.Windows.Forms.ComboBox();
+            this.txbIterprete1 = new System.Windows.Forms.TextBox();
+            this.ckbDataAlbMus = new System.Windows.Forms.CheckBox();
+            this.ckbOrigemCompra = new System.Windows.Forms.CheckBox();
+            this.ckbAutor = new System.Windows.Forms.CheckBox();
+            this.ckbInterprete = new System.Windows.Forms.CheckBox();
+            this.ckbTipoMidia = new System.Windows.Forms.CheckBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.btnAbaFiltro = new System.Windows.Forms.Button();
             this.lsvPrincipal = new System.Windows.Forms.ListView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmiEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsPrincipal = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmiExcluir = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmiEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbxImgLateral = new System.Windows.Forms.PictureBox();
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -64,7 +82,8 @@
             this.spcHorizontal.Panel1.SuspendLayout();
             this.spcHorizontal.Panel2.SuspendLayout();
             this.spcHorizontal.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            this.cmsPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImgLateral)).BeginInit();
             this.SuspendLayout();
             // 
             // mnsPrincipal
@@ -81,24 +100,26 @@
             // 
             this.msiArquivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msiRelatorios,
-            this.sairToolStripMenuItem});
+            this.msiSair});
             this.msiArquivo.Name = "msiArquivo";
             this.msiArquivo.Size = new System.Drawing.Size(61, 20);
             this.msiArquivo.Text = "Arquivo";
             // 
             // msiRelatorios
             // 
+            this.msiRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("msiRelatorios.Image")));
             this.msiRelatorios.Name = "msiRelatorios";
             this.msiRelatorios.Size = new System.Drawing.Size(126, 22);
             this.msiRelatorios.Text = "Relatórios";
             this.msiRelatorios.Click += new System.EventHandler(this.relatóriosToolStripMenuItem_Click);
             // 
-            // sairToolStripMenuItem
+            // msiSair
             // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            this.msiSair.Image = ((System.Drawing.Image)(resources.GetObject("msiSair.Image")));
+            this.msiSair.Name = "msiSair";
+            this.msiSair.Size = new System.Drawing.Size(152, 22);
+            this.msiSair.Text = "Sair";
+            this.msiSair.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // stsPrincipal
             // 
@@ -119,6 +140,7 @@
             // spcPrincipal.Panel1
             // 
             this.spcPrincipal.Panel1.Controls.Add(this.btnAbaLateral);
+            this.spcPrincipal.Panel1.Controls.Add(this.pbxImgLateral);
             this.spcPrincipal.Panel1.Controls.Add(this.btnEmprDev);
             this.spcPrincipal.Panel1.Controls.Add(this.btnCadastro);
             // 
@@ -134,7 +156,7 @@
             // 
             this.btnAbaLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbaLateral.Location = new System.Drawing.Point(1, 3);
+            this.btnAbaLateral.Location = new System.Drawing.Point(1, 2);
             this.btnAbaLateral.Name = "btnAbaLateral";
             this.btnAbaLateral.Size = new System.Drawing.Size(25, 413);
             this.btnAbaLateral.TabIndex = 2;
@@ -168,9 +190,9 @@
             this.txbPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPesquisa.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbPesquisa.Location = new System.Drawing.Point(472, 14);
+            this.txbPesquisa.Location = new System.Drawing.Point(440, 14);
             this.txbPesquisa.Name = "txbPesquisa";
-            this.txbPesquisa.Size = new System.Drawing.Size(215, 20);
+            this.txbPesquisa.Size = new System.Drawing.Size(260, 20);
             this.txbPesquisa.TabIndex = 1;
             this.txbPesquisa.Text = "Pesquisar";
             this.txbPesquisa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txbPesquisa_MouseClick);
@@ -196,6 +218,23 @@
             // spcHorizontal.Panel1
             // 
             this.spcHorizontal.Panel1.Controls.Add(this.btnAbaFiltro);
+            this.spcHorizontal.Panel1.Controls.Add(this.dtpDataCompra2);
+            this.spcHorizontal.Panel1.Controls.Add(this.lbla2);
+            this.spcHorizontal.Panel1.Controls.Add(this.dtpDataCompra1);
+            this.spcHorizontal.Panel1.Controls.Add(this.ckbDataCompra);
+            this.spcHorizontal.Panel1.Controls.Add(this.dtpDataAlbum2);
+            this.spcHorizontal.Panel1.Controls.Add(this.lbla1);
+            this.spcHorizontal.Panel1.Controls.Add(this.dtpDataAlbum1);
+            this.spcHorizontal.Panel1.Controls.Add(this.txbOrigem1);
+            this.spcHorizontal.Panel1.Controls.Add(this.txbAutor1);
+            this.spcHorizontal.Panel1.Controls.Add(this.ckbTipoMidia1);
+            this.spcHorizontal.Panel1.Controls.Add(this.txbIterprete1);
+            this.spcHorizontal.Panel1.Controls.Add(this.ckbDataAlbMus);
+            this.spcHorizontal.Panel1.Controls.Add(this.ckbOrigemCompra);
+            this.spcHorizontal.Panel1.Controls.Add(this.ckbAutor);
+            this.spcHorizontal.Panel1.Controls.Add(this.ckbInterprete);
+            this.spcHorizontal.Panel1.Controls.Add(this.ckbTipoMidia);
+            this.spcHorizontal.Panel1.Controls.Add(this.btnFiltrar);
             // 
             // spcHorizontal.Panel2
             // 
@@ -204,21 +243,187 @@
             this.spcHorizontal.SplitterDistance = 25;
             this.spcHorizontal.TabIndex = 0;
             // 
+            // dtpDataCompra2
+            // 
+            this.dtpDataCompra2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtpDataCompra2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataCompra2.Location = new System.Drawing.Point(456, 99);
+            this.dtpDataCompra2.Name = "dtpDataCompra2";
+            this.dtpDataCompra2.Size = new System.Drawing.Size(126, 20);
+            this.dtpDataCompra2.TabIndex = 17;
+            // 
+            // lbla2
+            // 
+            this.lbla2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbla2.AutoSize = true;
+            this.lbla2.Location = new System.Drawing.Point(437, 104);
+            this.lbla2.Name = "lbla2";
+            this.lbla2.Size = new System.Drawing.Size(13, 13);
+            this.lbla2.TabIndex = 16;
+            this.lbla2.Text = "à";
+            // 
+            // dtpDataCompra1
+            // 
+            this.dtpDataCompra1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtpDataCompra1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataCompra1.Location = new System.Drawing.Point(305, 98);
+            this.dtpDataCompra1.Name = "dtpDataCompra1";
+            this.dtpDataCompra1.Size = new System.Drawing.Size(126, 20);
+            this.dtpDataCompra1.TabIndex = 15;
+            // 
+            // ckbDataCompra
+            // 
+            this.ckbDataCompra.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ckbDataCompra.AutoSize = true;
+            this.ckbDataCompra.Location = new System.Drawing.Point(305, 79);
+            this.ckbDataCompra.Name = "ckbDataCompra";
+            this.ckbDataCompra.Size = new System.Drawing.Size(103, 17);
+            this.ckbDataCompra.TabIndex = 14;
+            this.ckbDataCompra.Text = "Data de Compra";
+            this.ckbDataCompra.UseVisualStyleBackColor = true;
+            // 
+            // dtpDataAlbum2
+            // 
+            this.dtpDataAlbum2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtpDataAlbum2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataAlbum2.Location = new System.Drawing.Point(171, 97);
+            this.dtpDataAlbum2.Name = "dtpDataAlbum2";
+            this.dtpDataAlbum2.Size = new System.Drawing.Size(126, 20);
+            this.dtpDataAlbum2.TabIndex = 13;
+            // 
+            // lbla1
+            // 
+            this.lbla1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbla1.AutoSize = true;
+            this.lbla1.Location = new System.Drawing.Point(150, 103);
+            this.lbla1.Name = "lbla1";
+            this.lbla1.Size = new System.Drawing.Size(13, 13);
+            this.lbla1.TabIndex = 12;
+            this.lbla1.Text = "à";
+            // 
+            // dtpDataAlbum1
+            // 
+            this.dtpDataAlbum1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtpDataAlbum1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataAlbum1.Location = new System.Drawing.Point(13, 96);
+            this.dtpDataAlbum1.Name = "dtpDataAlbum1";
+            this.dtpDataAlbum1.Size = new System.Drawing.Size(126, 20);
+            this.dtpDataAlbum1.TabIndex = 11;
+            // 
+            // txbOrigem1
+            // 
+            this.txbOrigem1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txbOrigem1.Location = new System.Drawing.Point(519, 53);
+            this.txbOrigem1.Name = "txbOrigem1";
+            this.txbOrigem1.Size = new System.Drawing.Size(180, 20);
+            this.txbOrigem1.TabIndex = 10;
+            // 
+            // txbAutor1
+            // 
+            this.txbAutor1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txbAutor1.Location = new System.Drawing.Point(333, 53);
+            this.txbAutor1.Name = "txbAutor1";
+            this.txbAutor1.Size = new System.Drawing.Size(180, 20);
+            this.txbAutor1.TabIndex = 9;
+            // 
+            // ckbTipoMidia1
+            // 
+            this.ckbTipoMidia1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ckbTipoMidia1.FormattingEnabled = true;
+            this.ckbTipoMidia1.Location = new System.Drawing.Point(13, 52);
+            this.ckbTipoMidia1.Name = "ckbTipoMidia1";
+            this.ckbTipoMidia1.Size = new System.Drawing.Size(126, 21);
+            this.ckbTipoMidia1.TabIndex = 8;
+            // 
+            // txbIterprete1
+            // 
+            this.txbIterprete1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txbIterprete1.Location = new System.Drawing.Point(147, 53);
+            this.txbIterprete1.Name = "txbIterprete1";
+            this.txbIterprete1.Size = new System.Drawing.Size(180, 20);
+            this.txbIterprete1.TabIndex = 7;
+            // 
+            // ckbDataAlbMus
+            // 
+            this.ckbDataAlbMus.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ckbDataAlbMus.AutoSize = true;
+            this.ckbDataAlbMus.Location = new System.Drawing.Point(13, 79);
+            this.ckbDataAlbMus.Name = "ckbDataAlbMus";
+            this.ckbDataAlbMus.Size = new System.Drawing.Size(96, 17);
+            this.ckbDataAlbMus.TabIndex = 6;
+            this.ckbDataAlbMus.Text = "Data do Álbum";
+            this.ckbDataAlbMus.UseVisualStyleBackColor = true;
+            // 
+            // ckbOrigemCompra
+            // 
+            this.ckbOrigemCompra.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ckbOrigemCompra.AutoSize = true;
+            this.ckbOrigemCompra.Location = new System.Drawing.Point(519, 30);
+            this.ckbOrigemCompra.Name = "ckbOrigemCompra";
+            this.ckbOrigemCompra.Size = new System.Drawing.Size(113, 17);
+            this.ckbOrigemCompra.TabIndex = 5;
+            this.ckbOrigemCompra.Text = "Origem da Compra";
+            this.ckbOrigemCompra.UseVisualStyleBackColor = true;
+            // 
+            // ckbAutor
+            // 
+            this.ckbAutor.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ckbAutor.AutoSize = true;
+            this.ckbAutor.Location = new System.Drawing.Point(333, 30);
+            this.ckbAutor.Name = "ckbAutor";
+            this.ckbAutor.Size = new System.Drawing.Size(51, 17);
+            this.ckbAutor.TabIndex = 4;
+            this.ckbAutor.Text = "Autor";
+            this.ckbAutor.UseVisualStyleBackColor = true;
+            // 
+            // ckbInterprete
+            // 
+            this.ckbInterprete.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ckbInterprete.AutoSize = true;
+            this.ckbInterprete.Location = new System.Drawing.Point(147, 30);
+            this.ckbInterprete.Name = "ckbInterprete";
+            this.ckbInterprete.Size = new System.Drawing.Size(71, 17);
+            this.ckbInterprete.TabIndex = 3;
+            this.ckbInterprete.Text = "Intérprete";
+            this.ckbInterprete.UseVisualStyleBackColor = true;
+            // 
+            // ckbTipoMidia
+            // 
+            this.ckbTipoMidia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ckbTipoMidia.AutoSize = true;
+            this.ckbTipoMidia.Location = new System.Drawing.Point(13, 30);
+            this.ckbTipoMidia.Name = "ckbTipoMidia";
+            this.ckbTipoMidia.Size = new System.Drawing.Size(92, 17);
+            this.ckbTipoMidia.TabIndex = 2;
+            this.ckbTipoMidia.Text = "Tipo de Mídia";
+            this.ckbTipoMidia.UseVisualStyleBackColor = true;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnFiltrar.Location = new System.Drawing.Point(588, 97);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(105, 23);
+            this.btnFiltrar.TabIndex = 1;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
             // btnAbaFiltro
             // 
             this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 8);
+            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 0);
             this.btnAbaFiltro.Name = "btnAbaFiltro";
-            this.btnAbaFiltro.Size = new System.Drawing.Size(700, 14);
-            this.btnAbaFiltro.TabIndex = 0;
-            this.btnAbaFiltro.Text = "^";
+            this.btnAbaFiltro.Size = new System.Drawing.Size(702, 22);
+            this.btnAbaFiltro.TabIndex = 3;
+            this.btnAbaFiltro.Text = "Filtro";
             this.btnAbaFiltro.UseVisualStyleBackColor = true;
             this.btnAbaFiltro.Click += new System.EventHandler(this.button1_Click);
             // 
             // lsvPrincipal
             // 
-            this.lsvPrincipal.ContextMenuStrip = this.contextMenuStrip1;
+            this.lsvPrincipal.ContextMenuStrip = this.cmsPrincipal;
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             listViewGroup1.Header = "DVD";
             listViewGroup1.Name = "DVD";
@@ -247,41 +452,37 @@
             this.lsvPrincipal.SelectedIndexChanged += new System.EventHandler(this.lsvPrincipal_SelectedIndexChanged);
             this.lsvPrincipal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lsvPrincipal_KeyDown);
             // 
-            // contextMenuStrip1
+            // cmsPrincipal
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.excluirToolStripMenuItem,
-            this.editarToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 48);
-            // 
-            // excluirToolStripMenuItem
-            // 
-            this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
-            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
-            this.excluirToolStripMenuItem.Text = "Excluir";
-            this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click_1);
-            // 
-            // editarToolStripMenuItem
-            // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
-            this.editarToolStripMenuItem.Text = "Editar";
-            this.editarToolStripMenuItem.Click += new System.EventHandler(this.ediarToolStripMenuItem_Click);
-            // 
-            // cmiEditar
-            // 
-            this.cmiEditar.Name = "cmiEditar";
-            this.cmiEditar.Size = new System.Drawing.Size(108, 22);
-            this.cmiEditar.Text = "Editar";
-            this.cmiEditar.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            this.cmsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmiExcluir,
+            this.cmiEditar});
+            this.cmsPrincipal.Name = "contextMenuStrip1";
+            this.cmsPrincipal.Size = new System.Drawing.Size(109, 48);
             // 
             // cmiExcluir
             // 
+            this.cmiExcluir.Image = ((System.Drawing.Image)(resources.GetObject("cmiExcluir.Image")));
             this.cmiExcluir.Name = "cmiExcluir";
             this.cmiExcluir.Size = new System.Drawing.Size(108, 22);
             this.cmiExcluir.Text = "Excluir";
-            this.cmiExcluir.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
+            this.cmiExcluir.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click_1);
+            // 
+            // cmiEditar
+            // 
+            this.cmiEditar.Image = ((System.Drawing.Image)(resources.GetObject("cmiEditar.Image")));
+            this.cmiEditar.Name = "cmiEditar";
+            this.cmiEditar.Size = new System.Drawing.Size(108, 22);
+            this.cmiEditar.Text = "Editar";
+            this.cmiEditar.Click += new System.EventHandler(this.ediarToolStripMenuItem_Click);
+            // 
+            // pbxImgLateral
+            // 
+            this.pbxImgLateral.Location = new System.Drawing.Point(12, 139);
+            this.pbxImgLateral.Name = "pbxImgLateral";
+            this.pbxImgLateral.Size = new System.Drawing.Size(120, 265);
+            this.pbxImgLateral.TabIndex = 3;
+            this.pbxImgLateral.TabStop = false;
             // 
             // frmPrincipal
             // 
@@ -306,10 +507,12 @@
             this.spcPrincipal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);
             this.spcHorizontal.Panel1.ResumeLayout(false);
+            this.spcHorizontal.Panel1.PerformLayout();
             this.spcHorizontal.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spcHorizontal)).EndInit();
             this.spcHorizontal.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.cmsPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImgLateral)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,15 +532,30 @@
         private System.Windows.Forms.SplitContainer spcHorizontal;
         private System.Windows.Forms.Button btnAbaFiltro;
         private System.Windows.Forms.ListView lsvPrincipal;
-        private System.Windows.Forms.ContextMenuStrip cmsPrincipal;
-        private System.Windows.Forms.ToolStripMenuItem cmiEditar;
-        private System.Windows.Forms.ToolStripMenuItem cmiExcluir;
         private System.Windows.Forms.ToolStripMenuItem msiRelatorios;
         private System.Windows.Forms.Button btnAbaLateral;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cmsPrincipal;
+        private System.Windows.Forms.ToolStripMenuItem cmiExcluir;
+        private System.Windows.Forms.ToolStripMenuItem cmiEditar;
+        private System.Windows.Forms.ToolStripMenuItem msiSair;
+        private System.Windows.Forms.DateTimePicker dtpDataCompra2;
+        private System.Windows.Forms.Label lbla2;
+        private System.Windows.Forms.DateTimePicker dtpDataCompra1;
+        private System.Windows.Forms.CheckBox ckbDataCompra;
+        private System.Windows.Forms.DateTimePicker dtpDataAlbum2;
+        private System.Windows.Forms.Label lbla1;
+        private System.Windows.Forms.DateTimePicker dtpDataAlbum1;
+        private System.Windows.Forms.TextBox txbOrigem1;
+        private System.Windows.Forms.TextBox txbAutor1;
+        private System.Windows.Forms.ComboBox ckbTipoMidia1;
+        private System.Windows.Forms.TextBox txbIterprete1;
+        private System.Windows.Forms.CheckBox ckbDataAlbMus;
+        private System.Windows.Forms.CheckBox ckbOrigemCompra;
+        private System.Windows.Forms.CheckBox ckbAutor;
+        private System.Windows.Forms.CheckBox ckbInterprete;
+        private System.Windows.Forms.CheckBox ckbTipoMidia;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.PictureBox pbxImgLateral;
 
 
     }

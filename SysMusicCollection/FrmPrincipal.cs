@@ -70,7 +70,7 @@ namespace SysMusicCollection
         {
             if (btnAbaSup == 0)
             {
-                spcHorizontal.SplitterDistance = 50;
+                spcHorizontal.SplitterDistance = 160;
                 btnAbaSup = 1;
             }
             else
@@ -154,10 +154,17 @@ namespace SysMusicCollection
             }
             if (armazenaEmprestado.ToString() != null)
             {
-                List<string> pegaEmpretado = pega.pesqtemEmprestimo(armazenaEmprestado);
+                List<string> pegaEmprestado = pega.pesqtemEmprestimo(armazenaEmprestado);
                 foreach (ListViewItem itens in lsvPrincipal.Items)
                 {
-                    
+                    for (int j = 0; j < pegaEmprestado.Count; j++)
+                    {
+                        if (pegaEmprestado.ToString() == itens.Text)
+                        {
+                            itens.BackColor = Color.Red;
+                            break;
+                        }
+                    }
 
                 }
             }
@@ -469,15 +476,20 @@ namespace SysMusicCollection
             }
             if (inter >= 2)
             {
-                editarToolStripMenuItem.Enabled = false;
+               cmiEditar.Enabled = false;
             }
             else
-                editarToolStripMenuItem.Enabled = true;
+                cmiEditar.Enabled = true;
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
