@@ -507,7 +507,7 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    listardiscos = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where (Albuns.ID_Album = Discos.ID_Album  and Discos.Emprestado = 0) ", cnx);
+                    listardiscos = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where (Albuns.ID_Album = Discos.ID_Album  and Discos.Emprestado = 0 and Cod_Midia != 5) ", cnx);
 
                     SqlDataReader dr = listardiscos.ExecuteReader();
 
@@ -548,7 +548,7 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    listardiscos = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where (Albuns.ID_Album = Discos.ID_Album) ", cnx);
+                    listardiscos = new SqlCommand("Select Nome_Album, Cod_Disco  from Albuns, Discos where (Albuns.ID_Album = Discos.ID_Album and Discos.Cod_Midia != 5) ", cnx);
 
                     SqlDataReader dr = listardiscos.ExecuteReader();
 
@@ -586,7 +586,7 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Nome_Album, Nome, Data_Emprestimo, DATEDIFF(DAY, Convert(Date, data_emprestimo,103), GETDATE()) AS [Dias Emprestado] from Albuns" +
+                string sql = " select Nome_Album as [Album/Msica], Nome, Data_Emprestimo as [Data do Emprestimo], DATEDIFF(DAY, Convert(Date, data_emprestimo,103), GETDATE()) AS [Dias Emprestado] from Albuns" +
                              " inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
                              " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " +
                              " inner join Emprestimos on Itens_Emprestimo.Num_Emprestimo = Emprestimos.Num_Emprestimo " +
@@ -624,7 +624,7 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " Select Nome_amigo as Amigo, Nome_disco as Disco, Data_Emprestimo, Data_devolucao from Morto";
+                string sql = " Select Nome_amigo as Amigo, Nome_disco as Disco, Data_Emprestimo as [Data do Emprestimo], Data_devolucao as [Data de Devolução] from Morto";
 
                 try
                 {
@@ -717,8 +717,8 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Cod_Disco, Tipo_Midia, Nome_Autor, Nome_Interprete, Nome_Album ,Data_Album, Data_Compra, Origem_Compra, " + 
-                    " Observ, Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia inner join " + " Autores on Autores.ID_Autor = Discos.ID_autor inner join Interpretes on Interpretes.ID_Interprete " +
+                string sql = " select Cod_Disco, Tipo_Midia, Nome_Autor as Autor, Nome_Interprete as Interprete , Nome_Album as [Album/Musica] ,Data_Album  as [Data do Album], Data_Compra as [Data da Compra], Origem_Compra as [Origem da Compra], " + 
+                    " Observ as Observação , Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia inner join " + " Autores on Autores.ID_Autor = Discos.ID_autor inner join Interpretes on Interpretes.ID_Interprete " +
                     " = Discos.Id_Interprete inner join Albuns on Albuns.ID_Album = Discos.ID_Album ";
                 try
                 {
