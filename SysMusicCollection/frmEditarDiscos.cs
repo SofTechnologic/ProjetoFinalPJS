@@ -129,7 +129,26 @@ namespace SysMusicCollection
         {
            
         }
-
+        public int erroProvaider(string notas)
+        {
+            int retur = 0;
+            for (int i = 0; i <= 10; i++)
+            {
+                if (notas != i.ToString() && retur != 1 && notas != "")
+                {
+                    erpErroEdita.SetError(txtEditaNota, "Digite valores de 0 à 10");
+                }
+                else if (notas == i.ToString() || notas == "")
+                {
+                    erpErroEdita.SetError(txtEditaNota, "");
+                    retur = 1;
+                }
+            }
+            if (retur == 0)
+                return retur;
+            else
+                return retur;
+        }
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             foreach (Control tex in this.Controls )
@@ -146,8 +165,8 @@ namespace SysMusicCollection
                         if (t.Name == cboEditaInterprete.Name)
                             erpErroEdita.SetError(t, "Digite o Campo Interprete");
                     }
-                    else if ((t.Name == cboEditaTipoMidia.Name) && (cboEditaTipoMidia.Text != "K7" ||
-                        cboEditaTipoMidia.Text != "CD" || cboEditaTipoMidia.Text != "DVD" || cboEditaTipoMidia.Text != "Digital"))
+                    else if ((t.Name == cboEditaTipoMidia.Name) && (cboEditaTipoMidia.Text != "K7" &&
+                        cboEditaTipoMidia.Text != "CD" && cboEditaTipoMidia.Text != "DVD" && cboEditaTipoMidia.Text != "Digital"))
                         erpErroEdita.SetError(t, "Escolha um Tipo de Midia");
                     else
                         erpErroEdita.SetError(t, "");
@@ -155,7 +174,7 @@ namespace SysMusicCollection
             }
             frmCadastro frmcadastro = new frmCadastro();
             if (cboEditaAlbumeAutor.Text != "" && cboEditaInterprete.Text != "" && (cboEditaTipoMidia.Text == "Vinil" || cboEditaTipoMidia.Text == "K7" ||
-                cboEditaTipoMidia.Text == "CD" || cboEditaTipoMidia.Text == "DVD" || cboEditaTipoMidia.Text == "Digital") && (frmcadastro.Nota(txtEditaNota.Text) == 1))
+                cboEditaTipoMidia.Text == "CD" || cboEditaTipoMidia.Text == "DVD" || cboEditaTipoMidia.Text == "Digital") && (erroProvaider(txtEditaNota.Text) == 1))
             {
 
                 VerificaItemsnoBanco();
@@ -185,6 +204,11 @@ namespace SysMusicCollection
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtEditaNota_Leave(object sender, EventArgs e)
+        {
+            erroProvaider(txtEditaNota.Text);
         }
 
 

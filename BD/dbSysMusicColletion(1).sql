@@ -39,7 +39,7 @@ Data_Album Varchar(10),
 Data_Compra Varchar(10),
 Origem_Compra Varchar(30),
 Observ Varchar(50),
-Nota Varchar,
+Nota Varchar(2),
 Emprestado bit,
 FOREIGN KEY(Cod_Midia) REFERENCES Midias (Cod_Midia)
 )
@@ -94,8 +94,8 @@ Insert into Midias (Cod_Midia, Tipo_Midia) values (1,'Vinil'),(2,'K7'),(3,'CD'),
 
 SELECT * FROM Amigos
 GO
-select * from Midias;
+select * from Itens_Emprestimo;
 go
 
-select * from Midias;
+select * from Discos;
 go
