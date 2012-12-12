@@ -110,7 +110,11 @@ namespace SysMusicCollection
             {
                 string nome = dr[0].ToString();
                 ListViewItem teste = new ListViewItem(nome, 0);
-                teste.SubItems.Add(dr[2].ToString());
+                if (dr[2].ToString() != "Nada Consta")
+                    teste.SubItems.Add(dr[2].ToString());
+                else
+                    teste.SubItems.Add("");
+
                 teste.SubItems.Add(dr[3].ToString());
                 teste.SubItems.Add(dr[4].ToString());
                 teste.SubItems.Add(dr[5].ToString());
@@ -440,8 +444,6 @@ namespace SysMusicCollection
                     MessageBox.Show("Este item esta emprestado", "Aviso");
                 
             }
-            else
-                MessageBox.Show("Selecione um item de cada vez para edição");
         }
 
         private void lsvPrincipal_SelectedIndexChanged(object sender, EventArgs e)

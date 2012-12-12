@@ -99,3 +99,5 @@ go
 
 select * from Discos;
 go
+select * from autores;
+go
