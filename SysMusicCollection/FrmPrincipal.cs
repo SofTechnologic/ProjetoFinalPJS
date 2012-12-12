@@ -17,7 +17,6 @@ namespace SysMusicCollection
             InitializeComponent();
             
         }
-        
             string codDicos;
             string autor;
             string inter;
@@ -37,8 +36,7 @@ namespace SysMusicCollection
         {
              frmCadastro frmCadAmigo = new frmCadastro(this);
              frmCadAmigo.Show();
-
-            
+              
         }
 
         private void btnEmprDev_Click(object sender, EventArgs e)

@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.msiArquivo = new System.Windows.Forms.ToolStripMenuItem();
             this.msiRelatorios = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,11 +43,13 @@
             this.stsPrincipal = new System.Windows.Forms.StatusStrip();
             this.spcPrincipal = new System.Windows.Forms.SplitContainer();
             this.btnAbaLateral = new System.Windows.Forms.Button();
+            this.pbxImgLateral = new System.Windows.Forms.PictureBox();
             this.btnEmprDev = new System.Windows.Forms.Button();
             this.btnCadastro = new System.Windows.Forms.Button();
             this.txbPesquisa = new System.Windows.Forms.TextBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.spcHorizontal = new System.Windows.Forms.SplitContainer();
+            this.btnAbaFiltro = new System.Windows.Forms.Button();
             this.dtpDataCompra2 = new System.Windows.Forms.DateTimePicker();
             this.lbla2 = new System.Windows.Forms.Label();
             this.dtpDataCompra1 = new System.Windows.Forms.DateTimePicker();
@@ -65,24 +67,22 @@
             this.ckbInterprete = new System.Windows.Forms.CheckBox();
             this.ckbTipoMidia = new System.Windows.Forms.CheckBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.btnAbaFiltro = new System.Windows.Forms.Button();
             this.lsvPrincipal = new System.Windows.Forms.ListView();
             this.cmsPrincipal = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmiExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.pbxImgLateral = new System.Windows.Forms.PictureBox();
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
             this.spcPrincipal.Panel2.SuspendLayout();
             this.spcPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImgLateral)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcHorizontal)).BeginInit();
             this.spcHorizontal.Panel1.SuspendLayout();
             this.spcHorizontal.Panel2.SuspendLayout();
             this.spcHorizontal.SuspendLayout();
             this.cmsPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImgLateral)).BeginInit();
             this.SuspendLayout();
             // 
             // mnsPrincipal
@@ -163,6 +163,14 @@
             this.btnAbaLateral.UseVisualStyleBackColor = true;
             this.btnAbaLateral.Click += new System.EventHandler(this.btnAbaLateral_Click);
             // 
+            // pbxImgLateral
+            // 
+            this.pbxImgLateral.Location = new System.Drawing.Point(12, 139);
+            this.pbxImgLateral.Name = "pbxImgLateral";
+            this.pbxImgLateral.Size = new System.Drawing.Size(120, 265);
+            this.pbxImgLateral.TabIndex = 3;
+            this.pbxImgLateral.TabStop = false;
+            // 
             // btnEmprDev
             // 
             this.btnEmprDev.Location = new System.Drawing.Point(12, 89);
@@ -241,6 +249,18 @@
             this.spcHorizontal.Size = new System.Drawing.Size(702, 376);
             this.spcHorizontal.SplitterDistance = 25;
             this.spcHorizontal.TabIndex = 0;
+            // 
+            // btnAbaFiltro
+            // 
+            this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 0);
+            this.btnAbaFiltro.Name = "btnAbaFiltro";
+            this.btnAbaFiltro.Size = new System.Drawing.Size(702, 22);
+            this.btnAbaFiltro.TabIndex = 3;
+            this.btnAbaFiltro.Text = "Filtro";
+            this.btnAbaFiltro.UseVisualStyleBackColor = true;
+            this.btnAbaFiltro.Click += new System.EventHandler(this.button1_Click);
             // 
             // dtpDataCompra2
             // 
@@ -408,41 +428,29 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
-            // btnAbaFiltro
-            // 
-            this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 0);
-            this.btnAbaFiltro.Name = "btnAbaFiltro";
-            this.btnAbaFiltro.Size = new System.Drawing.Size(702, 22);
-            this.btnAbaFiltro.TabIndex = 3;
-            this.btnAbaFiltro.Text = "Filtro";
-            this.btnAbaFiltro.UseVisualStyleBackColor = true;
-            this.btnAbaFiltro.Click += new System.EventHandler(this.button1_Click);
-            // 
             // lsvPrincipal
             // 
             this.lsvPrincipal.ContextMenuStrip = this.cmsPrincipal;
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup1.Header = "DVD";
-            listViewGroup1.Name = "DVD";
-            listViewGroup2.Header = "CD";
-            listViewGroup2.Name = "CD";
-            listViewGroup3.Header = "VHS";
-            listViewGroup3.Name = "VHS";
-            listViewGroup4.Header = "Vinil";
-            listViewGroup4.Name = "Vinil";
-            listViewGroup5.Header = "K7";
-            listViewGroup5.Name = "K7";
-            listViewGroup6.Header = "Digital";
-            listViewGroup6.Name = "Digital";
+            listViewGroup7.Header = "DVD";
+            listViewGroup7.Name = "DVD";
+            listViewGroup8.Header = "CD";
+            listViewGroup8.Name = "CD";
+            listViewGroup9.Header = "VHS";
+            listViewGroup9.Name = "VHS";
+            listViewGroup10.Header = "Vinil";
+            listViewGroup10.Name = "Vinil";
+            listViewGroup11.Header = "K7";
+            listViewGroup11.Name = "K7";
+            listViewGroup12.Header = "Digital";
+            listViewGroup12.Name = "Digital";
             this.lsvPrincipal.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6});
+            listViewGroup7,
+            listViewGroup8,
+            listViewGroup9,
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
             this.lsvPrincipal.Size = new System.Drawing.Size(702, 347);
@@ -475,14 +483,6 @@
             this.cmiEditar.Text = "Editar";
             this.cmiEditar.Click += new System.EventHandler(this.ediarToolStripMenuItem_Click);
             // 
-            // pbxImgLateral
-            // 
-            this.pbxImgLateral.Location = new System.Drawing.Point(12, 139);
-            this.pbxImgLateral.Name = "pbxImgLateral";
-            this.pbxImgLateral.Size = new System.Drawing.Size(120, 265);
-            this.pbxImgLateral.TabIndex = 3;
-            this.pbxImgLateral.TabStop = false;
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -504,6 +504,7 @@
             this.spcPrincipal.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).EndInit();
             this.spcPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImgLateral)).EndInit();
             this.pnlPrincipal.ResumeLayout(false);
             this.spcHorizontal.Panel1.ResumeLayout(false);
             this.spcHorizontal.Panel1.PerformLayout();
@@ -511,7 +512,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.spcHorizontal)).EndInit();
             this.spcHorizontal.ResumeLayout(false);
             this.cmsPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImgLateral)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

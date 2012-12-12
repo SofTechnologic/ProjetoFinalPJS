@@ -24,13 +24,6 @@ namespace SysMusicCollection
         {
             InitializeComponent();
         }
-
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-
-            frmPesqMidias frmPesqMidias = new frmPesqMidias();
-            frmPesqMidias.Show();
-        }
                       
 
         private void tabControl1_Enter(object sender, EventArgs e)
@@ -204,11 +197,6 @@ namespace SysMusicCollection
 
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             conexaoBanco pesqdevolve = new conexaoBanco();
@@ -266,6 +254,11 @@ namespace SysMusicCollection
         private void tabPage2_Enter(object sender, EventArgs e)
         {
             this.AcceptButton = btn_OK;
+        }
+
+        private void btnCancelar2_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
 
 
