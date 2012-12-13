@@ -710,7 +710,7 @@ namespace SysMusicCollection
             }
         }
 
-        public SqlCommand filtro(bool espera, string tipo, string interprete, string autor, string origem, string dataal, string datacom)
+        public SqlCommand filtro(bool espera, string nome,  string tipo, string interprete, string autor, string origem, string dataal, string datacom)
         {
 
             if (this.Abrirconexao())
@@ -722,7 +722,8 @@ namespace SysMusicCollection
                              " inner join Autores on Autores.ID_Autor = Discos.ID_autor " +
                              " inner join Interpretes on Interpretes.ID_Interprete = Discos.Id_Interprete " +
                              " inner join Albuns on Albuns.ID_Album = Discos.ID_Album " +
-                             " where (Midias.Tipo_Midia = @tipo or @tipo = '') and (Autores.Nome_Autor like @autor or @autor = '')" +
+                             " where (Albuns.Nome_Album like @nome or @nome = '') " + 
+                             " and (Midias.Tipo_Midia = @tipo or @tipo = '') and (Autores.Nome_Autor like @autor or @autor = '')" +
                              " and (Discos.Origem_Compra like @origem or @origem = '') " +
                              " and (Interpretes.Nome_Interprete like @interprete or @interprete = '')" +
                              " and (Discos.Data_Album = @dataalbum or @dataalbum = '')" +
@@ -730,6 +731,7 @@ namespace SysMusicCollection
                 try
                 {
                     SqlCommand cmd = new SqlCommand(sql, cnx);
+                    cmd.Parameters.Add("@nome", "%" + nome + "%"); 
                     cmd.Parameters.Add("@tipo", tipo);
                     cmd.Parameters.Add("@autor", "%" + autor + "%");
                     cmd.Parameters.Add("@origem", "%" + origem + "%");

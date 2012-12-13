@@ -559,7 +559,7 @@ namespace SysMusicCollection
             conexaoBanco f = new conexaoBanco();
             bool espera = false;
 
-            SqlCommand fi = f.filtro(espera, cbxTipoMidia1.Text, txbIterprete1.Text, txbAutor1.Text, txbOrigem1.Text, dtpDataAlbum1.Value.ToShortDateString(), dtpDataCompra1.Value.ToShortDateString());
+            SqlCommand fi = f.filtro(espera, txbPesquisa.Text, cbxTipoMidia1.Text, txbIterprete1.Text, txbAutor1.Text, txbOrigem1.Text, dtpDataAlbum1.Value.ToShortDateString(), dtpDataCompra1.Value.ToShortDateString());
 
             //fi.ExecuteNonQuery();
 
@@ -622,7 +622,7 @@ namespace SysMusicCollection
             espera = true;
             drf.Close();
 
-            f.filtro(espera, null, null, null, null, null, null);
+            f.filtro(espera, null, null, null, null, null, null,null);
             
         }
 
