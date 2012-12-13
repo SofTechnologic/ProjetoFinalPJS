@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace SysMusicCollection
@@ -21,6 +22,8 @@ namespace SysMusicCollection
 
 
 
+
+        
 
         private string pegasql = "";
         SqlConnection cnx = null;
@@ -584,7 +587,7 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Nome_Album, Nome, Data_Emprestimo, DATEDIFF(DAY, Convert(Date, data_emprestimo,103), GETDATE()) AS [Dias Emprestado] from Albuns" +
+                string sql = " select Nome_Album as [Album/Msica], Nome, Data_Emprestimo as [Data do Emprestimo], DATEDIFF(DAY, Convert(Date, data_emprestimo,103), GETDATE()) AS [Dias Emprestado] from Albuns" +
                              " inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
                              " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " +
                              " inner join Emprestimos on Itens_Emprestimo.Num_Emprestimo = Emprestimos.Num_Emprestimo " +
@@ -622,7 +625,7 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " Select Nome_amigo as Amigo, Nome_disco as Disco, Data_Emprestimo, Data_devolucao from Morto";
+                string sql = " Select Nome_amigo as Amigo, Nome_disco as Disco, Data_Emprestimo as [Data do Emprestimo], Data_devolucao as [Data de Devolução] from Morto";
 
                 try
                 {
@@ -645,6 +648,34 @@ namespace SysMusicCollection
             else
             {
                 return null;
+            }
+        }
+
+        public int pesqUltimoCod()
+        {
+            SqlCommand pesqCodDisco= null;
+
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                pesqCodDisco =  new SqlCommand(" Select Max(Cod_Disco) from Discos", cnx);
+                int v = (int)pesqCodDisco.ExecuteScalar();
+                return v;
+                
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return 0;
             }
         }
 
@@ -687,8 +718,8 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Cod_Disco, Tipo_Midia, Nome_Autor, Nome_Interprete, Nome_Album ,Data_Album, Data_Compra, Origem_Compra, " + 
-                    " Observ, Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia inner join " + " Autores on Autores.ID_Autor = Discos.ID_autor inner join Interpretes on Interpretes.ID_Interprete " +
+                string sql = " select Cod_Disco, Tipo_Midia, Nome_Autor as Autor, Nome_Interprete as Interprete , Nome_Album as [Album/Musica] ,Data_Album  as [Data do Album], Data_Compra as [Data da Compra], Origem_Compra as [Origem da Compra], " + 
+                    " Observ as Observação , Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia inner join " + " Autores on Autores.ID_Autor = Discos.ID_autor inner join Interpretes on Interpretes.ID_Interprete " +
                     " = Discos.Id_Interprete inner join Albuns on Albuns.ID_Album = Discos.ID_Album ";
                 try
                 {
@@ -1263,6 +1294,114 @@ namespace SysMusicCollection
 
         #region Remove e Edita
 
+        public void excluiItensEmprestimo(List<string> chaves)
+        {
+            SqlCommand DeletaItensEmprestado = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    for (int i = 0; i < chaves.Count; i++)
+                    {
+                        DeletaItensEmprestado = new SqlCommand("Delete from Itens_Emprestimo where (Cod_Disco = @compara)  ", cnx);
+
+
+                        DeletaItensEmprestado.Parameters.Add(new SqlParameter("@compara", chaves[i]));
+
+                        DeletaItensEmprestado.ExecuteNonQuery();
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+            }
+        }
+
+        public List<string> pesqtemEmprestimo(List<string> itens)
+        {
+            SqlCommand pesqItensEmprestimo = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    List<string> passaEmprestimo = new List<string>();
+                    SqlDataReader emprestado;
+                    for (int i = 0; i < itens.Count; i++)
+                    {
+                        pesqItensEmprestimo = new SqlCommand("Select Cod_Disco from Itens_Emprestimo where Cod_Disco =  @compara", cnx);
+                        pesqItensEmprestimo.Parameters.Add(new SqlParameter("@compara", itens[i]));
+                    }
+                    emprestado = pesqItensEmprestimo.ExecuteReader();
+                    while (emprestado.Read())
+                    {
+                        passaEmprestimo.Add(emprestado["Cod_Disco"].ToString());
+                    }
+                    return passaEmprestimo;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null ;
+            }
+        }
+        public List<string> AchaItemEmprestimo1(List<string> chaves)
+        {
+            SqlCommand DeletarItensEmprestimo = null;
+            SqlCommand AchaDIscoItemEmpre = null;
+            if (this.Abrirconexao())
+            {
+                try
+                {
+                    List<string> armazena = new List<string>();
+                    for (int i = 0; i < chaves.Count; i++)
+                    {
+                        AchaDIscoItemEmpre = new SqlCommand("Select Count(*) from Itens_Emprestimo where (Cod_Disco = @compara and Data_Devolucao is null) ", cnx);
+
+
+                        AchaDIscoItemEmpre.Parameters.Add(new SqlParameter("@compara", chaves[i]));
+
+                        int dt = (int)AchaDIscoItemEmpre.ExecuteScalar();
+                        if (dt != 0)
+                        {
+                           
+                            armazena.Add(chaves[i].ToString());
+                        }
+                    }
+
+                    return armazena;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public List<string> AchaItemEmprestimo(List<string> chaves)
         {
             SqlCommand DeletarItensEmprestimo = null;
@@ -1280,6 +1419,9 @@ namespace SysMusicCollection
                         AchaDIscoItemEmpre.Parameters.Add(new SqlParameter("@compara", chaves[i]));
 
                         int dt = (int)AchaDIscoItemEmpre.ExecuteScalar();
+                        if (dt != 0)
+                        {
+                        }
                         if (dt == 0)
                         {
                             DeletarItensEmprestimo = new SqlCommand("Delete from Itens_Emprestimo where Cod_Disco = @compara", cnx);

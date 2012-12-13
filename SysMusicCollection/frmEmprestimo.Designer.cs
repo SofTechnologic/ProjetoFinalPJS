@@ -42,16 +42,16 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.cboNomeAmigo = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_OK = new System.Windows.Forms.Button();
             this.lbldtDevolucao = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnCancelar2 = new System.Windows.Forms.Button();
             this.btnDevolver = new System.Windows.Forms.Button();
             this.dgvDevolucao = new System.Windows.Forms.DataGridView();
             this.CL1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cboDevolver = new System.Windows.Forms.ComboBox();
             this.ckbMidias = new System.Windows.Forms.CheckBox();
             this.ckbAmigos = new System.Windows.Forms.CheckBox();
-            this.btn_OK = new System.Windows.Forms.Button();
             this.tbcEmprestimo.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmprestimo)).BeginInit();
@@ -209,7 +209,7 @@
             this.tabPage2.Controls.Add(this.btn_OK);
             this.tabPage2.Controls.Add(this.lbldtDevolucao);
             this.tabPage2.Controls.Add(this.dateTimePicker1);
-            this.tabPage2.Controls.Add(this.btnLimpar);
+            this.tabPage2.Controls.Add(this.btnCancelar2);
             this.tabPage2.Controls.Add(this.btnDevolver);
             this.tabPage2.Controls.Add(this.dgvDevolucao);
             this.tabPage2.Controls.Add(this.cboDevolver);
@@ -222,6 +222,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Devolução";
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
+            // 
+            // btn_OK
+            // 
+            this.btn_OK.Location = new System.Drawing.Point(400, 50);
+            this.btn_OK.Name = "btn_OK";
+            this.btn_OK.Size = new System.Drawing.Size(39, 23);
+            this.btn_OK.TabIndex = 8;
+            this.btn_OK.Text = "OK";
+            this.btn_OK.UseVisualStyleBackColor = true;
+            this.btn_OK.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // lbldtDevolucao
             // 
@@ -239,15 +249,15 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(315, 20);
             this.dateTimePicker1.TabIndex = 6;
             // 
-            // btnLimpar
+            // btnCancelar2
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(364, 280);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 5;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            this.btnCancelar2.Location = new System.Drawing.Point(364, 280);
+            this.btnCancelar2.Name = "btnCancelar2";
+            this.btnCancelar2.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar2.TabIndex = 5;
+            this.btnCancelar2.Text = "Cancelar";
+            this.btnCancelar2.UseVisualStyleBackColor = true;
+            this.btnCancelar2.Click += new System.EventHandler(this.btnCancelar2_Click);
             // 
             // btnDevolver
             // 
@@ -313,16 +323,6 @@
             this.ckbAmigos.UseVisualStyleBackColor = true;
             this.ckbAmigos.CheckedChanged += new System.EventHandler(this.ckbAmigos_CheckedChanged);
             // 
-            // btn_OK
-            // 
-            this.btn_OK.Location = new System.Drawing.Point(400, 50);
-            this.btn_OK.Name = "btn_OK";
-            this.btn_OK.Size = new System.Drawing.Size(39, 23);
-            this.btn_OK.TabIndex = 8;
-            this.btn_OK.Text = "OK";
-            this.btn_OK.UseVisualStyleBackColor = true;
-            this.btn_OK.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // frmEmprestimo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,6 +336,7 @@
             this.Name = "frmEmprestimo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empréstimo de Discos";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmEmprestimo_Load);
             this.tbcEmprestimo.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -364,7 +365,7 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.ComboBox cboNomeAmigo;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnCancelar2;
         private System.Windows.Forms.Button btnDevolver;
         private System.Windows.Forms.DataGridView dgvDevolucao;
         private System.Windows.Forms.ComboBox cboDevolver;

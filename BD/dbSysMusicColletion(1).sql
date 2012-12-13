@@ -25,7 +25,6 @@ Endereco Varchar(50)
 CREATE TABLE Emprestimos (
 Num_Emprestimo int NOT NULL IDENTITY (1,1) PRIMARY KEY,
 Data_Emprestimo Varchar(10) NOT NULL,
-Data_Devolucao Varchar(10),
 Cod_Amigo int,
 FOREIGN KEY(Cod_Amigo) REFERENCES Amigos (Cod_Amigo)
 )
@@ -40,7 +39,8 @@ Data_Album Varchar(10),
 Data_Compra Varchar(10),
 Origem_Compra Varchar(30),
 Observ Varchar(50),
-Nota varchar(12),
+Nota Varchar(2),
+Emprestado bit,
 FOREIGN KEY(Cod_Midia) REFERENCES Midias (Cod_Midia)
 )
 
@@ -48,6 +48,7 @@ CREATE TABLE Itens_Emprestimo (
 ID_itens int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Cod_Disco int,
 Num_Emprestimo int,
+Data_Devolucao Varchar(10),
 FOREIGN KEY(Cod_Disco) REFERENCES Discos (Cod_Disco),
 FOREIGN KEY(Num_Emprestimo) REFERENCES Emprestimos (Num_Emprestimo)
 )
@@ -67,6 +68,15 @@ ID_Album int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Nome_Album Varchar(40) NOT NULL
 )
 
+CREATE TABLE Morto (
+Cod_Morto int NOT NULL IDENTITY(1,1) PRIMARY KEY,
+Nome_Amigo Varchar(40) NOT NULL ,
+Nome_Disco Varchar(40) NOT NULL,
+Data_Emprestimo Varchar (10) NOT NULL,
+Data_Devolucao Varchar (10) NOT NULL,
+)
+GO
+
 ALTER TABLE Discos ADD FOREIGN KEY(ID_Autor) REFERENCES Autores (ID_Autor)
 ALTER TABLE Discos ADD FOREIGN KEY(ID_Interprete) REFERENCES Interpretes (ID_Interprete)
 ALTER TABLE Discos ADD FOREIGN KEY(ID_Album) REFERENCES Albuns (ID_Album)
@@ -80,20 +90,15 @@ VALUES (
 'RUA DE TAL, Nº 23, CENTRO');
 GO
 
-insert into Midias (Cod_Midia, Tipo_Midia) values (0, 'Se'),(1,'Vinil'),(2,'K7'),(3,'CD'),
-(4,'DVD'), (5,'Digital');
-go
+Insert into Midias (Cod_Midia, Tipo_Midia) values (1,'Vinil'),(2,'K7'),(3,'CD'),(4,'DVD'), (5, 'Digital');
 
 SELECT * FROM Amigos
 GO
-select * from Midias;
-go
-
-delete from Midias where Cod_Midia = 0;
+select * from Itens_Emprestimo;
 go
 
 select * from Discos;
 go
-
-select * from Autores;
+select * from Itens_Emprestimo;
 go
+Select Cod_Disco from Itens_Emprestimo

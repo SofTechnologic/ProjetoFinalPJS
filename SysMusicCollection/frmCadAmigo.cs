@@ -53,6 +53,10 @@ namespace SysMusicCollection
 
             cboMidia.Text = "N/C";
         }
+        public void Preenche(ListView lisar)
+        {
+
+        }
 
         public void passaArrayListParaPreencherBanco()
         {
@@ -136,12 +140,29 @@ namespace SysMusicCollection
 
                     disc.CadastrarDiscos(arrdisc);
                 }
-                passaValoresParaCombobox();      
-                limpaCampos();
-                if (cboMidia.Text == "N/C")
-                    erpErro.SetError(cboMidia, "");
+                
 
-                frmprincipal.preenchelist();
+                //frmprincipal.preenchelist();
+                List<string> passavariaveis = new List<string>();
+            conexaoBanco pega = new conexaoBanco();
+            int coddisco = pega.pesqUltimoCod();
+            passavariaveis.Add(coddisco.ToString());
+            passavariaveis.Add(cboMidia.Text);
+            passavariaveis.Add(cboAutor.Text);
+            passavariaveis.Add(cboInterprete.Text);
+            passavariaveis.Add(cboAlbum.Text);
+            passavariaveis.Add(dtpDataAlbum.Text);
+            passavariaveis.Add(dtpDataCompra.Text);
+            passavariaveis.Add(txtOrigemCompra.Text);
+            passavariaveis.Add(txtObservacoes.Text);
+            passavariaveis.Add(txtNota.Text);
+            frmprincipal.passalistview(passavariaveis);
+            passaValoresParaCombobox();
+            if (cboMidia.Text == "N/C")
+                erpErro.SetError(cboMidia, "");
+            limpaCampos();
+                
+
         }
 
         public int Nota(string notas)

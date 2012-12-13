@@ -77,6 +77,7 @@
             // 
             // tbcDevolvidos
             // 
+            this.tbcDevolvidos.BackColor = System.Drawing.Color.AliceBlue;
             this.tbcDevolvidos.Controls.Add(this.dgvEmprestados);
             this.tbcDevolvidos.Location = new System.Drawing.Point(4, 22);
             this.tbcDevolvidos.Name = "tbcDevolvidos";

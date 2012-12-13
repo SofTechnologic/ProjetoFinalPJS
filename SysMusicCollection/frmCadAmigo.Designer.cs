@@ -480,6 +480,7 @@
             this.Name = "frmCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Discos/Amigos";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.tbcCadastro.ResumeLayout(false);
             this.tbpDiscos.ResumeLayout(false);
