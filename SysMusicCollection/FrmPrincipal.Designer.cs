@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
@@ -108,7 +109,7 @@
             // 
             this.msiRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("msiRelatorios.Image")));
             this.msiRelatorios.Name = "msiRelatorios";
-            this.msiRelatorios.Size = new System.Drawing.Size(152, 22);
+            this.msiRelatorios.Size = new System.Drawing.Size(126, 22);
             this.msiRelatorios.Text = "Relatórios";
             this.msiRelatorios.Click += new System.EventHandler(this.relatóriosToolStripMenuItem_Click);
             // 
@@ -212,7 +213,7 @@
             this.pnlPrincipal.Controls.Add(this.spcHorizontal);
             this.pnlPrincipal.Location = new System.Drawing.Point(0, 40);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(702, 376);
+            this.pnlPrincipal.Size = new System.Drawing.Size(700, 376);
             this.pnlPrincipal.TabIndex = 0;
             // 
             // spcHorizontal
@@ -246,7 +247,7 @@
             // spcHorizontal.Panel2
             // 
             this.spcHorizontal.Panel2.Controls.Add(this.lsvPrincipal);
-            this.spcHorizontal.Size = new System.Drawing.Size(702, 376);
+            this.spcHorizontal.Size = new System.Drawing.Size(700, 376);
             this.spcHorizontal.SplitterDistance = 25;
             this.spcHorizontal.TabIndex = 0;
             // 
@@ -453,7 +454,7 @@
             listViewGroup12});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(702, 347);
+            this.lsvPrincipal.Size = new System.Drawing.Size(700, 347);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
             this.lsvPrincipal.SelectedIndexChanged += new System.EventHandler(this.lsvPrincipal_SelectedIndexChanged);

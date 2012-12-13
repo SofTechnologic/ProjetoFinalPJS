@@ -29,8 +29,22 @@ namespace SysMusicCollection
             string midia;
             List<string> listaEmprestados = new List<string>();
             conexaoBanco apaga = new conexaoBanco();
-
         public int btnAbaSup = 0, btnAbaLat = 0;
+        public void passalistview(List<string> valores)
+        {
+            ListViewItem item = new ListViewItem();
+            item.Text = valores[0].ToString();
+            item.SubItems.Add(valores[2].ToString());
+            item.SubItems.Add(valores[3].ToString());
+            item.SubItems.Add(valores[4].ToString());
+            item.SubItems.Add(valores[5].ToString());
+            item.SubItems.Add(valores[6].ToString());
+            item.SubItems.Add(valores[7].ToString());
+            item.SubItems.Add(valores[8].ToString());
+            item.SubItems.Add(valores[9].ToString());
+            item.Group = lsvPrincipal.Groups[valores[1].ToString()];
+            lsvPrincipal.Items.Add(item);
+        }
 
         private void btnCadastro_Click(object sender, EventArgs e)
         {
@@ -72,7 +86,6 @@ namespace SysMusicCollection
             bool espera = false;
             bool visibol = Visible = true;
             SqlCommand epa = s.lv(espera);
-
             dr = epa.ExecuteReader();
 
             lsvPrincipal.Clear();
@@ -95,7 +108,11 @@ namespace SysMusicCollection
             {
                 string nome = dr[0].ToString();
                 ListViewItem teste = new ListViewItem(nome, 0);
-                teste.SubItems.Add(dr[2].ToString());
+                if (dr[2].ToString() != "Nada Consta")
+                    teste.SubItems.Add(dr[2].ToString());
+                else
+                    teste.SubItems.Add("");
+
                 teste.SubItems.Add(dr[3].ToString());
                 teste.SubItems.Add(dr[4].ToString());
                 teste.SubItems.Add(dr[5].ToString());
@@ -125,8 +142,30 @@ namespace SysMusicCollection
         
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            conexaoBanco pega = new conexaoBanco();
             preenchelist();
-           
+            List<string> armazenaEmprestado = new List<string>();
+            foreach (ListViewItem itens in lsvPrincipal.Items)
+            {
+                armazenaEmprestado.Add(itens.Text);
+                
+            }
+            if (armazenaEmprestado.ToString() != null)
+            {
+                List<string> pegaEmprestado = pega.pesqtemEmprestimo(armazenaEmprestado);
+                foreach (ListViewItem itens in lsvPrincipal.Items)
+                {
+                    for (int j = 0; j < pegaEmprestado.Count; j++)
+                    {
+                        if (pegaEmprestado.ToString() == itens.Text)
+                        {
+                            itens.BackColor = Color.Red;
+                            break;
+                        }
+                    }
+
+                }
+            }
             
         }
 
@@ -229,34 +268,64 @@ namespace SysMusicCollection
                 }
                 conexaoBanco apaga = new conexaoBanco();
                 List<string> armazena = apaga.AchaItemEmprestimo(apagar);
-                int emprestado = 0;
+                List<string> armazenaEmprestado = apaga.AchaItemEmprestimo1(apagar);
+                bool avisa = false;
+                string nome = null;
+                List<string> pegaNome = new List<string>();
+                if (armazenaEmprestado.Count != 0)
+                {
+                    for (int j = 0; j < armazenaEmprestado.Count; j++)
+                    {
+                        for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                        {
+
+                            if (armazenaEmprestado[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
+                            {
+                                avisa = true;
+                                pegaNome.Add(lsvPrincipal.SelectedItems[i].SubItems[3].Text);
+                            }
+                        }
+                    }
+                    if (avisa == true)
+                    {
+                        //nome = pegaNome.ToString();
+                        if (MessageBox.Show(pegaNome.ToString() + " Iten(s) Emprestados, Deseja Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                   == DialogResult.Yes)
+                        {
+                            for (int j = 0; j < armazenaEmprestado.Count; j++)
+                            {
+                                for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                                {
+
+                                    if (armazenaEmprestado[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
+                                    {
+                                        apaga.excluiItensEmprestimo(armazenaEmprestado);
+                                        apaga.removeItemBanco(armazenaEmprestado);
+                                        ListViewItem remove = lsvPrincipal.SelectedItems[i];
+                                        remove.Remove();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 if (armazena.Count != 0)
                 {
                     apaga.removeItemBanco(armazena);
-                    for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                    for (int j = 0; j < armazena.Count; j++)
                     {
-                        for (int j = 0; j < armazena.Count; j++)
+                        for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
                         {
 
                             if (armazena[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
                             {
                                 ListViewItem remove = lsvPrincipal.SelectedItems[i];
                                 remove.Remove();
-                                break;
                             }
-                            else
-                                emprestado++;
                         }
                     }
-                    if (emprestado >= 1)
-                    {
-                        MessageBox.Show(" Campo(s) nao podem ser excluidos pois estao emprestados", "Aviso");
-                    }
                 }
-                else
-                {
-                    MessageBox.Show("Esta musica nao pode ser excluida", "aviso");
-                }
+                               
             }
         }
 
@@ -270,36 +339,62 @@ namespace SysMusicCollection
             }
             conexaoBanco apaga = new conexaoBanco();
              List<string> armazena = apaga.AchaItemEmprestimo(apagar);
-            int emprestado=0;
+             List<string> armazenaEmprestado = apaga.AchaItemEmprestimo1(apagar);
+             bool avisa = false;
+             string nome = null;
+             List<string> pegaNome = new List<string>(); 
+            if (armazenaEmprestado.Count != 0)
+            {
+                for (int j = 0; j < armazenaEmprestado.Count; j++)
+                {
+                    for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+
+                        if (armazenaEmprestado[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
+                        {
+                                avisa = true;
+                                pegaNome.Add( lsvPrincipal.SelectedItems[i].SubItems[3].Text);
+                        }
+                    }
+                }
+                if (avisa == true)
+                {
+                    //nome = pegaNome.ToString();
+                    if (MessageBox.Show( pegaNome.ToString()+" Iten(s) Emprestados, Deseja Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+               == DialogResult.Yes)
+                    {
+                        for (int j = 0; j < armazenaEmprestado.Count; j++)
+                        {
+                            for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                            {
+
+                                if (armazenaEmprestado[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
+                                {
+                                        apaga.excluiItensEmprestimo(armazenaEmprestado);
+                                        apaga.removeItemBanco(armazenaEmprestado);
+                                        ListViewItem remove = lsvPrincipal.SelectedItems[i];
+                                        remove.Remove();                                  
+                                }
+                            }
+                        }
+                    }
+                }
+            }
              if (armazena.Count != 0)
              {
                  apaga.removeItemBanco(armazena);
-                 for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
-                 {
                      for (int j = 0; j < armazena.Count; j++)
                      {
+                          for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+                        {
 
-                         if (armazena[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
-                         {
-                             ListViewItem remove = lsvPrincipal.SelectedItems[i];
-                             remove.Remove();
-                             break;
-                         }
-                         else
-                         {
-                             if(armazena[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
-                                 emprestado++;
-                         }
+                            if (armazena[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
+                            {
+                                ListViewItem remove = lsvPrincipal.SelectedItems[i];
+                                remove.Remove();
+                            }
+                        }
                      }
-                 }
-                 if (emprestado >= 1)
-                 {
-                     MessageBox.Show(" Campo(s) nao podem ser excluidos pois estao emprestados", "Aviso");
-                 }
-             }
-             else
-             {
-                 MessageBox.Show("Esta musica nao pode ser excluida", "aviso");
              }
         }
 
@@ -368,13 +463,21 @@ namespace SysMusicCollection
                     MessageBox.Show("Este item esta emprestado", "Aviso");
                 
             }
-            else
-                MessageBox.Show("Selecione um item de cada vez para edição");
         }
 
         private void lsvPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            int inter=0;
+            for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+            {
+                inter++;
+            }
+            if (inter >= 2)
+            {
+               cmiEditar.Enabled = false;
+            }
+            else
+                cmiEditar.Enabled = true;
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)

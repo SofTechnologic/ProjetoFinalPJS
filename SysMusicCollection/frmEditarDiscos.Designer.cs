@@ -202,6 +202,7 @@
             this.txtEditaNota.Name = "txtEditaNota";
             this.txtEditaNota.Size = new System.Drawing.Size(100, 20);
             this.txtEditaNota.TabIndex = 8;
+            this.txtEditaNota.Leave += new System.EventHandler(this.txtEditaNota_Leave);
             // 
             // txtEditaObservacoes
             // 
