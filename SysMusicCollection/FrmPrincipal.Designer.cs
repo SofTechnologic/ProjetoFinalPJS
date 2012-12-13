@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("VHS", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.mnsPrincipal = new System.Windows.Forms.MenuStrip();
             this.msiArquivo = new System.Windows.Forms.ToolStripMenuItem();
             this.msiRelatorios = new System.Windows.Forms.ToolStripMenuItem();
@@ -216,7 +215,6 @@
             this.pnlPrincipal.Location = new System.Drawing.Point(0, 40);
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(902, 476);
-
             this.pnlPrincipal.TabIndex = 0;
             // 
             // spcHorizontal
@@ -251,14 +249,14 @@
             // 
             this.spcHorizontal.Panel2.Controls.Add(this.lsvPrincipal);
             this.spcHorizontal.Size = new System.Drawing.Size(902, 476);
-            this.spcHorizontal.SplitterDistance = 25;
+            this.spcHorizontal.SplitterDistance = 199;
             this.spcHorizontal.TabIndex = 0;
             // 
             // btnAbaFiltro
             // 
             this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 0);
+            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 174);
             this.btnAbaFiltro.Name = "btnAbaFiltro";
             this.btnAbaFiltro.Size = new System.Drawing.Size(902, 22);
             this.btnAbaFiltro.TabIndex = 3;
@@ -308,6 +306,7 @@
             this.ckbDataCompra.Text = "Data de Compra";
             this.ckbDataCompra.UseVisualStyleBackColor = true;
             this.ckbDataCompra.Visible = false;
+            this.ckbDataCompra.CheckedChanged += new System.EventHandler(this.ckbDataCompra_CheckedChanged);
             // 
             // dtpDataAlbum2
             // 
@@ -388,6 +387,7 @@
             this.ckbDataAlbMus.Text = "Data do Álbum";
             this.ckbDataAlbMus.UseVisualStyleBackColor = true;
             this.ckbDataAlbMus.Visible = false;
+            this.ckbDataAlbMus.CheckedChanged += new System.EventHandler(this.ckbDataAlbMus_CheckedChanged);
             // 
             // ckbOrigemCompra
             // 
@@ -400,6 +400,7 @@
             this.ckbOrigemCompra.Text = "Origem da Compra";
             this.ckbOrigemCompra.UseVisualStyleBackColor = true;
             this.ckbOrigemCompra.Visible = false;
+            this.ckbOrigemCompra.CheckedChanged += new System.EventHandler(this.ckbOrigemCompra_CheckedChanged);
             // 
             // ckbAutor
             // 
@@ -412,6 +413,7 @@
             this.ckbAutor.Text = "Autor";
             this.ckbAutor.UseVisualStyleBackColor = true;
             this.ckbAutor.Visible = false;
+            this.ckbAutor.CheckedChanged += new System.EventHandler(this.ckbAutor_CheckedChanged);
             // 
             // ckbInterprete
             // 
@@ -424,6 +426,7 @@
             this.ckbInterprete.Text = "Intérprete";
             this.ckbInterprete.UseVisualStyleBackColor = true;
             this.ckbInterprete.Visible = false;
+            this.ckbInterprete.CheckedChanged += new System.EventHandler(this.ckbInterprete_CheckedChanged);
             // 
             // ckbTipoMidia
             // 
@@ -436,6 +439,7 @@
             this.ckbTipoMidia.Text = "Tipo de Mídia";
             this.ckbTipoMidia.UseVisualStyleBackColor = true;
             this.ckbTipoMidia.Visible = false;
+            this.ckbTipoMidia.CheckedChanged += new System.EventHandler(this.ckbTipoMidia_CheckedChanged);
             // 
             // btnFiltrar
             // 
@@ -453,28 +457,28 @@
             // 
             this.lsvPrincipal.ContextMenuStrip = this.cmsPrincipal;
             this.lsvPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup7.Header = "DVD";
-            listViewGroup7.Name = "DVD";
-            listViewGroup8.Header = "CD";
-            listViewGroup8.Name = "CD";
-            listViewGroup9.Header = "VHS";
-            listViewGroup9.Name = "VHS";
-            listViewGroup10.Header = "Vinil";
-            listViewGroup10.Name = "Vinil";
-            listViewGroup11.Header = "K7";
-            listViewGroup11.Name = "K7";
-            listViewGroup12.Header = "Digital";
-            listViewGroup12.Name = "Digital";
+            listViewGroup1.Header = "DVD";
+            listViewGroup1.Name = "DVD";
+            listViewGroup2.Header = "CD";
+            listViewGroup2.Name = "CD";
+            listViewGroup3.Header = "VHS";
+            listViewGroup3.Name = "VHS";
+            listViewGroup4.Header = "Vinil";
+            listViewGroup4.Name = "Vinil";
+            listViewGroup5.Header = "K7";
+            listViewGroup5.Name = "K7";
+            listViewGroup6.Header = "Digital";
+            listViewGroup6.Name = "Digital";
             this.lsvPrincipal.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10,
-            listViewGroup11,
-            listViewGroup12});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(902, 447);
+            this.lsvPrincipal.Size = new System.Drawing.Size(902, 273);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
             this.lsvPrincipal.SelectedIndexChanged += new System.EventHandler(this.lsvPrincipal_SelectedIndexChanged);

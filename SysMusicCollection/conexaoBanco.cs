@@ -16,9 +16,9 @@ namespace SysMusicCollection
 
 
         private const string sqlConn = //@" Data Source=FELIPE-IBM;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-/* Bruno*/ @"Data Source=NOTEBOOK;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-            ///*Felipe*/ @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-            /*Thiago*/ //@"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+///* Bruno*/ @"Data Source=NOTEBOOK;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+//            ///*Felipe*/ @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+            /*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
 
 
@@ -577,6 +577,8 @@ namespace SysMusicCollection
 
         }
 
+
+
         #endregion
 
         #region Preenchimento dos grids e listview
@@ -678,41 +680,7 @@ namespace SysMusicCollection
                 return 0;
             }
         }
-
-        //public DataTable GridEmpPesq(string pesq, int pega)
-        //{
-        //    string sql = pesq;
-        //    SqlCommand dgvEmp = null;
-
-        //    if (this.Abrirconexao())
-        //    {
-
-        //        try
-        //        {
-        //            dgvEmp = new SqlCommand(sql, cnx);
-        //            dgvEmp.Parameters.Add(new SqlParameter("@valor", pega));
-        //            SqlDataAdapter adp = new SqlDataAdapter(dgvEmp);
-        //            DataTable dt = new DataTable();
-        //            adp.Fill(dt);
-        //            //dgvEmp.ExecuteNonQuery();
-
-        //            return dt;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw new Exception(ex.Message);
-        //        }
-        //        finally
-        //        {
-        //            this.Fecharconexao();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
-
+                
         public SqlCommand lv(bool espera)
         {
 
@@ -724,6 +692,50 @@ namespace SysMusicCollection
                 try
                 {
                     SqlCommand cmd = new SqlCommand(sql, cnx);
+                    return cmd;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    if (espera)
+                        this.Fecharconexao();
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public SqlCommand filtro(bool espera, string tipo, string interprete, string autor, string origem, string dataal, string datacom)
+        {
+
+            if (this.Abrirconexao())
+            {
+                string sql = "select Cod_Disco,Tipo_Midia, Nome_Autor as Autor, Nome_Interprete as Interprete, " +
+                             " Nome_Album as [Album/Musica], Data_Album  as [Data do Album], " +
+                             " Data_Compra as [Data da Compra], Origem_Compra as [Origem da Compra], Observ as Observação," +
+                             " Nota from Discos inner join Midias on Discos.Cod_Midia = Midias.Cod_Midia " +
+                             " inner join Autores on Autores.ID_Autor = Discos.ID_autor " +
+                             " inner join Interpretes on Interpretes.ID_Interprete = Discos.Id_Interprete " +
+                             " inner join Albuns on Albuns.ID_Album = Discos.ID_Album " +
+                             " where (Midias.Tipo_Midia = @tipo or @tipo = '') and (Autores.Nome_Autor like @autor or @autor = '')" +
+                             " and (Discos.Origem_Compra like @origem or @origem = '') " +
+                             " and (Interpretes.Nome_Interprete like @interprete or @interprete = '')" +
+                             " and (Discos.Data_Album = @dataalbum or @dataalbum = '')" +
+                             " and (Discos.Data_Compra = @datacompra or @datacompra = '');";
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(sql, cnx);
+                    cmd.Parameters.Add("@tipo", tipo);
+                    cmd.Parameters.Add("@autor", "%" + autor + "%");
+                    cmd.Parameters.Add("@origem", "%" + origem + "%");
+                    cmd.Parameters.Add("@interprete", "%" + interprete + "%");
+                    cmd.Parameters.Add("@dataalbum", "");
+                    cmd.Parameters.Add("@datacompra", "");
                     return cmd;
                 }
                 catch (Exception ex)

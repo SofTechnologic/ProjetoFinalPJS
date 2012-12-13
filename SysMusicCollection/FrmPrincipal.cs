@@ -220,6 +220,18 @@ namespace SysMusicCollection
 
                 }
             }
+
+
+            cbxTipoMidia1.DataSource = pega.prCombo_Midia();
+            cbxTipoMidia1.Enabled = false;
+            txbAutor1.Enabled = false;
+            txbIterprete1.Enabled = false;
+            txbOrigem1.Enabled = false;
+            dtpDataAlbum1.Enabled = false;
+            dtpDataAlbum2.Enabled = false;
+            dtpDataCompra1.Enabled = false;
+            dtpDataCompra2.Enabled = false;
+
             
         }
 
@@ -543,7 +555,75 @@ namespace SysMusicCollection
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
+            SqlDataReader drf;
+            conexaoBanco f = new conexaoBanco();
+            bool espera = false;
 
+            SqlCommand fi = f.filtro(espera, cbxTipoMidia1.Text, txbIterprete1.Text, txbAutor1.Text, txbOrigem1.Text, dtpDataAlbum1.Value.ToShortDateString(), dtpDataCompra1.Value.ToShortDateString());
+
+            //fi.ExecuteNonQuery();
+
+            drf = fi.ExecuteReader();
+
+
+            //List<string> pesq = new List<string>();
+
+            lsvPrincipal.Clear();
+            lsvPrincipal.View = View.Details;
+            lsvPrincipal.FullRowSelect = true;
+            lsvPrincipal.GridLines = true;
+            lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Left);
+            lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(2), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(3), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(4), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(5), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(6), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(7), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(8), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(9), 120, HorizontalAlignment.Center);
+            //lsvPrincipal.Columns.Add(dr.GetName(10), 0, HorizontalAlignment.Center);
+
+            while (drf.Read())
+            {
+
+                ListViewItem teste = new ListViewItem();
+                teste.SubItems.Add(drf[0].ToString());
+                if (drf[2].ToString() != "Nada Consta")
+                {
+                    teste.SubItems.Add(drf[2].ToString());
+                }
+                else
+                {
+                    teste.SubItems.Add("");
+
+                }
+
+                teste.SubItems.Add(drf[3].ToString());
+                teste.SubItems.Add(drf[4].ToString());
+                teste.SubItems.Add(drf[5].ToString());
+                teste.SubItems.Add(drf[6].ToString());
+                teste.SubItems.Add(drf[7].ToString());
+                teste.SubItems.Add(drf[8].ToString());
+                teste.SubItems.Add(drf[9].ToString());
+                teste.Group = lsvPrincipal.Groups[drf[1].ToString()];
+
+                //if (lsvPrincipal.Columns[10].ToString() == Convert.ToString(1))
+                //{
+                //    lsvPrincipal.Items[0].ForeColor = Color.Red;
+                //}
+
+                lsvPrincipal.Items.Add(teste);
+
+                //teste.SubItems.Add(drf[2].ToString());
+            }
+
+
+            espera = true;
+            drf.Close();
+
+            f.filtro(espera, null, null, null, null, null, null);
+            
         }
 
         private void frmPrincipal_Resize(object sender, EventArgs e)
@@ -558,5 +638,106 @@ namespace SysMusicCollection
             else
                 spcHorizontal.SplitterDistance = 0;
         }
+
+        private void ckbTipoMidia_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbTipoMidia.Checked)
+            {
+                cbxTipoMidia1.Enabled = true;
+
+            }
+
+            else
+            {
+                cbxTipoMidia1.Enabled = false;
+                cbxTipoMidia1.Text = "";
+            }
+        }
+
+        private void ckbAutor_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbAutor.Checked)
+            {
+                txbAutor1.Enabled = true;
+
+            }
+
+            else
+            {
+                txbAutor1.Enabled = false;
+                txbAutor1.Text = "";
+            }
+        }
+
+        private void ckbOrigemCompra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbOrigemCompra.Checked)
+            {
+                txbOrigem1.Enabled = true;
+
+            }
+
+            else
+            {
+                txbOrigem1.Enabled = false;
+                txbOrigem1.Text = "";
+            }
+
+        }
+
+        private void ckbDataAlbMus_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbDataAlbMus.Checked)
+            {
+                dtpDataAlbum1.Enabled = true;
+                dtpDataAlbum1.Text = "";
+                dtpDataAlbum2.Enabled = true;
+                dtpDataAlbum2.Text = "";
+
+            }
+
+            else
+            {
+                dtpDataAlbum1.Enabled = false;
+                dtpDataAlbum2.Enabled = false;
+
+            }
+        }
+
+        private void ckbDataCompra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbDataCompra.Checked)
+            {
+                dtpDataCompra1.Enabled = true;
+                dtpDataCompra2.Enabled = true;
+
+            }
+
+            else
+            {
+                dtpDataCompra1.Enabled = false;
+                dtpDataCompra2.Enabled = false;
+
+            }
+
+        }
+
+        private void ckbInterprete_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbInterprete.Checked)
+            {
+                txbIterprete1.Enabled = true;
+
+            }
+
+            else
+            {
+                txbIterprete1.Enabled = false;
+                txbIterprete1.Text = "";
+            }
+
+        }
+
+        
     }
 }
