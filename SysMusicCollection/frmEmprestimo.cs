@@ -23,15 +23,7 @@ namespace SysMusicCollection
         public frmEmprestimo()
         {
             InitializeComponent();
-        }
-
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-
-            frmPesqMidias frmPesqMidias = new frmPesqMidias();
-            frmPesqMidias.Show();
-        }
-                      
+        }                    
 
         private void tabControl1_Enter(object sender, EventArgs e)
         {

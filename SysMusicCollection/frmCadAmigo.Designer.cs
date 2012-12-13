@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastro));
             this.tbcCadastro = new System.Windows.Forms.TabControl();
             this.tbpDiscos = new System.Windows.Forms.TabPage();
             this.txtObservacoes = new System.Windows.Forms.TextBox();
@@ -106,7 +107,7 @@
             this.tbpDiscos.Controls.Add(this.lblInterprete);
             this.tbpDiscos.Location = new System.Drawing.Point(4, 22);
             this.tbpDiscos.Name = "tbpDiscos";
-            this.tbpDiscos.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbpDiscos.Padding = new System.Windows.Forms.Padding(3);
             this.tbpDiscos.Size = new System.Drawing.Size(473, 286);
             this.tbpDiscos.TabIndex = 0;
             this.tbpDiscos.Text = "Discos";
@@ -352,7 +353,7 @@
             this.tbpAmigos.Controls.Add(this.lblNomeAmigo);
             this.tbpAmigos.Location = new System.Drawing.Point(4, 22);
             this.tbpAmigos.Name = "tbpAmigos";
-            this.tbpAmigos.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbpAmigos.Padding = new System.Windows.Forms.Padding(3);
             this.tbpAmigos.Size = new System.Drawing.Size(473, 286);
             this.tbpAmigos.TabIndex = 1;
             this.tbpAmigos.Text = "Amigos";
@@ -366,7 +367,7 @@
             this.cboEndereco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cboEndereco.FormattingEnabled = true;
             this.cboEndereco.Location = new System.Drawing.Point(9, 100);
-            this.cboEndereco.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboEndereco.Margin = new System.Windows.Forms.Padding(2);
             this.cboEndereco.Name = "cboEndereco";
             this.cboEndereco.Size = new System.Drawing.Size(440, 18);
             this.cboEndereco.TabIndex = 2;
@@ -381,7 +382,7 @@
             this.cboNomeAmigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cboNomeAmigo.FormattingEnabled = true;
             this.cboNomeAmigo.Location = new System.Drawing.Point(8, 37);
-            this.cboNomeAmigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboNomeAmigo.Margin = new System.Windows.Forms.Padding(2);
             this.cboNomeAmigo.Name = "cboNomeAmigo";
             this.cboNomeAmigo.Size = new System.Drawing.Size(441, 18);
             this.cboNomeAmigo.TabIndex = 1;
@@ -473,6 +474,7 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(481, 312);
             this.Controls.Add(this.tbcCadastro);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(698, 428);
             this.MinimumSize = new System.Drawing.Size(497, 348);
             this.Name = "frmCadastro";

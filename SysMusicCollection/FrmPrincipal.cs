@@ -57,14 +57,68 @@ namespace SysMusicCollection
             if (btnAbaSup == 0)
             {
                 spcHorizontal.SplitterDistance = 160;
+                habilitaComponentesFiltro();
                 btnAbaSup = 1;
             }
             else
             {
                 spcHorizontal.SplitterDistance = 0;
                 btnAbaSup = 0;
+                desabilitaComponentesFiltro();
             }
 
+        }
+
+        public void habilitaComponentesFiltro()
+        {
+            ckbInterprete.Visible = true;
+            ckbAutor.Visible = true;
+            ckbDataAlbMus.Visible = true;
+            ckbDataCompra.Visible = true;
+            ckbOrigemCompra.Visible = true;
+            ckbTipoMidia.Visible = true;
+            cbxTipoMidia1.Visible = true;
+            txbAutor1.Visible = true;
+            txbIterprete1.Visible = true;
+            txbOrigem1.Visible = true;
+            txbPesquisa.Visible = true;
+            dtpDataAlbum1.Visible = true;
+            dtpDataAlbum2.Visible = true;
+            dtpDataCompra1.Visible = true;
+            dtpDataCompra2.Visible = true;
+            btnFiltrar.Visible = true;
+        }
+
+        public void desabilitaComponentesFiltro()
+        {
+            ckbInterprete.Visible = false;
+            ckbAutor.Visible = false;
+            ckbDataAlbMus.Visible = false;
+            ckbDataCompra.Visible = false;
+            ckbOrigemCompra.Visible = false;
+            ckbTipoMidia.Visible = false;
+            cbxTipoMidia1.Visible = false;
+            txbAutor1.Visible = false;
+            txbIterprete1.Visible = false;
+            txbOrigem1.Visible = false;
+            txbPesquisa.Visible = false;
+            dtpDataAlbum1.Visible = false;
+            dtpDataAlbum2.Visible = false;
+            dtpDataCompra1.Visible = false;
+            dtpDataCompra2.Visible = false;
+            btnFiltrar.Visible = false;
+        }
+
+        public void habilitaComponentesFunc()
+        {
+            btnCadastro.Visible = true;
+            btnEmprDev.Visible = true;
+        }
+
+        public void desabilitaComponentesFunc()
+        {
+            btnCadastro.Visible = false;
+            btnEmprDev.Visible = false;
         }
         
         public void preenchelist()
@@ -210,11 +264,13 @@ namespace SysMusicCollection
             if (btnAbaLat == 0)
             {
                 spcPrincipal.SplitterDistance = 170;
+                habilitaComponentesFunc();
                 btnAbaLat = 1;
             }
             else
             {
                 spcPrincipal.SplitterDistance = 0;
+                desabilitaComponentesFunc();
                 btnAbaLat = 0;
             }
         }
@@ -387,6 +443,19 @@ namespace SysMusicCollection
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmPrincipal_Resize(object sender, EventArgs e)
+        {
+            if (btnAbaLat == 1)
+                spcPrincipal.SplitterDistance = 160;
+            else
+                spcPrincipal.SplitterDistance = 0;
+
+            if (btnAbaSup == 1)
+                spcHorizontal.SplitterDistance = 160;
+            else
+                spcHorizontal.SplitterDistance = 0;
         }
     }
 }
