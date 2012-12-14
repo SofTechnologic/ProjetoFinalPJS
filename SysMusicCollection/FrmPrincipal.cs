@@ -146,7 +146,6 @@ namespace SysMusicCollection
             lsvPrincipal.View = View.Details;
             lsvPrincipal.FullRowSelect = true;
             lsvPrincipal.GridLines = true;
-            //lsvPrincipal.Columns.Add(dr.GetName(0), 60, HorizontalAlignment.Left);
             lsvPrincipal.Columns.Add(dr.GetName(0), 0, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(dr.GetName(2), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(dr.GetName(3), 120, HorizontalAlignment.Center);
@@ -156,7 +155,6 @@ namespace SysMusicCollection
             lsvPrincipal.Columns.Add(dr.GetName(7), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(dr.GetName(8), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(dr.GetName(9), 120, HorizontalAlignment.Center);
-            //lsvPrincipal.Columns.Add(dr.GetName(10), 0, HorizontalAlignment.Center);
 
             while (dr.Read())
             {
@@ -174,13 +172,7 @@ namespace SysMusicCollection
                 teste.SubItems.Add(dr[7].ToString());
                 teste.SubItems.Add(dr[8].ToString());
                 teste.SubItems.Add(dr[9].ToString());
-                //teste.SubItems.Add(dr[10].ToString());
                 teste.Group = lsvPrincipal.Groups[dr[1].ToString()];
-
-                //if (lsvPrincipal.Columns[10].ToString() == Convert.ToString(1))
-                //{
-                //    lsvPrincipal.Items[0].ForeColor = Color.Red;
-                //}
 
                 lsvPrincipal.Items.Add(teste);
                 
@@ -209,7 +201,6 @@ namespace SysMusicCollection
         public void AChaEmprestado()
         {
             conexaoBanco pega = new conexaoBanco();
-            //preenchelist();
             List<string> armazenaEmprestado = new List<string>();
             foreach (ListViewItem itens in lsvPrincipal.Items)
                 armazenaEmprestado.Add(itens.Text);
@@ -300,22 +291,6 @@ namespace SysMusicCollection
             }
         }
 
-        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //List<string> apagar = new List<string>();
-            //for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
-            //{
-            //    ListViewItem remove = lsvPrincipal.SelectedItems[i];
-            //    apagar.Add(remove.Text);
-            //}
-            ////conexaoBanco apaga = new conexaoBanco();
-            //apaga.removeItemBanco(apagar);
-            //for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
-            //{
-            //    ListViewItem remove = lsvPrincipal.SelectedItems[i];
-            //    remove.Remove();
-            //}
-        }
 
         private void relatóriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -371,7 +346,6 @@ namespace SysMusicCollection
                     }
                     if (avisa == true)
                     {
-                        //nome = pegaNome.ToString();
                         if (MessageBox.Show("Você selecionou Iten(s) Emprestados, Deseja Realmente Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                    == DialogResult.Yes)
                         {
@@ -441,7 +415,6 @@ namespace SysMusicCollection
                 }
                 if (avisa == true)
                 {
-                    //nome = pegaNome.ToString();
                     if (MessageBox.Show(" Item(s) Emprestado(s), Deseja Realmente Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                == DialogResult.Yes)
                     {
@@ -589,16 +562,14 @@ namespace SysMusicCollection
 
             SqlCommand fi = f.filtro(espera, txbPesquisa.Text, cbxTipoMidia1.Text, txbIterprete1.Text, txbAutor1.Text, txbOrigem1.Text,dtpDataAlbum1.Value,dtpDataAlbum2.Value, dtpDataCompra1.Value,dtpDataCompra2.Value );
 
-            //fi.ExecuteNonQuery();
 
             drf = fi.ExecuteReader();
-
 
             lsvPrincipal.Clear();
             lsvPrincipal.View = View.Details;
             lsvPrincipal.FullRowSelect = true;
             lsvPrincipal.GridLines = true;
-            //lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Left);
+            
             lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(drf.GetName(2), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(drf.GetName(3), 120, HorizontalAlignment.Center);
@@ -608,8 +579,7 @@ namespace SysMusicCollection
             lsvPrincipal.Columns.Add(drf.GetName(7), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(drf.GetName(8), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(drf.GetName(9), 120, HorizontalAlignment.Center);
-            //lsvPrincipal.Columns.Add(dr.GetName(10), 0, HorizontalAlignment.Center);
-
+            
             while (drf.Read())
             {
 
@@ -634,14 +604,8 @@ namespace SysMusicCollection
                 teste.SubItems.Add(drf[9].ToString());
                 teste.Group = lsvPrincipal.Groups[drf[1].ToString()];
 
-                //if (lsvPrincipal.Columns[10].ToString() == Convert.ToString(1))
-                //{
-                //    lsvPrincipal.Items[0].ForeColor = Color.Red;
-                //}
-
+            
                 lsvPrincipal.Items.Add(teste);
-
-                //teste.SubItems.Add(drf[2].ToString());
             }
             
             espera = true;

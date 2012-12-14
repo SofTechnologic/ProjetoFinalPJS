@@ -75,8 +75,6 @@ namespace SysMusicCollection
                 try
                 {
                     cadastrardiscos = new SqlCommand("INSERT INTO Discos (Cod_Midia , ID_Autor , ID_Interprete , ID_Album , Data_Album , Data_Compra , Origem_Compra , Observ , Nota, Emprestado) VALUES (@Cod_Midia , @ID_Autor, @ID_Interprete , @ID_Album, @Data_Album, @Data_Compra, @Origem_Compra, @Observ, @Nota, 0 )", cnx);
-
-                        //p_cadDiscos[1] = null;
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Cod_Midia", p_cadDiscos[0]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@ID_Autor", p_cadDiscos[1]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@ID_Interprete", p_cadDiscos[2]));
@@ -85,7 +83,6 @@ namespace SysMusicCollection
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Data_Compra", p_cadDiscos[5]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Origem_Compra", p_cadDiscos[6]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Observ", p_cadDiscos[7]));
-                    //cadastrardiscos.Parameters.Add(new SqlParameter("@Nome_Musica", p_cadDiscos[8]));
                     cadastrardiscos.Parameters.Add(new SqlParameter("@Nota", p_cadDiscos[8]));
 
                     cadastrardiscos.ExecuteNonQuery();
@@ -341,8 +338,7 @@ namespace SysMusicCollection
             SqlCommand listarAutor = null;
 
             List<string> comboAutor = new List<string>();
-            //List<string> cods = new List<string>();
-
+            
             if (this.Abrirconexao())
             {
                 try
@@ -382,8 +378,7 @@ namespace SysMusicCollection
             SqlCommand listarMidia = null;
 
             List<string> comboMidia = new List<string>();
-            //List<string> cods = new List<string>();
-
+            
             if (this.Abrirconexao())
             {
                 try
@@ -421,8 +416,7 @@ namespace SysMusicCollection
             SqlCommand listaramigos = null;
 
             List<string> comboamigos = new List<string>();
-            //List<string> cods = new List<string>();
-
+            
             if (this.Abrirconexao())
             {
                 try
@@ -461,9 +455,7 @@ namespace SysMusicCollection
             SqlCommand listaramigosEndereco = null;
 
             List<string> comboamigosEnderecos = new List<string>();
-            //List<string> comboamigo = new List<string>();
-            //List<string> cods = new List<string>();
-
+            
             if (this.Abrirconexao())
             {
                 try
@@ -502,8 +494,7 @@ namespace SysMusicCollection
             SqlCommand listardiscos = null;
 
             List<string> combomidias = new List<string>();
-            //List<string> cods = new List<string>();
-
+            
             if (this.Abrirconexao())
             {
                 try
@@ -543,8 +534,7 @@ namespace SysMusicCollection
             SqlCommand listardiscos = null;
 
             List<string> combomidias = new List<string>();
-            //List<string> cods = new List<string>();
-
+            
             if (this.Abrirconexao())
             {
                 try
@@ -589,7 +579,7 @@ namespace SysMusicCollection
 
             if (this.Abrirconexao())
             {
-                string sql = " select Nome_Album as [Album/Msica], Nome, Data_Emprestimo as [Data do Emprestimo], DATEDIFF(DAY, Convert(Date, data_emprestimo,103), GETDATE()) AS [Dias Emprestado] from Albuns" +
+                string sql = " select Nome_Album as [Album/Msica], Nome, Data_Emprestimo as [Data do Emprestimo], DATEDIFF(DAY, Convert(Date," +                                             " data_emprestimo,103), GETDATE()) AS [Dias Emprestado] from Albuns" +
                              " inner join Discos on Albuns.ID_Album = Discos.ID_Album " +
                              " inner join Itens_Emprestimo on Discos.Cod_Disco = Itens_Emprestimo.Cod_Disco " +
                              " inner join Emprestimos on Itens_Emprestimo.Num_Emprestimo = Emprestimos.Num_Emprestimo " +
@@ -840,7 +830,6 @@ namespace SysMusicCollection
                 {
                     pesqInter = new SqlCommand(sql, cnx);
                     pesqInter.Parameters.AddWithValue("@Pega", Nome);
-                    //pesqInter.ExecuteNonQuery();
                     int total = (int)pesqInter.ExecuteScalar();
                     return total;
                 }
@@ -915,8 +904,6 @@ namespace SysMusicCollection
 
 
                         pesqAutor = new SqlCommand(sql, cnx);
-                        //pesqAutor.Parameters.AddWithValue("@Pega", Nome);
-
                         total = (int)pesqAutor.ExecuteScalar();
                     }
                     return total;
@@ -1080,7 +1067,6 @@ namespace SysMusicCollection
                 {
                     pesqcod = new SqlCommand(sql, cnx);
                     pesqcod.Parameters.AddWithValue("@Pega", Nome);
-                    //pesqInter.ExecuteNonQuery();
                     int cd = (int)pesqcod.ExecuteScalar();
                     return cd;
                 }
@@ -1113,7 +1099,6 @@ namespace SysMusicCollection
                             string sql = "select ID_Autor from Autores where Nome_Autor = @Pega";
                             pesqcod = new SqlCommand(sql, cnx);
                             pesqcod.Parameters.AddWithValue("@Pega", Nome);
-                            //pesqInter.ExecuteNonQuery();
                             int cd = (int)pesqcod.ExecuteScalar();
                             return cd;
                         }
@@ -1124,7 +1109,6 @@ namespace SysMusicCollection
                             string sql = "select ID_Autor from Autores where Nome_Autor = @Pega";
                             pesqcod = new SqlCommand(sql, cnx);
                             pesqcod.Parameters.AddWithValue("@Pega", Nomea);
-                            //pesqInter.ExecuteNonQuery();
                             int cd = (int)pesqcod.ExecuteScalar();
                             return cd;
                         }
@@ -1158,7 +1142,6 @@ namespace SysMusicCollection
                 {
                     pesqcod = new SqlCommand(sql, cnx);
                     pesqcod.Parameters.AddWithValue("@Pega", Nome);
-                    //pesqInter.ExecuteNonQuery();
                     int cd = (int)pesqcod.ExecuteScalar();
                     return cd;
                 }
@@ -1190,7 +1173,6 @@ namespace SysMusicCollection
                     {
                         pesqamigo = new SqlCommand(sql, cnx);
                         pesqamigo.Parameters.AddWithValue("@Pega", Nome);
-                        //pesqInter.ExecuteNonQuery();
                         int cd = (int)pesqamigo.ExecuteScalar();
                         return cd;
                     }
@@ -1222,7 +1204,6 @@ namespace SysMusicCollection
                 {
                     pesqcod = new SqlCommand(sql, cnx);
                     pesqcod.Parameters.AddWithValue("@Pega", Nome);
-                    //pesqInter.ExecuteNonQuery();
                     int cd = (int)pesqcod.ExecuteScalar();
                     return cd;
                 }
@@ -1252,7 +1233,6 @@ namespace SysMusicCollection
                 {
                     pesqcod = new SqlCommand(sql, cnx);
                     pesqcod.Parameters.AddWithValue("@Pega", Nome);
-                    //pesqInter.ExecuteNonQuery();
                     int cd = (int)pesqcod.ExecuteScalar();
                     return cd;
                 }
@@ -1285,7 +1265,6 @@ namespace SysMusicCollection
                         pesqamigo = new SqlCommand(sql, cnx);
                         pesqamigo.Parameters.AddWithValue("@dt", data);
                         pesqamigo.Parameters.AddWithValue("@cdam", Cdam);
-                        //pesqInter.ExecuteNonQuery();
                         int cd = (int)pesqamigo.ExecuteScalar();
                         return cd;
                     }
@@ -1322,7 +1301,6 @@ namespace SysMusicCollection
                     PesqCodItemEmp.Parameters.AddWithValue("@acha", disco);
                     PesqCodItemEmp.Parameters.AddWithValue("@cd", codam);
                     PesqCodItemEmp.Parameters.AddWithValue("@dt", data);
-                    //PesqCodItemEmp.Parameters.AddWithValue("@cdam", Cdam);
                     int cd = (int)PesqCodItemEmp.ExecuteScalar();
                     return cd;
                 }
@@ -1352,8 +1330,6 @@ namespace SysMusicCollection
                 {
                     pesqdt = new SqlCommand(sql, cnx);
                     pesqdt.Parameters.AddWithValue("@cd", codam);
-                    //pesqdt.Parameters.AddWithValue("@cdam", Cdam);
-                    //pesqInter.ExecuteNonQuery();
                     string dt = (string)pesqdt.ExecuteScalar();
                     return dt;
                 }
@@ -1417,7 +1393,6 @@ namespace SysMusicCollection
                 try
                 {
                     List<string> passaEmprestimo = new List<string>();
-                    SqlDataReader emprestado;
                     for (int i = 0; i < itens.Count; i++)
                     {
                         pesqItensEmprestimo = new SqlCommand("Select count(Cod_Disco) from Itens_Emprestimo where Cod_Disco =  @compara and Data_Devolucao is null", cnx);
@@ -1445,46 +1420,7 @@ namespace SysMusicCollection
                 return null ;
             }
         }
-        //public List<string> AchaItemEmprestimo1(List<string> chaves)
-        //{
-        //    SqlCommand DeletarItensEmprestimo = null;
-        //    SqlCommand AchaDIscoItemEmpre = null;
-        //    if (this.Abrirconexao())
-        //    {
-        //        try
-        //        {
-        //            List<string> armazena = new List<string>();
-        //            for (int i = 0; i < chaves.Count; i++)
-        //            {
-        //                AchaDIscoItemEmpre = new SqlCommand("Select Count(*) from Itens_Emprestimo where (Cod_Disco = @compara and Data_Devolucao is null) ", cnx);
-
-
-        //                AchaDIscoItemEmpre.Parameters.Add(new SqlParameter("@compara", chaves[i]));
-
-        //                int dt = (int)AchaDIscoItemEmpre.ExecuteScalar();
-        //                if (dt != 0)
-        //                {
-                           
-        //                    armazena.Add(chaves[i].ToString());
-        //                }
-        //            }
-
-        //            return armazena;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw new Exception(ex.Message);
-        //        }
-        //        finally
-        //        {
-        //            this.Fecharconexao();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return null;
-        //    }
-        //}
+        
 
         public List<string> AchaItemEmprestimo(List<string> chaves)
         {
@@ -1503,9 +1439,6 @@ namespace SysMusicCollection
                         AchaDIscoItemEmpre.Parameters.Add(new SqlParameter("@compara", chaves[i]));
 
                         int dt = (int)AchaDIscoItemEmpre.ExecuteScalar();
-                        if (dt != 0)
-                        {
-                        }
                         if (dt == 0)
                         {
                             DeletarItensEmprestimo = new SqlCommand("Delete from Itens_Emprestimo where Cod_Disco = @compara", cnx);
@@ -1538,7 +1471,6 @@ namespace SysMusicCollection
             {
                 try
                 {
-                    //AchaItemEmprestimo(chave);
                     for(int i=0;i < chave.Count ; i++)
                     {
                         
