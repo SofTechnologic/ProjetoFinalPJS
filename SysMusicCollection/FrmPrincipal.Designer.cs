@@ -71,7 +71,7 @@
             this.cmsPrincipal = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmiExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.erpError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.eprError = new System.Windows.Forms.ErrorProvider(this.components);
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -84,7 +84,7 @@
             this.spcHorizontal.Panel2.SuspendLayout();
             this.spcHorizontal.SuspendLayout();
             this.cmsPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.erpError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eprError)).BeginInit();
             this.SuspendLayout();
             // 
             // mnsPrincipal
@@ -201,7 +201,7 @@
             this.txbPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPesquisa.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbPesquisa.Location = new System.Drawing.Point(640, 14);
+            this.txbPesquisa.Location = new System.Drawing.Point(639, 14);
             this.txbPesquisa.Name = "txbPesquisa";
             this.txbPesquisa.Size = new System.Drawing.Size(260, 20);
             this.txbPesquisa.TabIndex = 1;
@@ -251,14 +251,14 @@
             // 
             this.spcHorizontal.Panel2.Controls.Add(this.lsvPrincipal);
             this.spcHorizontal.Size = new System.Drawing.Size(902, 476);
-            this.spcHorizontal.SplitterDistance = 25;
+            this.spcHorizontal.SplitterDistance = 174;
             this.spcHorizontal.TabIndex = 0;
             // 
             // btnAbaFiltro
             // 
             this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 0);
+            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 149);
             this.btnAbaFiltro.Name = "btnAbaFiltro";
             this.btnAbaFiltro.Size = new System.Drawing.Size(902, 22);
             this.btnAbaFiltro.TabIndex = 3;
@@ -483,7 +483,7 @@
             listViewGroup6});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(902, 447);
+            this.lsvPrincipal.Size = new System.Drawing.Size(902, 298);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
             this.lsvPrincipal.SelectedIndexChanged += new System.EventHandler(this.lsvPrincipal_SelectedIndexChanged);
@@ -513,9 +513,9 @@
             this.cmiEditar.Text = "Editar";
             this.cmiEditar.Click += new System.EventHandler(this.ediarToolStripMenuItem_Click);
             // 
-            // erpError
+            // eprError
             // 
-            this.erpError.ContainerControl = this;
+            this.eprError.ContainerControl = this;
             // 
             // frmPrincipal
             // 
@@ -528,7 +528,7 @@
             this.Controls.Add(this.mnsPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnsPrincipal;
-            this.MinimumSize = new System.Drawing.Size(950, 600);
+            this.MinimumSize = new System.Drawing.Size(950, 599);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sys Music Collection";
@@ -549,7 +549,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spcHorizontal)).EndInit();
             this.spcHorizontal.ResumeLayout(false);
             this.cmsPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.erpError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eprError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,7 +593,7 @@
         private System.Windows.Forms.CheckBox ckbTipoMidia;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.PictureBox pbxImgLateral;
-        private System.Windows.Forms.ErrorProvider erpError;
+        private System.Windows.Forms.ErrorProvider eprError;
 
 
     }

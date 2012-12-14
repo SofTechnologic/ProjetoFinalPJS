@@ -55,7 +55,7 @@ namespace SysMusicCollection
 
         private void btnEmprDev_Click(object sender, EventArgs e)
         {
-            frmEmprestimo frmEmprestimo = new frmEmprestimo();
+            frmEmprestimo frmEmprestimo = new frmEmprestimo(this);
             frmEmprestimo.Show();
         }
 
@@ -193,46 +193,45 @@ namespace SysMusicCollection
             s.lv(espera);
             
         }
+        public void AChaDevolvido(List<string> pegadisco)
+        {
 
-            public void AChaDevolvido(List<string> pegadisco)
+            foreach (ListViewItem itens in lsvPrincipal.Items)
             {
-
-                foreach (ListViewItem itens in lsvPrincipal.Items)
+                for (int j = 0; j < pegadisco.Count; j++)
                 {
-                    for (int j = 0; j < pegadisco.Count; j++)
-                    {
-                        if (pegadisco[j].ToString() == itens.Text)
-                            itens.BackColor = Color.White;
-                    }
+                    if (pegadisco[j].ToString() == itens.Text)
+                        itens.BackColor = Color.White;
                 }
-
             }
-            public void AChaEmprestado()
-            {
-                conexaoBanco pega = new conexaoBanco();
-                //preenchelist();
-                List<string> armazenaEmprestado = new List<string>();
-                foreach (ListViewItem itens in lsvPrincipal.Items)
-                    armazenaEmprestado.Add(itens.Text);
 
-                if (armazenaEmprestado.ToString() != null)
+        }
+        public void AChaEmprestado()
+        {
+            conexaoBanco pega = new conexaoBanco();
+            //preenchelist();
+            List<string> armazenaEmprestado = new List<string>();
+            foreach (ListViewItem itens in lsvPrincipal.Items)
+                armazenaEmprestado.Add(itens.Text);
+
+            if (armazenaEmprestado.ToString() != null)
+            {
+                List<string> pegaEmprestado = pega.pesqtemEmprestimo(armazenaEmprestado);
+                foreach (ListViewItem itens in lsvPrincipal.Items)
                 {
-                    List<string> pegaEmprestado = pega.pesqtemEmprestimo(armazenaEmprestado);
-                    foreach (ListViewItem itens in lsvPrincipal.Items)
+                    for (int j = 0; j < pegaEmprestado.Count; j++)
                     {
-                        for (int j = 0; j < pegaEmprestado.Count; j++)
-                        {
-                            if (pegaEmprestado[j].ToString() == itens.Text)
-                                itens.BackColor = Color.LightBlue;
-                        }
+                        if (pegaEmprestado[j].ToString() == itens.Text)
+                            itens.BackColor = Color.LightBlue;
                     }
                 }
             }
-        
+        }
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             preenchelist();
             AChaEmprestado();
+
             conexaoBanco pega = new conexaoBanco();
             cbxTipoMidia1.DataSource = pega.prCombo_Midia();
             txbAutor1.Enabled = false;
@@ -353,7 +352,7 @@ namespace SysMusicCollection
                 }
                 conexaoBanco apaga = new conexaoBanco();
                 List<string> armazena = apaga.AchaItemEmprestimo(apagar);
-                List<string> armazenaEmprestado = apaga.AchaItemEmprestimo1(apagar);
+                List<string> armazenaEmprestado = apaga.pesqtemEmprestimo(apagar);
                 bool avisa = false;
                 string nome = null;
                 List<string> pegaNome = new List<string>();
@@ -367,14 +366,13 @@ namespace SysMusicCollection
                             if (armazenaEmprestado[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
                             {
                                 avisa = true;
-                                //pegaNome.Add(lsvPrincipal.SelectedItems[i].SubItems[3].Text);
                             }
                         }
                     }
                     if (avisa == true)
                     {
                         //nome = pegaNome.ToString();
-                        if (MessageBox.Show(pegaNome.ToString() + " Iten(s) Emprestados, Deseja Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                        if (MessageBox.Show("Você selecionou Iten(s) Emprestados, Deseja Realmente Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                    == DialogResult.Yes)
                         {
                             for (int j = 0; j < armazenaEmprestado.Count; j++)
@@ -424,7 +422,7 @@ namespace SysMusicCollection
             }
             conexaoBanco apaga = new conexaoBanco();
              List<string> armazena = apaga.AchaItemEmprestimo(apagar);
-             List<string> armazenaEmprestado = apaga.AchaItemEmprestimo1(apagar);
+             List<string> armazenaEmprestado = apaga.pesqtemEmprestimo(apagar);
              bool avisa = false;
              string nome = null;
              List<string> pegaNome = new List<string>(); 
@@ -438,14 +436,13 @@ namespace SysMusicCollection
                         if (armazenaEmprestado[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
                         {
                                 avisa = true;
-                                //pegaNome.Add( lsvPrincipal.SelectedItems[i].SubItems[3].Text);
                         }
                     }
                 }
                 if (avisa == true)
                 {
                     //nome = pegaNome.ToString();
-                    if (MessageBox.Show( pegaNome.ToString()+" Iten(s) Emprestados, Deseja Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                    if (MessageBox.Show(" Item(s) Emprestado(s), Deseja Realmente Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                == DialogResult.Yes)
                     {
                         for (int j = 0; j < armazenaEmprestado.Count; j++)
@@ -545,7 +542,7 @@ namespace SysMusicCollection
                     }
                 }
                 else
-                    MessageBox.Show("Este item esta emprestado", "Aviso");
+                    MessageBox.Show("Este item esta emprestado, Impossivel Editar", "Aviso");
                 
             }
         }
@@ -572,89 +569,89 @@ namespace SysMusicCollection
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-                if (Convert.ToDateTime(dtpDataAlbum1.Value.ToShortDateString()) > Convert.ToDateTime(dtpDataAlbum2.Value.ToShortDateString()))
+            if (Convert.ToDateTime(dtpDataAlbum1.Value.ToShortDateString()) > Convert.ToDateTime(dtpDataAlbum2.Value.ToShortDateString()))
                 {
-                    erpError.SetError(dtpDataAlbum1, "A primeira data deve ser menor que a segunda data");
+                    eprError.SetError(dtpDataAlbum1, "A primeira data deve ser menor que a segunda data");
                 }
                 else
                 {
-                    erpError.Clear();
+                    eprError.Clear();
                     if (Convert.ToDateTime(dtpDataCompra1.Value.ToShortDateString()) > Convert.ToDateTime(dtpDataCompra2.Value.ToShortDateString()))
                     {
-                        erpError.SetError(dtpDataCompra1, "A primeira data deve ser menor que a segunda data");
+                        eprError.SetError(dtpDataCompra1, "A primeira data deve ser menor que a segunda data");
                     }
                     else
                     {
-                        erpError.Clear();
+                        
+            SqlDataReader drf;
+            conexaoBanco f = new conexaoBanco();
+            bool espera = false;
 
-                        SqlDataReader drf;
-                        conexaoBanco f = new conexaoBanco();
-                        bool espera = false;
+            SqlCommand fi = f.filtro(espera, txbPesquisa.Text, cbxTipoMidia1.Text, txbIterprete1.Text, txbAutor1.Text, txbOrigem1.Text,dtpDataAlbum1.Value,dtpDataAlbum2.Value, dtpDataCompra1.Value,dtpDataCompra2.Value );
 
-                        SqlCommand fi = f.filtro(espera, txbPesquisa.Text, cbxTipoMidia1.Text, txbIterprete1.Text, txbAutor1.Text, txbOrigem1.Text, dtpDataAlbum1.Value, dtpDataAlbum2.Value, dtpDataCompra1.Value, dtpDataCompra2.Value);
+            //fi.ExecuteNonQuery();
 
-                        //fi.ExecuteNonQuery();
-
-                        drf = fi.ExecuteReader();
+            drf = fi.ExecuteReader();
 
 
-                        lsvPrincipal.Clear();
-                        lsvPrincipal.View = View.Details;
-                        lsvPrincipal.FullRowSelect = true;
-                        lsvPrincipal.GridLines = true;
-                        lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Left);
-                        lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Center);
-                        lsvPrincipal.Columns.Add(drf.GetName(2), 120, HorizontalAlignment.Center);
-                        lsvPrincipal.Columns.Add(drf.GetName(3), 120, HorizontalAlignment.Center);
-                        lsvPrincipal.Columns.Add(drf.GetName(4), 120, HorizontalAlignment.Center);
-                        lsvPrincipal.Columns.Add(drf.GetName(5), 120, HorizontalAlignment.Center);
-                        lsvPrincipal.Columns.Add(drf.GetName(6), 120, HorizontalAlignment.Center);
-                        lsvPrincipal.Columns.Add(drf.GetName(7), 120, HorizontalAlignment.Center);
-                        lsvPrincipal.Columns.Add(drf.GetName(8), 120, HorizontalAlignment.Center);
-                        lsvPrincipal.Columns.Add(drf.GetName(9), 120, HorizontalAlignment.Center);
-                        //lsvPrincipal.Columns.Add(dr.GetName(10), 0, HorizontalAlignment.Center);
+            lsvPrincipal.Clear();
+            lsvPrincipal.View = View.Details;
+            lsvPrincipal.FullRowSelect = true;
+            lsvPrincipal.GridLines = true;
+            //lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Left);
+            lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(2), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(3), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(4), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(5), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(6), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(7), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(8), 120, HorizontalAlignment.Center);
+            lsvPrincipal.Columns.Add(drf.GetName(9), 120, HorizontalAlignment.Center);
+            //lsvPrincipal.Columns.Add(dr.GetName(10), 0, HorizontalAlignment.Center);
 
-                        while (drf.Read())
-                        {
+            while (drf.Read())
+            {
 
-                            ListViewItem teste = new ListViewItem();
-                            teste.SubItems.Add(drf[0].ToString());
-                            if (drf[2].ToString() != "Nada Consta")
-                            {
-                                teste.SubItems.Add(drf[2].ToString());
-                            }
-                            else
-                            {
-                                teste.SubItems.Add("");
-
-                            }
-
-                            teste.SubItems.Add(drf[3].ToString());
-                            teste.SubItems.Add(drf[4].ToString());
-                            teste.SubItems.Add(drf[5].ToString());
-                            teste.SubItems.Add(drf[6].ToString());
-                            teste.SubItems.Add(drf[7].ToString());
-                            teste.SubItems.Add(drf[8].ToString());
-                            teste.SubItems.Add(drf[9].ToString());
-                            teste.Group = lsvPrincipal.Groups[drf[1].ToString()];
-
-                            //if (lsvPrincipal.Columns[10].ToString() == Convert.ToString(1))
-                            //{
-                            //    lsvPrincipal.Items[0].ForeColor = Color.Red;
-                            //}
-
-                            lsvPrincipal.Items.Add(teste);
-
-                            //teste.SubItems.Add(drf[2].ToString());
-                        }
-
-                        espera = true;
-                        drf.Close();
-
-                        f.filtro(espera, null, null, null, null, null, Convert.ToDateTime(null), Convert.ToDateTime(null), Convert.ToDateTime(null), Convert.ToDateTime(null));
-                    }
+                ListViewItem teste = new ListViewItem();
+                teste.Text = drf[0].ToString();
+                if (drf[2].ToString() != "Nada Consta")
+                {
+                    teste.SubItems.Add(drf[2].ToString());
                 }
-                
+                else
+                {
+                    teste.SubItems.Add("");
+
+                }
+
+                teste.SubItems.Add(drf[3].ToString());
+                teste.SubItems.Add(drf[4].ToString());
+                teste.SubItems.Add(drf[5].ToString());
+                teste.SubItems.Add(drf[6].ToString());
+                teste.SubItems.Add(drf[7].ToString());
+                teste.SubItems.Add(drf[8].ToString());
+                teste.SubItems.Add(drf[9].ToString());
+                teste.Group = lsvPrincipal.Groups[drf[1].ToString()];
+
+                //if (lsvPrincipal.Columns[10].ToString() == Convert.ToString(1))
+                //{
+                //    lsvPrincipal.Items[0].ForeColor = Color.Red;
+                //}
+
+                lsvPrincipal.Items.Add(teste);
+
+                //teste.SubItems.Add(drf[2].ToString());
+            }
+            
+            espera = true;
+            drf.Close();
+
+            f.filtro(espera, null, null, null, null, null, Convert.ToDateTime(null), Convert.ToDateTime(null), Convert.ToDateTime(null), Convert.ToDateTime(null));
+            AChaEmprestado();
+                    }
+            }
+
         }
 
         private void frmPrincipal_Resize(object sender, EventArgs e)

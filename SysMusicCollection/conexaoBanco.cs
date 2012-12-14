@@ -1420,14 +1420,15 @@ namespace SysMusicCollection
                     SqlDataReader emprestado;
                     for (int i = 0; i < itens.Count; i++)
                     {
-                        pesqItensEmprestimo = new SqlCommand("Select Cod_Disco from Itens_Emprestimo where Cod_Disco =  @compara", cnx);
-                        pesqItensEmprestimo.Parameters.Add(new SqlParameter("@compara", itens[i]));
+                        pesqItensEmprestimo = new SqlCommand("Select count(Cod_Disco) from Itens_Emprestimo where Cod_Disco =  @compara and Data_Devolucao is null", cnx);
+                        pesqItensEmprestimo.Parameters.Add(new SqlParameter("@compara", itens[i].ToString()));
+                        int j = (int)pesqItensEmprestimo.ExecuteScalar();
+                        if (j != 0)
+                        {
+                            passaEmprestimo.Add(itens[i].ToString());
+                        }
                     }
-                    emprestado = pesqItensEmprestimo.ExecuteReader();
-                    while (emprestado.Read())
-                    {
-                        passaEmprestimo.Add(emprestado["Cod_Disco"].ToString());
-                    }
+
                     return passaEmprestimo;
                 }
                 catch (Exception ex)
@@ -1444,46 +1445,46 @@ namespace SysMusicCollection
                 return null ;
             }
         }
-        public List<string> AchaItemEmprestimo1(List<string> chaves)
-        {
-            SqlCommand DeletarItensEmprestimo = null;
-            SqlCommand AchaDIscoItemEmpre = null;
-            if (this.Abrirconexao())
-            {
-                try
-                {
-                    List<string> armazena = new List<string>();
-                    for (int i = 0; i < chaves.Count; i++)
-                    {
-                        AchaDIscoItemEmpre = new SqlCommand("Select Count(*) from Itens_Emprestimo where (Cod_Disco = @compara and Data_Devolucao is null) ", cnx);
+        //public List<string> AchaItemEmprestimo1(List<string> chaves)
+        //{
+        //    SqlCommand DeletarItensEmprestimo = null;
+        //    SqlCommand AchaDIscoItemEmpre = null;
+        //    if (this.Abrirconexao())
+        //    {
+        //        try
+        //        {
+        //            List<string> armazena = new List<string>();
+        //            for (int i = 0; i < chaves.Count; i++)
+        //            {
+        //                AchaDIscoItemEmpre = new SqlCommand("Select Count(*) from Itens_Emprestimo where (Cod_Disco = @compara and Data_Devolucao is null) ", cnx);
 
 
-                        AchaDIscoItemEmpre.Parameters.Add(new SqlParameter("@compara", chaves[i]));
+        //                AchaDIscoItemEmpre.Parameters.Add(new SqlParameter("@compara", chaves[i]));
 
-                        int dt = (int)AchaDIscoItemEmpre.ExecuteScalar();
-                        if (dt != 0)
-                        {
+        //                int dt = (int)AchaDIscoItemEmpre.ExecuteScalar();
+        //                if (dt != 0)
+        //                {
                            
-                            armazena.Add(chaves[i].ToString());
-                        }
-                    }
+        //                    armazena.Add(chaves[i].ToString());
+        //                }
+        //            }
 
-                    return armazena;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-                finally
-                {
-                    this.Fecharconexao();
-                }
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //            return armazena;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw new Exception(ex.Message);
+        //        }
+        //        finally
+        //        {
+        //            this.Fecharconexao();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
         public List<string> AchaItemEmprestimo(List<string> chaves)
         {
@@ -1583,6 +1584,8 @@ namespace SysMusicCollection
                         EditaDisco.Parameters.Add(new SqlParameter("@idAlbum", edita[4].ToString()));
                         EditaDisco.Parameters.Add(new SqlParameter("@dataAlbum", Convert.ToDateTime(edita[5])));
                         EditaDisco.Parameters.Add(new SqlParameter("@dataCompra", Convert.ToDateTime(edita[6])));
+                        EditaDisco.Parameters.Add(new SqlParameter("@dataAlbum", edita[5]));
+                        EditaDisco.Parameters.Add(new SqlParameter("@dataCompra", edita[6]));
                         EditaDisco.Parameters.Add(new SqlParameter("@origem", edita[7].ToString()));
                         EditaDisco.Parameters.Add(new SqlParameter("@obs", edita[8].ToString()));
                         EditaDisco.Parameters.Add(new SqlParameter("@nota", edita[9].ToString()));

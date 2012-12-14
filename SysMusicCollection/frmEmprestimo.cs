@@ -47,33 +47,35 @@ namespace SysMusicCollection
 
         private void btnEmprestar_Click(object sender, EventArgs e)
         {
-            conexaoBanco amig = new conexaoBanco();
-            conexaoBanco disc = new conexaoBanco();
-            ArrayList arremp = new ArrayList();
-            arremp.Add(dtpDataEmprestimo.Value.ToShortDateString());
-            if (codamigo == 0)
             {
-                codamigo = amig.PesqAmigos(cboNomeAmigo.Text);
-                arremp.Add(codamigo);
+                conexaoBanco amig = new conexaoBanco();
+                conexaoBanco disc = new conexaoBanco();
+                ArrayList arremp = new ArrayList();
+                arremp.Add(dtpDataEmprestimo.Value.ToShortDateString());
+                if (codamigo == 0)
+                {
+                    codamigo = amig.PesqAmigos(cboNomeAmigo.Text);
+                    arremp.Add(codamigo);
+                }
+                else
+                    arremp.Add(codamigo);
+                disc.CadastrarEmp(arremp);
+
+                codemp = disc.PesqCodEmp(codamigo, dtpDataEmprestimo.Value.ToShortDateString());
+
+                int i;
+                for (i = dgvEmprestimo.Rows.Count - 1; i >= 0; )
+                {
+                    coddisc = disc.PesqCoddiscos(dgvEmprestimo[0, i].Value.ToString());
+
+                    disc.CadastrarItensEmp(coddisc, codemp);
+
+                    dgvEmprestimo.Rows.RemoveAt(i);
+                    i--;
+                }
+                frmprincipal.AChaEmprestado();
+                frmEmprestimo_Load(e, e);
             }
-            else
-                arremp.Add(codamigo);
-            disc.CadastrarEmp(arremp);
-
-            codemp = disc.PesqCodEmp(codamigo, dtpDataEmprestimo.Value.ToShortDateString());
-
-            int i;
-            for (i = dgvEmprestimo.Rows.Count - 1; i >= 0; )
-            {
-                coddisc = disc.PesqCoddiscos(dgvEmprestimo[0, i].Value.ToString());
-
-                disc.CadastrarItensEmp(coddisc, codemp);
-
-                dgvEmprestimo.Rows.RemoveAt(i);
-                i--;
-            }
-            frmprincipal.AChaEmprestado();
-            frmEmprestimo_Load(e, e);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -122,6 +124,7 @@ namespace SysMusicCollection
 
                         dgvDevolucao.Rows.RemoveAt(i);
                         i--;
+                        pegadisc.Add(coddisc.ToString());
                     }
                     else
                     {

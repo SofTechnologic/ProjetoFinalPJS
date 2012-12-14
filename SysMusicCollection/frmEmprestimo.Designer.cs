@@ -63,10 +63,11 @@
             // 
             this.tbcEmprestimo.Controls.Add(this.tabPage1);
             this.tbcEmprestimo.Controls.Add(this.tabPage2);
-            this.tbcEmprestimo.Location = new System.Drawing.Point(12, 12);
+            this.tbcEmprestimo.Location = new System.Drawing.Point(16, 15);
+            this.tbcEmprestimo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbcEmprestimo.Name = "tbcEmprestimo";
             this.tbcEmprestimo.SelectedIndex = 0;
-            this.tbcEmprestimo.Size = new System.Drawing.Size(453, 335);
+            this.tbcEmprestimo.Size = new System.Drawing.Size(604, 412);
             this.tbcEmprestimo.TabIndex = 0;
             // 
             // tabPage1
@@ -82,19 +83,21 @@
             this.tabPage1.Controls.Add(this.dtpDataEmprestimo);
             this.tabPage1.Controls.Add(this.lblNome);
             this.tabPage1.Controls.Add(this.cboNomeAmigo);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(445, 309);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(596, 383);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Empréstimo";
             this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(364, 280);
+            this.btnCancelar.Location = new System.Drawing.Point(485, 345);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -102,9 +105,10 @@
             // 
             // btnEmprestar
             // 
-            this.btnEmprestar.Location = new System.Drawing.Point(283, 280);
+            this.btnEmprestar.Location = new System.Drawing.Point(377, 345);
+            this.btnEmprestar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEmprestar.Name = "btnEmprestar";
-            this.btnEmprestar.Size = new System.Drawing.Size(75, 23);
+            this.btnEmprestar.Size = new System.Drawing.Size(100, 28);
             this.btnEmprestar.TabIndex = 19;
             this.btnEmprestar.Text = "Emprestar";
             this.btnEmprestar.UseVisualStyleBackColor = true;
@@ -112,9 +116,10 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(403, 123);
+            this.btnPesquisar.Location = new System.Drawing.Point(537, 151);
+            this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(36, 23);
+            this.btnPesquisar.Size = new System.Drawing.Size(48, 28);
             this.btnPesquisar.TabIndex = 18;
             this.btnPesquisar.Text = "OK";
             this.btnPesquisar.UseVisualStyleBackColor = true;
@@ -125,9 +130,10 @@
             this.cboNomeMidia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboNomeMidia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboNomeMidia.FormattingEnabled = true;
-            this.cboNomeMidia.Location = new System.Drawing.Point(6, 123);
+            this.cboNomeMidia.Location = new System.Drawing.Point(8, 151);
+            this.cboNomeMidia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboNomeMidia.Name = "cboNomeMidia";
-            this.cboNomeMidia.Size = new System.Drawing.Size(394, 21);
+            this.cboNomeMidia.Size = new System.Drawing.Size(524, 24);
             this.cboNomeMidia.TabIndex = 17;
             this.cboNomeMidia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNomeMidia_KeyPress);
             this.cboNomeMidia.Leave += new System.EventHandler(this.cboNomeMidia_Leave);
@@ -136,9 +142,10 @@
             // 
             this.lblNomeMidia.AutoSize = true;
             this.lblNomeMidia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeMidia.Location = new System.Drawing.Point(6, 104);
+            this.lblNomeMidia.Location = new System.Drawing.Point(8, 128);
+            this.lblNomeMidia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNomeMidia.Name = "lblNomeMidia";
-            this.lblNomeMidia.Size = new System.Drawing.Size(103, 16);
+            this.lblNomeMidia.Size = new System.Drawing.Size(126, 20);
             this.lblNomeMidia.TabIndex = 16;
             this.lblNomeMidia.Text = "Nome da Mídia:";
             // 
@@ -150,10 +157,11 @@
             this.dgvEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmprestimo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CL01});
-            this.dgvEmprestimo.Location = new System.Drawing.Point(6, 150);
+            this.dgvEmprestimo.Location = new System.Drawing.Point(8, 185);
+            this.dgvEmprestimo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvEmprestimo.Name = "dgvEmprestimo";
             this.dgvEmprestimo.ReadOnly = true;
-            this.dgvEmprestimo.Size = new System.Drawing.Size(430, 124);
+            this.dgvEmprestimo.Size = new System.Drawing.Size(573, 153);
             this.dgvEmprestimo.TabIndex = 15;
             // 
             // CL01
@@ -166,27 +174,30 @@
             // 
             this.lblDataEmprestimo.AutoSize = true;
             this.lblDataEmprestimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataEmprestimo.Location = new System.Drawing.Point(6, 54);
+            this.lblDataEmprestimo.Location = new System.Drawing.Point(8, 66);
+            this.lblDataEmprestimo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDataEmprestimo.Name = "lblDataEmprestimo";
-            this.lblDataEmprestimo.Size = new System.Drawing.Size(134, 16);
+            this.lblDataEmprestimo.Size = new System.Drawing.Size(168, 20);
             this.lblDataEmprestimo.TabIndex = 14;
             this.lblDataEmprestimo.Text = "Data do Empréstimo:";
             // 
             // dtpDataEmprestimo
             // 
             this.dtpDataEmprestimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDataEmprestimo.Location = new System.Drawing.Point(6, 73);
+            this.dtpDataEmprestimo.Location = new System.Drawing.Point(8, 90);
+            this.dtpDataEmprestimo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDataEmprestimo.Name = "dtpDataEmprestimo";
-            this.dtpDataEmprestimo.Size = new System.Drawing.Size(278, 22);
+            this.dtpDataEmprestimo.Size = new System.Drawing.Size(369, 26);
             this.dtpDataEmprestimo.TabIndex = 13;
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(6, 3);
+            this.lblNome.Location = new System.Drawing.Point(8, 4);
+            this.lblNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(109, 16);
+            this.lblNome.Size = new System.Drawing.Size(133, 20);
             this.lblNome.TabIndex = 12;
             this.lblNome.Text = "Nome do Amigo:";
             this.lblNome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -197,9 +208,10 @@
             this.cboNomeAmigo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboNomeAmigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cboNomeAmigo.FormattingEnabled = true;
-            this.cboNomeAmigo.Location = new System.Drawing.Point(6, 22);
+            this.cboNomeAmigo.Location = new System.Drawing.Point(8, 27);
+            this.cboNomeAmigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboNomeAmigo.Name = "cboNomeAmigo";
-            this.cboNomeAmigo.Size = new System.Drawing.Size(430, 21);
+            this.cboNomeAmigo.Size = new System.Drawing.Size(572, 25);
             this.cboNomeAmigo.TabIndex = 11;
             this.cboNomeAmigo.Leave += new System.EventHandler(this.cboNomeAmigo_Leave);
             // 
@@ -215,19 +227,21 @@
             this.tabPage2.Controls.Add(this.cboDevolver);
             this.tabPage2.Controls.Add(this.ckbMidias);
             this.tabPage2.Controls.Add(this.ckbAmigos);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(445, 309);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(596, 383);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Devolução";
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
             // btn_OK
             // 
-            this.btn_OK.Location = new System.Drawing.Point(400, 50);
+            this.btn_OK.Location = new System.Drawing.Point(533, 62);
+            this.btn_OK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_OK.Name = "btn_OK";
-            this.btn_OK.Size = new System.Drawing.Size(39, 23);
+            this.btn_OK.Size = new System.Drawing.Size(52, 28);
             this.btn_OK.TabIndex = 8;
             this.btn_OK.Text = "OK";
             this.btn_OK.UseVisualStyleBackColor = true;
@@ -236,24 +250,27 @@
             // lbldtDevolucao
             // 
             this.lbldtDevolucao.AutoSize = true;
-            this.lbldtDevolucao.Location = new System.Drawing.Point(6, 74);
+            this.lbldtDevolucao.Location = new System.Drawing.Point(8, 91);
+            this.lbldtDevolucao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbldtDevolucao.Name = "lbldtDevolucao";
-            this.lbldtDevolucao.Size = new System.Drawing.Size(103, 13);
+            this.lbldtDevolucao.Size = new System.Drawing.Size(133, 17);
             this.lbldtDevolucao.TabIndex = 7;
             this.lbldtDevolucao.Text = "Data de Devolução:";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 90);
+            this.dateTimePicker1.Location = new System.Drawing.Point(8, 111);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(315, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(419, 22);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // btnCancelar2
             // 
-            this.btnCancelar2.Location = new System.Drawing.Point(364, 280);
+            this.btnCancelar2.Location = new System.Drawing.Point(485, 345);
+            this.btnCancelar2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar2.Name = "btnCancelar2";
-            this.btnCancelar2.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar2.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar2.TabIndex = 5;
             this.btnCancelar2.Text = "Cancelar";
             this.btnCancelar2.UseVisualStyleBackColor = true;
@@ -261,9 +278,10 @@
             // 
             // btnDevolver
             // 
-            this.btnDevolver.Location = new System.Drawing.Point(283, 280);
+            this.btnDevolver.Location = new System.Drawing.Point(377, 345);
+            this.btnDevolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDevolver.Name = "btnDevolver";
-            this.btnDevolver.Size = new System.Drawing.Size(75, 23);
+            this.btnDevolver.Size = new System.Drawing.Size(100, 28);
             this.btnDevolver.TabIndex = 4;
             this.btnDevolver.Text = "Devolver";
             this.btnDevolver.UseVisualStyleBackColor = true;
@@ -276,9 +294,10 @@
             this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDevolucao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CL1});
-            this.dgvDevolucao.Location = new System.Drawing.Point(6, 116);
+            this.dgvDevolucao.Location = new System.Drawing.Point(8, 143);
+            this.dgvDevolucao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvDevolucao.Name = "dgvDevolucao";
-            this.dgvDevolucao.Size = new System.Drawing.Size(433, 158);
+            this.dgvDevolucao.Size = new System.Drawing.Size(577, 194);
             this.dgvDevolucao.TabIndex = 3;
             // 
             // CL1
@@ -293,9 +312,10 @@
             this.cboDevolver.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboDevolver.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboDevolver.FormattingEnabled = true;
-            this.cboDevolver.Location = new System.Drawing.Point(6, 50);
+            this.cboDevolver.Location = new System.Drawing.Point(8, 62);
+            this.cboDevolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboDevolver.Name = "cboDevolver";
-            this.cboDevolver.Size = new System.Drawing.Size(388, 21);
+            this.cboDevolver.Size = new System.Drawing.Size(516, 24);
             this.cboDevolver.TabIndex = 2;
             this.cboDevolver.TabStop = false;
             this.cboDevolver.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboDevolver_KeyPress);
@@ -304,9 +324,10 @@
             // ckbMidias
             // 
             this.ckbMidias.AutoSize = true;
-            this.ckbMidias.Location = new System.Drawing.Point(217, 27);
+            this.ckbMidias.Location = new System.Drawing.Point(289, 33);
+            this.ckbMidias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckbMidias.Name = "ckbMidias";
-            this.ckbMidias.Size = new System.Drawing.Size(56, 17);
+            this.ckbMidias.Size = new System.Drawing.Size(70, 21);
             this.ckbMidias.TabIndex = 1;
             this.ckbMidias.Text = "Midias";
             this.ckbMidias.UseVisualStyleBackColor = true;
@@ -315,9 +336,10 @@
             // ckbAmigos
             // 
             this.ckbAmigos.AutoSize = true;
-            this.ckbAmigos.Location = new System.Drawing.Point(131, 27);
+            this.ckbAmigos.Location = new System.Drawing.Point(175, 33);
+            this.ckbAmigos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckbAmigos.Name = "ckbAmigos";
-            this.ckbAmigos.Size = new System.Drawing.Size(60, 17);
+            this.ckbAmigos.Size = new System.Drawing.Size(76, 21);
             this.ckbAmigos.TabIndex = 0;
             this.ckbAmigos.Text = "Amigos";
             this.ckbAmigos.UseVisualStyleBackColor = true;
@@ -325,14 +347,15 @@
             // 
             // frmEmprestimo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(472, 351);
+            this.ClientSize = new System.Drawing.Size(629, 432);
             this.Controls.Add(this.tbcEmprestimo);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MaximumSize = new System.Drawing.Size(700, 430);
-            this.MinimumSize = new System.Drawing.Size(470, 355);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(927, 519);
+            this.MinimumSize = new System.Drawing.Size(621, 427);
             this.Name = "frmEmprestimo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empréstimo de Discos";

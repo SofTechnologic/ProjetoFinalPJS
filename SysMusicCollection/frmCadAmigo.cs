@@ -74,13 +74,13 @@ namespace SysMusicCollection
                     arramig.Add(cboEndereco.Text);
 
                     fazz.CadastrarAmigos(arramig);
-
+                    limpaCampos();
                 }
                 if (tbcCadastro.TabPages[0].CanFocus)
                 {
 
                     ArrayList autor = new ArrayList();
-                    if (passa.PesqAutor(cboAutor.Text) <= 0 && (cboAutor.Text != "" || cboAutor.Text == ""))
+                    if (passa.PesqAutor(cboAutor.Text) <=0 && (cboAutor.Text != "" || cboAutor.Text == ""))
                     {
                         if (cboAutor.Text != "")
                         {
@@ -123,12 +123,12 @@ namespace SysMusicCollection
                     conexaoBanco alb = new conexaoBanco();
                     conexaoBanco mid = new conexaoBanco();
                     //string arr = cboAutor.Text;
-                    int codinter = inter.PesqCodinter(cboInterprete.Text);
-                    int codaut = aut.PesqCodautor(cboAutor.Text);
+                    int codinter = inter.PesqCodinter(cboInterprete.Text);                  
+                    int  codaut = aut.PesqCodautor(cboAutor.Text);            
                     int codalb = alb.PesqCodalbum(cboAlbum.Text);
                     int codmid = mid.PesqCodmidia(cboMidia.Text);
                     arrdisc.Add(codmid);
-                    arrdisc.Add(codaut);
+                        arrdisc.Add(codaut);
                     arrdisc.Add(codinter);
                     arrdisc.Add(codalb);
                     arrdisc.Add(dtpDataAlbum.Value.Date);
@@ -139,10 +139,6 @@ namespace SysMusicCollection
                     arrdisc.Add(txtNota.Text);
 
                     disc.CadastrarDiscos(arrdisc);
-
-
-
-                    //frmprincipal.preenchelist();
                     List<string> passavariaveis = new List<string>();
                     conexaoBanco pega = new conexaoBanco();
                     int coddisco = pega.pesqUltimoCod();
@@ -151,8 +147,8 @@ namespace SysMusicCollection
                     passavariaveis.Add(cboAutor.Text);
                     passavariaveis.Add(cboInterprete.Text);
                     passavariaveis.Add(cboAlbum.Text);
-                    passavariaveis.Add(dtpDataAlbum.Value.ToShortDateString());
-                    passavariaveis.Add(dtpDataCompra.Value.ToShortDateString());
+                    passavariaveis.Add(dtpDataAlbum.Text);
+                    passavariaveis.Add(dtpDataCompra.Text);
                     passavariaveis.Add(txtOrigemCompra.Text);
                     passavariaveis.Add(txtObservacoes.Text);
                     passavariaveis.Add(txtNota.Text);
@@ -160,10 +156,10 @@ namespace SysMusicCollection
                     passaValoresParaCombobox();
                     if (cboMidia.Text == "N/C")
                         erpErro.SetError(cboMidia, "");
-                    
+                    limpaCampos();
                 }
+                
 
-                limpaCampos();
         }
 
         public int Nota(string notas)
@@ -225,17 +221,20 @@ namespace SysMusicCollection
                     erpErro.SetError(cboNomeAmigo, "Digite o Nome");
                     erpErro.SetError(cboEndereco, "Digite o Endereço");
                 }
-                else if (cboNomeAmigo.Text == "")
+                if (cboNomeAmigo.Text == "")
                     erpErro.SetError(cboNomeAmigo, "Digite o Nome");
-                else if (cboEndereco.Text == "")
+                if (cboEndereco.Text == "")
                     erpErro.SetError(cboEndereco, "Digite o Endereço");
-                else
+                if (cboNomeAmigo.Text != "" && cboEndereco.Text != "")
                 {
                     erpErro.SetError(cboNomeAmigo, "");
                     erpErro.SetError(cboEndereco, "");
                 }
+                if (cboNomeAmigo.Text != "")
+                    erpErro.SetError(cboNomeAmigo, "");
+                if (cboEndereco.Text != "")
+                    erpErro.SetError(cboEndereco, "");
                 if (cboNomeAmigo.Text != "" && cboEndereco.Text != "")
-                    
                     passaArrayListParaPreencherBanco();
 
 
@@ -265,7 +264,7 @@ namespace SysMusicCollection
             if (cboAlbum.Text == "" && cboAutor.Text == "" && cboInterprete.Text == "" && txtNota.Text == ""
                  && txtObservacoes.Text == "" && txtOrigemCompra.Text == "")
                 this.Close();
-            else if (MessageBox.Show("Campo preenchido", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+            else if (MessageBox.Show("Campo(s) preenchido(s), Deseja Sair", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                 == DialogResult.Yes)
                 this.Close();
 
@@ -291,7 +290,14 @@ namespace SysMusicCollection
 
         private void btnCancelarAmigo_Click(object sender, EventArgs e)
         {
-            cancelar();
+            if (cboNomeAmigo.Text == "" && cboEndereco.Text == "")
+                this.Close();
+            else
+            {
+                if (MessageBox.Show("Campo(s) preenchido(s), Deseja Sair", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                == DialogResult.Yes)
+                    this.Close();
+            }
         }
 
         private void btnLimparAmigo_Click(object sender, EventArgs e)

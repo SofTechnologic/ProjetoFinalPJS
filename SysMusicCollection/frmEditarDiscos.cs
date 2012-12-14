@@ -110,8 +110,8 @@ namespace SysMusicCollection
                     arrdisc.Add(codaut);
                     arrdisc.Add(codinter);
                     arrdisc.Add(codalb);
-                    arrdisc.Add(dtpEditaDataAlbum.Value.ToShortDateString());
-                    arrdisc.Add(dtpEditaDataCompra.Value.ToShortDateString());
+                    arrdisc.Add(dtpEditaDataAlbum.Value);
+                    arrdisc.Add(dtpEditaDataCompra.Value);
                     arrdisc.Add(cboEditaOrigemCompra.Text);
                     arrdisc.Add(txtEditaObservacoes.Text);
                     //arrdisc.Add(txtMusica.Text);
@@ -163,7 +163,7 @@ namespace SysMusicCollection
                             erpErroEdita.SetError(t, "Digite Album");
                         }
                         if (t.Name == cboEditaInterprete.Name)
-                            erpErroEdita.SetError(t, "Digite o Campo Interprete");
+                            erpErroEdita.SetError(t, "Digite o Interprete");
                     }
                     else if ((t.Name == cboEditaTipoMidia.Name) && (cboEditaTipoMidia.Text != "K7" &&
                         cboEditaTipoMidia.Text != "CD" && cboEditaTipoMidia.Text != "DVD" && cboEditaTipoMidia.Text != "Digital"))
