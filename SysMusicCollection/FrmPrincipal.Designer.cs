@@ -251,14 +251,14 @@
             // 
             this.spcHorizontal.Panel2.Controls.Add(this.lsvPrincipal);
             this.spcHorizontal.Size = new System.Drawing.Size(902, 476);
-            this.spcHorizontal.SplitterDistance = 174;
+            this.spcHorizontal.SplitterDistance = 25;
             this.spcHorizontal.TabIndex = 0;
             // 
             // btnAbaFiltro
             // 
             this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 149);
+            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 0);
             this.btnAbaFiltro.Name = "btnAbaFiltro";
             this.btnAbaFiltro.Size = new System.Drawing.Size(902, 22);
             this.btnAbaFiltro.TabIndex = 3;
@@ -483,7 +483,7 @@
             listViewGroup6});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
             this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(902, 298);
+            this.lsvPrincipal.Size = new System.Drawing.Size(902, 447);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
             this.lsvPrincipal.SelectedIndexChanged += new System.EventHandler(this.lsvPrincipal_SelectedIndexChanged);

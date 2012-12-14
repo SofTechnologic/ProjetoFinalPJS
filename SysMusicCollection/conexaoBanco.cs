@@ -1584,8 +1584,8 @@ namespace SysMusicCollection
                         EditaDisco.Parameters.Add(new SqlParameter("@idAlbum", edita[4].ToString()));
                         EditaDisco.Parameters.Add(new SqlParameter("@dataAlbum", Convert.ToDateTime(edita[5])));
                         EditaDisco.Parameters.Add(new SqlParameter("@dataCompra", Convert.ToDateTime(edita[6])));
-                        EditaDisco.Parameters.Add(new SqlParameter("@dataAlbum", edita[5]));
-                        EditaDisco.Parameters.Add(new SqlParameter("@dataCompra", edita[6]));
+                        //EditaDisco.Parameters.Add(new SqlParameter("@dataAlbum", edita[5]));
+                        //EditaDisco.Parameters.Add(new SqlParameter("@dataCompra", edita[6]));
                         EditaDisco.Parameters.Add(new SqlParameter("@origem", edita[7].ToString()));
                         EditaDisco.Parameters.Add(new SqlParameter("@obs", edita[8].ToString()));
                         EditaDisco.Parameters.Add(new SqlParameter("@nota", edita[9].ToString()));

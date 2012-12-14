@@ -269,7 +269,6 @@
             this.MinimizeBox = false;
             this.Name = "frmEditarDiscos";
             this.Text = "frmEditarDiscos";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmEditarDiscos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.erpErroEdita)).EndInit();
             this.ResumeLayout(false);

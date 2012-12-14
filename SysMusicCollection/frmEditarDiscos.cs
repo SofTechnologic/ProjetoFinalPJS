@@ -110,8 +110,8 @@ namespace SysMusicCollection
                     arrdisc.Add(codaut);
                     arrdisc.Add(codinter);
                     arrdisc.Add(codalb);
-                    arrdisc.Add(dtpEditaDataAlbum.Value);
-                    arrdisc.Add(dtpEditaDataCompra.Value);
+                    arrdisc.Add(dtpEditaDataAlbum.Value.ToShortDateString());
+                    arrdisc.Add(dtpEditaDataCompra.Value.ToShortDateString());
                     arrdisc.Add(cboEditaOrigemCompra.Text);
                     arrdisc.Add(txtEditaObservacoes.Text);
                     //arrdisc.Add(txtMusica.Text);
@@ -188,8 +188,8 @@ namespace SysMusicCollection
                 passaPrinc.Add(cboEditaTipoMidia.Text);
                 passaPrinc.Add(txtEditaNota.Text);
                 passaPrinc.Add(txtEditaObservacoes.Text);
-                passaPrinc.Add(dtpEditaDataAlbum.Value);
-                passaPrinc.Add(dtpEditaDataCompra.Value);
+                passaPrinc.Add(dtpEditaDataAlbum.Value.ToShortDateString());
+                passaPrinc.Add(dtpEditaDataCompra.Value.ToShortDateString());
                 this.Close();
             }
     
