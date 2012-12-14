@@ -16,11 +16,7 @@ namespace SysMusicCollection
             InitializeComponent();
         }
 
-        private void tabControl1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void tbcDevolucao_Enter(object sender, EventArgs e)
         {
             conexaoBanco rel = new conexaoBanco();
@@ -34,6 +30,8 @@ namespace SysMusicCollection
         {
             tbcDevolucao_Enter(e, e);
             tbcEmprestados_Enter(e, e);
+            tbcAmigos_Enter(e, e);
+            
         }
 
         private void tbcEmprestados_Enter(object sender, EventArgs e)
@@ -41,6 +39,20 @@ namespace SysMusicCollection
             conexaoBanco rel = new conexaoBanco();
 
             dgvEmprestados.DataSource = rel.GridDev();
+        }
+
+        private void tbcAmigos_Enter(object sender, EventArgs e)
+        {
+            conexaoBanco rel = new conexaoBanco();
+            
+            dgvAmigos.DataSource = rel.GridAmig();
+        }
+
+        
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+            conexaoBanco rel = new conexaoBanco();
+            dgvAmigos.DataSource = rel.GridPesqAmig(textBox1.Text);
         }
     }
 }

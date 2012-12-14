@@ -80,7 +80,7 @@ namespace SysMusicCollection
                 {
 
                     ArrayList autor = new ArrayList();
-                    if (passa.PesqAutor(cboAutor.Text) <=0 && (cboAutor.Text != "" || cboAutor.Text == ""))
+                    if (passa.PesqAutor(cboAutor.Text) <= 0 && (cboAutor.Text != "" || cboAutor.Text == ""))
                     {
                         if (cboAutor.Text != "")
                         {
@@ -123,46 +123,47 @@ namespace SysMusicCollection
                     conexaoBanco alb = new conexaoBanco();
                     conexaoBanco mid = new conexaoBanco();
                     //string arr = cboAutor.Text;
-                    int codinter = inter.PesqCodinter(cboInterprete.Text);                  
-                    int  codaut = aut.PesqCodautor(cboAutor.Text);            
+                    int codinter = inter.PesqCodinter(cboInterprete.Text);
+                    int codaut = aut.PesqCodautor(cboAutor.Text);
                     int codalb = alb.PesqCodalbum(cboAlbum.Text);
                     int codmid = mid.PesqCodmidia(cboMidia.Text);
                     arrdisc.Add(codmid);
-                        arrdisc.Add(codaut);
+                    arrdisc.Add(codaut);
                     arrdisc.Add(codinter);
                     arrdisc.Add(codalb);
-                    arrdisc.Add(dtpDataAlbum.Value.ToShortDateString());
-                    arrdisc.Add(dtpDataCompra.Value.ToShortDateString());
+                    arrdisc.Add(dtpDataAlbum.Value.Date);
+                    arrdisc.Add(dtpDataCompra.Value.Date);
                     arrdisc.Add(txtOrigemCompra.Text);
                     arrdisc.Add(txtObservacoes.Text);
                     //arrdisc.Add(txtMusica.Text);
                     arrdisc.Add(txtNota.Text);
 
                     disc.CadastrarDiscos(arrdisc);
+
+
+
+                    //frmprincipal.preenchelist();
+                    List<string> passavariaveis = new List<string>();
+                    conexaoBanco pega = new conexaoBanco();
+                    int coddisco = pega.pesqUltimoCod();
+                    passavariaveis.Add(coddisco.ToString());
+                    passavariaveis.Add(cboMidia.Text);
+                    passavariaveis.Add(cboAutor.Text);
+                    passavariaveis.Add(cboInterprete.Text);
+                    passavariaveis.Add(cboAlbum.Text);
+                    passavariaveis.Add(dtpDataAlbum.Value.ToShortDateString());
+                    passavariaveis.Add(dtpDataCompra.Value.ToShortDateString());
+                    passavariaveis.Add(txtOrigemCompra.Text);
+                    passavariaveis.Add(txtObservacoes.Text);
+                    passavariaveis.Add(txtNota.Text);
+                    frmprincipal.passalistview(passavariaveis);
+                    passaValoresParaCombobox();
+                    if (cboMidia.Text == "N/C")
+                        erpErro.SetError(cboMidia, "");
+                    
                 }
-                
 
-                //frmprincipal.preenchelist();
-                List<string> passavariaveis = new List<string>();
-            conexaoBanco pega = new conexaoBanco();
-            int coddisco = pega.pesqUltimoCod();
-            passavariaveis.Add(coddisco.ToString());
-            passavariaveis.Add(cboMidia.Text);
-            passavariaveis.Add(cboAutor.Text);
-            passavariaveis.Add(cboInterprete.Text);
-            passavariaveis.Add(cboAlbum.Text);
-            passavariaveis.Add(dtpDataAlbum.Text);
-            passavariaveis.Add(dtpDataCompra.Text);
-            passavariaveis.Add(txtOrigemCompra.Text);
-            passavariaveis.Add(txtObservacoes.Text);
-            passavariaveis.Add(txtNota.Text);
-            frmprincipal.passalistview(passavariaveis);
-            passaValoresParaCombobox();
-            if (cboMidia.Text == "N/C")
-                erpErro.SetError(cboMidia, "");
-            limpaCampos();
-                
-
+                limpaCampos();
         }
 
         public int Nota(string notas)
@@ -234,6 +235,7 @@ namespace SysMusicCollection
                     erpErro.SetError(cboEndereco, "");
                 }
                 if (cboNomeAmigo.Text != "" && cboEndereco.Text != "")
+                    
                     passaArrayListParaPreencherBanco();
 
 

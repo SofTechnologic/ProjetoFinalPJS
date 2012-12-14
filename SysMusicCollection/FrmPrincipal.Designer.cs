@@ -71,6 +71,7 @@
             this.cmsPrincipal = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmiExcluir = new System.Windows.Forms.ToolStripMenuItem();
             this.cmiEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.erpError = new System.Windows.Forms.ErrorProvider(this.components);
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcPrincipal)).BeginInit();
             this.spcPrincipal.Panel1.SuspendLayout();
@@ -83,6 +84,7 @@
             this.spcHorizontal.Panel2.SuspendLayout();
             this.spcHorizontal.SuspendLayout();
             this.cmsPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpError)).BeginInit();
             this.SuspendLayout();
             // 
             // mnsPrincipal
@@ -272,6 +274,7 @@
             this.dtpDataCompra2.Name = "dtpDataCompra2";
             this.dtpDataCompra2.Size = new System.Drawing.Size(126, 20);
             this.dtpDataCompra2.TabIndex = 17;
+            this.dtpDataCompra2.Value = new System.DateTime(2012, 12, 14, 0, 0, 0, 0);
             this.dtpDataCompra2.Visible = false;
             // 
             // lbla2
@@ -293,6 +296,7 @@
             this.dtpDataCompra1.Name = "dtpDataCompra1";
             this.dtpDataCompra1.Size = new System.Drawing.Size(126, 20);
             this.dtpDataCompra1.TabIndex = 15;
+            this.dtpDataCompra1.Value = new System.DateTime(2012, 12, 14, 0, 0, 0, 0);
             this.dtpDataCompra1.Visible = false;
             // 
             // ckbDataCompra
@@ -337,6 +341,7 @@
             this.dtpDataAlbum1.Name = "dtpDataAlbum1";
             this.dtpDataAlbum1.Size = new System.Drawing.Size(126, 20);
             this.dtpDataAlbum1.TabIndex = 11;
+            this.dtpDataAlbum1.Value = new System.DateTime(2012, 12, 14, 0, 0, 0, 0);
             this.dtpDataAlbum1.Visible = false;
             // 
             // txbOrigem1
@@ -508,6 +513,10 @@
             this.cmiEditar.Text = "Editar";
             this.cmiEditar.Click += new System.EventHandler(this.ediarToolStripMenuItem_Click);
             // 
+            // erpError
+            // 
+            this.erpError.ContainerControl = this;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -540,6 +549,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spcHorizontal)).EndInit();
             this.spcHorizontal.ResumeLayout(false);
             this.cmsPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.erpError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,6 +593,7 @@
         private System.Windows.Forms.CheckBox ckbTipoMidia;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.PictureBox pbxImgLateral;
+        private System.Windows.Forms.ErrorProvider erpError;
 
 
     }

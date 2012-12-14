@@ -40,8 +40,8 @@ namespace SysMusicCollection
             cboEditaTipoMidia.Text = passar[9].ToString();
             txtEditaNota.Text = passar[8].ToString();
             txtEditaObservacoes.Text = passar[7].ToString();
-            dtpEditaDataAlbum.Text = passar[4].ToString();
-            dtpEditaDataCompra.Text = passar[5].ToString();
+            dtpEditaDataAlbum.Value = Convert.ToDateTime(passar[4]);
+            dtpEditaDataCompra.Value = Convert.ToDateTime(passar[5]);
             codDisco = passar[0].ToString();
         }
         frmEditarDiscos frmedita;
@@ -188,8 +188,8 @@ namespace SysMusicCollection
                 passaPrinc.Add(cboEditaTipoMidia.Text);
                 passaPrinc.Add(txtEditaNota.Text);
                 passaPrinc.Add(txtEditaObservacoes.Text);
-                passaPrinc.Add(dtpEditaDataAlbum.Text);
-                passaPrinc.Add(dtpEditaDataCompra.Text);
+                passaPrinc.Add(dtpEditaDataAlbum.Value);
+                passaPrinc.Add(dtpEditaDataCompra.Value);
                 this.Close();
             }
     

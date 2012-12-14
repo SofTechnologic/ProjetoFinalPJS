@@ -336,7 +336,6 @@
             this.Name = "frmEmprestimo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empréstimo de Discos";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmEmprestimo_Load);
             this.tbcEmprestimo.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

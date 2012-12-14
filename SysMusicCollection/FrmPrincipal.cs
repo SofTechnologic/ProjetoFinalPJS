@@ -21,8 +21,8 @@ namespace SysMusicCollection
             string autor;
             string inter;
             string nomeAlbum;
-            string dataAlbum;
-            string dataCompra;
+            DateTime dataAlbum;
+            DateTime dataCompra;
             string origem;
             string obs;
             string nota;
@@ -223,14 +223,19 @@ namespace SysMusicCollection
 
 
             cbxTipoMidia1.DataSource = pega.prCombo_Midia();
-            cbxTipoMidia1.Enabled = false;
             txbAutor1.Enabled = false;
             txbIterprete1.Enabled = false;
             txbOrigem1.Enabled = false;
+            dtpDataAlbum1.Value = Convert.ToDateTime("01/01/1953");
+            dtpDataAlbum2.Value = DateTime.Now;
             dtpDataAlbum1.Enabled = false;
             dtpDataAlbum2.Enabled = false;
+            dtpDataCompra1.Value = Convert.ToDateTime("01/01/1953");
             dtpDataCompra1.Enabled = false;
+            dtpDataCompra2.Value = DateTime.Now;
             dtpDataCompra2.Enabled = false;
+            txbPesquisa.Text = "";
+            ckbTipoMidia.Checked = true;
 
             
         }
@@ -241,8 +246,8 @@ namespace SysMusicCollection
             autor = lsvPrincipal.SelectedItems[0].SubItems[1].Text;
             inter = lsvPrincipal.SelectedItems[0].SubItems[2].Text;
             nomeAlbum = lsvPrincipal.SelectedItems[0].SubItems[3].Text;
-            dataAlbum = lsvPrincipal.SelectedItems[0].SubItems[4].Text;
-            dataCompra = lsvPrincipal.SelectedItems[0].SubItems[5].Text;
+            dataAlbum = Convert.ToDateTime(lsvPrincipal.SelectedItems[0].SubItems[4].Text);
+            dataCompra = Convert.ToDateTime(lsvPrincipal.SelectedItems[0].SubItems[5].Text);
             origem = lsvPrincipal.SelectedItems[0].SubItems[6].Text;
             obs = lsvPrincipal.SelectedItems[0].SubItems[7].Text;
             nota = lsvPrincipal.SelectedItems[0].SubItems[8].Text;
@@ -485,8 +490,8 @@ namespace SysMusicCollection
                     autor = lsvPrincipal.SelectedItems[0].SubItems[1].Text;
                     inter = lsvPrincipal.SelectedItems[0].SubItems[2].Text;
                     nomeAlbum = lsvPrincipal.SelectedItems[0].SubItems[3].Text;
-                    dataAlbum = lsvPrincipal.SelectedItems[0].SubItems[4].Text;
-                    dataCompra = lsvPrincipal.SelectedItems[0].SubItems[5].Text;
+                    dataAlbum = Convert.ToDateTime(lsvPrincipal.SelectedItems[0].SubItems[4].Text);
+                    dataCompra = Convert.ToDateTime(lsvPrincipal.SelectedItems[0].SubItems[5].Text);
                     origem = lsvPrincipal.SelectedItems[0].SubItems[6].Text;
                     obs = lsvPrincipal.SelectedItems[0].SubItems[7].Text;
                     nota = lsvPrincipal.SelectedItems[0].SubItems[8].Text;
@@ -555,75 +560,89 @@ namespace SysMusicCollection
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            SqlDataReader drf;
-            conexaoBanco f = new conexaoBanco();
-            bool espera = false;
-
-            SqlCommand fi = f.filtro(espera, txbPesquisa.Text, cbxTipoMidia1.Text, txbIterprete1.Text, txbAutor1.Text, txbOrigem1.Text, dtpDataAlbum1.Value.ToShortDateString(), dtpDataCompra1.Value.ToShortDateString());
-
-            //fi.ExecuteNonQuery();
-
-            drf = fi.ExecuteReader();
-
-
-            //List<string> pesq = new List<string>();
-
-            lsvPrincipal.Clear();
-            lsvPrincipal.View = View.Details;
-            lsvPrincipal.FullRowSelect = true;
-            lsvPrincipal.GridLines = true;
-            lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Left);
-            lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Center);
-            lsvPrincipal.Columns.Add(drf.GetName(2), 120, HorizontalAlignment.Center);
-            lsvPrincipal.Columns.Add(drf.GetName(3), 120, HorizontalAlignment.Center);
-            lsvPrincipal.Columns.Add(drf.GetName(4), 120, HorizontalAlignment.Center);
-            lsvPrincipal.Columns.Add(drf.GetName(5), 120, HorizontalAlignment.Center);
-            lsvPrincipal.Columns.Add(drf.GetName(6), 120, HorizontalAlignment.Center);
-            lsvPrincipal.Columns.Add(drf.GetName(7), 120, HorizontalAlignment.Center);
-            lsvPrincipal.Columns.Add(drf.GetName(8), 120, HorizontalAlignment.Center);
-            lsvPrincipal.Columns.Add(drf.GetName(9), 120, HorizontalAlignment.Center);
-            //lsvPrincipal.Columns.Add(dr.GetName(10), 0, HorizontalAlignment.Center);
-
-            while (drf.Read())
-            {
-
-                ListViewItem teste = new ListViewItem();
-                teste.SubItems.Add(drf[0].ToString());
-                if (drf[2].ToString() != "Nada Consta")
+                if (Convert.ToDateTime(dtpDataAlbum1.Value.ToShortDateString()) > Convert.ToDateTime(dtpDataAlbum2.Value.ToShortDateString()))
                 {
-                    teste.SubItems.Add(drf[2].ToString());
+                    erpError.SetError(dtpDataAlbum1, "A primeira data deve ser menor que a segunda data");
                 }
                 else
                 {
-                    teste.SubItems.Add("");
+                    erpError.Clear();
+                    if (Convert.ToDateTime(dtpDataCompra1.Value.ToShortDateString()) > Convert.ToDateTime(dtpDataCompra2.Value.ToShortDateString()))
+                    {
+                        erpError.SetError(dtpDataCompra1, "A primeira data deve ser menor que a segunda data");
+                    }
+                    else
+                    {
+                        erpError.Clear();
 
+                        SqlDataReader drf;
+                        conexaoBanco f = new conexaoBanco();
+                        bool espera = false;
+
+                        SqlCommand fi = f.filtro(espera, txbPesquisa.Text, cbxTipoMidia1.Text, txbIterprete1.Text, txbAutor1.Text, txbOrigem1.Text, dtpDataAlbum1.Value, dtpDataAlbum2.Value, dtpDataCompra1.Value, dtpDataCompra2.Value);
+
+                        //fi.ExecuteNonQuery();
+
+                        drf = fi.ExecuteReader();
+
+
+                        lsvPrincipal.Clear();
+                        lsvPrincipal.View = View.Details;
+                        lsvPrincipal.FullRowSelect = true;
+                        lsvPrincipal.GridLines = true;
+                        lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Left);
+                        lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Center);
+                        lsvPrincipal.Columns.Add(drf.GetName(2), 120, HorizontalAlignment.Center);
+                        lsvPrincipal.Columns.Add(drf.GetName(3), 120, HorizontalAlignment.Center);
+                        lsvPrincipal.Columns.Add(drf.GetName(4), 120, HorizontalAlignment.Center);
+                        lsvPrincipal.Columns.Add(drf.GetName(5), 120, HorizontalAlignment.Center);
+                        lsvPrincipal.Columns.Add(drf.GetName(6), 120, HorizontalAlignment.Center);
+                        lsvPrincipal.Columns.Add(drf.GetName(7), 120, HorizontalAlignment.Center);
+                        lsvPrincipal.Columns.Add(drf.GetName(8), 120, HorizontalAlignment.Center);
+                        lsvPrincipal.Columns.Add(drf.GetName(9), 120, HorizontalAlignment.Center);
+                        //lsvPrincipal.Columns.Add(dr.GetName(10), 0, HorizontalAlignment.Center);
+
+                        while (drf.Read())
+                        {
+
+                            ListViewItem teste = new ListViewItem();
+                            teste.SubItems.Add(drf[0].ToString());
+                            if (drf[2].ToString() != "Nada Consta")
+                            {
+                                teste.SubItems.Add(drf[2].ToString());
+                            }
+                            else
+                            {
+                                teste.SubItems.Add("");
+
+                            }
+
+                            teste.SubItems.Add(drf[3].ToString());
+                            teste.SubItems.Add(drf[4].ToString());
+                            teste.SubItems.Add(drf[5].ToString());
+                            teste.SubItems.Add(drf[6].ToString());
+                            teste.SubItems.Add(drf[7].ToString());
+                            teste.SubItems.Add(drf[8].ToString());
+                            teste.SubItems.Add(drf[9].ToString());
+                            teste.Group = lsvPrincipal.Groups[drf[1].ToString()];
+
+                            //if (lsvPrincipal.Columns[10].ToString() == Convert.ToString(1))
+                            //{
+                            //    lsvPrincipal.Items[0].ForeColor = Color.Red;
+                            //}
+
+                            lsvPrincipal.Items.Add(teste);
+
+                            //teste.SubItems.Add(drf[2].ToString());
+                        }
+
+                        espera = true;
+                        drf.Close();
+
+                        f.filtro(espera, null, null, null, null, null, Convert.ToDateTime(null), Convert.ToDateTime(null), Convert.ToDateTime(null), Convert.ToDateTime(null));
+                    }
                 }
-
-                teste.SubItems.Add(drf[3].ToString());
-                teste.SubItems.Add(drf[4].ToString());
-                teste.SubItems.Add(drf[5].ToString());
-                teste.SubItems.Add(drf[6].ToString());
-                teste.SubItems.Add(drf[7].ToString());
-                teste.SubItems.Add(drf[8].ToString());
-                teste.SubItems.Add(drf[9].ToString());
-                teste.Group = lsvPrincipal.Groups[drf[1].ToString()];
-
-                //if (lsvPrincipal.Columns[10].ToString() == Convert.ToString(1))
-                //{
-                //    lsvPrincipal.Items[0].ForeColor = Color.Red;
-                //}
-
-                lsvPrincipal.Items.Add(teste);
-
-                //teste.SubItems.Add(drf[2].ToString());
-            }
-
-
-            espera = true;
-            drf.Close();
-
-            f.filtro(espera, null, null, null, null, null, null,null);
-            
+                
         }
 
         private void frmPrincipal_Resize(object sender, EventArgs e)
@@ -690,17 +709,17 @@ namespace SysMusicCollection
             if (ckbDataAlbMus.Checked)
             {
                 dtpDataAlbum1.Enabled = true;
-                dtpDataAlbum1.Text = "";
                 dtpDataAlbum2.Enabled = true;
-                dtpDataAlbum2.Text = "";
-
+                
             }
 
             else
             {
+                dtpDataAlbum1.Value = Convert.ToDateTime("01/01/1753"); 
                 dtpDataAlbum1.Enabled = false;
+                dtpDataAlbum2.Value = DateTime.Now;
                 dtpDataAlbum2.Enabled = false;
-
+                
             }
         }
 
@@ -715,7 +734,9 @@ namespace SysMusicCollection
 
             else
             {
+                dtpDataCompra1.Value = Convert.ToDateTime("01/01/1953");
                 dtpDataCompra1.Enabled = false;
+                dtpDataCompra2.Value = DateTime.Now;
                 dtpDataCompra2.Enabled = false;
 
             }
