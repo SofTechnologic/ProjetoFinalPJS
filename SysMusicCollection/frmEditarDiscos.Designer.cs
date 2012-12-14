@@ -187,6 +187,7 @@
             this.dtpEditaDataAlbum.Name = "dtpEditaDataAlbum";
             this.dtpEditaDataAlbum.Size = new System.Drawing.Size(100, 20);
             this.dtpEditaDataAlbum.TabIndex = 4;
+            this.dtpEditaDataAlbum.Value = new System.DateTime(2012, 12, 14, 0, 0, 0, 0);
             // 
             // dtpEditaDataCompra
             // 
@@ -195,6 +196,7 @@
             this.dtpEditaDataCompra.Name = "dtpEditaDataCompra";
             this.dtpEditaDataCompra.Size = new System.Drawing.Size(111, 20);
             this.dtpEditaDataCompra.TabIndex = 5;
+            this.dtpEditaDataCompra.Value = new System.DateTime(2012, 12, 14, 0, 0, 0, 0);
             // 
             // txtEditaNota
             // 

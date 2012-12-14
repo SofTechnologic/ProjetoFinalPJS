@@ -15,10 +15,10 @@ namespace SysMusicCollection
 
 
 
-        private const string sqlConn = //@" Data Source=FELIPE-IBM;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
+        private const string sqlConn = @" Data Source=FELIPE-IBM;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 ///* Bruno*/ @"Data Source=NOTEBOOK;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
 //            ///*Felipe*/ @" Data Source=PC08LAB3\MSSQLSERVER2;Initial Catalog=dbSysMusicColletion;Integrated Security=True";
-            /*Thiago*/ @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+            /*Thiago*/// @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\dbSysMusicColletion.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
 
 
 
@@ -710,9 +710,8 @@ namespace SysMusicCollection
             }
         }
 
-        public SqlCommand filtro(bool espera, string nome,  string tipo, string interprete, string autor, string origem, string dataal, string datacom)
+        public SqlCommand filtro(bool espera, string nome,  string tipo, string interprete, string autor, string origem, DateTime datal1,DateTime datal2,DateTime dtcom1, DateTime dtcom2)
         {
-
             if (this.Abrirconexao())
             {
                 string sql = "select Cod_Disco,Tipo_Midia, Nome_Autor as Autor, Nome_Interprete as Interprete, " +
@@ -722,12 +721,12 @@ namespace SysMusicCollection
                              " inner join Autores on Autores.ID_Autor = Discos.ID_autor " +
                              " inner join Interpretes on Interpretes.ID_Interprete = Discos.Id_Interprete " +
                              " inner join Albuns on Albuns.ID_Album = Discos.ID_Album " +
-                             " where (Albuns.Nome_Album like @nome or @nome = '') " + 
+                             " where (Albuns.Nome_Album like @nome or @nome = '') " +
                              " and (Midias.Tipo_Midia = @tipo or @tipo = '') and (Autores.Nome_Autor like @autor or @autor = '')" +
                              " and (Discos.Origem_Compra like @origem or @origem = '') " +
                              " and (Interpretes.Nome_Interprete like @interprete or @interprete = '')" +
-                             " and (Discos.Data_Album = @dataalbum or @dataalbum = '')" +
-                             " and (Discos.Data_Compra = @datacompra or @datacompra = '');";
+                            " and (Discos.data_album >= Convert(date,@dtal1,103) and Discos.data_album <= Convert(date,@dtal2,103))" +
+                            " and (Discos.data_compra >= Convert(date,@dtcom1,103) and Discos.data_compra <= Convert(date,@dtcom2,103))";
                 try
                 {
                     SqlCommand cmd = new SqlCommand(sql, cnx);
@@ -736,8 +735,11 @@ namespace SysMusicCollection
                     cmd.Parameters.Add("@autor", "%" + autor + "%");
                     cmd.Parameters.Add("@origem", "%" + origem + "%");
                     cmd.Parameters.Add("@interprete", "%" + interprete + "%");
-                    cmd.Parameters.Add("@dataalbum", "");
-                    cmd.Parameters.Add("@datacompra", "");
+                    cmd.Parameters.Add("@dtal1",datal1.ToShortDateString());
+                    cmd.Parameters.Add("@dtal2",datal2.ToShortDateString());
+                    cmd.Parameters.Add("@dtcom1", dtcom1.ToShortDateString());
+                    cmd.Parameters.Add("@dtcom2", dtcom2.ToShortDateString());
+
                     return cmd;
                 }
                 catch (Exception ex)
@@ -1351,14 +1353,15 @@ namespace SysMusicCollection
                     SqlDataReader emprestado;
                     for (int i = 0; i < itens.Count; i++)
                     {
-                        pesqItensEmprestimo = new SqlCommand("Select Cod_Disco from Itens_Emprestimo where Cod_Disco =  @compara", cnx);
-                        pesqItensEmprestimo.Parameters.Add(new SqlParameter("@compara", itens[i]));
+                        pesqItensEmprestimo = new SqlCommand("Select count(Cod_Disco) from Itens_Emprestimo where Cod_Disco =  @compara and Data_Devolucao is null", cnx);
+                        pesqItensEmprestimo.Parameters.Add(new SqlParameter("@compara", itens[i].ToString()));
+                        int j = (int)pesqItensEmprestimo.ExecuteScalar();
+                        if (j != 0)
+                        {
+                            passaEmprestimo.Add(itens[i].ToString());
+                        }
                     }
-                    emprestado = pesqItensEmprestimo.ExecuteReader();
-                    while (emprestado.Read())
-                    {
-                        passaEmprestimo.Add(emprestado["Cod_Disco"].ToString());
-                    }
+
                     return passaEmprestimo;
                 }
                 catch (Exception ex)
@@ -1375,46 +1378,46 @@ namespace SysMusicCollection
                 return null ;
             }
         }
-        public List<string> AchaItemEmprestimo1(List<string> chaves)
-        {
-            SqlCommand DeletarItensEmprestimo = null;
-            SqlCommand AchaDIscoItemEmpre = null;
-            if (this.Abrirconexao())
-            {
-                try
-                {
-                    List<string> armazena = new List<string>();
-                    for (int i = 0; i < chaves.Count; i++)
-                    {
-                        AchaDIscoItemEmpre = new SqlCommand("Select Count(*) from Itens_Emprestimo where (Cod_Disco = @compara and Data_Devolucao is null) ", cnx);
+        //public List<string> AchaItemEmprestimo1(List<string> chaves)
+        //{
+        //    SqlCommand DeletarItensEmprestimo = null;
+        //    SqlCommand AchaDIscoItemEmpre = null;
+        //    if (this.Abrirconexao())
+        //    {
+        //        try
+        //        {
+        //            List<string> armazena = new List<string>();
+        //            for (int i = 0; i < chaves.Count; i++)
+        //            {
+        //                AchaDIscoItemEmpre = new SqlCommand("Select Count(*) from Itens_Emprestimo where (Cod_Disco = @compara and Data_Devolucao is null) ", cnx);
 
 
-                        AchaDIscoItemEmpre.Parameters.Add(new SqlParameter("@compara", chaves[i]));
+        //                AchaDIscoItemEmpre.Parameters.Add(new SqlParameter("@compara", chaves[i]));
 
-                        int dt = (int)AchaDIscoItemEmpre.ExecuteScalar();
-                        if (dt != 0)
-                        {
+        //                int dt = (int)AchaDIscoItemEmpre.ExecuteScalar();
+        //                if (dt != 0)
+        //                {
                            
-                            armazena.Add(chaves[i].ToString());
-                        }
-                    }
+        //                    armazena.Add(chaves[i].ToString());
+        //                }
+        //            }
 
-                    return armazena;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.Message);
-                }
-                finally
-                {
-                    this.Fecharconexao();
-                }
-            }
-            else
-            {
-                return null;
-            }
-        }
+        //            return armazena;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw new Exception(ex.Message);
+        //        }
+        //        finally
+        //        {
+        //            this.Fecharconexao();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return null;
+        //    }
+        //}
 
         public List<string> AchaItemEmprestimo(List<string> chaves)
         {
@@ -1482,7 +1485,6 @@ namespace SysMusicCollection
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception(ex.Message);
                 }
                 finally
                 {
@@ -1513,8 +1515,8 @@ namespace SysMusicCollection
                         EditaDisco.Parameters.Add(new SqlParameter("@idAutor", edita[2].ToString()));
                         EditaDisco.Parameters.Add(new SqlParameter("@idInterprete", edita[3].ToString()));
                         EditaDisco.Parameters.Add(new SqlParameter("@idAlbum", edita[4].ToString()));
-                        EditaDisco.Parameters.Add(new SqlParameter("@dataAlbum", edita[5].ToString()));
-                        EditaDisco.Parameters.Add(new SqlParameter("@dataCompra", edita[6].ToString()));
+                        EditaDisco.Parameters.Add(new SqlParameter("@dataAlbum", edita[5]));
+                        EditaDisco.Parameters.Add(new SqlParameter("@dataCompra", edita[6]));
                         EditaDisco.Parameters.Add(new SqlParameter("@origem", edita[7].ToString()));
                         EditaDisco.Parameters.Add(new SqlParameter("@obs", edita[8].ToString()));
                         EditaDisco.Parameters.Add(new SqlParameter("@nota", edita[9].ToString()));

@@ -40,8 +40,8 @@ namespace SysMusicCollection
             cboEditaTipoMidia.Text = passar[9].ToString();
             txtEditaNota.Text = passar[8].ToString();
             txtEditaObservacoes.Text = passar[7].ToString();
-            dtpEditaDataAlbum.Text = passar[4].ToString();
-            dtpEditaDataCompra.Text = passar[5].ToString();
+            dtpEditaDataAlbum.Value = Convert.ToDateTime(passar[4]);
+            dtpEditaDataCompra.Value = Convert.ToDateTime(passar[5]);
             codDisco = passar[0].ToString();
         }
         frmEditarDiscos frmedita;
@@ -110,8 +110,8 @@ namespace SysMusicCollection
                     arrdisc.Add(codaut);
                     arrdisc.Add(codinter);
                     arrdisc.Add(codalb);
-                    arrdisc.Add(dtpEditaDataAlbum.Value.ToShortDateString());
-                    arrdisc.Add(dtpEditaDataCompra.Value.ToShortDateString());
+                    arrdisc.Add(dtpEditaDataAlbum.Value);
+                    arrdisc.Add(dtpEditaDataCompra.Value);
                     arrdisc.Add(cboEditaOrigemCompra.Text);
                     arrdisc.Add(txtEditaObservacoes.Text);
                     //arrdisc.Add(txtMusica.Text);
@@ -163,7 +163,7 @@ namespace SysMusicCollection
                             erpErroEdita.SetError(t, "Digite Album");
                         }
                         if (t.Name == cboEditaInterprete.Name)
-                            erpErroEdita.SetError(t, "Digite o Campo Interprete");
+                            erpErroEdita.SetError(t, "Digite o Interprete");
                     }
                     else if ((t.Name == cboEditaTipoMidia.Name) && (cboEditaTipoMidia.Text != "K7" &&
                         cboEditaTipoMidia.Text != "CD" && cboEditaTipoMidia.Text != "DVD" && cboEditaTipoMidia.Text != "Digital"))
@@ -188,8 +188,8 @@ namespace SysMusicCollection
                 passaPrinc.Add(cboEditaTipoMidia.Text);
                 passaPrinc.Add(txtEditaNota.Text);
                 passaPrinc.Add(txtEditaObservacoes.Text);
-                passaPrinc.Add(dtpEditaDataAlbum.Text);
-                passaPrinc.Add(dtpEditaDataCompra.Text);
+                passaPrinc.Add(dtpEditaDataAlbum.Value);
+                passaPrinc.Add(dtpEditaDataCompra.Value);
                 this.Close();
             }
     

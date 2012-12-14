@@ -21,8 +21,8 @@ namespace SysMusicCollection
             string autor;
             string inter;
             string nomeAlbum;
-            string dataAlbum;
-            string dataCompra;
+            DateTime dataAlbum;
+            DateTime dataCompra;
             string origem;
             string obs;
             string nota;
@@ -55,7 +55,7 @@ namespace SysMusicCollection
 
         private void btnEmprDev_Click(object sender, EventArgs e)
         {
-            frmEmprestimo frmEmprestimo = new frmEmprestimo();
+            frmEmprestimo frmEmprestimo = new frmEmprestimo(this);
             frmEmprestimo.Show();
         }
 
@@ -193,17 +193,27 @@ namespace SysMusicCollection
             s.lv(espera);
             
         }
-        
-        private void frmPrincipal_Load(object sender, EventArgs e)
+        public void AChaDevolvido(List<string> pegadisco)
         {
-            conexaoBanco pega = new conexaoBanco();
-            preenchelist();
-            List<string> armazenaEmprestado = new List<string>();
+
             foreach (ListViewItem itens in lsvPrincipal.Items)
             {
-                armazenaEmprestado.Add(itens.Text);
-                
+                for (int j = 0; j < pegadisco.Count; j++)
+                {
+                    if (pegadisco[j].ToString() == itens.Text)
+                        itens.BackColor = Color.White;
+                }
             }
+
+        }
+        public void AChaEmprestado()
+        {
+            conexaoBanco pega = new conexaoBanco();
+            //preenchelist();
+            List<string> armazenaEmprestado = new List<string>();
+            foreach (ListViewItem itens in lsvPrincipal.Items)
+                armazenaEmprestado.Add(itens.Text);
+
             if (armazenaEmprestado.ToString() != null)
             {
                 List<string> pegaEmprestado = pega.pesqtemEmprestimo(armazenaEmprestado);
@@ -211,26 +221,32 @@ namespace SysMusicCollection
                 {
                     for (int j = 0; j < pegaEmprestado.Count; j++)
                     {
-                        if (pegaEmprestado.ToString() == itens.Text)
-                        {
-                            itens.BackColor = Color.Red;
-                            break;
-                        }
+                        if (pegaEmprestado[j].ToString() == itens.Text)
+                            itens.BackColor = Color.LightBlue;
                     }
-
                 }
             }
+        }
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            preenchelist();
+            AChaEmprestado();
 
-
+            conexaoBanco pega = new conexaoBanco();
             cbxTipoMidia1.DataSource = pega.prCombo_Midia();
-            cbxTipoMidia1.Enabled = false;
             txbAutor1.Enabled = false;
             txbIterprete1.Enabled = false;
             txbOrigem1.Enabled = false;
+            dtpDataAlbum1.Value = Convert.ToDateTime("01/01/1953");
+            dtpDataAlbum2.Value = DateTime.Now;
             dtpDataAlbum1.Enabled = false;
             dtpDataAlbum2.Enabled = false;
+            dtpDataCompra1.Value = Convert.ToDateTime("01/01/1953");
             dtpDataCompra1.Enabled = false;
+            dtpDataCompra2.Value = DateTime.Now;
             dtpDataCompra2.Enabled = false;
+            txbPesquisa.Text = "";
+            ckbTipoMidia.Checked = true;
 
             
         }
@@ -241,8 +257,8 @@ namespace SysMusicCollection
             autor = lsvPrincipal.SelectedItems[0].SubItems[1].Text;
             inter = lsvPrincipal.SelectedItems[0].SubItems[2].Text;
             nomeAlbum = lsvPrincipal.SelectedItems[0].SubItems[3].Text;
-            dataAlbum = lsvPrincipal.SelectedItems[0].SubItems[4].Text;
-            dataCompra = lsvPrincipal.SelectedItems[0].SubItems[5].Text;
+            dataAlbum = Convert.ToDateTime(lsvPrincipal.SelectedItems[0].SubItems[4].Text);
+            dataCompra = Convert.ToDateTime(lsvPrincipal.SelectedItems[0].SubItems[5].Text);
             origem = lsvPrincipal.SelectedItems[0].SubItems[6].Text;
             obs = lsvPrincipal.SelectedItems[0].SubItems[7].Text;
             nota = lsvPrincipal.SelectedItems[0].SubItems[8].Text;
@@ -286,19 +302,19 @@ namespace SysMusicCollection
 
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<string> apagar = new List<string>();
-            for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
-            {
-                ListViewItem remove = lsvPrincipal.SelectedItems[i];
-                apagar.Add(remove.Text);
-            }
-            //conexaoBanco apaga = new conexaoBanco();
-            apaga.removeItemBanco(apagar);
-            for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
-            {
-                ListViewItem remove = lsvPrincipal.SelectedItems[i];
-                remove.Remove();
-            }
+            //List<string> apagar = new List<string>();
+            //for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+            //{
+            //    ListViewItem remove = lsvPrincipal.SelectedItems[i];
+            //    apagar.Add(remove.Text);
+            //}
+            ////conexaoBanco apaga = new conexaoBanco();
+            //apaga.removeItemBanco(apagar);
+            //for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+            //{
+            //    ListViewItem remove = lsvPrincipal.SelectedItems[i];
+            //    remove.Remove();
+            //}
         }
 
         private void relatóriosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -336,7 +352,7 @@ namespace SysMusicCollection
                 }
                 conexaoBanco apaga = new conexaoBanco();
                 List<string> armazena = apaga.AchaItemEmprestimo(apagar);
-                List<string> armazenaEmprestado = apaga.AchaItemEmprestimo1(apagar);
+                List<string> armazenaEmprestado = apaga.pesqtemEmprestimo(apagar);
                 bool avisa = false;
                 string nome = null;
                 List<string> pegaNome = new List<string>();
@@ -350,14 +366,13 @@ namespace SysMusicCollection
                             if (armazenaEmprestado[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
                             {
                                 avisa = true;
-                                pegaNome.Add(lsvPrincipal.SelectedItems[i].SubItems[3].Text);
                             }
                         }
                     }
                     if (avisa == true)
                     {
                         //nome = pegaNome.ToString();
-                        if (MessageBox.Show(pegaNome.ToString() + " Iten(s) Emprestados, Deseja Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                        if (MessageBox.Show("Você selecionou Iten(s) Emprestados, Deseja Realmente Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                    == DialogResult.Yes)
                         {
                             for (int j = 0; j < armazenaEmprestado.Count; j++)
@@ -407,7 +422,7 @@ namespace SysMusicCollection
             }
             conexaoBanco apaga = new conexaoBanco();
              List<string> armazena = apaga.AchaItemEmprestimo(apagar);
-             List<string> armazenaEmprestado = apaga.AchaItemEmprestimo1(apagar);
+             List<string> armazenaEmprestado = apaga.pesqtemEmprestimo(apagar);
              bool avisa = false;
              string nome = null;
              List<string> pegaNome = new List<string>(); 
@@ -421,14 +436,13 @@ namespace SysMusicCollection
                         if (armazenaEmprestado[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
                         {
                                 avisa = true;
-                                pegaNome.Add( lsvPrincipal.SelectedItems[i].SubItems[3].Text);
                         }
                     }
                 }
                 if (avisa == true)
                 {
                     //nome = pegaNome.ToString();
-                    if (MessageBox.Show( pegaNome.ToString()+" Iten(s) Emprestados, Deseja Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                    if (MessageBox.Show(" Item(s) Emprestado(s), Deseja Realmente Excluir", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                == DialogResult.Yes)
                     {
                         for (int j = 0; j < armazenaEmprestado.Count; j++)
@@ -485,8 +499,8 @@ namespace SysMusicCollection
                     autor = lsvPrincipal.SelectedItems[0].SubItems[1].Text;
                     inter = lsvPrincipal.SelectedItems[0].SubItems[2].Text;
                     nomeAlbum = lsvPrincipal.SelectedItems[0].SubItems[3].Text;
-                    dataAlbum = lsvPrincipal.SelectedItems[0].SubItems[4].Text;
-                    dataCompra = lsvPrincipal.SelectedItems[0].SubItems[5].Text;
+                    dataAlbum = Convert.ToDateTime(lsvPrincipal.SelectedItems[0].SubItems[4].Text);
+                    dataCompra = Convert.ToDateTime(lsvPrincipal.SelectedItems[0].SubItems[5].Text);
                     origem = lsvPrincipal.SelectedItems[0].SubItems[6].Text;
                     obs = lsvPrincipal.SelectedItems[0].SubItems[7].Text;
                     nota = lsvPrincipal.SelectedItems[0].SubItems[8].Text;
@@ -528,7 +542,7 @@ namespace SysMusicCollection
                     }
                 }
                 else
-                    MessageBox.Show("Este item esta emprestado", "Aviso");
+                    MessageBox.Show("Este item esta emprestado, Impossivel Editar", "Aviso");
                 
             }
         }
@@ -559,20 +573,18 @@ namespace SysMusicCollection
             conexaoBanco f = new conexaoBanco();
             bool espera = false;
 
-            SqlCommand fi = f.filtro(espera, txbPesquisa.Text, cbxTipoMidia1.Text, txbIterprete1.Text, txbAutor1.Text, txbOrigem1.Text, dtpDataAlbum1.Value.ToShortDateString(), dtpDataCompra1.Value.ToShortDateString());
+            SqlCommand fi = f.filtro(espera, txbPesquisa.Text, cbxTipoMidia1.Text, txbIterprete1.Text, txbAutor1.Text, txbOrigem1.Text,dtpDataAlbum1.Value,dtpDataAlbum2.Value, dtpDataCompra1.Value,dtpDataCompra2.Value );
 
             //fi.ExecuteNonQuery();
 
             drf = fi.ExecuteReader();
 
 
-            //List<string> pesq = new List<string>();
-
             lsvPrincipal.Clear();
             lsvPrincipal.View = View.Details;
             lsvPrincipal.FullRowSelect = true;
             lsvPrincipal.GridLines = true;
-            lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Left);
+            //lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Left);
             lsvPrincipal.Columns.Add(drf.GetName(0), 0, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(drf.GetName(2), 120, HorizontalAlignment.Center);
             lsvPrincipal.Columns.Add(drf.GetName(3), 120, HorizontalAlignment.Center);
@@ -588,7 +600,7 @@ namespace SysMusicCollection
             {
 
                 ListViewItem teste = new ListViewItem();
-                teste.SubItems.Add(drf[0].ToString());
+                teste.Text = drf[0].ToString();
                 if (drf[2].ToString() != "Nada Consta")
                 {
                     teste.SubItems.Add(drf[2].ToString());
@@ -617,13 +629,12 @@ namespace SysMusicCollection
 
                 //teste.SubItems.Add(drf[2].ToString());
             }
-
-
+            
             espera = true;
             drf.Close();
 
-            f.filtro(espera, null, null, null, null, null, null,null);
-            
+            f.filtro(espera, null, null, null, null, null, Convert.ToDateTime(null), Convert.ToDateTime(null), Convert.ToDateTime(null), Convert.ToDateTime(null));
+            AChaEmprestado();
         }
 
         private void frmPrincipal_Resize(object sender, EventArgs e)
@@ -690,17 +701,17 @@ namespace SysMusicCollection
             if (ckbDataAlbMus.Checked)
             {
                 dtpDataAlbum1.Enabled = true;
-                dtpDataAlbum1.Text = "";
                 dtpDataAlbum2.Enabled = true;
-                dtpDataAlbum2.Text = "";
-
+                
             }
 
             else
             {
+                dtpDataAlbum1.Value = Convert.ToDateTime("01/01/1753"); 
                 dtpDataAlbum1.Enabled = false;
+                dtpDataAlbum2.Value = DateTime.Now;
                 dtpDataAlbum2.Enabled = false;
-
+                
             }
         }
 
@@ -715,7 +726,9 @@ namespace SysMusicCollection
 
             else
             {
+                dtpDataCompra1.Value = Convert.ToDateTime("01/01/1953");
                 dtpDataCompra1.Enabled = false;
+                dtpDataCompra2.Value = DateTime.Now;
                 dtpDataCompra2.Enabled = false;
 
             }

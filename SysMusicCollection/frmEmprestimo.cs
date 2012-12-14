@@ -24,7 +24,13 @@ namespace SysMusicCollection
         {
             InitializeComponent();
         }
+        frmPrincipal frmprincipal;
 
+        public frmEmprestimo(frmPrincipal formPric)
+        {
+            InitializeComponent();
+            frmprincipal = formPric;
+        }
         private void tabControl1_Enter(object sender, EventArgs e)
         {
 
@@ -39,11 +45,18 @@ namespace SysMusicCollection
         }
 
         private void btnEmprestar_Click(object sender, EventArgs e)
-        {
+        { 
+            conexaoBanco amig = new conexaoBanco();
             conexaoBanco disc = new conexaoBanco();
             ArrayList arremp = new ArrayList();
             arremp.Add(dtpDataEmprestimo.Value.ToShortDateString());
-            arremp.Add(codamigo);
+            if (codamigo == 0)
+            {
+                codamigo = amig.PesqAmigos(cboNomeAmigo.Text);
+                arremp.Add(codamigo);
+            }
+            else
+                arremp.Add(codamigo);
             disc.CadastrarEmp(arremp);
 
             codemp = disc.PesqCodEmp(codamigo, dtpDataEmprestimo.Value.ToShortDateString());
@@ -58,6 +71,7 @@ namespace SysMusicCollection
                 dgvEmprestimo.Rows.RemoveAt(i);
                 i--;
             }
+            frmprincipal.AChaEmprestado();
             frmEmprestimo_Load(e, e);
         }
 
@@ -83,6 +97,7 @@ namespace SysMusicCollection
 
         private void btnDevolver_Click(object sender, EventArgs e)
         {
+            List<string> pegadisc = new List<string>();
             conexaoBanco devolve = new conexaoBanco();
             int codemp;
             string data = dateTimePicker1.Value.ToShortDateString();
@@ -106,12 +121,14 @@ namespace SysMusicCollection
 
                         dgvDevolucao.Rows.RemoveAt(i);
                         i--;
+                        pegadisc.Add(coddisc.ToString());
                     }
                     else
                     {
                         i--;
                     }
                 }
+                frmprincipal.AChaDevolvido(pegadisc);
                 frmEmprestimo_Load(e, e);
             }
 
@@ -133,12 +150,14 @@ namespace SysMusicCollection
 
                         dgvDevolucao.Rows.RemoveAt(i);
                         i--;
+                        pegadisc.Add(coddisc.ToString());
                     }
                     else
                     {
                         i--;
                     }
                 }
+                frmprincipal.AChaDevolvido(pegadisc);
             }
         }
 

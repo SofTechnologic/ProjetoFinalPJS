@@ -25,7 +25,6 @@ Endereco Varchar(50)
 CREATE TABLE Emprestimos (
 Num_Emprestimo int NOT NULL IDENTITY (1,1) PRIMARY KEY,
 Data_Emprestimo Varchar(10) NOT NULL,
-Data_Devolucao Varchar(10),
 Cod_Amigo int,
 FOREIGN KEY(Cod_Amigo) REFERENCES Amigos (Cod_Amigo)
 )
@@ -36,8 +35,8 @@ Cod_Midia int NOT NULL ,
 ID_Autor int,
 ID_Interprete int NOT NULL,
 ID_Album int NOT NULL ,
-Data_Album Varchar(10),
-Data_Compra Varchar(10),
+Data_Album date,
+Data_Compra date,
 Origem_Compra Varchar(30),
 Observ Varchar(50),
 Nota varchar(12),
@@ -48,6 +47,7 @@ CREATE TABLE Itens_Emprestimo (
 ID_itens int NOT NULL IDENTITY(1,1) PRIMARY KEY,
 Cod_Disco int,
 Num_Emprestimo int,
+Data_Devolucao Varchar(10),
 FOREIGN KEY(Cod_Disco) REFERENCES Discos (Cod_Disco),
 FOREIGN KEY(Num_Emprestimo) REFERENCES Emprestimos (Num_Emprestimo)
 )
@@ -70,6 +70,7 @@ Nome_Album Varchar(40) NOT NULL
 ALTER TABLE Discos ADD FOREIGN KEY(ID_Autor) REFERENCES Autores (ID_Autor)
 ALTER TABLE Discos ADD FOREIGN KEY(ID_Interprete) REFERENCES Interpretes (ID_Interprete)
 ALTER TABLE Discos ADD FOREIGN KEY(ID_Album) REFERENCES Albuns (ID_Album)
+ALTER TABLE Discos ADD EMPRESTADO INT
 
 GO
 

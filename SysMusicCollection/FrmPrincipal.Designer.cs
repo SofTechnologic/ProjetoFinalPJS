@@ -91,7 +91,8 @@
             this.msiArquivo});
             this.mnsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnsPrincipal.Name = "mnsPrincipal";
-            this.mnsPrincipal.Size = new System.Drawing.Size(934, 24);
+            this.mnsPrincipal.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.mnsPrincipal.Size = new System.Drawing.Size(1245, 28);
             this.mnsPrincipal.TabIndex = 0;
             this.mnsPrincipal.Text = "menuStrip1";
             // 
@@ -101,14 +102,14 @@
             this.msiRelatorios,
             this.msiSair});
             this.msiArquivo.Name = "msiArquivo";
-            this.msiArquivo.Size = new System.Drawing.Size(61, 20);
+            this.msiArquivo.Size = new System.Drawing.Size(73, 24);
             this.msiArquivo.Text = "Arquivo";
             // 
             // msiRelatorios
             // 
             this.msiRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("msiRelatorios.Image")));
             this.msiRelatorios.Name = "msiRelatorios";
-            this.msiRelatorios.Size = new System.Drawing.Size(126, 22);
+            this.msiRelatorios.Size = new System.Drawing.Size(145, 24);
             this.msiRelatorios.Text = "Relatórios";
             this.msiRelatorios.Click += new System.EventHandler(this.relatóriosToolStripMenuItem_Click);
             // 
@@ -116,24 +117,26 @@
             // 
             this.msiSair.Image = ((System.Drawing.Image)(resources.GetObject("msiSair.Image")));
             this.msiSair.Name = "msiSair";
-            this.msiSair.Size = new System.Drawing.Size(126, 22);
+            this.msiSair.Size = new System.Drawing.Size(145, 24);
             this.msiSair.Text = "Sair";
             this.msiSair.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // stsPrincipal
             // 
-            this.stsPrincipal.Location = new System.Drawing.Point(0, 540);
+            this.stsPrincipal.Location = new System.Drawing.Point(0, 670);
             this.stsPrincipal.Name = "stsPrincipal";
-            this.stsPrincipal.Size = new System.Drawing.Size(934, 22);
+            this.stsPrincipal.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.stsPrincipal.Size = new System.Drawing.Size(1245, 22);
             this.stsPrincipal.TabIndex = 1;
             this.stsPrincipal.Text = "statusStrip1";
             // 
             // spcPrincipal
             // 
-            this.spcPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.spcPrincipal.Location = new System.Drawing.Point(0, 24);
+            this.spcPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spcPrincipal.Location = new System.Drawing.Point(0, 30);
+            this.spcPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spcPrincipal.Name = "spcPrincipal";
             // 
             // spcPrincipal.Panel1
@@ -147,17 +150,19 @@
             // 
             this.spcPrincipal.Panel2.Controls.Add(this.txbPesquisa);
             this.spcPrincipal.Panel2.Controls.Add(this.pnlPrincipal);
-            this.spcPrincipal.Size = new System.Drawing.Size(934, 516);
-            this.spcPrincipal.SplitterDistance = 25;
+            this.spcPrincipal.Size = new System.Drawing.Size(1245, 635);
+            this.spcPrincipal.SplitterDistance = 33;
+            this.spcPrincipal.SplitterWidth = 5;
             this.spcPrincipal.TabIndex = 2;
             // 
             // btnAbaLateral
             // 
-            this.btnAbaLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbaLateral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAbaLateral.Location = new System.Drawing.Point(1, 2);
+            this.btnAbaLateral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAbaLateral.Name = "btnAbaLateral";
-            this.btnAbaLateral.Size = new System.Drawing.Size(25, 513);
+            this.btnAbaLateral.Size = new System.Drawing.Size(33, 631);
             this.btnAbaLateral.TabIndex = 2;
             this.btnAbaLateral.Text = "Funções";
             this.btnAbaLateral.UseVisualStyleBackColor = true;
@@ -165,17 +170,19 @@
             // 
             // pbxImgLateral
             // 
-            this.pbxImgLateral.Location = new System.Drawing.Point(12, 139);
+            this.pbxImgLateral.Location = new System.Drawing.Point(16, 171);
+            this.pbxImgLateral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbxImgLateral.Name = "pbxImgLateral";
-            this.pbxImgLateral.Size = new System.Drawing.Size(120, 265);
+            this.pbxImgLateral.Size = new System.Drawing.Size(160, 326);
             this.pbxImgLateral.TabIndex = 3;
             this.pbxImgLateral.TabStop = false;
             // 
             // btnEmprDev
             // 
-            this.btnEmprDev.Location = new System.Drawing.Point(12, 89);
+            this.btnEmprDev.Location = new System.Drawing.Point(16, 110);
+            this.btnEmprDev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEmprDev.Name = "btnEmprDev";
-            this.btnEmprDev.Size = new System.Drawing.Size(120, 40);
+            this.btnEmprDev.Size = new System.Drawing.Size(160, 49);
             this.btnEmprDev.TabIndex = 1;
             this.btnEmprDev.Text = "Emprestar / Devolver";
             this.btnEmprDev.UseVisualStyleBackColor = true;
@@ -184,9 +191,10 @@
             // 
             // btnCadastro
             // 
-            this.btnCadastro.Location = new System.Drawing.Point(12, 43);
+            this.btnCadastro.Location = new System.Drawing.Point(16, 53);
+            this.btnCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCadastro.Name = "btnCadastro";
-            this.btnCadastro.Size = new System.Drawing.Size(120, 40);
+            this.btnCadastro.Size = new System.Drawing.Size(160, 49);
             this.btnCadastro.TabIndex = 0;
             this.btnCadastro.Tag = "";
             this.btnCadastro.Text = "Cadastrar";
@@ -199,28 +207,31 @@
             this.txbPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPesquisa.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txbPesquisa.Location = new System.Drawing.Point(640, 14);
+            this.txbPesquisa.Location = new System.Drawing.Point(853, 17);
+            this.txbPesquisa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbPesquisa.Name = "txbPesquisa";
-            this.txbPesquisa.Size = new System.Drawing.Size(260, 20);
+            this.txbPesquisa.Size = new System.Drawing.Size(345, 23);
             this.txbPesquisa.TabIndex = 1;
             this.txbPesquisa.Text = "Pesquisar";
             this.txbPesquisa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txbPesquisa_MouseClick);
             // 
             // pnlPrincipal
             // 
-            this.pnlPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPrincipal.Controls.Add(this.spcHorizontal);
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 40);
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 49);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(902, 476);
+            this.pnlPrincipal.Size = new System.Drawing.Size(1203, 586);
             this.pnlPrincipal.TabIndex = 0;
             // 
             // spcHorizontal
             // 
             this.spcHorizontal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.spcHorizontal.Location = new System.Drawing.Point(0, 0);
+            this.spcHorizontal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.spcHorizontal.Name = "spcHorizontal";
             this.spcHorizontal.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -248,17 +259,19 @@
             // spcHorizontal.Panel2
             // 
             this.spcHorizontal.Panel2.Controls.Add(this.lsvPrincipal);
-            this.spcHorizontal.Size = new System.Drawing.Size(902, 476);
-            this.spcHorizontal.SplitterDistance = 25;
+            this.spcHorizontal.Size = new System.Drawing.Size(1203, 586);
+            this.spcHorizontal.SplitterDistance = 215;
+            this.spcHorizontal.SplitterWidth = 5;
             this.spcHorizontal.TabIndex = 0;
             // 
             // btnAbaFiltro
             // 
-            this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 0);
+            this.btnAbaFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbaFiltro.Location = new System.Drawing.Point(0, 185);
+            this.btnAbaFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAbaFiltro.Name = "btnAbaFiltro";
-            this.btnAbaFiltro.Size = new System.Drawing.Size(902, 22);
+            this.btnAbaFiltro.Size = new System.Drawing.Size(1203, 27);
             this.btnAbaFiltro.TabIndex = 3;
             this.btnAbaFiltro.Text = "Filtro";
             this.btnAbaFiltro.UseVisualStyleBackColor = true;
@@ -268,19 +281,22 @@
             // 
             this.dtpDataCompra2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDataCompra2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataCompra2.Location = new System.Drawing.Point(556, 99);
+            this.dtpDataCompra2.Location = new System.Drawing.Point(741, 122);
+            this.dtpDataCompra2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDataCompra2.Name = "dtpDataCompra2";
-            this.dtpDataCompra2.Size = new System.Drawing.Size(126, 20);
+            this.dtpDataCompra2.Size = new System.Drawing.Size(167, 22);
             this.dtpDataCompra2.TabIndex = 17;
+            this.dtpDataCompra2.Value = new System.DateTime(2012, 12, 14, 0, 0, 0, 0);
             this.dtpDataCompra2.Visible = false;
             // 
             // lbla2
             // 
             this.lbla2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbla2.AutoSize = true;
-            this.lbla2.Location = new System.Drawing.Point(537, 104);
+            this.lbla2.Location = new System.Drawing.Point(716, 128);
+            this.lbla2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbla2.Name = "lbla2";
-            this.lbla2.Size = new System.Drawing.Size(13, 13);
+            this.lbla2.Size = new System.Drawing.Size(16, 17);
             this.lbla2.TabIndex = 16;
             this.lbla2.Text = "à";
             this.lbla2.Visible = false;
@@ -289,19 +305,22 @@
             // 
             this.dtpDataCompra1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDataCompra1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataCompra1.Location = new System.Drawing.Point(405, 98);
+            this.dtpDataCompra1.Location = new System.Drawing.Point(540, 121);
+            this.dtpDataCompra1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDataCompra1.Name = "dtpDataCompra1";
-            this.dtpDataCompra1.Size = new System.Drawing.Size(126, 20);
+            this.dtpDataCompra1.Size = new System.Drawing.Size(167, 22);
             this.dtpDataCompra1.TabIndex = 15;
+            this.dtpDataCompra1.Value = new System.DateTime(2012, 12, 14, 0, 0, 0, 0);
             this.dtpDataCompra1.Visible = false;
             // 
             // ckbDataCompra
             // 
             this.ckbDataCompra.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbDataCompra.AutoSize = true;
-            this.ckbDataCompra.Location = new System.Drawing.Point(405, 79);
+            this.ckbDataCompra.Location = new System.Drawing.Point(540, 97);
+            this.ckbDataCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckbDataCompra.Name = "ckbDataCompra";
-            this.ckbDataCompra.Size = new System.Drawing.Size(103, 17);
+            this.ckbDataCompra.Size = new System.Drawing.Size(133, 21);
             this.ckbDataCompra.TabIndex = 14;
             this.ckbDataCompra.Text = "Data de Compra";
             this.ckbDataCompra.UseVisualStyleBackColor = true;
@@ -312,9 +331,10 @@
             // 
             this.dtpDataAlbum2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDataAlbum2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataAlbum2.Location = new System.Drawing.Point(271, 97);
+            this.dtpDataAlbum2.Location = new System.Drawing.Point(361, 119);
+            this.dtpDataAlbum2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDataAlbum2.Name = "dtpDataAlbum2";
-            this.dtpDataAlbum2.Size = new System.Drawing.Size(126, 20);
+            this.dtpDataAlbum2.Size = new System.Drawing.Size(167, 22);
             this.dtpDataAlbum2.TabIndex = 13;
             this.dtpDataAlbum2.Visible = false;
             // 
@@ -322,9 +342,10 @@
             // 
             this.lbla1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbla1.AutoSize = true;
-            this.lbla1.Location = new System.Drawing.Point(250, 103);
+            this.lbla1.Location = new System.Drawing.Point(333, 127);
+            this.lbla1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbla1.Name = "lbla1";
-            this.lbla1.Size = new System.Drawing.Size(13, 13);
+            this.lbla1.Size = new System.Drawing.Size(16, 17);
             this.lbla1.TabIndex = 12;
             this.lbla1.Text = "à";
             this.lbla1.Visible = false;
@@ -333,27 +354,31 @@
             // 
             this.dtpDataAlbum1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dtpDataAlbum1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataAlbum1.Location = new System.Drawing.Point(113, 96);
+            this.dtpDataAlbum1.Location = new System.Drawing.Point(151, 118);
+            this.dtpDataAlbum1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDataAlbum1.Name = "dtpDataAlbum1";
-            this.dtpDataAlbum1.Size = new System.Drawing.Size(126, 20);
+            this.dtpDataAlbum1.Size = new System.Drawing.Size(167, 22);
             this.dtpDataAlbum1.TabIndex = 11;
+            this.dtpDataAlbum1.Value = new System.DateTime(2012, 12, 14, 0, 0, 0, 0);
             this.dtpDataAlbum1.Visible = false;
             // 
             // txbOrigem1
             // 
             this.txbOrigem1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txbOrigem1.Location = new System.Drawing.Point(619, 53);
+            this.txbOrigem1.Location = new System.Drawing.Point(825, 65);
+            this.txbOrigem1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbOrigem1.Name = "txbOrigem1";
-            this.txbOrigem1.Size = new System.Drawing.Size(180, 20);
+            this.txbOrigem1.Size = new System.Drawing.Size(239, 22);
             this.txbOrigem1.TabIndex = 10;
             this.txbOrigem1.Visible = false;
             // 
             // txbAutor1
             // 
             this.txbAutor1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txbAutor1.Location = new System.Drawing.Point(433, 53);
+            this.txbAutor1.Location = new System.Drawing.Point(577, 65);
+            this.txbAutor1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbAutor1.Name = "txbAutor1";
-            this.txbAutor1.Size = new System.Drawing.Size(180, 20);
+            this.txbAutor1.Size = new System.Drawing.Size(239, 22);
             this.txbAutor1.TabIndex = 9;
             this.txbAutor1.Visible = false;
             // 
@@ -361,18 +386,20 @@
             // 
             this.cbxTipoMidia1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbxTipoMidia1.FormattingEnabled = true;
-            this.cbxTipoMidia1.Location = new System.Drawing.Point(113, 52);
+            this.cbxTipoMidia1.Location = new System.Drawing.Point(151, 64);
+            this.cbxTipoMidia1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxTipoMidia1.Name = "cbxTipoMidia1";
-            this.cbxTipoMidia1.Size = new System.Drawing.Size(126, 21);
+            this.cbxTipoMidia1.Size = new System.Drawing.Size(167, 24);
             this.cbxTipoMidia1.TabIndex = 8;
             this.cbxTipoMidia1.Visible = false;
             // 
             // txbIterprete1
             // 
             this.txbIterprete1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txbIterprete1.Location = new System.Drawing.Point(247, 53);
+            this.txbIterprete1.Location = new System.Drawing.Point(329, 65);
+            this.txbIterprete1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbIterprete1.Name = "txbIterprete1";
-            this.txbIterprete1.Size = new System.Drawing.Size(180, 20);
+            this.txbIterprete1.Size = new System.Drawing.Size(239, 22);
             this.txbIterprete1.TabIndex = 7;
             this.txbIterprete1.Visible = false;
             // 
@@ -380,9 +407,10 @@
             // 
             this.ckbDataAlbMus.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbDataAlbMus.AutoSize = true;
-            this.ckbDataAlbMus.Location = new System.Drawing.Point(113, 79);
+            this.ckbDataAlbMus.Location = new System.Drawing.Point(151, 97);
+            this.ckbDataAlbMus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckbDataAlbMus.Name = "ckbDataAlbMus";
-            this.ckbDataAlbMus.Size = new System.Drawing.Size(96, 17);
+            this.ckbDataAlbMus.Size = new System.Drawing.Size(123, 21);
             this.ckbDataAlbMus.TabIndex = 6;
             this.ckbDataAlbMus.Text = "Data do Álbum";
             this.ckbDataAlbMus.UseVisualStyleBackColor = true;
@@ -393,9 +421,10 @@
             // 
             this.ckbOrigemCompra.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbOrigemCompra.AutoSize = true;
-            this.ckbOrigemCompra.Location = new System.Drawing.Point(619, 30);
+            this.ckbOrigemCompra.Location = new System.Drawing.Point(825, 37);
+            this.ckbOrigemCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckbOrigemCompra.Name = "ckbOrigemCompra";
-            this.ckbOrigemCompra.Size = new System.Drawing.Size(113, 17);
+            this.ckbOrigemCompra.Size = new System.Drawing.Size(149, 21);
             this.ckbOrigemCompra.TabIndex = 5;
             this.ckbOrigemCompra.Text = "Origem da Compra";
             this.ckbOrigemCompra.UseVisualStyleBackColor = true;
@@ -406,9 +435,10 @@
             // 
             this.ckbAutor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbAutor.AutoSize = true;
-            this.ckbAutor.Location = new System.Drawing.Point(433, 30);
+            this.ckbAutor.Location = new System.Drawing.Point(577, 37);
+            this.ckbAutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckbAutor.Name = "ckbAutor";
-            this.ckbAutor.Size = new System.Drawing.Size(51, 17);
+            this.ckbAutor.Size = new System.Drawing.Size(64, 21);
             this.ckbAutor.TabIndex = 4;
             this.ckbAutor.Text = "Autor";
             this.ckbAutor.UseVisualStyleBackColor = true;
@@ -419,9 +449,10 @@
             // 
             this.ckbInterprete.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbInterprete.AutoSize = true;
-            this.ckbInterprete.Location = new System.Drawing.Point(247, 30);
+            this.ckbInterprete.Location = new System.Drawing.Point(329, 37);
+            this.ckbInterprete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckbInterprete.Name = "ckbInterprete";
-            this.ckbInterprete.Size = new System.Drawing.Size(71, 17);
+            this.ckbInterprete.Size = new System.Drawing.Size(91, 21);
             this.ckbInterprete.TabIndex = 3;
             this.ckbInterprete.Text = "Intérprete";
             this.ckbInterprete.UseVisualStyleBackColor = true;
@@ -432,9 +463,10 @@
             // 
             this.ckbTipoMidia.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ckbTipoMidia.AutoSize = true;
-            this.ckbTipoMidia.Location = new System.Drawing.Point(113, 30);
+            this.ckbTipoMidia.Location = new System.Drawing.Point(151, 37);
+            this.ckbTipoMidia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ckbTipoMidia.Name = "ckbTipoMidia";
-            this.ckbTipoMidia.Size = new System.Drawing.Size(92, 17);
+            this.ckbTipoMidia.Size = new System.Drawing.Size(115, 21);
             this.ckbTipoMidia.TabIndex = 2;
             this.ckbTipoMidia.Text = "Tipo de Mídia";
             this.ckbTipoMidia.UseVisualStyleBackColor = true;
@@ -444,9 +476,10 @@
             // btnFiltrar
             // 
             this.btnFiltrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnFiltrar.Location = new System.Drawing.Point(688, 97);
+            this.btnFiltrar.Location = new System.Drawing.Point(917, 119);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(111, 23);
+            this.btnFiltrar.Size = new System.Drawing.Size(148, 28);
             this.btnFiltrar.TabIndex = 1;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
@@ -477,8 +510,9 @@
             listViewGroup5,
             listViewGroup6});
             this.lsvPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.lsvPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lsvPrincipal.Name = "lsvPrincipal";
-            this.lsvPrincipal.Size = new System.Drawing.Size(902, 447);
+            this.lsvPrincipal.Size = new System.Drawing.Size(1203, 366);
             this.lsvPrincipal.TabIndex = 0;
             this.lsvPrincipal.UseCompatibleStateImageBehavior = false;
             this.lsvPrincipal.SelectedIndexChanged += new System.EventHandler(this.lsvPrincipal_SelectedIndexChanged);
@@ -510,16 +544,17 @@
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(934, 562);
+            this.ClientSize = new System.Drawing.Size(1245, 692);
             this.Controls.Add(this.spcPrincipal);
             this.Controls.Add(this.stsPrincipal);
             this.Controls.Add(this.mnsPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnsPrincipal;
-            this.MinimumSize = new System.Drawing.Size(950, 600);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1261, 728);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sys Music Collection";
