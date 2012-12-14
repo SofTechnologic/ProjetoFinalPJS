@@ -48,6 +48,9 @@
             // 
             // tbcRel
             // 
+            this.tbcRel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tbcRel.Controls.Add(this.tbcEmprestados);
             this.tbcRel.Controls.Add(this.tbcDevolvidos);
             this.tbcRel.Controls.Add(this.tbcAmigos);
@@ -71,6 +74,9 @@
             // 
             // dgvDevolucao
             // 
+            this.dgvDevolucao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDevolucao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDevolucao.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgvDevolucao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -96,6 +102,9 @@
             // 
             // dgvEmprestados
             // 
+            this.dgvEmprestados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmprestados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmprestados.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgvEmprestados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -108,6 +117,7 @@
             // 
             // tbcAmigos
             // 
+            this.tbcAmigos.BackColor = System.Drawing.Color.AliceBlue;
             this.tbcAmigos.Controls.Add(this.textBox1);
             this.tbcAmigos.Controls.Add(this.btnPesquisa);
             this.tbcAmigos.Controls.Add(this.dgvAmigos);
@@ -117,19 +127,18 @@
             this.tbcAmigos.Size = new System.Drawing.Size(939, 469);
             this.tbcAmigos.TabIndex = 2;
             this.tbcAmigos.Text = "Amigos";
-            this.tbcAmigos.UseVisualStyleBackColor = true;
             this.tbcAmigos.Enter += new System.EventHandler(this.tbcAmigos_Enter);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(263, 36);
+            this.textBox1.Location = new System.Drawing.Point(702, 40);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(150, 20);
             this.textBox1.TabIndex = 2;
             // 
             // btnPesquisa
             // 
-            this.btnPesquisa.Location = new System.Drawing.Point(419, 34);
+            this.btnPesquisa.Location = new System.Drawing.Point(858, 38);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisa.TabIndex = 1;
@@ -139,9 +148,11 @@
             // 
             // dgvAmigos
             // 
-            this.dgvAmigos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvAmigos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAmigos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAmigos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvAmigos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAmigos.Location = new System.Drawing.Point(0, 67);
             this.dgvAmigos.Name = "dgvAmigos";

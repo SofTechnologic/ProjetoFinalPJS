@@ -193,35 +193,47 @@ namespace SysMusicCollection
             s.lv(espera);
             
         }
+
+            public void AChaDevolvido(List<string> pegadisco)
+            {
+
+                foreach (ListViewItem itens in lsvPrincipal.Items)
+                {
+                    for (int j = 0; j < pegadisco.Count; j++)
+                    {
+                        if (pegadisco[j].ToString() == itens.Text)
+                            itens.BackColor = Color.White;
+                    }
+                }
+
+            }
+            public void AChaEmprestado()
+            {
+                conexaoBanco pega = new conexaoBanco();
+                //preenchelist();
+                List<string> armazenaEmprestado = new List<string>();
+                foreach (ListViewItem itens in lsvPrincipal.Items)
+                    armazenaEmprestado.Add(itens.Text);
+
+                if (armazenaEmprestado.ToString() != null)
+                {
+                    List<string> pegaEmprestado = pega.pesqtemEmprestimo(armazenaEmprestado);
+                    foreach (ListViewItem itens in lsvPrincipal.Items)
+                    {
+                        for (int j = 0; j < pegaEmprestado.Count; j++)
+                        {
+                            if (pegaEmprestado[j].ToString() == itens.Text)
+                                itens.BackColor = Color.LightBlue;
+                        }
+                    }
+                }
+            }
         
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            conexaoBanco pega = new conexaoBanco();
             preenchelist();
-            List<string> armazenaEmprestado = new List<string>();
-            foreach (ListViewItem itens in lsvPrincipal.Items)
-            {
-                armazenaEmprestado.Add(itens.Text);
-                
-            }
-            if (armazenaEmprestado.ToString() != null)
-            {
-                List<string> pegaEmprestado = pega.pesqtemEmprestimo(armazenaEmprestado);
-                foreach (ListViewItem itens in lsvPrincipal.Items)
-                {
-                    for (int j = 0; j < pegaEmprestado.Count; j++)
-                    {
-                        if (pegaEmprestado.ToString() == itens.Text)
-                        {
-                            itens.BackColor = Color.Red;
-                            break;
-                        }
-                    }
-
-                }
-            }
-
-
+            AChaEmprestado();
+            conexaoBanco pega = new conexaoBanco();
             cbxTipoMidia1.DataSource = pega.prCombo_Midia();
             txbAutor1.Enabled = false;
             txbIterprete1.Enabled = false;
@@ -291,19 +303,19 @@ namespace SysMusicCollection
 
         private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<string> apagar = new List<string>();
-            for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
-            {
-                ListViewItem remove = lsvPrincipal.SelectedItems[i];
-                apagar.Add(remove.Text);
-            }
-            //conexaoBanco apaga = new conexaoBanco();
-            apaga.removeItemBanco(apagar);
-            for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
-            {
-                ListViewItem remove = lsvPrincipal.SelectedItems[i];
-                remove.Remove();
-            }
+            //List<string> apagar = new List<string>();
+            //for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+            //{
+            //    ListViewItem remove = lsvPrincipal.SelectedItems[i];
+            //    apagar.Add(remove.Text);
+            //}
+            ////conexaoBanco apaga = new conexaoBanco();
+            //apaga.removeItemBanco(apagar);
+            //for (int i = lsvPrincipal.SelectedItems.Count - 1; i >= 0; i--)
+            //{
+            //    ListViewItem remove = lsvPrincipal.SelectedItems[i];
+            //    remove.Remove();
+            //}
         }
 
         private void relatóriosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -355,7 +367,7 @@ namespace SysMusicCollection
                             if (armazenaEmprestado[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
                             {
                                 avisa = true;
-                                pegaNome.Add(lsvPrincipal.SelectedItems[i].SubItems[3].Text);
+                                //pegaNome.Add(lsvPrincipal.SelectedItems[i].SubItems[3].Text);
                             }
                         }
                     }
@@ -426,7 +438,7 @@ namespace SysMusicCollection
                         if (armazenaEmprestado[j].ToString() == lsvPrincipal.SelectedItems[i].Text)
                         {
                                 avisa = true;
-                                pegaNome.Add( lsvPrincipal.SelectedItems[i].SubItems[3].Text);
+                                //pegaNome.Add( lsvPrincipal.SelectedItems[i].SubItems[3].Text);
                         }
                     }
                 }
